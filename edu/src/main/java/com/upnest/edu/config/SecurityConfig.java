@@ -17,6 +17,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -24,7 +30,6 @@ public class SecurityConfig {
 
     private final UserRepository userRepository;
 
-    // Chỉ cần Inject UserRepository vào Constructor
     public SecurityConfig(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -57,16 +62,32 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 
-    // Cấu hình Filter Chain
+    // ĐỊNH NGHĨA CORS TRỰC TIẾP TRONG FILE CONFIG NÀY
     @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        // Cho phép gọi từ cổng ReactJS
+        configuration.setAllowedOrigins(List.of("http://localhost:5173")); 
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
+    // Cấu hình các đường dẫn (URLs) nào được truy cập và cần bảo mật
+    @Bean
+    // JwtAuthenticationFilter được inject qua tham số, giải quyết lỗi vòng lặp
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthFilter) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable)
-            // Kích hoạt CORS (Sử dụng Bean CorsConfig)
-            .cors(cors -> {}) 
+            // SỬ DỤNG BEAN CORS ĐÃ ĐỊNH NGHĨA
+            .cors(cors -> cors.configurationSource(corsConfigurationSource())) 
             .authorizeHttpRequests(auth -> auth
-                // [FIX LỖI 403] Đảm bảo đường dẫn Auth được permitAll()
-                .requestMatchers("/api/v1/auth/**").permitAll()
+                // [FIX LỖI 403] Đảm bảo đường dẫn Auth và Courses được permitAll()
+                .requestMatchers("/api/v1/auth/**", "/api/v1/courses/**").permitAll()
                 // Tất cả request khác đều phải được xác thực (có JWT token)
                 .anyRequest().authenticated()
             )
