@@ -19,8 +19,16 @@ import {
   PlayCircle,
   Clock,
   Lock,
-  ArrowLeft
+  ArrowLeft,
+  Lightbulb
 } from 'lucide-react';
+
+// Import Student Page Components
+import StudentLayout from './pages/student/StudentLayout';
+import StudentDashboardPage from './pages/student/StudentDashboard';
+import StudentCoursesPage from './pages/student/StudentCourses';
+import StudentProgressPage from './pages/student/StudentProgress';
+import StudentProfilePage from './pages/student/StudentProfile';
 
 // --- MOCK DATA (Dữ liệu giả lập để hiển thị UI khi chưa có dữ liệu thật) ---
 // Dữ liệu này chỉ dùng cho giao diện Admin và Teacher, Student Dashboard đã dùng API
@@ -125,111 +133,39 @@ const CoursePlayer = ({ courseId, onBack }) => {
 };
 
 
-// Component Hiển thị Dashboard của Học viên
+// Component Hiển thị Dashboard của Học viên (Using StudentLayout with modular pages)
 const StudentDashboard = ({ user, logout }) => {
-  const [courses, setCourses] = useState([]);
-  const [selectedCourseId, setSelectedCourseId] = useState(null); 
-  const [loading, setLoading] = useState(true);
-
-  // Lấy danh sách khóa học từ Backend
-  const fetchCourses = useCallback(async () => {
-    const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api/v1';
-    const token = localStorage.getItem('token');
-    if (!token) {
-        logout(); 
-        return;
-    }
-    try {
-      const res = await fetch(`${API_BASE}/courses`, { headers: {'Authorization': `Bearer ${token}`} });
-      if (res.ok) {
-        setCourses(await res.json());
-      } else if (res.status === 403 || res.status === 401) {
-          logout(); // Token hết hạn
-      }
-    } catch (e) {
-        console.error("Lỗi khi lấy khóa học:", e);
-    } finally {
-        setLoading(false);
-    }
-  }, [logout]);
-
-  useEffect(() => {
-    fetchCourses();
-  }, [fetchCourses]);
+  const [currentPage, setCurrentPage] = useState('dashboard');
+  const [selectedCourseId, setSelectedCourseId] = useState(null);
 
   // Hiển thị Course Player nếu có khóa học được chọn
   if (selectedCourseId) {
     return <CoursePlayer courseId={selectedCourseId} onBack={() => setSelectedCourseId(null)} />;
   }
-  
-  if (loading) return <div className="p-8 text-center text-blue-600 font-bold">Đang tải dữ liệu...</div>;
+
+  // Render page dựa trên currentPage state từ StudentLayout
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'dashboard':
+        return <StudentDashboardPage user={user} logout={logout} />;
+      case 'courses':
+        return <StudentCoursesPage user={user} logout={logout} />;
+      case 'progress':
+        return <StudentProgressPage user={user} logout={logout} />;
+      case 'profile':
+        return <StudentProfilePage user={user} logout={logout} />;
+      default:
+        return <StudentDashboardPage user={user} logout={logout} />;
+    }
+  };
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      {/* Banner Welcome with Gamification */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white shadow-xl">
-        <div className="relative z-10">
-          <h2 className="text-3xl font-bold mb-3">Chào mừng trở lại, {user?.fullName}! 👋</h2>
-          <p className="text-blue-100 max-w-lg text-lg">
-            Bạn đã giữ được chuỗi <span className="font-bold text-white">12 ngày</span> liên tiếp!
-          </p>
-          <div className="mt-6 flex gap-3">
-            <button className="bg-white text-blue-700 px-6 py-2.5 rounded-full font-bold hover:bg-blue-50 transition-colors shadow-lg shadow-blue-900/20 flex items-center gap-2">
-              <PlayCircle className="w-5 h-5" /> Tiếp tục bài học
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Danh sách khóa học REAL */}
-      <div>
-        <div className="flex items-center justify-between mb-6">
-           <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
-             <BookOpen className="w-5 h-5 text-blue-600" /> Khóa học đang học
-           </h3>
-           <span className="text-sm text-gray-500">Tổng: {courses.length} khóa</span>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course) => (
-            <div key={course.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 group">
-              <div className="h-40 bg-gray-200 relative">
-                {/* Image */}
-                <img 
-                    src={course.imageUrl} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                    alt={course.title} 
-                    onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/2563eb/white?text=No+Image'; }}
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button 
-                        onClick={() => setSelectedCourseId(course.id)} 
-                        className="bg-white text-blue-600 px-4 py-2 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform"
-                    >
-                        <PlayCircle className="w-5 h-5" /> Học ngay
-                    </button>
-                </div>
-              </div>
-              <div className="p-5">
-                <h4 className="font-bold text-gray-800 mb-1 line-clamp-1">{course.title}</h4>
-                <p className="text-xs text-gray-500 mb-4">GV: {course.instructor}</p>
-                <div className="bg-blue-50 p-3 rounded-lg mt-4 border border-blue-100">
-                  <p className="text-xs text-blue-600 font-semibold mb-1 uppercase tracking-wide">Tiếp theo</p>
-                  <p className="text-sm font-medium text-gray-800 line-clamp-1">{course.nextLessonTitle}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        {courses.length === 0 && (
-            <div className="text-center p-12 bg-white rounded-xl shadow-sm border border-gray-100 mt-6">
-                <p className="text-gray-500">Chưa có khóa học nào được tìm thấy. Vui lòng kiểm tra Data Seeder.</p>
-            </div>
-        )}
-      </div>
-    </div>
+    <StudentLayout user={user} logout={logout} onPageChange={setCurrentPage}>
+      {renderPage()}
+    </StudentLayout>
   );
 };
+
 
 // --- LOGIN SCREEN CÓ 2FA (UI-FIRST, real backend by default) ---
 const LoginScreen = ({ onLoginSuccess }) => {
