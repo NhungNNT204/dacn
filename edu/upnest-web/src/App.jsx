@@ -46,9 +46,10 @@ const CoursePlayer = ({ courseId, onBack }) => {
 
   useEffect(() => {
     const fetchCourseDetail = async () => {
+      const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api/v1';
       const token = localStorage.getItem('token');
       try {
-        const res = await fetch(`http://localhost:8080/api/v1/courses/${courseId}`, {
+        const res = await fetch(`${API_BASE}/courses/${courseId}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await res.json();
@@ -132,13 +133,14 @@ const StudentDashboard = ({ user, logout }) => {
 
   // Lấy danh sách khóa học từ Backend
   const fetchCourses = useCallback(async () => {
+    const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api/v1';
     const token = localStorage.getItem('token');
     if (!token) {
         logout(); 
         return;
     }
     try {
-      const res = await fetch('http://localhost:8080/api/v1/courses', { headers: {'Authorization': `Bearer ${token}`} });
+      const res = await fetch(`${API_BASE}/courses`, { headers: {'Authorization': `Bearer ${token}`} });
       if (res.ok) {
         setCourses(await res.json());
       } else if (res.status === 403 || res.status === 401) {
@@ -229,7 +231,7 @@ const StudentDashboard = ({ user, logout }) => {
   );
 };
 
-// --- LOGIN SCREEN CÓ 2FA (UI-FIRST, mock mode enabled by default) ---
+// --- LOGIN SCREEN CÓ 2FA (UI-FIRST, real backend by default) ---
 const LoginScreen = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -239,7 +241,8 @@ const LoginScreen = ({ onLoginSuccess }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // By default in dev we enable a UI-first mock mode so the frontend works without backend.
+  // API base URL from .env (default: real backend)
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api/v1';
   const USE_MOCK_AUTH = import.meta.env.VITE_MOCK_AUTH !== 'false';
 
   // Xử lý Bước 1: Email/Pass
@@ -268,20 +271,22 @@ const LoginScreen = ({ onLoginSuccess }) => {
     }
 
     try {
-      const res = await fetch('http://localhost:8080/api/v1/auth/login', {
+      const res = await fetch(`${API_BASE}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
-      let data;
+      // Read body once, then decide how to parse
+      const bodyText = await res.text();
+      let data = {};
+      
       try {
-        data = await res.json();
+        if (bodyText) {
+          data = JSON.parse(bodyText);
+        }
       } catch (parseErr) {
-        console.error('Failed to parse response:', parseErr);
-        const text = await res.text();
-        console.error('Response text:', text);
-        throw parseErr;
+        console.error('Failed to parse JSON:', parseErr, 'Body was:', bodyText);
       }
 
       if (res.ok) {
@@ -291,7 +296,8 @@ const LoginScreen = ({ onLoginSuccess }) => {
           finishLogin(data);
         }
       } else {
-        setError(data.message || 'Sai email hoặc mật khẩu!');
+        // Server returned error status
+        setError(data.message || bodyText || 'Sai email hoặc mật khẩu!');
       }
     } catch (err) {
       console.error('Login error:', err);
@@ -318,18 +324,27 @@ const LoginScreen = ({ onLoginSuccess }) => {
     }
 
     try {
-      const res = await fetch('http://localhost:8080/api/v1/auth/verify', {
+      const res = await fetch(`${API_BASE}/auth/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, code: parseInt(otp) }),
       });
 
-      let textResponse = await res.text();
-      if (res.ok && textResponse.trim().startsWith('{')) {
-        const data = JSON.parse(textResponse);
+      const textResponse = await res.text();
+      let data = {};
+      
+      try {
+        if (textResponse) {
+          data = JSON.parse(textResponse);
+        }
+      } catch (parseErr) {
+        console.error('Failed to parse OTP response:', parseErr, 'Body was:', textResponse);
+      }
+      
+      if (res.ok) {
         finishLogin(data);
       } else {
-        setError(textResponse || 'Mã OTP không đúng!');
+        setError(data.message || textResponse || 'Mã OTP không đúng!');
       }
     } catch (err) {
       console.error('OTP verification error:', err);

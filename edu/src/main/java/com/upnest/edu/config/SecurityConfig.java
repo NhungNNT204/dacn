@@ -47,7 +47,7 @@ public class SecurityConfig {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    // Định nghĩa AuthenticationProvider
+    // Định nghĩa AuthenticationProvider (sử dụng UserDetailsService và PasswordEncoder)
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -56,7 +56,7 @@ public class SecurityConfig {
         return authProvider;
     }
 
-    // Định nghĩa AuthenticationManager
+    // Định nghĩa AuthenticationManager (Spring sẽ tự động dùng AuthenticationProvider bean ở trên)
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
@@ -66,11 +66,12 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // Cho phép gọi từ cổng ReactJS
-        configuration.setAllowedOrigins(List.of("http://localhost:5173")); 
+        // Cho phép gọi từ cổng ReactJS (localhost:5173, 5174, v.v.)
+        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:5174", "http://localhost:5175")); 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L); // Cache preflight cho 1 giờ
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
@@ -79,16 +80,18 @@ public class SecurityConfig {
 
     // Cấu hình các đường dẫn (URLs) nào được truy cập và cần bảo mật
     @Bean
-    // JwtAuthenticationFilter được inject qua tham số, giải quyết lỗi vòng lặp
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthFilter) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable)
             // SỬ DỤNG BEAN CORS ĐÃ ĐỊNH NGHĨA
             .cors(cors -> cors.configurationSource(corsConfigurationSource())) 
             .authorizeHttpRequests(auth -> auth
-                // [FIX LỖI 403] Đảm bảo đường dẫn Auth và Courses được permitAll()
-                .requestMatchers("/api/v1/auth/**", "/api/v1/courses/**").permitAll()
-                // Tất cả request khác đều phải được xác thực (có JWT token)
+                // [FIX LỖI 403] Cho phép CORS preflight OPTIONS requests
+                .requestMatchers("OPTIONS", "/**").permitAll()
+                // CHỈ cho phép Auth công khai. Mọi thứ khác cần Token.
+                .requestMatchers("/api/v1/auth/**").permitAll()
+                
+                // Mọi request khác (bao gồm /courses) đều phải có Token hợp lệ
                 .anyRequest().authenticated()
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
