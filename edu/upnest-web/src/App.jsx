@@ -504,7 +504,7 @@ const Sidebar = ({ role, isOpen, toggleSidebar, currentTab, setCurrentTab, logou
               {role === 'ADMIN' ? 'AD' : role === 'TEACHER' ? 'GV' : 'HV'}
             </div>
             <div className="flex-1 min-w-0 text-left">
-              <p className="text-sm font-medium text-white truncate">{user?.fullName || 'User'}</p>
+              {/* <p className="text-sm font-medium text-white truncate">{user?.fullName || 'User'}</p> */}
               <p className="text-xs text-slate-400 truncate capitalize">{role.toLowerCase()}</p>
             </div>
             <LogOut className="w-5 h-5 text-slate-500 cursor-pointer hover:text-red-400 transition-colors" />
