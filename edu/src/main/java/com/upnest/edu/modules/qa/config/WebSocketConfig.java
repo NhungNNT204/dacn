@@ -2,7 +2,6 @@ package com.upnest.edu.modules.qa.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
@@ -20,12 +19,6 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     
-    private final ThreadPoolTaskScheduler taskScheduler;
-    
-    public WebSocketConfig(ThreadPoolTaskScheduler taskScheduler) {
-        this.taskScheduler = taskScheduler;
-    }
-    
     /**
      * Cấu hình Message Broker
      * - /topic: Dùng cho broadcast (1 to many)
@@ -35,10 +28,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         // Bật simple message broker cho /topic và /queue
-        config.enableSimpleBroker("/topic", "/queue", "/user")
-                .setTaskScheduler(taskScheduler)
-                // Heartbeat: client gửi heartbeat mỗi 10s, server reply mỗi 10s
-                .setHeartbeatValue(new long[]{10000, 10000});
+        config.enableSimpleBroker("/topic", "/queue", "/user");
         
         // Prefix cho các message gửi đến controller
         config.setApplicationDestinationPrefixes("/app");

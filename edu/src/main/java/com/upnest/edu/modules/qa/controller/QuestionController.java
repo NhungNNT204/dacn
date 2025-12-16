@@ -31,7 +31,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/qa/questions")
+@RequestMapping("/api/v1/qa/questions")
 public class QuestionController {
     
     @org.springframework.beans.factory.annotation.Autowired

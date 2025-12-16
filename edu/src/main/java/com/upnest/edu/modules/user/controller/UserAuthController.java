@@ -1,14 +1,23 @@
 package com.upnest.edu.modules.user.controller;
 
-import com.upnest.edu.modules.user.payload.*;
-import com.upnest.edu.modules.user.service.AuthenticationService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.upnest.edu.modules.user.payload.AuthResponse;
+import com.upnest.edu.modules.user.payload.LoginRequest;
+import com.upnest.edu.modules.user.payload.RegisterRequest;
+import com.upnest.edu.modules.user.service.AuthenticationService;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Controller: UserAuthController
@@ -17,11 +26,13 @@ import java.util.Map;
  * Endpoints:
  * - POST /api/auth/register - Đăng ký
  * - POST /api/auth/login - Đăng nhập
+ * 
+ * [DISABLED] - Duplicate with AuthController in auth module
  */
 
 @Slf4j
-@RestController
-@RequestMapping("/api/auth")
+// @RestController - DISABLED: Conflict with AuthController
+@RequestMapping("/api/v1/auth")
 public class UserAuthController {
     
     private final AuthenticationService authenticationService;

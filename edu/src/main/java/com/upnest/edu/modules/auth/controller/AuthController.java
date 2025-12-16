@@ -1,16 +1,21 @@
 package com.upnest.edu.modules.auth.controller;
 
-import com.upnest.edu.config.JwtService;
-import com.upnest.edu.modules.auth.entity.User;
-import com.upnest.edu.modules.auth.payload.AuthResponse;
-import com.upnest.edu.modules.auth.payload.LoginRequest;
-import com.upnest.edu.modules.auth.payload.VerifyRequest;
-import com.upnest.edu.modules.auth.repository.UserRepository;
-import com.upnest.edu.modules.auth.service.TwoFactorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.upnest.edu.modules.auth.payload.AuthResponse;
+import com.upnest.edu.modules.auth.payload.LoginRequest;
+import com.upnest.edu.modules.auth.payload.VerifyRequest;
+import com.upnest.edu.modules.auth.service.TwoFactorService;
+import com.upnest.edu.modules.user.entity.User;
+import com.upnest.edu.modules.user.repository.UserRepository;
+import com.upnest.edu.modules.user.service.JwtService;
 
 // [FIX] Thêm @CrossOrigin để giải quyết lỗi 403 Forbidden từ trình duyệt
 @CrossOrigin(origins = "http://localhost:5173") 
@@ -69,7 +74,7 @@ public class AuthController {
             }
 
             // 4. Nếu không bật 2FA -> Cấp Token luôn
-            String token = jwtService.generateToken(user);
+            String token = jwtService.generateAccessToken(user);
             System.out.println(">>> Token generated for: " + user.getEmail());
             
             // Trả về kết quả thành công dùng Constructor
@@ -101,7 +106,7 @@ public class AuthController {
 
         if (isCodeValid) {
             // Mã đúng -> Cấp Token đăng nhập
-            String token = jwtService.generateToken(user);
+            String token = jwtService.generateAccessToken(user);
             
             return ResponseEntity.ok(new AuthResponse(
                 token,

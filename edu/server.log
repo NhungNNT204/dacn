@@ -1,0 +1,1745 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Users/Admin/.m2/wrapper/dists/apache-maven-3.9.11/03d7e36a140982eea48e22c1dcac01d8862b2550b2939e09a0809bbc5182a5bc/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.upnest:edu >---------------------------
+[INFO] Building UpNest Edu System 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.0:run (default-cli) > test-compile @ edu >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ edu ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ edu ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ edu ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ edu ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] <<< spring-boot:3.5.0:run (default-cli) < test-compile @ edu <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.0:run (default-cli) @ edu ---
+[INFO] Attaching agents: []
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-12-16T14:19:31.718+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Starting EduApplication using Java 25.0.1 with PID 23920 (n:\DACN\upnestedu\edu\target\classes started by Admin in n:\DACN\upnestedu\edu)
+2025-12-16T14:19:31.719+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-12-16T14:19:31.758+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-16T14:19:31.758+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-16T14:19:32.128+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16T14:19:32.200+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 11 JPA repository interfaces.
+2025-12-16T14:19:32.827+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-16T14:19:32.838+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-16T14:19:32.839+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-12-16T14:19:32.876+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-16T14:19:32.877+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1118 ms
+2025-12-16T14:19:33.015+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16T14:19:33.047+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-12-16T14:19:33.070+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-16T14:19:33.281+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16T14:19:33.302+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-16T14:19:33.608+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 93397761-15f4-40e9-aafe-d6465da52ee2
+2025-12-16T14:19:33.609+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-16T14:19:33.669+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16T14:19:33.684+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-16T14:19:34.491+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table answer_comments 
+       drop constraint if exists FK1dfxwwv6gew2jchf1nkjke8j3
+Hibernate: 
+    alter table answer_reactions 
+       drop constraint if exists FKmbyximen5w9ypl0y6awraamvq
+Hibernate: 
+    alter table answers 
+       drop constraint if exists FK3erw1a3t0r78st8ty27x6v3g1
+Hibernate: 
+    alter table lessons 
+       drop constraint if exists FK17ucc7gjfjddsyi0gvstkqeat
+Hibernate: 
+    alter table privacy_settings 
+       drop constraint if exists FKgxn6jq4rudo7ss3lmrg5avkh6
+Hibernate: 
+    alter table question_comments 
+       drop constraint if exists FKlxs199lculoe2wd5g8349r7a5
+Hibernate: 
+    alter table question_reactions 
+       drop constraint if exists FK8t67xxxyfs7586ts8k8g12q2k
+Hibernate: 
+    alter table user_profiles 
+       drop constraint if exists FKjcad5nfve11khsnpwj1mv8frj
+Hibernate: 
+    drop table if exists answer_comments
+Hibernate: 
+    drop table if exists answer_reactions
+Hibernate: 
+    drop table if exists answers
+Hibernate: 
+    drop table if exists courses
+Hibernate: 
+    drop table if exists friendships
+Hibernate: 
+    drop table if exists lessons
+Hibernate: 
+    drop table if exists privacy_settings
+Hibernate: 
+    drop table if exists question_comments
+Hibernate: 
+    drop table if exists question_reactions
+Hibernate: 
+    drop table if exists questions
+Hibernate: 
+    drop table if exists user_profiles
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table answer_comments (
+        answer_id bigint not null,
+        comment_id bigint identity not null,
+        created_at datetime2(6) not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (comment_id)
+    )
+Hibernate: 
+    create table answer_reactions (
+        answer_id bigint not null,
+        created_at datetime2(6) not null,
+        reaction_id bigint identity not null,
+        user_id bigint not null,
+        reaction_type varchar(255) not null check (reaction_type in ('LIKE','DISLIKE')),
+        primary key (reaction_id)
+    )
+Hibernate: 
+    create table answers (
+        is_best_answer bit,
+        like_count int,
+        answer_id bigint identity not null,
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (answer_id)
+    )
+Hibernate: 
+    create table courses (
+        total_lessons int,
+        id bigint identity not null,
+        description varchar(2000),
+        image_url varchar(255),
+        instructor varchar(255),
+        next_lesson_title varchar(255),
+        title varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table friendships (
+        follower_id bigint not null,
+        following_id bigint not null,
+        id bigint identity not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table lessons (
+        order_index int,
+        course_id bigint,
+        id bigint identity not null,
+        content TEXT,
+        title varchar(255),
+        video_url varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table privacy_settings (
+        receive_email_notifications bit,
+        searchable_by_email bit,
+        searchable_by_username bit,
+        show_academic_info bit,
+        show_email bit,
+        show_friends_list bit,
+        show_phone bit,
+        created_at datetime2(6) not null,
+        setting_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        allow_contact_from varchar(255) check (allow_contact_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        allow_friend_request_from varchar(255) check (allow_friend_request_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        notification_from varchar(255) check (notification_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        profile_visibility varchar(255) not null check (profile_visibility in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        show_activity varchar(255) check (show_activity in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        primary key (setting_id)
+    )
+Hibernate: 
+    create table question_comments (
+        comment_id bigint identity not null,
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (comment_id)
+    )
+Hibernate: 
+    create table question_reactions (
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        reaction_id bigint identity not null,
+        user_id bigint not null,
+        reaction_type varchar(255) not null check (reaction_type in ('LIKE','DISLIKE')),
+        primary key (reaction_id)
+    )
+Hibernate: 
+    create table questions (
+        like_count int,
+        view_count int,
+        best_answer_id bigint,
+        course_id bigint,
+        created_at datetime2(6) not null,
+        question_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        tags varchar(500),
+        title varchar(500) not null,
+        content NVARCHAR(MAX) not null,
+        status varchar(255) not null check (status in ('OPEN','ANSWERED','CLOSED')),
+        primary key (question_id)
+    )
+Hibernate: 
+    create table user_profiles (
+        created_at datetime2(6) not null,
+        profile_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        academic_year varchar(50),
+        city varchar(100),
+        country varchar(100),
+        address varchar(500),
+        github_url varchar(500),
+        linkedin_url varchar(500),
+        website varchar(500),
+        avatar_url NVARCHAR(MAX),
+        bio NVARCHAR(MAX),
+        date_of_birth varchar(255),
+        gender varchar(255) check (gender in ('MALE','FEMALE','OTHER')),
+        institution varchar(255),
+        specialization varchar(255),
+        primary key (profile_id)
+    )
+Hibernate: 
+    create table users (
+        is_email_verified bit,
+        is_two_factor_enabled bit,
+        created_at datetime2(6) not null,
+        last_login_at datetime2(6),
+        updated_at datetime2(6),
+        user_id bigint identity not null,
+        phone varchar(20),
+        username varchar(100) not null,
+        full_name varchar(200),
+        avatar_url varchar(255),
+        email varchar(255) not null,
+        password varchar(255) not null,
+        role varchar(255) not null check (role in ('STUDENT','TEACHER','ADMIN')),
+        status varchar(255) not null check (status in ('ACTIVE','INACTIVE','BANNED')),
+        two_factor_secret varchar(255),
+        primary key (user_id)
+    )
+Hibernate: 
+    create index idx_answer_id 
+       on answer_comments (answer_id)
+Hibernate: 
+    create index idx_user_id 
+       on answer_comments (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on answer_comments (created_at)
+Hibernate: 
+    create index idx_answer_id 
+       on answer_reactions (answer_id)
+Hibernate: 
+    create index idx_user_id 
+       on answer_reactions (user_id)
+Hibernate: 
+    alter table answer_reactions 
+       add constraint uc_answer_user_reaction unique (answer_id, user_id)
+Hibernate: 
+    create index idx_question_id 
+       on answers (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on answers (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on answers (created_at)
+Hibernate: 
+    create index idx_is_best 
+       on answers (is_best_answer)
+Hibernate: 
+    alter table friendships 
+       add constraint UK9mna69bpdhv2mc2pwj0xfnrbv unique (follower_id, following_id)
+Hibernate: 
+    create index idx_user_id 
+       on privacy_settings (user_id)
+Hibernate: 
+    alter table privacy_settings 
+       add constraint UK8im8nq9irhhgjmw7pnfl2awu2 unique (user_id)
+Hibernate: 
+    create index idx_question_id 
+       on question_comments (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on question_comments (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on question_comments (created_at)
+Hibernate: 
+    create index idx_question_id 
+       on question_reactions (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on question_reactions (user_id)
+Hibernate: 
+    alter table question_reactions 
+       add constraint uc_question_user_reaction unique (question_id, user_id)
+Hibernate: 
+    create index idx_user_id 
+       on questions (user_id)
+Hibernate: 
+    create index idx_course_id 
+       on questions (course_id)
+Hibernate: 
+    create index idx_created_at 
+       on questions (created_at)
+Hibernate: 
+    create index idx_status 
+       on questions (status)
+Hibernate: 
+    create index idx_user_id 
+       on user_profiles (user_id)
+Hibernate: 
+    alter table user_profiles 
+       add constraint UKe5h89rk3ijvdmaiig4srogdc6 unique (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on users (created_at)
+Hibernate: 
+    alter table users 
+       add constraint idx_email unique (email)
+Hibernate: 
+    alter table users 
+       add constraint idx_username unique (username)
+Hibernate: 
+    alter table answer_comments 
+       add constraint FK1dfxwwv6gew2jchf1nkjke8j3 
+       foreign key (answer_id) 
+       references answers
+Hibernate: 
+    alter table answer_reactions 
+       add constraint FKmbyximen5w9ypl0y6awraamvq 
+       foreign key (answer_id) 
+       references answers
+Hibernate: 
+    alter table answers 
+       add constraint FK3erw1a3t0r78st8ty27x6v3g1 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table lessons 
+       add constraint FK17ucc7gjfjddsyi0gvstkqeat 
+       foreign key (course_id) 
+       references courses
+Hibernate: 
+    alter table privacy_settings 
+       add constraint FKgxn6jq4rudo7ss3lmrg5avkh6 
+       foreign key (user_id) 
+       references users
+Hibernate: 
+    alter table question_comments 
+       add constraint FKlxs199lculoe2wd5g8349r7a5 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table question_reactions 
+       add constraint FK8t67xxxyfs7586ts8k8g12q2k 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table user_profiles 
+       add constraint FKjcad5nfve11khsnpwj1mv8frj 
+       foreign key (user_id) 
+       references users
+2025-12-16T14:19:34.615+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16T14:19:34.851+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+>>> AppKeepAlive: Bắt đầu giữ ứng dụng chạy...
+>>> AppKeepAlive: Ứng dụng sẽ giữ chạy liên tục
+2025-12-16T14:19:35.168+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-16T14:19:35.169+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-12-16T14:19:35.405+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] c.u.e.m.q.c.WebSocketSecurityConfig      : Configuring WebSocket security
+2025-12-16T14:19:35.491+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-16T14:19:35.668+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [OPTIONS, /**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-12-16T14:19:35.874+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-16T14:19:35.888+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-12-16T14:19:35.888+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4813a21f]]
+2025-12-16T14:19:35.889+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-12-16T14:19:35.902+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-16T14:19:35.908+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Started EduApplication in 4.505 seconds (process running for 4.816)
+2025-12-16T14:19:35.911+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : Initializing test data...
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:19:36.080+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created student account: student@upnest.edu / password123
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:19:36.161+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created teacher account: teacher@upnest.edu / password123
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:19:36.240+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created admin account: admin@upnest.edu / admin123
+2025-12-16T14:19:36.240+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✅ Test data initialization completed!
+2025-12-16T14:19:36.240+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 
+=== TEST ACCOUNTS ===
+2025-12-16T14:19:36.240+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 1️⃣  Student: student@upnest.edu / password123
+2025-12-16T14:19:36.240+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 2️⃣  Teacher: teacher@upnest.edu / password123
+2025-12-16T14:19:36.240+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 3️⃣  Admin: admin@upnest.edu / admin123
+2025-12-16T14:19:36.240+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ====================
+
+2025-12-16T14:20:00.462+07:00  INFO 23920 --- [UpNest Edu System] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-16T14:20:00.479+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-6] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-12-16T14:20:00.479+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-6] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4813a21f]]
+2025-12-16T14:20:00.479+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-6] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-12-16T14:20:00.482+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16T14:20:00.484+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-16T14:20:00.492+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-12-16T14:20:00.595+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Starting EduApplication using Java 25.0.1 with PID 23920 (n:\DACN\upnestedu\edu\target\classes started by Admin in n:\DACN\upnestedu\edu)
+2025-12-16T14:20:00.595+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-12-16T14:20:00.713+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16T14:20:00.739+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 11 JPA repository interfaces.
+2025-12-16T14:20:00.902+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-16T14:20:00.903+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-16T14:20:00.903+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-12-16T14:20:00.921+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-16T14:20:00.922+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 326 ms
+2025-12-16T14:20:00.954+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16T14:20:00.957+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-16T14:20:00.962+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16T14:20:00.963+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-12-16T14:20:00.984+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection ConnectionID:11 ClientConnectionId: 968fac06-f491-4a3e-b742-17e53f00a280
+2025-12-16T14:20:00.984+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-12-16T14:20:01.031+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16T14:20:01.034+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 16.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-16T14:20:01.231+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table answer_comments 
+       drop constraint if exists FK1dfxwwv6gew2jchf1nkjke8j3
+Hibernate: 
+    alter table answer_reactions 
+       drop constraint if exists FKmbyximen5w9ypl0y6awraamvq
+Hibernate: 
+    alter table answers 
+       drop constraint if exists FK3erw1a3t0r78st8ty27x6v3g1
+Hibernate: 
+    alter table lessons 
+       drop constraint if exists FK17ucc7gjfjddsyi0gvstkqeat
+Hibernate: 
+    alter table privacy_settings 
+       drop constraint if exists FKgxn6jq4rudo7ss3lmrg5avkh6
+Hibernate: 
+    alter table question_comments 
+       drop constraint if exists FKlxs199lculoe2wd5g8349r7a5
+Hibernate: 
+    alter table question_reactions 
+       drop constraint if exists FK8t67xxxyfs7586ts8k8g12q2k
+Hibernate: 
+    alter table user_profiles 
+       drop constraint if exists FKjcad5nfve11khsnpwj1mv8frj
+Hibernate: 
+    drop table if exists answer_comments
+Hibernate: 
+    drop table if exists answer_reactions
+Hibernate: 
+    drop table if exists answers
+Hibernate: 
+    drop table if exists courses
+Hibernate: 
+    drop table if exists friendships
+Hibernate: 
+    drop table if exists lessons
+Hibernate: 
+    drop table if exists privacy_settings
+Hibernate: 
+    drop table if exists question_comments
+Hibernate: 
+    drop table if exists question_reactions
+Hibernate: 
+    drop table if exists questions
+Hibernate: 
+    drop table if exists user_profiles
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table answer_comments (
+        answer_id bigint not null,
+        comment_id bigint identity not null,
+        created_at datetime2(6) not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (comment_id)
+    )
+Hibernate: 
+    create table answer_reactions (
+        answer_id bigint not null,
+        created_at datetime2(6) not null,
+        reaction_id bigint identity not null,
+        user_id bigint not null,
+        reaction_type varchar(255) not null check (reaction_type in ('LIKE','DISLIKE')),
+        primary key (reaction_id)
+    )
+Hibernate: 
+    create table answers (
+        is_best_answer bit,
+        like_count int,
+        answer_id bigint identity not null,
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (answer_id)
+    )
+Hibernate: 
+    create table courses (
+        total_lessons int,
+        id bigint identity not null,
+        description varchar(2000),
+        image_url varchar(255),
+        instructor varchar(255),
+        next_lesson_title varchar(255),
+        title varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table friendships (
+        follower_id bigint not null,
+        following_id bigint not null,
+        id bigint identity not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table lessons (
+        order_index int,
+        course_id bigint,
+        id bigint identity not null,
+        content TEXT,
+        title varchar(255),
+        video_url varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table privacy_settings (
+        receive_email_notifications bit,
+        searchable_by_email bit,
+        searchable_by_username bit,
+        show_academic_info bit,
+        show_email bit,
+        show_friends_list bit,
+        show_phone bit,
+        created_at datetime2(6) not null,
+        setting_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        allow_contact_from varchar(255) check (allow_contact_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        allow_friend_request_from varchar(255) check (allow_friend_request_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        notification_from varchar(255) check (notification_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        profile_visibility varchar(255) not null check (profile_visibility in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        show_activity varchar(255) check (show_activity in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        primary key (setting_id)
+    )
+Hibernate: 
+    create table question_comments (
+        comment_id bigint identity not null,
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (comment_id)
+    )
+Hibernate: 
+    create table question_reactions (
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        reaction_id bigint identity not null,
+        user_id bigint not null,
+        reaction_type varchar(255) not null check (reaction_type in ('LIKE','DISLIKE')),
+        primary key (reaction_id)
+    )
+Hibernate: 
+    create table questions (
+        like_count int,
+        view_count int,
+        best_answer_id bigint,
+        course_id bigint,
+        created_at datetime2(6) not null,
+        question_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        tags varchar(500),
+        title varchar(500) not null,
+        content NVARCHAR(MAX) not null,
+        status varchar(255) not null check (status in ('OPEN','ANSWERED','CLOSED')),
+        primary key (question_id)
+    )
+Hibernate: 
+    create table user_profiles (
+        created_at datetime2(6) not null,
+        profile_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        academic_year varchar(50),
+        city varchar(100),
+        country varchar(100),
+        address varchar(500),
+        github_url varchar(500),
+        linkedin_url varchar(500),
+        website varchar(500),
+        avatar_url NVARCHAR(MAX),
+        bio NVARCHAR(MAX),
+        date_of_birth varchar(255),
+        gender varchar(255) check (gender in ('MALE','FEMALE','OTHER')),
+        institution varchar(255),
+        specialization varchar(255),
+        primary key (profile_id)
+    )
+Hibernate: 
+    create table users (
+        is_email_verified bit,
+        is_two_factor_enabled bit,
+        created_at datetime2(6) not null,
+        last_login_at datetime2(6),
+        updated_at datetime2(6),
+        user_id bigint identity not null,
+        phone varchar(20),
+        username varchar(100) not null,
+        full_name varchar(200),
+        avatar_url varchar(255),
+        email varchar(255) not null,
+        password varchar(255) not null,
+        role varchar(255) not null check (role in ('STUDENT','TEACHER','ADMIN')),
+        status varchar(255) not null check (status in ('ACTIVE','INACTIVE','BANNED')),
+        two_factor_secret varchar(255),
+        primary key (user_id)
+    )
+Hibernate: 
+    create index idx_answer_id 
+       on answer_comments (answer_id)
+Hibernate: 
+    create index idx_user_id 
+       on answer_comments (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on answer_comments (created_at)
+Hibernate: 
+    create index idx_answer_id 
+       on answer_reactions (answer_id)
+Hibernate: 
+    create index idx_user_id 
+       on answer_reactions (user_id)
+Hibernate: 
+    alter table answer_reactions 
+       add constraint uc_answer_user_reaction unique (answer_id, user_id)
+Hibernate: 
+    create index idx_question_id 
+       on answers (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on answers (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on answers (created_at)
+Hibernate: 
+    create index idx_is_best 
+       on answers (is_best_answer)
+Hibernate: 
+    alter table friendships 
+       add constraint UK9mna69bpdhv2mc2pwj0xfnrbv unique (follower_id, following_id)
+Hibernate: 
+    create index idx_user_id 
+       on privacy_settings (user_id)
+Hibernate: 
+    alter table privacy_settings 
+       add constraint UK8im8nq9irhhgjmw7pnfl2awu2 unique (user_id)
+Hibernate: 
+    create index idx_question_id 
+       on question_comments (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on question_comments (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on question_comments (created_at)
+Hibernate: 
+    create index idx_question_id 
+       on question_reactions (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on question_reactions (user_id)
+Hibernate: 
+    alter table question_reactions 
+       add constraint uc_question_user_reaction unique (question_id, user_id)
+Hibernate: 
+    create index idx_user_id 
+       on questions (user_id)
+Hibernate: 
+    create index idx_course_id 
+       on questions (course_id)
+Hibernate: 
+    create index idx_created_at 
+       on questions (created_at)
+Hibernate: 
+    create index idx_status 
+       on questions (status)
+Hibernate: 
+    create index idx_user_id 
+       on user_profiles (user_id)
+Hibernate: 
+    alter table user_profiles 
+       add constraint UKe5h89rk3ijvdmaiig4srogdc6 unique (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on users (created_at)
+Hibernate: 
+    alter table users 
+       add constraint idx_email unique (email)
+Hibernate: 
+    alter table users 
+       add constraint idx_username unique (username)
+Hibernate: 
+    alter table answer_comments 
+       add constraint FK1dfxwwv6gew2jchf1nkjke8j3 
+       foreign key (answer_id) 
+       references answers
+Hibernate: 
+    alter table answer_reactions 
+       add constraint FKmbyximen5w9ypl0y6awraamvq 
+       foreign key (answer_id) 
+       references answers
+Hibernate: 
+    alter table answers 
+       add constraint FK3erw1a3t0r78st8ty27x6v3g1 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table lessons 
+       add constraint FK17ucc7gjfjddsyi0gvstkqeat 
+       foreign key (course_id) 
+       references courses
+Hibernate: 
+    alter table privacy_settings 
+       add constraint FKgxn6jq4rudo7ss3lmrg5avkh6 
+       foreign key (user_id) 
+       references users
+Hibernate: 
+    alter table question_comments 
+       add constraint FKlxs199lculoe2wd5g8349r7a5 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table question_reactions 
+       add constraint FK8t67xxxyfs7586ts8k8g12q2k 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table user_profiles 
+       add constraint FKjcad5nfve11khsnpwj1mv8frj 
+       foreign key (user_id) 
+       references users
+2025-12-16T14:20:01.353+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+>>> AppKeepAlive: Bắt đầu giữ ứng dụng chạy...
+>>> AppKeepAlive: Ứng dụng sẽ giữ chạy liên tục
+2025-12-16T14:20:01.436+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-16T14:20:01.436+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-12-16T14:20:01.581+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] c.u.e.m.q.c.WebSocketSecurityConfig      : Configuring WebSocket security
+2025-12-16T14:20:01.639+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-16T14:20:01.689+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [OPTIONS, /**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-12-16T14:20:01.739+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-16T14:20:01.751+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-12-16T14:20:01.751+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@16c05cd5]]
+2025-12-16T14:20:01.751+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-12-16T14:20:01.754+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-16T14:20:01.756+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Started EduApplication in 1.185 seconds (process running for 30.663)
+2025-12-16T14:20:01.757+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : Initializing test data...
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:20:01.851+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created student account: student@upnest.edu / password123
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:20:01.943+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created teacher account: teacher@upnest.edu / password123
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:20:02.028+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created admin account: admin@upnest.edu / admin123
+2025-12-16T14:20:02.028+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✅ Test data initialization completed!
+2025-12-16T14:20:02.028+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 
+=== TEST ACCOUNTS ===
+2025-12-16T14:20:02.028+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 1️⃣  Student: student@upnest.edu / password123
+2025-12-16T14:20:02.028+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 2️⃣  Teacher: teacher@upnest.edu / password123
+2025-12-16T14:20:02.028+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 3️⃣  Admin: admin@upnest.edu / admin123
+2025-12-16T14:20:02.028+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ====================
+
+2025-12-16T14:20:02.029+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-16T14:20:13.617+07:00  INFO 23920 --- [UpNest Edu System] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 103 class path changes (0 additions, 102 deletions, 1 modification)
+2025-12-16T14:20:13.618+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-8] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-16T14:20:13.628+07:00  INFO 23920 --- [UpNest Edu System] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-16T14:20:13.629+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-8] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-12-16T14:20:13.629+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-8] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@16c05cd5]]
+2025-12-16T14:20:13.629+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-8] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-12-16T14:20:13.631+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16T14:20:13.632+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-12-16T14:20:13.635+07:00  INFO 23920 --- [UpNest Edu System] [       Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-12-16T14:20:13.761+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Starting EduApplication using Java 25.0.1 with PID 23920 (N:\DACN\upnestedu\edu\target\classes started by Admin in n:\DACN\upnestedu\edu)
+2025-12-16T14:20:13.761+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-12-16T14:20:13.870+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16T14:20:13.871+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2025-12-16T14:20:13.995+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-16T14:20:13.997+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-16T14:20:13.997+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-12-16T14:20:14.013+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-16T14:20:14.013+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 251 ms
+2025-12-16T14:20:14.037+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16T14:20:14.039+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-16T14:20:14.044+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16T14:20:14.045+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-12-16T14:20:14.062+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection ConnectionID:21 ClientConnectionId: 297a744a-e302-4fd2-9c58-94ccfc938d13
+2025-12-16T14:20:14.062+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-12-16T14:20:14.063+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16T14:20:14.065+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 16.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-16T14:20:14.077+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16T14:20:14.077+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16T14:20:14.112+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-16T14:20:14.171+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: a6b6447c-f552-47ee-8fa5-251bdeb35163
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-16T14:20:14.175+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-16T14:20:14.201+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-16T14:20:14.208+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-16T14:20:14.211+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Started EduApplication in 0.477 seconds (process running for 43.119)
+2025-12-16T14:20:14.215+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+      - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TaskExecutorConfigurations.AsyncConfigurerConfiguration matched:
+      - @ConditionalOnMissingBean (types: org.springframework.scheduling.annotation.AsyncConfigurer; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TaskExecutorConfigurations.AsyncConfigurerConfiguration#applicationTaskExecutorAsyncConfigurer matched:
+      - @ConditionalOnMissingBean (types: org.springframework.scheduling.annotation.AsyncConfigurer; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration matched:
+      - AnyNestedCondition 1 matched 1 did not; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ModelCondition @ConditionalOnProperty (spring.task.execution.mode=force) did not find property 'spring.task.execution.mode'; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ExecutorBeanCondition @ConditionalOnMissingBean (types: java.util.concurrent.Executor; SearchStrategy: all) did not find any beans (TaskExecutorConfigurations.OnExecutorCondition)
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration#applicationTaskExecutor matched:
+      - @ConditionalOnThreading found PLATFORM (OnThreadingCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - found 'session' scope (OnWebApplicationCondition)
+      - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'spring.security.user.password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'spring.security.user.name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+      - @ConditionalOnBean (types: org.springframework.security.config.ObjectPostProcessor; SearchStrategy: all) found beans 'objectPostProcessor', 'webAuthorizationManagerPostProcessor', 'filterChainDecoratorPostProcessor', 'authenticationManagerPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,?; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration#applicationTaskExecutorVirtualThreads:
+      Did not match:
+         - @ConditionalOnThreading did not find VIRTUAL (OnThreadingCondition)
+
+   WebSocketMessagingAutoConfiguration.WebSocketMessageConverterConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.web.socket.config.annotation.DelegatingWebSocketMessageBrokerConfiguration,com.fasterxml.jackson.databind.ObjectMapper; SearchStrategy: all) did not find any beans of type org.springframework.web.socket.config.annotation.DelegatingWebSocketMessageBrokerConfiguration (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required classes 'com.fasterxml.jackson.databind.ObjectMapper', 'org.springframework.messaging.simp.config.AbstractMessageBrokerConfiguration' (OnClassCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2025-12-16T14:20:17.438+07:00  INFO 23920 --- [UpNest Edu System] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 102 class path changes (102 additions, 0 deletions, 0 modifications)
+2025-12-16T14:20:17.440+07:00  INFO 23920 --- [UpNest Edu System] [      Thread-13] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-16T14:20:17.449+07:00  INFO 23920 --- [UpNest Edu System] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-16T14:20:17.451+07:00  INFO 23920 --- [UpNest Edu System] [      Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16T14:20:17.452+07:00  INFO 23920 --- [UpNest Edu System] [      Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-12-16T14:20:17.454+07:00  INFO 23920 --- [UpNest Edu System] [      Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-12-16T14:20:17.589+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Starting EduApplication using Java 25.0.1 with PID 23920 (n:\DACN\upnestedu\edu\target\classes started by Admin in n:\DACN\upnestedu\edu)
+2025-12-16T14:20:17.589+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-12-16T14:20:17.864+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16T14:20:17.889+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 11 JPA repository interfaces.
+2025-12-16T14:20:17.991+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-16T14:20:17.991+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-16T14:20:17.992+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-12-16T14:20:18.007+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-16T14:20:18.007+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 415 ms
+2025-12-16T14:20:18.034+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16T14:20:18.035+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-16T14:20:18.042+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16T14:20:18.043+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2025-12-16T14:20:18.059+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection ConnectionID:31 ClientConnectionId: 61d02878-d797-42dd-abb0-1f78555a0547
+2025-12-16T14:20:18.059+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2025-12-16T14:20:18.061+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16T14:20:18.062+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 16.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-16T14:20:18.251+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table answer_comments 
+       drop constraint if exists FK1dfxwwv6gew2jchf1nkjke8j3
+Hibernate: 
+    alter table answer_reactions 
+       drop constraint if exists FKmbyximen5w9ypl0y6awraamvq
+Hibernate: 
+    alter table answers 
+       drop constraint if exists FK3erw1a3t0r78st8ty27x6v3g1
+Hibernate: 
+    alter table lessons 
+       drop constraint if exists FK17ucc7gjfjddsyi0gvstkqeat
+Hibernate: 
+    alter table privacy_settings 
+       drop constraint if exists FKgxn6jq4rudo7ss3lmrg5avkh6
+Hibernate: 
+    alter table question_comments 
+       drop constraint if exists FKlxs199lculoe2wd5g8349r7a5
+Hibernate: 
+    alter table question_reactions 
+       drop constraint if exists FK8t67xxxyfs7586ts8k8g12q2k
+Hibernate: 
+    alter table user_profiles 
+       drop constraint if exists FKjcad5nfve11khsnpwj1mv8frj
+Hibernate: 
+    drop table if exists answer_comments
+Hibernate: 
+    drop table if exists answer_reactions
+Hibernate: 
+    drop table if exists answers
+Hibernate: 
+    drop table if exists courses
+Hibernate: 
+    drop table if exists friendships
+Hibernate: 
+    drop table if exists lessons
+Hibernate: 
+    drop table if exists privacy_settings
+Hibernate: 
+    drop table if exists question_comments
+Hibernate: 
+    drop table if exists question_reactions
+Hibernate: 
+    drop table if exists questions
+Hibernate: 
+    drop table if exists user_profiles
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table answer_comments (
+        answer_id bigint not null,
+        comment_id bigint identity not null,
+        created_at datetime2(6) not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (comment_id)
+    )
+Hibernate: 
+    create table answer_reactions (
+        answer_id bigint not null,
+        created_at datetime2(6) not null,
+        reaction_id bigint identity not null,
+        user_id bigint not null,
+        reaction_type varchar(255) not null check (reaction_type in ('LIKE','DISLIKE')),
+        primary key (reaction_id)
+    )
+Hibernate: 
+    create table answers (
+        is_best_answer bit,
+        like_count int,
+        answer_id bigint identity not null,
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (answer_id)
+    )
+Hibernate: 
+    create table courses (
+        total_lessons int,
+        id bigint identity not null,
+        description varchar(2000),
+        image_url varchar(255),
+        instructor varchar(255),
+        next_lesson_title varchar(255),
+        title varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table friendships (
+        follower_id bigint not null,
+        following_id bigint not null,
+        id bigint identity not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table lessons (
+        order_index int,
+        course_id bigint,
+        id bigint identity not null,
+        content TEXT,
+        title varchar(255),
+        video_url varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table privacy_settings (
+        receive_email_notifications bit,
+        searchable_by_email bit,
+        searchable_by_username bit,
+        show_academic_info bit,
+        show_email bit,
+        show_friends_list bit,
+        show_phone bit,
+        created_at datetime2(6) not null,
+        setting_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        allow_contact_from varchar(255) check (allow_contact_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        allow_friend_request_from varchar(255) check (allow_friend_request_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        notification_from varchar(255) check (notification_from in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        profile_visibility varchar(255) not null check (profile_visibility in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        show_activity varchar(255) check (show_activity in ('PUBLIC','ANYONE','FRIENDS_ONLY','PRIVATE')),
+        primary key (setting_id)
+    )
+Hibernate: 
+    create table question_comments (
+        comment_id bigint identity not null,
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        content NVARCHAR(MAX) not null,
+        primary key (comment_id)
+    )
+Hibernate: 
+    create table question_reactions (
+        created_at datetime2(6) not null,
+        question_id bigint not null,
+        reaction_id bigint identity not null,
+        user_id bigint not null,
+        reaction_type varchar(255) not null check (reaction_type in ('LIKE','DISLIKE')),
+        primary key (reaction_id)
+    )
+Hibernate: 
+    create table questions (
+        like_count int,
+        view_count int,
+        best_answer_id bigint,
+        course_id bigint,
+        created_at datetime2(6) not null,
+        question_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        tags varchar(500),
+        title varchar(500) not null,
+        content NVARCHAR(MAX) not null,
+        status varchar(255) not null check (status in ('OPEN','ANSWERED','CLOSED')),
+        primary key (question_id)
+    )
+Hibernate: 
+    create table user_profiles (
+        created_at datetime2(6) not null,
+        profile_id bigint identity not null,
+        updated_at datetime2(6),
+        user_id bigint not null,
+        academic_year varchar(50),
+        city varchar(100),
+        country varchar(100),
+        address varchar(500),
+        github_url varchar(500),
+        linkedin_url varchar(500),
+        website varchar(500),
+        avatar_url NVARCHAR(MAX),
+        bio NVARCHAR(MAX),
+        date_of_birth varchar(255),
+        gender varchar(255) check (gender in ('MALE','FEMALE','OTHER')),
+        institution varchar(255),
+        specialization varchar(255),
+        primary key (profile_id)
+    )
+Hibernate: 
+    create table users (
+        is_email_verified bit,
+        is_two_factor_enabled bit,
+        created_at datetime2(6) not null,
+        last_login_at datetime2(6),
+        updated_at datetime2(6),
+        user_id bigint identity not null,
+        phone varchar(20),
+        username varchar(100) not null,
+        full_name varchar(200),
+        avatar_url varchar(255),
+        email varchar(255) not null,
+        password varchar(255) not null,
+        role varchar(255) not null check (role in ('STUDENT','TEACHER','ADMIN')),
+        status varchar(255) not null check (status in ('ACTIVE','INACTIVE','BANNED')),
+        two_factor_secret varchar(255),
+        primary key (user_id)
+    )
+Hibernate: 
+    create index idx_answer_id 
+       on answer_comments (answer_id)
+Hibernate: 
+    create index idx_user_id 
+       on answer_comments (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on answer_comments (created_at)
+Hibernate: 
+    create index idx_answer_id 
+       on answer_reactions (answer_id)
+Hibernate: 
+    create index idx_user_id 
+       on answer_reactions (user_id)
+Hibernate: 
+    alter table answer_reactions 
+       add constraint uc_answer_user_reaction unique (answer_id, user_id)
+Hibernate: 
+    create index idx_question_id 
+       on answers (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on answers (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on answers (created_at)
+Hibernate: 
+    create index idx_is_best 
+       on answers (is_best_answer)
+Hibernate: 
+    alter table friendships 
+       add constraint UK9mna69bpdhv2mc2pwj0xfnrbv unique (follower_id, following_id)
+Hibernate: 
+    create index idx_user_id 
+       on privacy_settings (user_id)
+Hibernate: 
+    alter table privacy_settings 
+       add constraint UK8im8nq9irhhgjmw7pnfl2awu2 unique (user_id)
+Hibernate: 
+    create index idx_question_id 
+       on question_comments (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on question_comments (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on question_comments (created_at)
+Hibernate: 
+    create index idx_question_id 
+       on question_reactions (question_id)
+Hibernate: 
+    create index idx_user_id 
+       on question_reactions (user_id)
+Hibernate: 
+    alter table question_reactions 
+       add constraint uc_question_user_reaction unique (question_id, user_id)
+Hibernate: 
+    create index idx_user_id 
+       on questions (user_id)
+Hibernate: 
+    create index idx_course_id 
+       on questions (course_id)
+Hibernate: 
+    create index idx_created_at 
+       on questions (created_at)
+Hibernate: 
+    create index idx_status 
+       on questions (status)
+Hibernate: 
+    create index idx_user_id 
+       on user_profiles (user_id)
+Hibernate: 
+    alter table user_profiles 
+       add constraint UKe5h89rk3ijvdmaiig4srogdc6 unique (user_id)
+Hibernate: 
+    create index idx_created_at 
+       on users (created_at)
+Hibernate: 
+    alter table users 
+       add constraint idx_email unique (email)
+Hibernate: 
+    alter table users 
+       add constraint idx_username unique (username)
+Hibernate: 
+    alter table answer_comments 
+       add constraint FK1dfxwwv6gew2jchf1nkjke8j3 
+       foreign key (answer_id) 
+       references answers
+Hibernate: 
+    alter table answer_reactions 
+       add constraint FKmbyximen5w9ypl0y6awraamvq 
+       foreign key (answer_id) 
+       references answers
+Hibernate: 
+    alter table answers 
+       add constraint FK3erw1a3t0r78st8ty27x6v3g1 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table lessons 
+       add constraint FK17ucc7gjfjddsyi0gvstkqeat 
+       foreign key (course_id) 
+       references courses
+Hibernate: 
+    alter table privacy_settings 
+       add constraint FKgxn6jq4rudo7ss3lmrg5avkh6 
+       foreign key (user_id) 
+       references users
+Hibernate: 
+    alter table question_comments 
+       add constraint FKlxs199lculoe2wd5g8349r7a5 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table question_reactions 
+       add constraint FK8t67xxxyfs7586ts8k8g12q2k 
+       foreign key (question_id) 
+       references questions
+Hibernate: 
+    alter table user_profiles 
+       add constraint FKjcad5nfve11khsnpwj1mv8frj 
+       foreign key (user_id) 
+       references users
+2025-12-16T14:20:18.360+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+>>> AppKeepAlive: Bắt đầu giữ ứng dụng chạy...
+>>> AppKeepAlive: Ứng dụng sẽ giữ chạy liên tục
+2025-12-16T14:20:18.434+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-16T14:20:18.434+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-12-16T14:20:18.580+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] c.u.e.m.q.c.WebSocketSecurityConfig      : Configuring WebSocket security
+2025-12-16T14:20:18.637+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-16T14:20:18.688+07:00  WARN 23920 --- [UpNest Edu System] [  restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [OPTIONS, /**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-12-16T14:20:18.749+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-16T14:20:18.760+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-12-16T14:20:18.760+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4434f66]]
+2025-12-16T14:20:18.760+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-12-16T14:20:18.768+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-16T14:20:18.771+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.EduApplication            : Started EduApplication in 1.22 seconds (process running for 47.679)
+2025-12-16T14:20:18.772+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : Initializing test data...
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:20:18.885+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created student account: student@upnest.edu / password123
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:20:18.973+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created teacher account: teacher@upnest.edu / password123
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, full_name, is_email_verified, last_login_at, password, phone, role, status, is_two_factor_enabled, two_factor_secret, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (academic_year, address, avatar_url, bio, city, country, created_at, date_of_birth, gender, github_url, institution, linkedin_url, specialization, updated_at, user_id, website) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        privacy_settings
+        (allow_contact_from, allow_friend_request_from, created_at, notification_from, profile_visibility, receive_email_notifications, searchable_by_email, searchable_by_username, show_academic_info, show_activity, show_email, show_friends_list, show_phone, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-16T14:20:19.075+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✓ Created admin account: admin@upnest.edu / admin123
+2025-12-16T14:20:19.076+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ✅ Test data initialization completed!
+2025-12-16T14:20:19.076+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 
+=== TEST ACCOUNTS ===
+2025-12-16T14:20:19.076+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 1️⃣  Student: student@upnest.edu / password123
+2025-12-16T14:20:19.076+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 2️⃣  Teacher: teacher@upnest.edu / password123
+2025-12-16T14:20:19.076+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : 3️⃣  Admin: admin@upnest.edu / admin123
+2025-12-16T14:20:19.076+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] com.upnest.edu.config.DataInitializer    : ====================
+
+2025-12-16T14:20:19.078+07:00  INFO 23920 --- [UpNest Edu System] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   WebSocketMessagingAutoConfiguration.WebSocketMessageConverterConfiguration matched:
+      - @ConditionalOnClass found required classes 'com.fasterxml.jackson.databind.ObjectMapper', 'org.springframework.messaging.simp.config.AbstractMessageBrokerConfiguration' (OnClassCondition)
+      - @ConditionalOnBean (types: org.springframework.web.socket.config.annotation.DelegatingWebSocketMessageBrokerConfiguration,com.fasterxml.jackson.databind.ObjectMapper; SearchStrategy: all) found beans 'jacksonObjectMapper', 'org.springframework.web.socket.config.annotation.DelegatingWebSocketMessageBrokerConfiguration' (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration:
+      Did not match:
+         - AnyNestedCondition 0 matched 2 did not; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ModelCondition @ConditionalOnProperty (spring.task.execution.mode=force) did not find property 'spring.task.execution.mode'; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ExecutorBeanCondition @ConditionalOnMissingBean (types: java.util.concurrent.Executor; SearchStrategy: all) found beans of type 'java.util.concurrent.Executor' clientInboundChannelExecutor, clientOutboundChannelExecutor, brokerChannelExecutor (TaskExecutorConfigurations.OnExecutorCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,?; SearchStrategy: all) found beans of type 'org.springframework.security.authentication.AuthenticationManager' authenticationManager and found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' userDetailsService and found beans of type 'org.springframework.security.authentication.AuthenticationProvider' authenticationProvider (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+         - found 'session' scope (OnWebApplicationCondition)
+         - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'spring.security.user.password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'spring.security.user.name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2025-12-16T14:21:18.762+07:00  INFO 23920 --- [UpNest Edu System] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-12-16T14:21:22.766+07:00  INFO 23920 --- [UpNest Edu System] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-16T14:21:22.766+07:00  INFO 23920 --- [UpNest Edu System] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-16T14:21:22.767+07:00  INFO 23920 --- [UpNest Edu System] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-16T14:21:22.844+07:00  INFO 23920 --- [UpNest Edu System] [nio-8080-exec-1] c.u.e.m.u.controller.UserAuthController  : Login request for username: null
+2025-12-16T14:21:22.849+07:00  INFO 23920 --- [UpNest Edu System] [nio-8080-exec-1] c.u.e.m.u.service.AuthenticationService  : User login attempt: null
+Hibernate: 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.is_email_verified,
+        u1_0.last_login_at,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.status,
+        u1_0.is_two_factor_enabled,
+        u1_0.two_factor_secret,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username is null
+Hibernate: 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.is_email_verified,
+        u1_0.last_login_at,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.status,
+        u1_0.is_two_factor_enabled,
+        u1_0.two_factor_secret,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email is null
+java.lang.RuntimeException: User not found
+	at com.upnest.edu.modules.user.controller.UserAuthController.login(UserAuthController.java:63)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.upnest.edu.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2025-12-16T14:21:22.943+07:00  WARN 23920 --- [UpNest Edu System] [nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.RuntimeException: User not found]
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.image_url,
+        c1_0.instructor,
+        c1_0.next_lesson_title,
+        c1_0.title,
+        c1_0.total_lessons 
+    from
+        courses c1_0

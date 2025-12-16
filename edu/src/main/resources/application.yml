@@ -1,7 +1,12 @@
 server:
   port: 8080
+  shutdown: graceful
+  tomcat:
+    shutdown-wait-time: 0s  # No timeout
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: UpNest Edu System
 
@@ -16,7 +21,7 @@ spring:
   jpa:
     show-sql: true              # Hiện câu lệnh SQL ra màn hình
     hibernate:
-      ddl-auto: update          # Tự động tạo bảng nếu chưa có
+      ddl-auto: update          # Update schema without dropping
     properties:
       hibernate:
         format_sql: true

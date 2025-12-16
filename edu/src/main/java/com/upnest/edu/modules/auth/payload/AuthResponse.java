@@ -1,13 +1,13 @@
 package com.upnest.edu.modules.auth.payload;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.upnest.edu.modules.auth.entity.Role;
+import com.upnest.edu.modules.user.entity.UserRole;
 
 public class AuthResponse {
     private String token;
     private String fullName;
     private String email;
-    private Role role;
+    private UserRole role;
     
     // Trường này dùng để báo cho Frontend biết có cần nhập mã OTP hay không
     @JsonProperty("is2faRequired")
@@ -16,7 +16,7 @@ public class AuthResponse {
     // --- CONSTRUCTORS ---
     public AuthResponse() {}
 
-    public AuthResponse(String token, String fullName, String email, Role role, boolean is2faRequired) {
+    public AuthResponse(String token, String fullName, String email, UserRole role, boolean is2faRequired) {
         this.token = token;
         this.fullName = fullName;
         this.email = email;
@@ -49,11 +49,11 @@ public class AuthResponse {
         this.email = email;
     }
 
-    public Role getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 

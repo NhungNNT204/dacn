@@ -30,7 +30,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/qa")
+@RequestMapping("/api/v1/qa")
 @lombok.RequiredArgsConstructor
 public class AnswerController {
     

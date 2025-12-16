@@ -29,7 +29,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @lombok.RequiredArgsConstructor
-@RequestMapping("/api/qa")
+@RequestMapping("/api/v1/qa")
 public class CommentController {
     
     private final CommentService commentService;

@@ -73,6 +73,7 @@ public class User implements UserDetails {
      */
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     private UserRole role = UserRole.STUDENT;
     
     /**
@@ -80,11 +81,13 @@ public class User implements UserDetails {
      */
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     private UserStatus status = UserStatus.ACTIVE;
     
     /**
      * Email được xác thực hay không
      */
+    @Builder.Default
     @Column(name = "is_email_verified")
     private Boolean isEmailVerified = false;
     
@@ -110,6 +113,7 @@ public class User implements UserDetails {
      * Bảo mật 2 lớp: Có bật hay không
      */
     @Column(name = "is_two_factor_enabled")
+    @Builder.Default
     private Boolean twoFactorEnabled = false;
     
     /**

@@ -1,15 +1,24 @@
 package com.upnest.edu.modules.user.controller;
 
-import com.upnest.edu.modules.user.payload.*;
-import com.upnest.edu.modules.user.service.UserProfileService;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
+import com.upnest.edu.modules.user.payload.UpdateProfileRequest;
+import com.upnest.edu.modules.user.payload.UserProfileResponse;
+import com.upnest.edu.modules.user.service.UserProfileService;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Controller: ProfileController
@@ -24,7 +33,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1/users")
 public class ProfileController {
     
     @org.springframework.beans.factory.annotation.Autowired

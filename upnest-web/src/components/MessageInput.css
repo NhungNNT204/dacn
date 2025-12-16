@@ -1,0 +1,342 @@
+/* =====================================================
+   MessageInput.css - Styling for message composition
+   ===================================================== */
+
+.message-input-container {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 12px;
+  gap: 8px;
+}
+
+/* Attached Files Preview */
+.attached-files-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.file-preview-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.file-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #1f2937;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.remove-file-btn {
+  padding: 4px;
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.remove-file-btn:hover {
+  color: #dc2626;
+}
+
+.remove-file-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Input Area */
+.input-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 6px;
+  transition: border-color 0.2s;
+}
+
+.input-area:focus-within {
+  border-color: #0084ff;
+  box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.1);
+}
+
+/* Emoji Picker */
+.emoji-picker-wrapper {
+  position: relative;
+}
+
+.emoji-btn {
+  padding: 8px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.emoji-btn:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.emoji-btn:active {
+  background: #e5e7eb;
+}
+
+.emoji-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+  z-index: 10;
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.emoji-item {
+  padding: 4px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.emoji-item:hover {
+  background: #f3f4f6;
+}
+
+/* Attachment */
+.attachment-wrapper {
+  position: relative;
+}
+
+.attachment-btn {
+  padding: 8px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.attachment-btn:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.attachment-btn:active {
+  background: #e5e7eb;
+}
+
+.attachment-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loader-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+/* Text Input */
+.message-textarea {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+  max-height: 100px;
+  line-height: 1.4;
+  color: #1f2937;
+  background: transparent;
+}
+
+.message-textarea::placeholder {
+  color: #d1d5db;
+}
+
+.message-textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Character Count */
+.char-count {
+  font-size: 11px;
+  color: #9ca3af;
+  white-space: nowrap;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.char-count.warning {
+  color: #ea580c;
+  font-weight: 600;
+}
+
+/* Send Button */
+.send-btn {
+  padding: 8px;
+  background: #0084ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: #0073e6;
+}
+
+.send-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.send-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .message-input-container {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .input-area {
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .emoji-btn,
+  .attachment-btn {
+    padding: 6px;
+  }
+
+  .message-textarea {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .emoji-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .message-input-container {
+    padding: 6px;
+  }
+
+  .input-area {
+    padding: 4px;
+    gap: 2px;
+  }
+
+  .emoji-btn,
+  .attachment-btn,
+  .send-btn {
+    padding: 6px;
+  }
+
+  .emoji-btn svg,
+  .attachment-btn svg,
+  .send-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .message-textarea {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .char-count {
+    font-size: 10px;
+  }
+}

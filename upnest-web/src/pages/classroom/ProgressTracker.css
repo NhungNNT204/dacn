@@ -1,0 +1,593 @@
+.progress-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Overall Stats */
+.overall-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-top: 4px solid #007bff;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.stat-card.main-stat {
+  border-top: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.stat-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 15px 0;
+}
+
+.stat-card.main-stat h3 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Grade Display */
+.grade-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.grade-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #28a745;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.grade-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+}
+
+.grade-max {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.grade-label {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  font-weight: 600;
+}
+
+.last-update {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.average-score {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Assignments Progress */
+.assignments-progress {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assignments-progress h2,
+.skills-development h2,
+.weekly-activity h2,
+.performance-section h2,
+.recommendations h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 15px 0;
+}
+
+.assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.assignment-progress-item {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #ddd;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.assignment-progress-item:hover {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assignment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.assignment-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.assignment-max-grade {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.assignment-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.grade-bar-container {
+  margin-bottom: 8px;
+}
+
+.grade-bar {
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.grade-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.grade-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.assignment-date {
+  font-size: 12px;
+  color: #999;
+  margin: 8px 0 0 0;
+}
+
+.assignment-details-expanded {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 13px;
+  color: #666;
+  animation: slideDown 0.3s ease;
+}
+
+.assignment-details-expanded p {
+  margin: 0 0 6px 0;
+}
+
+/* Skills Development */
+.skills-development {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.skill-card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-header h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.proficiency-badge {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.skill-projects {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+/* Weekly Activity */
+.weekly-activity {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.activity-chart {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.activity-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.activity-bar {
+  width: 100%;
+  height: 120px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.submissions-bar {
+  width: 100%;
+  transition: all 0.3s ease;
+  border-radius: 4px 4px 0 0;
+}
+
+.day-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+.activity-count {
+  font-size: 11px;
+  color: #999;
+  margin: 0;
+}
+
+/* Performance Section */
+.performance-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.performance-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chart-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Recommendations */
+.recommendations {
+  background: #f0f8ff;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #007bff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.recommendations h2 {
+  color: #0056b3;
+}
+
+.recommendation-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recommendation-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.rec-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.recommendation-item p {
+  font-size: 13px;
+  color: #333;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .overall-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .activity-chart {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .chart-legend {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .overall-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .grade-circle {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+  }
+
+  .grade-value {
+    font-size: 40px;
+  }
+
+  .grade-max {
+    font-size: 14px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .activity-bar {
+    height: 100px;
+  }
+
+  .chart-legend {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recommendation-items {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overall-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-card h3 {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .grade-circle {
+    width: 80px;
+    height: 80px;
+    border-width: 3px;
+  }
+
+  .grade-value {
+    font-size: 32px;
+  }
+
+  .grade-max {
+    font-size: 12px;
+  }
+
+  .assignment-list {
+    gap: 10px;
+  }
+
+  .assignment-progress-item {
+    padding: 12px;
+  }
+
+  .assignment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .skill-card {
+    padding: 12px;
+  }
+
+  .activity-chart {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 8px;
+  }
+
+  .activity-bar {
+    height: 80px;
+  }
+
+  .day-label {
+    font-size: 10px;
+  }
+
+  .activity-count {
+    font-size: 10px;
+  }
+
+  .chart-legend {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .recommendations {
+    padding: 15px;
+  }
+
+  .recommendations h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .rec-icon {
+    font-size: 18px;
+  }
+
+  .recommendation-item p {
+    font-size: 12px;
+  }
+}

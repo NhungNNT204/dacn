@@ -1,9 +1,9 @@
 package com.upnest.edu.config;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,10 +13,17 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import java.io.IOException;
+import com.upnest.edu.modules.user.service.JwtService;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private static final Logger log = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
@@ -45,24 +52,36 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // 2. Lấy Token
         jwt = authHeader.substring(7);
-        userEmail = jwtService.extractUsername(jwt);
+        
+        try {
+            userEmail = jwtService.extractUsername(jwt);
+        } catch (Exception e) {
+            log.debug("Invalid JWT token: {}", e.getMessage());
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         // 3. Nếu tìm thấy User và chưa có xác thực trong Context
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+            try {
+                UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
-            // 4. Kiểm tra Token còn hợp lệ không
-            if (jwtService.isTokenValid(jwt, userDetails)) {
-                // 5. Cấp quyền truy cập
-                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                        userDetails,
-                        null,
-                        userDetails.getAuthorities()
-                );
-                authToken.setDetails(
-                        new WebAuthenticationDetailsSource().buildDetails(request)
-                );
-                SecurityContextHolder.getContext().setAuthentication(authToken);
+                // 4. Kiểm tra Token còn hợp lệ không
+                if (jwtService.isTokenValid(jwt, userDetails)) {
+                    // 5. Cấp quyền truy cập
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                            userDetails,
+                            null,
+                            userDetails.getAuthorities()
+                    );
+                    authToken.setDetails(
+                            new WebAuthenticationDetailsSource().buildDetails(request)
+                    );
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                }
+            } catch (Exception e) {
+                log.debug("User not found or authentication error: {}", e.getMessage());
+                // Continue without authentication
             }
         }
         

@@ -1,0 +1,279 @@
+/* Privacy Settings Page Styles */
+
+.privacy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.privacy-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.privacy-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 10px 0;
+}
+
+.privacy-header p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.privacy-loading,
+.privacy-error {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.privacy-error {
+  color: #c33;
+  background: #fee;
+  border-radius: 8px;
+}
+
+.error-alert {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.success-alert {
+  background: #efe;
+  border: 1px solid #cfc;
+  color: #3c3;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.privacy-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.privacy-section {
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.privacy-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-header {
+  margin-bottom: 25px;
+}
+
+.section-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-desc {
+  margin: 0;
+  font-size: 14px;
+  color: #999;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-label {
+  flex: 1;
+}
+
+.setting-name {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.setting-desc {
+  display: block;
+  font-size: 13px;
+  color: #999;
+  line-height: 1.4;
+}
+
+.privacy-select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 200px;
+  transition: all 0.3s;
+}
+
+.privacy-select:hover {
+  border-color: #667eea;
+}
+
+.privacy-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.privacy-select:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.toggle-slider::before {
+  position: absolute;
+  content: '';
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #667eea;
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+}
+
+.toggle-switch input:disabled + .toggle-slider {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Privacy Actions */
+.privacy-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  padding: 30px;
+  border-top: 1px solid #eee;
+  background: #f9f9f9;
+}
+
+.reset-btn,
+.save-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.reset-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.reset-btn:hover:not(:disabled) {
+  background: #e0e0e0;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.reset-btn:disabled,
+.save-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .privacy-section {
+    padding: 20px;
+  }
+
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .privacy-select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .privacy-actions {
+    flex-direction: column-reverse;
+  }
+
+  .reset-btn,
+  .save-btn {
+    width: 100%;
+  }
+
+  .privacy-header h1 {
+    font-size: 24px;
+  }
+}

@@ -1,21 +1,23 @@
 package com.upnest.edu.config;
 
-import com.upnest.edu.modules.user.entity.User;
-import com.upnest.edu.modules.user.entity.UserProfile;
-import com.upnest.edu.modules.user.entity.PrivacySettings;
-import com.upnest.edu.modules.user.entity.UserRole;
-import com.upnest.edu.modules.user.entity.UserStatus;
-import com.upnest.edu.modules.user.entity.PrivacyLevel;
-import com.upnest.edu.modules.user.repository.UserRepository;
-import com.upnest.edu.modules.user.repository.UserProfileRepository;
-import com.upnest.edu.modules.user.repository.PrivacySettingsRepository;
-import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDateTime;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.time.LocalDateTime;
+import com.upnest.edu.modules.user.entity.PrivacyLevel;
+import com.upnest.edu.modules.user.entity.PrivacySettings;
+import com.upnest.edu.modules.user.entity.User;
+import com.upnest.edu.modules.user.entity.UserProfile;
+import com.upnest.edu.modules.user.entity.UserRole;
+import com.upnest.edu.modules.user.entity.UserStatus;
+import com.upnest.edu.modules.user.repository.PrivacySettingsRepository;
+import com.upnest.edu.modules.user.repository.UserProfileRepository;
+import com.upnest.edu.modules.user.repository.UserRepository;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * DataInitializer - Khởi tạo dữ liệu test khi ứng dụng start
@@ -32,12 +34,12 @@ public class DataInitializer {
             PasswordEncoder passwordEncoder) {
         
         return args -> {
-            // Kiểm tra nếu đã có user test thì bỏ qua
+            // Only initialize if no users exist
             if (userRepository.count() > 0) {
-                log.info("Data already exists, skipping initialization");
+                log.info("Users already exist, skipping initialization");
                 return;
             }
-
+            
             log.info("Initializing test data...");
 
             // Tạo user test #1 - Student
