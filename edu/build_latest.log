@@ -1,0 +1,379 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Users/Admin/AppData/Roaming/Code/User/globalStorage/pleiades.java-extension-pack-jdk/maven/latest/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.upnest:edu >---------------------------
+[INFO] Building UpNest Edu System 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ edu ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ edu ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 116 source files with javac [debug parameters release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionComment.java:[57,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionComment.java:[63,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[62,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[68,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[74,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[80,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[86,32] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[92,33] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/message/QaMessage.java:[87,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/UserProfile.java:[119,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/UserProfile.java:[125,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[41,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[47,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[53,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[59,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[66,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[73,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[79,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[85,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[91,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[97,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[104,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[111,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[117,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[123,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerComment.java:[57,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerComment.java:[63,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/User.java:[76,22] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/User.java:[83,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/User.java:[89,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/User.java:[95,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/User.java:[101,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerReaction.java:[61,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionReaction.java:[61,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[74,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[80,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[86,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[98,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[104,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[110,25] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[116,34] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[122,35] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[INFO] 42 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/controller/ProfileController.java:[30,38] variable userProfileService not initialized in the default constructor
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[55,20] cannot find symbol
+  symbol:   method getFullName()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[56,37] cannot find symbol
+  symbol:   method getFullName()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[58,20] cannot find symbol
+  symbol:   method getPhone()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[59,34] cannot find symbol
+  symbol:   method getPhone()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[72,20] cannot find symbol
+  symbol:   method getDateOfBirth()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[73,43] cannot find symbol
+  symbol:   method getDateOfBirth()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[75,20] cannot find symbol
+  symbol:   method getGender()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[76,88] cannot find symbol
+  symbol:   method getGender()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[78,20] cannot find symbol
+  symbol:   method getAddress()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[79,39] cannot find symbol
+  symbol:   method getAddress()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[81,20] cannot find symbol
+  symbol:   method getCity()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[82,36] cannot find symbol
+  symbol:   method getCity()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[84,20] cannot find symbol
+  symbol:   method getCountry()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[85,39] cannot find symbol
+  symbol:   method getCountry()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[87,20] cannot find symbol
+  symbol:   method getSpecialization()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[88,46] cannot find symbol
+  symbol:   method getSpecialization()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[90,20] cannot find symbol
+  symbol:   method getInstitution()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[91,43] cannot find symbol
+  symbol:   method getInstitution()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[93,20] cannot find symbol
+  symbol:   method getAcademicYear()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[94,44] cannot find symbol
+  symbol:   method getAcademicYear()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[96,20] cannot find symbol
+  symbol:   method getBio()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[97,35] cannot find symbol
+  symbol:   method getBio()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[99,20] cannot find symbol
+  symbol:   method getWebsite()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[100,39] cannot find symbol
+  symbol:   method getWebsite()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[102,20] cannot find symbol
+  symbol:   method getGithubUrl()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[103,41] cannot find symbol
+  symbol:   method getGithubUrl()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[105,20] cannot find symbol
+  symbol:   method getLinkedinUrl()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[106,43] cannot find symbol
+  symbol:   method getLinkedinUrl()
+  location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/controller/UserAuthController.java:[39,62] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/controller/UserAuthController.java:[57,59] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[36,53] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[39,52] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[43,49] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[48,21] cannot find symbol
+  symbol:   method getPassword()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[48,50] cannot find symbol
+  symbol:   method getConfirmPassword()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[52,20] cannot find symbol
+  symbol:   method getPassword()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[58,34] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[59,31] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[60,57] cannot find symbol
+  symbol:   method getPassword()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[61,34] cannot find symbol
+  symbol:   method getFullName()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[62,47] cannot find symbol
+  symbol:   method getRole()
+  location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[90,40] method generateToken in class com.upnest.edu.modules.user.service.JwtService cannot be applied to given types;
+  required: java.lang.String,long
+  found:    com.upnest.edu.modules.user.entity.User
+  reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[102,51] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[105,58] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[107,55] cannot find symbol
+  symbol:   method getUsername()
+  location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[117,45] cannot find symbol
+  symbol:   method getPassword()
+  location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[126,40] method generateToken in class com.upnest.edu.modules.user.service.JwtService cannot be applied to given types;
+  required: java.lang.String,long
+  found:    com.upnest.edu.modules.user.entity.User
+  reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[138,28] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.user.payload.AuthResponse
+[INFO] 49 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.641 s
+[INFO] Finished at: 2025-12-16T10:07:02+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project edu: Compilation failure: Compilation failure: 
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/controller/ProfileController.java:[30,38] variable userProfileService not initialized in the default constructor
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[55,20] cannot find symbol
+[ERROR]   symbol:   method getFullName()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[56,37] cannot find symbol
+[ERROR]   symbol:   method getFullName()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[58,20] cannot find symbol
+[ERROR]   symbol:   method getPhone()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[59,34] cannot find symbol
+[ERROR]   symbol:   method getPhone()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[72,20] cannot find symbol
+[ERROR]   symbol:   method getDateOfBirth()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[73,43] cannot find symbol
+[ERROR]   symbol:   method getDateOfBirth()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[75,20] cannot find symbol
+[ERROR]   symbol:   method getGender()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[76,88] cannot find symbol
+[ERROR]   symbol:   method getGender()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[78,20] cannot find symbol
+[ERROR]   symbol:   method getAddress()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[79,39] cannot find symbol
+[ERROR]   symbol:   method getAddress()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[81,20] cannot find symbol
+[ERROR]   symbol:   method getCity()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[82,36] cannot find symbol
+[ERROR]   symbol:   method getCity()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[84,20] cannot find symbol
+[ERROR]   symbol:   method getCountry()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[85,39] cannot find symbol
+[ERROR]   symbol:   method getCountry()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[87,20] cannot find symbol
+[ERROR]   symbol:   method getSpecialization()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[88,46] cannot find symbol
+[ERROR]   symbol:   method getSpecialization()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[90,20] cannot find symbol
+[ERROR]   symbol:   method getInstitution()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[91,43] cannot find symbol
+[ERROR]   symbol:   method getInstitution()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[93,20] cannot find symbol
+[ERROR]   symbol:   method getAcademicYear()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[94,44] cannot find symbol
+[ERROR]   symbol:   method getAcademicYear()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[96,20] cannot find symbol
+[ERROR]   symbol:   method getBio()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[97,35] cannot find symbol
+[ERROR]   symbol:   method getBio()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[99,20] cannot find symbol
+[ERROR]   symbol:   method getWebsite()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[100,39] cannot find symbol
+[ERROR]   symbol:   method getWebsite()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[102,20] cannot find symbol
+[ERROR]   symbol:   method getGithubUrl()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[103,41] cannot find symbol
+[ERROR]   symbol:   method getGithubUrl()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[105,20] cannot find symbol
+[ERROR]   symbol:   method getLinkedinUrl()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/UserProfileService.java:[106,43] cannot find symbol
+[ERROR]   symbol:   method getLinkedinUrl()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.UpdateProfileRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/controller/UserAuthController.java:[39,62] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/controller/UserAuthController.java:[57,59] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[36,53] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[39,52] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[43,49] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[48,21] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[48,50] cannot find symbol
+[ERROR]   symbol:   method getConfirmPassword()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[52,20] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[58,34] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[59,31] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[60,57] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[61,34] cannot find symbol
+[ERROR]   symbol:   method getFullName()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[62,47] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.RegisterRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[90,40] method generateToken in class com.upnest.edu.modules.user.service.JwtService cannot be applied to given types;
+[ERROR]   required: java.lang.String,long
+[ERROR]   found:    com.upnest.edu.modules.user.entity.User
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[102,51] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[105,58] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[107,55] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[117,45] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable request of type com.upnest.edu.modules.user.payload.LoginRequest
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[126,40] method generateToken in class com.upnest.edu.modules.user.service.JwtService cannot be applied to given types;
+[ERROR]   required: java.lang.String,long
+[ERROR]   found:    com.upnest.edu.modules.user.entity.User
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/AuthenticationService.java:[138,28] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.user.payload.AuthResponse
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

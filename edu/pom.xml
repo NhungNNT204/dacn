@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.5</version> <!-- Đã sửa về bản ổn định -->
+        <version>3.5.0</version> <!-- Upgraded to Spring Framework 3.5 -->
         <relativePath/> 
     </parent>
     <groupId>com.upnest</groupId>
