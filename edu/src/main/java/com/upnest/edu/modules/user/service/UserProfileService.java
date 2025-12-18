@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 @Slf4j
 @Service
 @Transactional
+@SuppressWarnings("null")
 public class UserProfileService {
     
     @org.springframework.beans.factory.annotation.Autowired

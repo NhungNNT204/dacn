@@ -5,25 +5,44 @@
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- clean:3.3.2:clean (default-clean) @ edu ---
-[INFO] Deleting n:\DACN\upnestedu\edu\target
+[INFO] --- clean:3.4.1:clean (default-clean) @ edu ---
+[INFO] Deleting N:\DACN\upnestedu\edu\target
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ edu ---
 [INFO] Copying 1 resource from src\main\resources to target\classes
 [INFO] Copying 0 resource from src\main\resources to target\classes
 [INFO] 
-[INFO] --- compiler:3.11.0:compile (default-compile) @ edu ---
-[WARNING] The POM for org.projectlombok:lombok:jar:3.3.5 is missing, no dependency information available
+[INFO] --- compiler:3.13.0:compile (default-compile) @ edu ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 205 source files with javac [debug parameters release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[22,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[28,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[32,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[34,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[35,3] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[73,1] class, interface, enum, or record expected
+[INFO] 6 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.142 s
-[INFO] Finished at: 2025-12-16T08:26:08+07:00
+[INFO] Total time:  1.727 s
+[INFO] Finished at: 2025-12-17T20:21:26+07:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project edu: Resolution of annotationProcessorPath dependencies failed: The following artifacts could not be resolved: org.projectlombok:lombok:jar:3.3.5 (absent): org.projectlombok:lombok:jar:3.3.5 was not found in https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project edu: Compilation failure: Compilation failure: 
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[22,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[28,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[32,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[34,5] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[35,3] class, interface, enum, or record expected
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/WebSocketConfig.java:[73,1] class, interface, enum, or record expected
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

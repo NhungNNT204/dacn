@@ -1,23 +1,70 @@
 /**
  * Component: ChatList
  * Purpose: Display list of conversations (personal, group, classroom)
- * Features: Search, unread badge, last message preview, user avatars
+ * Features: Search, unread badge, last message preview, user avatars, loading & error handling
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { MessageCircle, Users, BookOpen, Search, X } from 'lucide-react';
 import './ChatList.css';
+import chatService from '../services/chatService';
 
 export default function ChatList({
-  conversations = [],
+  conversations: propConversations = [],
   selectedConversation = null,
   onSelectConversation = () => {},
   onCreateChat = () => {},
   currentUser = {},
-  unreadCounts = {}
+  unreadCounts: propUnreadCounts = {}
 }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterType, setFilterType] = useState('all'); // all, personal, group, classroom
+  const [conversations, setConversations] = useState(propConversations);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [unreadCounts, setUnreadCounts] = useState(propUnreadCounts);
+
+  // Load conversations on mount
+  useEffect(() => {
+    loadConversations();
+  }, []);
+
+  // Load conversations from chat service
+  const loadConversations = async () => {
+    setIsLoading(true);
+    setError('');
+    try {
+      const result = await chatService.getConversations();
+      if (result.success && result.data) {
+        setConversations(result.data);
+      } else {
+        setError('Failed to load conversations');
+        setConversations(propConversations);
+      }
+    } catch (err) {
+      console.error('Load conversations error:', err);
+      setError(err.message);
+      setConversations(propConversations);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Load unread counts
+  useEffect(() => {
+    loadUnreadCounts();
+  }, []);
+
+  const loadUnreadCounts = async () => {
+    try {
+      const result = await chatService.getUnreadCounts();
+      if (result.success && result.data) {
+        setUnreadCounts(result.data);
+      }
+    } catch (err) {
+      console.error('Load unread counts error:', err);
+    }
+  };
 
   // Filter conversations
   const filteredConversations = useMemo(() => {
@@ -149,7 +196,20 @@ export default function ChatList({
 
       {/* Conversations List */}
       <div className="conversations-list">
-        {sortedConversations.length > 0 ? (
+        {isLoading ? (
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Loading conversations...</p>
+          </div>
+        ) : error ? (
+          <div className="error-container">
+            <div className="error-icon">⚠️</div>
+            <p className="error-message">{error}</p>
+            <button onClick={loadConversations} className="retry-btn">
+              Retry
+            </button>
+          </div>
+        ) : sortedConversations.length > 0 ? (
           sortedConversations.map((conv) => {
             const isSelected = selectedConversation?.id === conv.id;
             const unreadCount = unreadCounts[conv.id] || 0;
@@ -217,7 +277,7 @@ export default function ChatList({
           <div className="no-conversations">
             <MessageCircle size={32} />
             <p>No conversations yet</p>
-            <button onClick={() => onCreateChat()} className="start-chat-btn">
+            <button onClick={() => onCreateChat?.()} className="start-chat-btn">
               Start a conversation
             </button>
           </div>

@@ -40,8 +40,6 @@ public class QuestionController {
     private AnswerService answerService;
     @org.springframework.beans.factory.annotation.Autowired
     private CommentService commentService;
-    @org.springframework.beans.factory.annotation.Autowired
-    private ReactionService reactionService;
     
     /**
      * Tạo câu hỏi mới

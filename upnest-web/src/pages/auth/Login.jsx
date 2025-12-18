@@ -59,7 +59,7 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <div className="login-box">
+      <div className="login-box ui-surface ui-card-lg ui-animate-pop">
         <div className="login-header">
           <h1>Đăng Nhập</h1>
           <p>Chào mừng bạn quay trở lại UpNestEdu</p>
@@ -78,6 +78,7 @@ export default function Login() {
               placeholder="Nhập tên đăng nhập hoặc email"
               required
               disabled={isLoading}
+              className="ui-input"
             />
           </div>
 
@@ -91,6 +92,7 @@ export default function Login() {
               placeholder="Nhập mật khẩu"
               required
               disabled={isLoading}
+              className="ui-input"
             />
           </div>
 
@@ -110,10 +112,17 @@ export default function Login() {
 
           <button
             type="submit"
-            className="login-btn"
+            className="login-btn ui-btn ui-btn-primary"
             disabled={isLoading || !username || !password}
           >
-            {isLoading ? 'Đang đăng nhập...' : 'Đăng Nhập'}
+            {isLoading ? (
+              <>
+                <span className="ui-spinner" aria-hidden="true" />
+                Đang đăng nhập...
+              </>
+            ) : (
+              'Đăng Nhập'
+            )}
           </button>
         </form>
 

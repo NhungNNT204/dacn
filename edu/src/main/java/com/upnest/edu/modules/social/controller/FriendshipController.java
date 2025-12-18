@@ -4,6 +4,7 @@ import com.upnest.edu.modules.social.entity.Friendship;
 import com.upnest.edu.modules.social.repository.FriendshipRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,9 +21,12 @@ public class FriendshipController {
         this.friendshipRepository = friendshipRepository;
     }
 
-    // LƯU Ý: ĐỂ TEST DỄ DÀNG, TÔI SẼ DÙNG USER ID = 1L LÀ USER ĐANG ĐĂNG NHẬP (ADMIN)
-    private Long getCurrentUserId() {
-        return 1L; // Cần thay thế bằng logic lấy ID từ JWT Token sau này
+    private Long getCurrentUserId(Authentication authentication) {
+        if (authentication != null && authentication.getPrincipal() instanceof com.upnest.edu.modules.user.entity.User u) {
+            return u.getUserId();
+        }
+        // fallback for legacy testing
+        return 1L;
     }
 
     /**
@@ -30,8 +34,8 @@ public class FriendshipController {
      * Thực hiện theo dõi người dùng
      */
     @PostMapping("/follow/{targetId}")
-    public ResponseEntity<?> followUser(@PathVariable Long targetId) {
-        Long currentUserId = getCurrentUserId();
+    public ResponseEntity<?> followUser(@PathVariable Long targetId, Authentication authentication) {
+        Long currentUserId = getCurrentUserId(authentication);
         
         // Không cho phép tự theo dõi chính mình
         if (currentUserId.equals(targetId)) {
@@ -57,8 +61,8 @@ public class FriendshipController {
      * Hủy theo dõi người dùng
      */
     @DeleteMapping("/unfollow/{targetId}")
-    public ResponseEntity<?> unfollowUser(@PathVariable Long targetId) {
-        Long currentUserId = getCurrentUserId();
+    public ResponseEntity<?> unfollowUser(@PathVariable Long targetId, Authentication authentication) {
+        Long currentUserId = getCurrentUserId(authentication);
         
         Optional<Friendship> existing = friendshipRepository.findByFollowerIdAndFollowingId(currentUserId, targetId);
         
@@ -75,7 +79,7 @@ public class FriendshipController {
      * Lấy danh sách người mà user đang theo dõi
      */
     @GetMapping("/following")
-    public ResponseEntity<List<Friendship>> getFollowing() {
-        return ResponseEntity.ok(friendshipRepository.findByFollowerId(getCurrentUserId()));
+    public ResponseEntity<List<Friendship>> getFollowing(Authentication authentication) {
+        return ResponseEntity.ok(friendshipRepository.findByFollowerId(getCurrentUserId(authentication)));
     }
 }

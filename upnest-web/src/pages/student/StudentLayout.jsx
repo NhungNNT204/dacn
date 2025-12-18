@@ -1,14 +1,109 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { 
+  GraduationCap, 
+  Search, 
+  Rss, 
+  BookOpen, 
+  Library, 
+  Bell, 
+  MessageSquare,
+  ChevronDown,
+  User,
+  Award,
+  Settings,
+  LogOut,
+  LayoutGrid,
+  Users,
+  Trophy,
+  Flame,
+  ArrowRight,
+  UserPlus,
+  TrendingUp,
+  Coffee,
+  Palette,
+  Atom
+} from 'lucide-react';
 import './StudentLayout.css';
 import Feed from './Feed';
+import StudentMessaging from './StudentMessaging';
 
 /**
  * StudentLayout - Layout chính cho trang sinh viên (kiểu Facebook/Instagram)
  */
 export default function StudentLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [showMessaging, setShowMessaging] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [unreadNotifications, setUnreadNotifications] = useState(3);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
+  const searchInputRef = useRef(null);
+
+  useEffect(() => {
+    // Load user profile
+    const loadUser = async () => {
+      try {
+        const token = localStorage.getItem('accessToken');
+        if (token) {
+          const response = await fetch('http://localhost:8080/api/v1/users/profile', {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          if (response.ok) {
+            const data = await response.json();
+            if (data?.data) {
+              setUser(data.data);
+              return;
+            }
+          }
+        }
+      } catch (e) {
+        console.log('Backend unavailable, using mock');
+      }
+      // Mock user
+      setUser({
+        fullName: "Nguyễn Văn Huy",
+        level: 4,
+        avatarUrl: null
+      });
+    };
+    loadUser();
+
+    // Load unread notifications count
+    const loadUnreadCount = async () => {
+      try {
+        const { getUnreadCount } = await import('../../services/notificationService');
+        const count = await getUnreadCount();
+        setUnreadNotifications(count);
+      } catch (e) {
+        console.log('Error loading unread count:', e);
+      }
+    };
+    loadUnreadCount();
+
+    // Keyboard shortcut CTRL+K for search
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Close dropdown when clicking outside
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setUserDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
@@ -28,87 +123,391 @@ export default function StudentLayout({ children }) {
     { icon: '⚙️', label: 'Cài đặt', path: '/settings' },
   ];
 
+  const learningItems = [
+    { icon: LayoutGrid, label: 'Góc học tập', path: '/learning-corner' },
+    { icon: BookOpen, label: 'Khóa học của tôi', path: '/my-courses' },
+    { icon: Library, label: 'Thư viện số', path: '/library' },
+  ];
+
+  const communityItems = [
+    { icon: Users, label: 'Cộng đồng', path: '/community' },
+    { icon: MessageSquare, label: 'Tin nhắn', path: '/messages', badge: 3 },
+    { icon: Trophy, label: 'Thành tích', path: '/achievements' },
+  ];
+
+  const systemItems = [
+    { icon: Settings, label: 'Cài đặt', path: '/settings' },
+  ];
+
   return (
     <div className="student-layout">
-      {/* Header */}
-      <header className="header">
-        <div className="header-left">
+      {/* Global Navigation Bar */}
+      <header className="global-nav">
+        {/* Logo Section */}
+        <div className="nav-logo">
+          <div className="logo-icon">
+            <GraduationCap size={24} />
+          </div>
+          <div className="logo-text">
+            <h1 className="logo-title">UPNEST.EDU</h1>
+            <p className="logo-tagline">
+              <span className="tagline-part">CỘNG ĐỒNG HỌC TẬP</span>
+              <span className="tagline-dot">•</span>
+              <span className="tagline-social">SOCIAL NET</span>
+            </p>
+          </div>
+        </div>
+
+        {/* Search Bar */}
+        <div className="nav-search">
+          <div className="search-wrapper">
+            <Search size={18} className="search-icon" />
+            <input 
+              ref={searchInputRef}
+              type="text" 
+              placeholder="Tìm kiếm" 
+              className="search-input"
+            />
+            <div className="search-shortcut">
+              <kbd className="kbd-key">CTRL</kbd>
+              <kbd className="kbd-key">K</kbd>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Icons */}
+        <div className="nav-icons">
           <button 
-            className="toggle-sidebar"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="nav-icon-btn nav-feed"
+            onClick={() => navigate('/news-feed')}
+            title="Feed"
           >
-            ☰
+            <Rss size={20} />
           </button>
-          <h1 className="logo">UpNest</h1>
+          <button 
+            className="nav-icon-btn nav-classroom"
+            onClick={() => navigate('/classroom')}
+            title="Lớp học"
+          >
+            <BookOpen size={20} />
+          </button>
+          <button 
+            className="nav-icon-btn nav-library"
+            onClick={() => navigate('/library')}
+            title="Thư viện"
+          >
+            <Library size={20} />
+          </button>
+          <button 
+            className="nav-icon-btn nav-notifications"
+            onClick={() => navigate('/notifications')}
+            title="Thông báo"
+          >
+            <Bell size={20} />
+            {unreadNotifications > 0 && (
+              <span className="notification-badge">{unreadNotifications}</span>
+            )}
+          </button>
+          <button 
+            className="nav-icon-btn nav-chat"
+            onClick={() => setShowMessaging(!showMessaging)}
+            title="Chat"
+          >
+            <MessageSquare size={20} />
+          </button>
         </div>
-        <div className="header-search">
-          <input type="text" placeholder="🔍 Tìm kiếm..." className="search-input" />
-        </div>
-        <div className="header-right">
-          <button className="icon-btn">🔔</button>
-          <button className="icon-btn">💬</button>
-          <button className="logout-btn" onClick={handleLogout}>Đăng Xuất</button>
+
+        {/* User Profile Dropdown */}
+        <div className="nav-user" ref={dropdownRef}>
+          <button 
+            className="user-profile-btn"
+            onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+          >
+            <div className="user-avatar">
+              {user?.fullName?.charAt(0) || 'N'}
+            </div>
+            <div className="user-info">
+              <span className="user-name">{user?.fullName || 'Nguyễn Văn Huy'}</span>
+              <span className="user-level">LVL {user?.level || 4}</span>
+            </div>
+            <ChevronDown size={16} className={`dropdown-chevron ${userDropdownOpen ? 'open' : ''}`} />
+          </button>
+          
+          {userDropdownOpen && (
+            <div className="user-dropdown">
+              <a href="/profile" className="dropdown-item" onClick={(e) => { e.preventDefault(); navigate('/profile'); setUserDropdownOpen(false); }}>
+                <User size={18} />
+                <span>Hồ sơ cá nhân</span>
+              </a>
+              <a href="/certificates" className="dropdown-item" onClick={(e) => { e.preventDefault(); navigate('/certificates'); setUserDropdownOpen(false); }}>
+                <Award size={18} />
+                <span>Chứng chỉ đạt được</span>
+              </a>
+              <a href="/settings" className="dropdown-item" onClick={(e) => { e.preventDefault(); navigate('/settings'); setUserDropdownOpen(false); }}>
+                <Settings size={18} />
+                <span>Cài đặt</span>
+              </a>
+              <div className="dropdown-divider"></div>
+              <button className="dropdown-item logout-item" onClick={handleLogout}>
+                <LogOut size={18} />
+                <span>Đăng xuất</span>
+              </button>
+            </div>
+          )}
         </div>
       </header>
 
       <div className="main-container">
         {/* Sidebar */}
         <aside className={`sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
-          <nav className="nav-menu">
-            {navItems.map((item, idx) => (
-              <a 
-                key={idx}
-                href="#"
-                className="nav-item"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(item.path);
-                }}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                <span className="nav-label">{item.label}</span>
-              </a>
-            ))}
-          </nav>
+          {/* HỌC TẬP Section */}
+          <div className="sidebar-section">
+            <h3 className="sidebar-section-title">HỌC TẬP</h3>
+            <nav className="nav-menu">
+              {learningItems.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <a 
+                    key={idx}
+                    href="#"
+                    className="nav-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(item.path);
+                    }}
+                  >
+                    <IconComponent size={20} className="nav-icon" />
+                    <span className="nav-label">{item.label}</span>
+                  </a>
+                );
+              })}
+            </nav>
+          </div>
 
-          <div className="sidebar-footer">
-            <p className="footer-text">© 2025 UpNest Education</p>
+          {/* CỘNG ĐỒNG Section */}
+          <div className="sidebar-section">
+            <h3 className="sidebar-section-title">CỘNG ĐỒNG</h3>
+            <nav className="nav-menu">
+              {communityItems.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <a 
+                    key={idx}
+                    href="#"
+                    className="nav-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(item.path);
+                    }}
+                  >
+                    <IconComponent size={20} className="nav-icon" />
+                    <span className="nav-label">{item.label}</span>
+                    {item.badge && (
+                      <span className="nav-badge">{item.badge}</span>
+                    )}
+                  </a>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* HỆ THỐNG Section */}
+          <div className="sidebar-section">
+            <h3 className="sidebar-section-title">HỆ THỐNG</h3>
+            <nav className="nav-menu">
+              {systemItems.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <a 
+                    key={idx}
+                    href="#"
+                    className="nav-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(item.path);
+                    }}
+                  >
+                    <IconComponent size={20} className="nav-icon" />
+                    <span className="nav-label">{item.label}</span>
+                  </a>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Streak Card */}
+          <div className="sidebar-streak-card">
+            <div className="streak-content">
+              <Flame size={24} className="streak-icon" />
+              <div className="streak-text">
+                <span className="streak-days">12 NGÀY HỌC</span>
+              </div>
+            </div>
+            <button 
+              className="streak-button"
+              onClick={() => navigate('/leaderboard')}
+            >
+              BẢNG XẾP HẠNG
+            </button>
+            <div className="streak-stars">
+              <span className="star">★</span>
+              <span className="star">★</span>
+              <span className="star">★</span>
+            </div>
+          </div>
+
+          {/* User Profile Card */}
+          <div className="sidebar-user-card">
+            <div className="user-card-avatar">
+              {user?.fullName?.charAt(0) || 'U'}
+            </div>
+            <div className="user-card-info">
+              <span className="user-card-role">Học viên</span>
+              <span className="user-card-level">CẤP ĐỘ {user?.level || 4}</span>
+            </div>
+            <button 
+              className="user-card-action"
+              onClick={() => navigate('/profile')}
+            >
+              <ArrowRight size={18} />
+            </button>
           </div>
         </aside>
 
         {/* Main Content */}
-        <main className="content-area">
-          {children || <Feed />}
-        </main>
+        {showMessaging ? (
+          <StudentMessaging onClose={() => setShowMessaging(false)} />
+        ) : (
+          <main className="content-area">
+            {children || <Feed />}
+          </main>
+        )}
 
-        {/* Right Sidebar (Suggestions/Widget) */}
+        {/* Right Sidebar - Enhanced Design */}
         <aside className="right-sidebar">
-          <div className="widget trending">
-            <h3>🔥 Xu hướng</h3>
-            <div className="trending-item">
-              <p className="trend-title">#ReactJS</p>
-              <p className="trend-count">1.2K bài viết</p>
-            </div>
-            <div className="trending-item">
-              <p className="trend-title">#WebDevelopment</p>
-              <p className="trend-count">856 bài viết</p>
-            </div>
-            <div className="trending-item">
-              <p className="trend-title">#Python</p>
-              <p className="trend-count">2.3K bài viết</p>
+          {/* 🔥 Xu hướng học thuật */}
+          <div className="widget-trending">
+            <h3 className="widget-title">🔥 Xu hướng học thuật</h3>
+            <div className="trending-list">
+              <div className="trending-card trending-blue">
+                <div className="trending-header">
+                  <Atom size={20} className="trending-icon" />
+                  <span className="trending-tag">#ReactJS</span>
+                </div>
+                <div className="trending-stats">
+                  <span className="trending-count">1.2K</span>
+                  <span className="trending-label">bài viết</span>
+                </div>
+              </div>
+              <div className="trending-card trending-orange">
+                <div className="trending-header">
+                  <Coffee size={20} className="trending-icon" />
+                  <span className="trending-tag">#Java</span>
+                </div>
+                <div className="trending-stats">
+                  <span className="trending-count">856</span>
+                  <span className="trending-label">bài viết</span>
+                </div>
+              </div>
+              <div className="trending-card trending-pink">
+                <div className="trending-header">
+                  <Palette size={20} className="trending-icon" />
+                  <span className="trending-tag">#UI/UX</span>
+                </div>
+                <div className="trending-stats">
+                  <span className="trending-count">2.3K</span>
+                  <span className="trending-label">bài viết</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="widget suggestions">
-            <h3>👥 Gợi ý bạn bè</h3>
-            <div className="suggestion-item">
-              <p>Nguyễn Văn A</p>
-              <button className="btn-small btn-primary">Theo dõi</button>
+          {/* 🤝 Gợi ý kết nối */}
+          <div className="widget-suggestions">
+            <h3 className="widget-title">🤝 Gợi ý kết nối</h3>
+            <div className="suggestions-list">
+              <div className="suggestion-card">
+                <div className="suggestion-avatar">NA</div>
+                <div className="suggestion-info">
+                  <span className="suggestion-name">Nguyễn Văn A</span>
+                  <span className="suggestion-badge badge-expert">Expert</span>
+                </div>
+                <button className="suggestion-btn">
+                  <UserPlus size={16} />
+                  Kết bạn
+                </button>
+              </div>
+              <div className="suggestion-card">
+                <div className="suggestion-avatar">TB</div>
+                <div className="suggestion-info">
+                  <span className="suggestion-name">Trần Thị B</span>
+                  <span className="suggestion-badge badge-mentor">Mentor</span>
+                </div>
+                <button className="suggestion-btn">
+                  <UserPlus size={16} />
+                  Kết bạn
+                </button>
+              </div>
+              <div className="suggestion-card">
+                <div className="suggestion-avatar">LC</div>
+                <div className="suggestion-info">
+                  <span className="suggestion-name">Lê Văn C</span>
+                  <span className="suggestion-badge badge-student">Student</span>
+                </div>
+                <button className="suggestion-btn">
+                  <UserPlus size={16} />
+                  Kết bạn
+                </button>
+              </div>
             </div>
-            <div className="suggestion-item">
-              <p>Trần Thị B</p>
-              <button className="btn-small btn-primary">Theo dõi</button>
+          </div>
+
+          {/* 🏆 Bảng vàng tri thức */}
+          <div className="widget-leaderboard">
+            <div className="leaderboard-header">
+              <Trophy size={24} className="leaderboard-icon" />
+              <h3 className="leaderboard-title">Bảng vàng tri thức</h3>
             </div>
+            <div className="leaderboard-list">
+              <div className="leaderboard-item leaderboard-top">
+                <div className="leaderboard-rank">1</div>
+                <div className="leaderboard-avatar">NV</div>
+                <div className="leaderboard-info">
+                  <span className="leaderboard-name">Nguyễn Văn</span>
+                  <span className="leaderboard-score">2,450 XP</span>
+                </div>
+              </div>
+              <div className="leaderboard-item leaderboard-top">
+                <div className="leaderboard-rank">2</div>
+                <div className="leaderboard-avatar">TT</div>
+                <div className="leaderboard-info">
+                  <span className="leaderboard-name">Trần Thị</span>
+                  <span className="leaderboard-score">2,120 XP</span>
+                </div>
+              </div>
+              <div className="leaderboard-item leaderboard-current">
+                <div className="leaderboard-rank">3</div>
+                <div className="leaderboard-avatar current-user">{user?.fullName?.charAt(0) || 'U'}</div>
+                <div className="leaderboard-info">
+                  <span className="leaderboard-name">Bạn</span>
+                  <span className="leaderboard-score">1,450 XP</span>
+                </div>
+              </div>
+              <div className="leaderboard-item">
+                <div className="leaderboard-rank">4</div>
+                <div className="leaderboard-avatar">LV</div>
+                <div className="leaderboard-info">
+                  <span className="leaderboard-name">Lê Văn</span>
+                  <span className="leaderboard-score">1,200 XP</span>
+                </div>
+              </div>
+            </div>
+            <button 
+              className="leaderboard-button"
+              onClick={() => navigate('/leaderboard')}
+            >
+              Xem toàn bộ
+            </button>
           </div>
         </aside>
       </div>

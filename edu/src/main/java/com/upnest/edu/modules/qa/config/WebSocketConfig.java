@@ -5,6 +5,7 @@ import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.lang.NonNull;
 
 /**
  * Configuration: WebSocketConfig
@@ -26,7 +27,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      * - /user: Dùng cho peering (user-specific)
      */
     @Override
-    public void configureMessageBroker(MessageBrokerRegistry config) {
+    public void configureMessageBroker(@NonNull MessageBrokerRegistry config) {
         // Bật simple message broker cho /topic và /queue
         config.enableSimpleBroker("/topic", "/queue", "/user");
         
@@ -42,7 +43,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      * Client sẽ connect tới http://localhost:8080/ws-qa
      */
     @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
+    public void registerStompEndpoints(@NonNull StompEndpointRegistry registry) {
         // Endpoint cho WebSocket
         registry.addEndpoint("/ws-qa")
                 .setAllowedOrigins("*")  // CORS: cho phép tất cả origin (để production thay đổi)

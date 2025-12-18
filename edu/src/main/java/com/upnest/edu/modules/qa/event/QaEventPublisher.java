@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @Slf4j
 @Component
 @lombok.RequiredArgsConstructor
+@SuppressWarnings("null")
 public class QaEventPublisher {
     
     private final SimpMessagingTemplate messagingTemplate;

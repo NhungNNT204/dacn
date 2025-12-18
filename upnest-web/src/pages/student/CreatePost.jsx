@@ -33,8 +33,8 @@ export default function CreatePost({ onPostCreated }) {
   const emojis = ['😀', '😂', '❤️', '👍', '🔥', '😍', '🎉', '💯', '📚', '💡', '✨', '🚀'];
 
   const handleFileUpload = (e) => {
-    const files = Array.from(e.target.files);
-    setAttachedFiles([...attachedFiles, ...files]);
+    const files = Array.from(e.target.files || []);
+    setAttachedFiles((prev) => [...prev, ...files]);
   };
 
   const removeFile = (index) => {
@@ -43,6 +43,16 @@ export default function CreatePost({ onPostCreated }) {
 
   const handlePost = () => {
     if (content.trim()) {
+      const images = attachedFiles
+        .filter((f) => (f.type || '').startsWith('image/'))
+        .map((f) => ({ kind: 'image', name: f.name, url: URL.createObjectURL(f), type: f.type, size: f.size }));
+      const videos = attachedFiles
+        .filter((f) => (f.type || '').startsWith('video/'))
+        .map((f) => ({ kind: 'video', name: f.name, url: URL.createObjectURL(f), type: f.type, size: f.size }));
+      const docs = attachedFiles
+        .filter((f) => !(f.type || '').startsWith('image/') && !(f.type || '').startsWith('video/'))
+        .map((f) => ({ kind: 'doc', name: f.name, url: URL.createObjectURL(f), type: f.type, size: f.size }));
+
       const newPost = {
         id: Date.now(),
         author: {
@@ -54,7 +64,11 @@ export default function CreatePost({ onPostCreated }) {
         },
         type: postType,
         content: content,
-        image: null,
+        // HomeFeed/FeedPostCard expect these optional fields:
+        imageUrl: images[0]?.url || null,
+        videoUrl: videos[0]?.url || null,
+        // Keep all attachments for rendering/download
+        attachments: [...images, ...videos, ...docs],
         likes: 0,
         comments: 0,
         shares: 0,
@@ -212,12 +226,12 @@ export default function CreatePost({ onPostCreated }) {
             {/* Action Buttons */}
             <div className="create-post-actions">
               <div className="action-tools">
-                <label className="tool-button" title="Thêm hình ảnh">
+                <label className="tool-button" title="Thêm ảnh/video/tài liệu">
                   <Image size={20} />
                   <input
                     type="file"
                     multiple
-                    accept="image/*"
+                    accept="image/*,video/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.zip"
                     onChange={handleFileUpload}
                     style={{ display: 'none' }}
                   />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css';
+import mockUserService from '../../services/mockUserService';
 
 /**
  * Component: ProfileView
@@ -20,21 +21,38 @@ export default function ProfileView() {
     setError('');
 
     try {
-      const token = localStorage.getItem('accessToken');
-      const response = await fetch('http://localhost:8080/api/v1/users/profile', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      // Try to fetch from backend, fallback to mock service
+      try {
+        const token = localStorage.getItem('accessToken');
+        const response = await fetch('http://localhost:8080/api/v1/users/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-      if (!response.ok) {
-        throw new Error('Không thể tải hồ sơ');
+        if (!response.ok) {
+          throw new Error('Backend not available');
+        }
+
+        const data = await response.json();
+        if (data && data.data) {
+          setProfile(data.data);
+          return;
+        }
+        throw new Error('Invalid response');
+      } catch (backendError) {
+        console.log('Backend unavailable, using mock service');
+        // Fallback to mock service
+        const result = await mockUserService.getProfile();
+        if (result.success && result.data) {
+          setProfile(result.data);
+        } else {
+          throw new Error('Failed to load profile');
+        }
       }
-
-      const data = await response.json();
-      setProfile(data);
     } catch (err) {
-      setError(err.message);
+      console.error('Profile fetch error:', err);
+      setError(err.message || 'Không thể tải hồ sơ');
     } finally {
       setIsLoading(false);
     }

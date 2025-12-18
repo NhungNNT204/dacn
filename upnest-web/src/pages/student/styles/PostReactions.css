@@ -1,0 +1,145 @@
+/* PostReactions.css */
+.post-reactions {
+  position: relative;
+  flex: 1;
+}
+
+.reaction-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 13px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.reaction-btn:hover:not(:disabled) {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.reaction-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reaction-btn.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.reaction-emoji {
+  font-size: 18px;
+}
+
+.reaction-label {
+  text-transform: capitalize;
+}
+
+/* Reaction Picker */
+.reaction-picker {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  margin-bottom: 8px;
+  min-width: 300px;
+}
+
+.reaction-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.reaction-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px;
+  border: 2px solid transparent;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reaction-option:hover:not(:disabled) {
+  background: #f0f0f0;
+  border-color: #ddd;
+}
+
+.reaction-option.active {
+  background: #e3f2fd;
+  border-color: #1976d2;
+}
+
+.reaction-option.active .emoji {
+  transform: scale(1.2);
+}
+
+.reaction-option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reaction-option .emoji {
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.reaction-option .type {
+  font-size: 10px;
+  color: #666;
+  text-transform: capitalize;
+}
+
+.reaction-remove {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.reaction-remove:hover:not(:disabled) {
+  background: #efefef;
+  color: #333;
+}
+
+.reaction-remove:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .reaction-picker {
+    min-width: 240px;
+    left: auto;
+    right: 0;
+  }
+
+  .reaction-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

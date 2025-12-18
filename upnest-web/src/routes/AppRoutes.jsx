@@ -13,6 +13,7 @@ import BlogSection from '../pages/student/BlogSection';
 import CreatePost from '../pages/student/CreatePost';
 import StudentLayout from '../pages/student/StudentLayout';
 import ClassroomView from '../pages/classroom/ClassroomView';
+import ConnectionsPage from '../pages/student/ConnectionsPage';
 
 /**
  * AppRoutes - Tất cả routes của app
@@ -78,6 +79,16 @@ export default function AppRoutes() {
               <ProtectedRoute>
                 <StudentLayout>
                   <ClassroomView />
+                </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/friends"
+            element={
+              <ProtectedRoute>
+                <StudentLayout>
+                  <ConnectionsPage />
                 </StudentLayout>
               </ProtectedRoute>
             }

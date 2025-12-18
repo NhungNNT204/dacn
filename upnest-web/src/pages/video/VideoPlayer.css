@@ -1,0 +1,487 @@
+/* ==================== PLAYER CONTAINER ==================== */
+
+.video-player-container {
+  position: relative;
+  width: 100%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-player-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  aspect-ratio: auto;
+  z-index: 9999;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+/* ==================== PLAYER OVERLAY ==================== */
+
+.player-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    transparent,
+    rgba(0, 0, 0, 0.8)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.player-overlay:not(.visible) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ==================== CENTER PLAY BUTTON ==================== */
+
+.play-button-center {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+.play-button-center:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.play-button-center svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 4px;
+}
+
+/* ==================== PLAYER CONTROLS ==================== */
+
+.player-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 24px 16px 16px;
+  z-index: 15;
+}
+
+/* ==================== PROGRESS BAR ==================== */
+
+.progress-bar-container {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: height 0.2s;
+  overflow: visible;
+}
+
+.progress-bar-container:hover {
+  height: 6px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-50%);
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.progress-bar:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border: none;
+}
+
+.progress-bar:hover::-moz-range-thumb {
+  opacity: 1;
+}
+
+.progress-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #f41e3d;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ==================== CONTROL BUTTONS ==================== */
+
+.controls-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.controls-left,
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.controls-right {
+  justify-content: flex-end;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.control-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==================== VOLUME CONTROL ==================== */
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.volume-slider {
+  width: 0;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border-radius: 2px;
+  transition: width 0.2s;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none;
+}
+
+.volume-control:hover .volume-slider {
+  width: 60px;
+}
+
+/* ==================== TIME DISPLAY ==================== */
+
+.time-display {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-left: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==================== PLAYBACK SPEED ==================== */
+
+.playback-speed {
+  position: relative;
+}
+
+.speed-menu {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: rgba(28, 28, 28, 0.95);
+  border-radius: 4px;
+  display: none;
+  flex-direction: column;
+  min-width: 60px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 30;
+  overflow: hidden;
+}
+
+.playback-speed:hover .speed-menu {
+  display: flex;
+}
+
+.speed-option {
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.speed-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.speed-option.active {
+  background: rgba(244, 30, 61, 0.8);
+  font-weight: 600;
+}
+
+/* ==================== VIDEO INFO OVERLAY ==================== */
+
+.video-info-overlay {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  color: white;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.player-overlay.visible ~ .video-info-overlay {
+  opacity: 1;
+}
+
+.overlay-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+  max-width: 400px;
+}
+
+.overlay-creator {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .video-player-container {
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+    margin-bottom: 12px;
+  }
+
+  .play-button-center {
+    width: 60px;
+    height: 60px;
+  }
+
+  .play-button-center svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .player-controls {
+    padding: 16px 12px 12px;
+  }
+
+  .control-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .time-display {
+    font-size: 11px;
+    margin-left: 4px;
+  }
+
+  .overlay-title {
+    font-size: 14px;
+    max-width: 300px;
+  }
+
+  .overlay-creator {
+    font-size: 12px;
+  }
+
+  .volume-control:hover .volume-slider {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-player-container {
+    border-radius: 0;
+  }
+
+  .play-button-center {
+    width: 50px;
+    height: 50px;
+  }
+
+  .play-button-center svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .player-controls {
+    padding: 12px 8px 8px;
+  }
+
+  .controls-left,
+  .controls-right {
+    gap: 4px;
+  }
+
+  .control-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .control-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .time-display {
+    display: none;
+  }
+
+  .overlay-title {
+    font-size: 12px;
+    max-width: 200px;
+  }
+
+  .speed-menu {
+    right: auto;
+    left: 0;
+  }
+}
+
+/* ==================== FULLSCREEN STYLES ==================== */
+
+.video-player-container.fullscreen {
+  border-radius: 0;
+}
+
+.video-player-container.fullscreen .player-overlay {
+  border-radius: 0;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes controlsFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.player-overlay.visible {
+  animation: controlsFadeIn 0.2s ease-out;
+}

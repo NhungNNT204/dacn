@@ -49,10 +49,25 @@ public class JwtService {
     }
 
     /**
+     * Generate access token (username/email string)
+     * Useful for modules that don't expose Spring Security UserDetails.
+     */
+    public String generateAccessToken(String username) {
+        return generateToken(username, accessTokenExpiration);
+    }
+
+    /**
      * Generate refresh token
      */
     public String generateRefreshToken(UserDetails userDetails) {
         return generateToken(userDetails.getUsername(), refreshTokenExpiration);
+    }
+
+    /**
+     * Generate refresh token (username/email string)
+     */
+    public String generateRefreshToken(String username) {
+        return generateToken(username, refreshTokenExpiration);
     }
 
     /**

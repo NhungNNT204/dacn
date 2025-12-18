@@ -1,0 +1,227 @@
+/* HomeFeed.css */
+.home-feed {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--page);
+}
+
+.feed-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    border-bottom: 1px solid var(--divider);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+}
+
+.feed-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.feed-header-content h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.search-bar svg {
+    color: var(--muted);
+}
+
+.feed-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.feed-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+}
+
+.feed-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--muted);
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    background: var(--surface2);
+    color: var(--text);
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-500) 100%);
+    color: var(--text-inverted);
+    font-weight: 600;
+}
+
+.feed-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feed-loading,
+.feed-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: var(--surface);
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+}
+
+.feed-loading p,
+.feed-empty p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid color-mix(in srgb, var(--border) 65%, transparent);
+    border-top: 4px solid var(--brand-600);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.observer-target {
+    padding: 2rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+.feed-right-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+}
+
+.suggested-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.suggested-content p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .feed-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feed-sidebar,
+    .feed-right-sidebar {
+        position: relative;
+        top: auto !important;
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .feed-header-content {
+        padding: 1rem;
+    }
+    
+    .feed-header-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .feed-container {
+        padding: 1rem;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .feed-header-content {
+        padding: 0.75rem;
+    }
+    
+    .feed-header-content h1 {
+        font-size: 1.25rem;
+    }
+    
+    .feed-container {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+}

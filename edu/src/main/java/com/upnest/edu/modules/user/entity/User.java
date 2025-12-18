@@ -94,12 +94,14 @@ public class User implements UserDetails {
     /**
      * Thời gian tạo tài khoản
      */
+    @Builder.Default
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
     
     /**
      * Thời gian cập nhật
      */
+    @Builder.Default
     @Column(name = "updated_at")
     private LocalDateTime updatedAt = LocalDateTime.now();
     

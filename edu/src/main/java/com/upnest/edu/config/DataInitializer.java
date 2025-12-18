@@ -7,15 +7,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.upnest.edu.modules.user.entity.PrivacyLevel;
-import com.upnest.edu.modules.user.entity.PrivacySettings;
-import com.upnest.edu.modules.user.entity.User;
-import com.upnest.edu.modules.user.entity.UserProfile;
-import com.upnest.edu.modules.user.entity.UserRole;
-import com.upnest.edu.modules.user.entity.UserStatus;
-import com.upnest.edu.modules.user.repository.PrivacySettingsRepository;
-import com.upnest.edu.modules.user.repository.UserProfileRepository;
-import com.upnest.edu.modules.user.repository.UserRepository;
+import com.upnest.edu.modules.auth.entity.User;
+import com.upnest.edu.modules.auth.entity.Role;
+import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.social.entity.PrivacySettings;
+import com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility;
+import com.upnest.edu.modules.social.entity.UserProfile;
+import com.upnest.edu.modules.social.repository.PrivacySettingsRepository;
+import com.upnest.edu.modules.social.repository.UserProfileRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -49,11 +48,10 @@ public class DataInitializer {
                     .password(passwordEncoder.encode("password123"))
                     .fullName("Nguyễn Văn A (Student)")
                     .phone("0901234567")
-                    .role(UserRole.STUDENT)
-                    .status(UserStatus.ACTIVE)
-                    .isEmailVerified(true)
+                    .role(Role.STUDENT)
+                    .isActive(true)
+                    .isVerified(true)
                     .twoFactorEnabled(false)
-                    .avatarUrl("https://api.example.com/avatars/student.jpg")
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -61,9 +59,12 @@ public class DataInitializer {
 
             // Tạo UserProfile cho student
             UserProfile studentProfile = UserProfile.builder()
-                    .user(savedStudent)
+                    .userId(savedStudent.getId())
+                    .firstName("Nguyễn")
+                    .lastName("A")
                     .bio("Sinh viên khoa Công Nghệ Thông Tin")
-                    .institution("Đại học FPT")
+                    .phone("0901234567")
+                    .email("student@upnest.edu")
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -71,19 +72,8 @@ public class DataInitializer {
 
             // Tạo PrivacySettings cho student
             PrivacySettings studentPrivacy = PrivacySettings.builder()
-                    .user(savedStudent)
-                    .profileVisibility(PrivacyLevel.PUBLIC)
-                    .showEmail(true)
-                    .showPhone(false)
-                    .showAcademicInfo(true)
-                    .allowContactFrom(PrivacyLevel.ANYONE)
-                    .showActivity(PrivacyLevel.FRIENDS_ONLY)
-                    .showFriendsList(true)
-                    .searchableByEmail(true)
-                    .searchableByUsername(true)
-                    .receiveEmailNotifications(true)
-                    .notificationFrom(PrivacyLevel.ANYONE)
-                    .allowFriendRequestFrom(PrivacyLevel.ANYONE)
+                    .userId(savedStudent.getId())
+                    .postVisibility(PostVisibility.PUBLIC)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -98,11 +88,10 @@ public class DataInitializer {
                     .password(passwordEncoder.encode("password123"))
                     .fullName("Trần Thị B (Teacher)")
                     .phone("0912345678")
-                    .role(UserRole.TEACHER)
-                    .status(UserStatus.ACTIVE)
-                    .isEmailVerified(true)
+                    .role(Role.TEACHER)
+                    .isActive(true)
+                    .isVerified(true)
                     .twoFactorEnabled(false)
-                    .avatarUrl("https://api.example.com/avatars/teacher.jpg")
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -110,9 +99,12 @@ public class DataInitializer {
 
             // Tạo UserProfile cho teacher
             UserProfile teacherProfile = UserProfile.builder()
-                    .user(savedTeacher)
+                    .userId(savedTeacher.getId())
+                    .firstName("Trần")
+                    .lastName("B")
                     .bio("Giảng viên Công Nghệ Phần Mềm")
-                    .institution("Đại học FPT")
+                    .phone("0912345678")
+                    .email("teacher@upnest.edu")
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -120,19 +112,8 @@ public class DataInitializer {
 
             // Tạo PrivacySettings cho teacher
             PrivacySettings teacherPrivacy = PrivacySettings.builder()
-                    .user(savedTeacher)
-                    .profileVisibility(PrivacyLevel.PUBLIC)
-                    .showEmail(true)
-                    .showPhone(false)
-                    .showAcademicInfo(true)
-                    .allowContactFrom(PrivacyLevel.ANYONE)
-                    .showActivity(PrivacyLevel.PUBLIC)
-                    .showFriendsList(true)
-                    .searchableByEmail(true)
-                    .searchableByUsername(true)
-                    .receiveEmailNotifications(true)
-                    .notificationFrom(PrivacyLevel.ANYONE)
-                    .allowFriendRequestFrom(PrivacyLevel.ANYONE)
+                    .userId(savedTeacher.getId())
+                    .postVisibility(PostVisibility.PUBLIC)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -147,11 +128,10 @@ public class DataInitializer {
                     .password(passwordEncoder.encode("admin123"))
                     .fullName("Lê Hoàng C (Admin)")
                     .phone("0923456789")
-                    .role(UserRole.ADMIN)
-                    .status(UserStatus.ACTIVE)
-                    .isEmailVerified(true)
+                    .role(Role.ADMIN)
+                    .isActive(true)
+                    .isVerified(true)
                     .twoFactorEnabled(false)
-                    .avatarUrl("https://api.example.com/avatars/admin.jpg")
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -159,9 +139,12 @@ public class DataInitializer {
 
             // Tạo UserProfile cho admin
             UserProfile adminProfile = UserProfile.builder()
-                    .user(savedAdmin)
+                    .userId(savedAdmin.getId())
+                    .firstName("Lê")
+                    .lastName("C")
                     .bio("Quản trị viên hệ thống")
-                    .institution("UpNest Education")
+                    .phone("0923456789")
+                    .email("admin@upnest.edu")
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -169,19 +152,8 @@ public class DataInitializer {
 
             // Tạo PrivacySettings cho admin
             PrivacySettings adminPrivacy = PrivacySettings.builder()
-                    .user(savedAdmin)
-                    .profileVisibility(PrivacyLevel.PUBLIC)
-                    .showEmail(true)
-                    .showPhone(false)
-                    .showAcademicInfo(true)
-                    .allowContactFrom(PrivacyLevel.ANYONE)
-                    .showActivity(PrivacyLevel.PUBLIC)
-                    .showFriendsList(true)
-                    .searchableByEmail(true)
-                    .searchableByUsername(true)
-                    .receiveEmailNotifications(true)
-                    .notificationFrom(PrivacyLevel.ANYONE)
-                    .allowFriendRequestFrom(PrivacyLevel.ANYONE)
+                    .userId(savedAdmin.getId())
+                    .postVisibility(PostVisibility.PUBLIC)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();

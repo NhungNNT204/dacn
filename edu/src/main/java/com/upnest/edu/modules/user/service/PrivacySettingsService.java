@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 @Service
 @Transactional
 @lombok.RequiredArgsConstructor
+@SuppressWarnings("null")
 public class PrivacySettingsService {
     
     private final UserRepository userRepository;

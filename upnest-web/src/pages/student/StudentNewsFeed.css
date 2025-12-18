@@ -3,7 +3,7 @@
   grid-template-columns: 280px 1fr 320px;
   gap: 20px;
   padding: 20px;
-  background: #f0f2f5;
+  background: transparent;
   min-height: calc(100vh - 100px);
   width: 100%;
   overflow-x: hidden;
@@ -19,21 +19,23 @@
 }
 
 .sidebar-card {
-  background: white;
+  background: color-mix(in srgb, var(--surface) 92%, var(--brand-50));
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
   transition: all 0.3s ease;
 }
 
 .sidebar-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
 }
 
 .sidebar-card h4 {
   font-size: 14px;
   font-weight: 700;
-  color: #333;
+  color: var(--text);
   margin: 0 0 12px 0;
 }
 
@@ -41,7 +43,7 @@
 .user-cover {
   width: 100%;
   height: 80px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--brand-500) 0%, #7dd3fc 120%);
   border-radius: 8px;
   margin: -16px -16px 0 -16px;
 }
@@ -55,7 +57,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
   color: white;
   font-size: 32px;
   font-weight: 700;
@@ -63,30 +65,30 @@
   align-items: center;
   justify-content: center;
   margin: -40px auto 8px;
-  border: 3px solid white;
+  border: 3px solid rgba(255,255,255,.9);
 }
 
 .user-info h3 {
   font-size: 16px;
   font-weight: 700;
-  color: #333;
+  color: var(--text);
   margin: 0 0 4px 0;
 }
 
 .user-class {
   font-size: 12px;
-  color: #999;
+  color: var(--muted);
   margin: 0 0 8px 0;
 }
 
 .user-stats {
   font-size: 13px;
-  color: #666;
+  color: var(--muted);
   margin: 0;
 }
 
 .user-stats strong {
-  color: #0084ff;
+  color: var(--brand-700);
   font-weight: 700;
 }
 
@@ -103,22 +105,22 @@
   gap: 10px;
   padding: 10px;
   border-radius: 6px;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 78%, var(--brand-50));
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 13px;
-  color: #333;
+  color: var(--text);
 }
 
 .class-item:hover {
-  background: #e4e6eb;
+  background: color-mix(in srgb, var(--surface2) 55%, var(--brand-100));
 }
 
 .class-badge {
   width: 32px;
   height: 32px;
   border-radius: 6px;
-  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -141,13 +143,13 @@
   align-items: center;
   padding: 10px;
   border-radius: 6px;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 78%, var(--brand-50));
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .trending-item:hover {
-  background: #e4e6eb;
+  background: color-mix(in srgb, var(--surface2) 55%, var(--brand-100));
 }
 
 .trending-icon {
@@ -163,13 +165,13 @@
 .trending-title {
   font-size: 13px;
   font-weight: 600;
-  color: #333;
+  color: var(--text);
   margin: 0;
 }
 
 .trending-count {
   font-size: 12px;
-  color: #999;
+  color: var(--muted);
   margin: 2px 0 0 0;
 }
 
@@ -184,10 +186,11 @@
 .feed-filters {
   display: flex;
   gap: 10px;
-  background: white;
+  background: color-mix(in srgb, var(--surface) 92%, var(--brand-50));
   padding: 12px 16px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
   overflow-x: auto;
   flex-wrap: wrap;
 }
@@ -195,23 +198,23 @@
 .filter-tab {
   padding: 8px 16px;
   border: none;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 78%, var(--brand-50));
   border-radius: 20px;
   font-size: 13px;
   font-weight: 600;
-  color: #666;
+  color: rgba(15,23,42,.70);
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .filter-tab:hover {
-  background: #e4e6eb;
+  background: color-mix(in srgb, var(--surface2) 55%, var(--brand-100));
 }
 
 .filter-tab.active {
-  background: #0084ff;
-  color: white;
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+  color: #fff;
 }
 
 /* Posts Container */
@@ -222,15 +225,17 @@
 }
 
 .post-card {
-  background: white;
+  background: color-mix(in srgb, var(--surface) 92%, var(--brand-50));
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .post-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
 }
 
 /* Post Header */
@@ -239,7 +244,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid #f0f2f5;
+  border-bottom: 1px solid var(--divider);
 }
 
 .post-author {
@@ -262,15 +267,15 @@
 }
 
 .post-avatar.student {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
 }
 
 .post-avatar.mentor {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #7dd3fc 0%, #34d399 100%);
 }
 
 .post-avatar.teacher {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(135deg, #93c5fd 0%, #34d399 100%);
 }
 
 .post-author-info {
@@ -280,7 +285,7 @@
 .post-author-name {
   font-size: 14px;
   font-weight: 700;
-  color: #333;
+  color: var(--text);
   margin-bottom: 2px;
   display: flex;
   align-items: center;
@@ -288,38 +293,38 @@
 }
 
 .verified-badge {
-  color: #0084ff;
+  color: var(--brand-600);
   font-size: 12px;
 }
 
 .post-meta {
   font-size: 12px;
-  color: #999;
+  color: var(--muted);
   display: flex;
   gap: 4px;
 }
 
 .post-role {
-  background: #e4e6eb;
+  background: color-mix(in srgb, var(--surface2) 70%, var(--brand-100));
   padding: 2px 6px;
   border-radius: 3px;
   font-weight: 600;
-  color: #666;
+  color: rgba(15,23,42,.70);
 }
 
 .post-options {
   background: none;
   border: none;
   cursor: pointer;
-  color: #999;
+  color: rgba(15,23,42,.55);
   padding: 4px;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
 
 .post-options:hover {
-  background: #f0f2f5;
-  color: #333;
+  background: color-mix(in srgb, var(--surface2) 65%, var(--brand-50));
+  color: var(--text);
 }
 
 /* Post Type Badge */
@@ -329,11 +334,11 @@
   gap: 6px;
   padding: 6px 12px;
   margin: 0 16px;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 75%, var(--brand-50));
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  color: #666;
+  color: rgba(15,23,42,.70);
 }
 
 .post-type-icon {
@@ -344,7 +349,7 @@
 .post-content {
   padding: 12px 16px;
   font-size: 14px;
-  color: #333;
+  color: var(--text);
   line-height: 1.5;
 }
 
@@ -370,11 +375,11 @@
 .tag {
   display: inline-block;
   padding: 4px 10px;
-  background: #e4e6eb;
+  background: color-mix(in srgb, var(--surface2) 70%, var(--brand-100));
   border-radius: 6px;
   font-size: 11px;
   font-weight: 600;
-  color: #0084ff;
+  color: var(--brand-700);
 }
 
 /* Post Stats */
@@ -382,10 +387,10 @@
   display: flex;
   justify-content: space-around;
   padding: 8px 16px;
-  border-top: 1px solid #f0f2f5;
-  border-bottom: 1px solid #f0f2f5;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
   font-size: 12px;
-  color: #666;
+  color: var(--muted);
 }
 
 .stat {
@@ -397,15 +402,15 @@
 /* Post Class */
 .post-class {
   padding: 8px 16px;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 75%, var(--brand-50));
   font-size: 12px;
-  color: #666;
+  color: var(--muted);
 }
 
 .class-tag {
   display: inline-block;
   padding: 4px 8px;
-  background: white;
+  background: rgba(255,255,255,.9);
   border-radius: 4px;
   font-weight: 600;
 }
@@ -422,7 +427,7 @@
   padding: 10px;
   border: none;
   background: none;
-  color: #666;
+  color: rgba(15,23,42,.72);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -431,16 +436,17 @@
   justify-content: center;
   gap: 6px;
   transition: all 0.3s ease;
-  border-top: 1px solid #f0f2f5;
+  border-top: 1px solid var(--divider);
 }
 
 .action-button:hover {
-  background: #f0f2f5;
-  color: #0084ff;
+  background: color-mix(in srgb, var(--surface2) 60%, var(--brand-100));
+  color: var(--brand-700);
+  transform: translateY(-1px);
 }
 
 .action-button.liked {
-  color: #e74c3c;
+  color: #ef4444;
 }
 
 /* Comments Preview */
@@ -459,7 +465,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -471,14 +477,14 @@
 
 .comment-content {
   flex: 1;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 78%, var(--brand-50));
   padding: 8px 12px;
   border-radius: 8px;
 }
 
 .comment-content p {
   font-size: 12px;
-  color: #333;
+  color: var(--text);
   margin: 0;
   line-height: 1.4;
 }
@@ -490,7 +496,7 @@
 .view-more-comments {
   background: none;
   border: none;
-  color: #0084ff;
+  color: var(--brand-700);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -506,8 +512,9 @@
 .no-posts {
   text-align: center;
   padding: 60px 20px;
-  background: white;
+  background: color-mix(in srgb, var(--surface) 92%, var(--brand-50));
   border-radius: 12px;
+  border: 1px solid var(--border);
 }
 
 .no-posts-icon {
@@ -517,7 +524,7 @@
 
 .no-posts p {
   font-size: 14px;
-  color: #666;
+  color: var(--muted);
   margin: 0;
 }
 
@@ -543,20 +550,20 @@
   gap: 10px;
   padding: 10px;
   border-radius: 6px;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 78%, var(--brand-50));
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .suggestion-item:hover {
-  background: #e4e6eb;
+  background: color-mix(in srgb, var(--surface2) 55%, var(--brand-100));
 }
 
 .suggestion-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -573,13 +580,13 @@
 .suggestion-name {
   font-size: 13px;
   font-weight: 600;
-  color: #333;
+  color: var(--text);
   margin: 0;
 }
 
 .suggestion-mutual {
   font-size: 11px;
-  color: #999;
+  color: var(--muted);
   margin: 2px 0 0 0;
 }
 
@@ -587,7 +594,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #0084ff;
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
   color: white;
   border: none;
   font-size: 18px;
@@ -600,7 +607,8 @@
 }
 
 .suggest-button:hover {
-  background: #0056b3;
+  filter: brightness(1.02);
+  transform: translateY(-1px);
 }
 
 /* Events List */
@@ -615,19 +623,19 @@
   gap: 12px;
   padding: 10px;
   border-radius: 6px;
-  background: #f0f2f5;
+  background: color-mix(in srgb, var(--surface2) 78%, var(--brand-50));
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .event-item:hover {
-  background: #e4e6eb;
+  background: color-mix(in srgb, var(--surface2) 55%, var(--brand-100));
 }
 
 .event-date {
   min-width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
   color: white;
   display: flex;
   align-items: center;
@@ -640,7 +648,7 @@
 .event-title {
   font-size: 13px;
   font-weight: 600;
-  color: #333;
+  color: var(--text);
   margin: 0;
   align-self: center;
 }
@@ -794,18 +802,18 @@
 .feed-sidebar::-webkit-scrollbar-track,
 .feed-suggestions::-webkit-scrollbar-track,
 .posts-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgba(59,130,246,.06);
 }
 
 .feed-sidebar::-webkit-scrollbar-thumb,
 .feed-suggestions::-webkit-scrollbar-thumb,
 .posts-container::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: rgba(59,130,246,.22);
   border-radius: 4px;
 }
 
 .feed-sidebar::-webkit-scrollbar-thumb:hover,
 .feed-suggestions::-webkit-scrollbar-thumb:hover,
 .posts-container::-webkit-scrollbar-thumb:hover {
-  background: #999;
+  background: rgba(59,130,246,.35);
 }

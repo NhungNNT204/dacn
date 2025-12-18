@@ -13,8 +13,8 @@ import com.upnest.edu.modules.auth.payload.AuthResponse;
 import com.upnest.edu.modules.auth.payload.LoginRequest;
 import com.upnest.edu.modules.auth.payload.VerifyRequest;
 import com.upnest.edu.modules.auth.service.TwoFactorService;
-import com.upnest.edu.modules.user.entity.User;
-import com.upnest.edu.modules.user.repository.UserRepository;
+import com.upnest.edu.modules.auth.entity.User;
+import com.upnest.edu.modules.auth.repository.UserRepository;
 import com.upnest.edu.modules.user.service.JwtService;
 
 // [FIX] Thêm @CrossOrigin để giải quyết lỗi 403 Forbidden từ trình duyệt
@@ -74,15 +74,20 @@ public class AuthController {
             }
 
             // 4. Nếu không bật 2FA -> Cấp Token luôn
-            String token = jwtService.generateAccessToken(user);
+            // Note: Create a temporary wrapper for JwtService compatibility
+            String token = jwtService.generateAccessToken(user.getEmail());
             System.out.println(">>> Token generated for: " + user.getEmail());
+            
+            // Convert auth.Role to user.UserRole
+            com.upnest.edu.modules.user.entity.UserRole userRole = 
+                com.upnest.edu.modules.user.entity.UserRole.valueOf(user.getRole().toString());
             
             // Trả về kết quả thành công dùng Constructor
             return ResponseEntity.ok(new AuthResponse(
                 token,
                 user.getFullName(),
                 user.getEmail(),
-                user.getRole(),
+                userRole,
                 false // is2faRequired = false
             ));
         } catch (IllegalArgumentException e) {
@@ -90,7 +95,11 @@ public class AuthController {
             return ResponseEntity.status(401).body("Sai email hoặc mật khẩu!");
         } catch (Exception e) {
             System.err.println("Login error (Exception): " + e.getMessage());
-            e.printStackTrace();
+            // Log stack trace instead of printing it
+            System.err.println("Stack trace:");
+            for (StackTraceElement element : e.getStackTrace()) {
+                System.err.println("  " + element);
+            }
             return ResponseEntity.status(500).body("Lỗi server: " + e.getMessage());
         }
     }
@@ -106,13 +115,17 @@ public class AuthController {
 
         if (isCodeValid) {
             // Mã đúng -> Cấp Token đăng nhập
-            String token = jwtService.generateAccessToken(user);
+            String token = jwtService.generateAccessToken(user.getEmail());
+            
+            // Convert auth.Role to user.UserRole
+            com.upnest.edu.modules.user.entity.UserRole userRole = 
+                com.upnest.edu.modules.user.entity.UserRole.valueOf(user.getRole().toString());
             
             return ResponseEntity.ok(new AuthResponse(
                 token,
                 user.getFullName(),
                 user.getEmail(),
-                user.getRole(),
+                userRole,
                 false
             ));
         } else {

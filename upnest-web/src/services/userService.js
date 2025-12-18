@@ -1,9 +1,12 @@
 /**
- * API Service - User Management
+ * API Service - User Management with Error Handling & Mock Fallback
  * Quản lý tất cả các call API liên quan đến User
  */
 
+import mockUserService from './mockUserService';
+
 const API_BASE_URL = 'http://localhost:8080/api';
+const USE_MOCK_SERVICE = true; // Set to false when backend is ready
 
 /**
  * Lấy token từ localStorage
@@ -31,14 +34,60 @@ const getHeaders = (includeAuth = true) => {
 };
 
 /**
- * Xử lý response
+ * Xử lý response với null check
  */
 const handleResponse = async (response) => {
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message || 'API Error');
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.message || `API Error: ${response.status}`);
   }
-  return response.json();
+  
+  const data = await response.json();
+  
+  // Check for null data
+  if (!data) {
+    throw new Error('Received null response from server');
+  }
+  
+  return data;
+};
+
+/**
+ * Wrapper để gọi API với fallback to mock service
+ */
+const fetchWithFallback = async (endpoint, options = {}, mockFallback = null) => {
+  try {
+    // Nếu USE_MOCK_SERVICE bật, dùng mock service
+    if (USE_MOCK_SERVICE) {
+      console.log('Using mock service for:', endpoint);
+      if (mockFallback && typeof mockFallback === 'function') {
+        return await mockFallback();
+      }
+      throw new Error('No mock fallback available');
+    }
+
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      headers: getHeaders(!endpoint.includes('public')),
+      ...options
+    });
+
+    return await handleResponse(response);
+  } catch (error) {
+    console.error(`API Error on ${endpoint}:`, error.message);
+    
+    // Fallback to mock service
+    if (mockFallback && typeof mockFallback === 'function') {
+      try {
+        console.log('Falling back to mock service');
+        return await mockFallback();
+      } catch (mockError) {
+        console.error('Mock service error:', mockError);
+        return { success: false, data: null, message: error.message };
+      }
+    }
+
+    return { success: false, data: null, message: error.message };
+  }
 };
 
 // ============ AUTHENTICATION ============
@@ -101,22 +150,46 @@ export const checkEmailAvailability = async (email) => {
  * Lấy hồ sơ của user hiện tại
  */
 export const getMyProfile = async () => {
-  const response = await fetch(`${API_BASE_URL}/users/profile`, {
-    method: 'GET',
-    headers: getHeaders(true),
-  });
-  return handleResponse(response);
+  try {
+    if (USE_MOCK_SERVICE) {
+      return await mockUserService.getProfile();
+    }
+    const response = await fetch(`${API_BASE_URL}/users/profile`, {
+      method: 'GET',
+      headers: getHeaders(true),
+    });
+    return await handleResponse(response);
+  } catch (error) {
+    console.error('Error fetching profile:', error);
+    try {
+      return await mockUserService.getProfile();
+    } catch (mockError) {
+      return { success: false, data: null, message: error.message };
+    }
+  }
 };
 
 /**
  * Lấy hồ sơ của user khác
  */
 export const getUserProfile = async (userId) => {
-  const response = await fetch(`${API_BASE_URL}/users/${userId}/profile`, {
-    method: 'GET',
-    headers: getHeaders(false),
-  });
-  return handleResponse(response);
+  try {
+    if (USE_MOCK_SERVICE) {
+      return await mockUserService.getProfile();
+    }
+    const response = await fetch(`${API_BASE_URL}/users/${userId}/profile`, {
+      method: 'GET',
+      headers: getHeaders(false),
+    });
+    return await handleResponse(response);
+  } catch (error) {
+    console.error('Error fetching user profile:', error);
+    try {
+      return await mockUserService.getProfile();
+    } catch (mockError) {
+      return { success: false, data: null, message: error.message };
+    }
+  }
 };
 
 /**
@@ -209,3 +282,22 @@ export const getCurrentUser = () => {
     accessToken: getToken(),
   };
 };
+
+// Default export for compatibility
+export default {
+  registerUser,
+  loginUser,
+  checkUsernameAvailability,
+  checkEmailAvailability,
+  getMyProfile,
+  getUserProfile,
+  updateProfile,
+  updateAvatar,
+  getPrivacySettings,
+  updatePrivacySettings,
+  resetPrivacySettings,
+  logoutUser,
+  isAuthenticated,
+  getCurrentUser,
+};
+

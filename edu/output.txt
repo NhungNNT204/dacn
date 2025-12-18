@@ -1,0 +1,595 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.upnest:edu >---------------------------
+[INFO] Building UpNest Edu System 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ edu ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ edu ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 205 source files with javac [debug parameters release 21] to target\classes
+[INFO] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/SecurityConfig.java: N:\DACN\upnestedu\edu\src\main\java\com\upnest\edu\config\SecurityConfig.java uses or overrides a deprecated API.
+[INFO] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/SecurityConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[41,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[48,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[53,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[58,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[62,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[65,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[68,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[71,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerComment.java:[57,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerComment.java:[63,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[70,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[73,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[76,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[79,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[83,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[86,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[89,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[94,34] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[98,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[102,35] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[55,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[58,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[61,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[71,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/entity/Video.java:[83,31] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/entity/User.java:[68,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/User.java:[98,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/User.java:[104,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[41,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[47,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[53,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[59,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[66,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[73,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[79,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[85,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[91,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[97,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[104,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[111,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[117,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/PrivacySettings.java:[123,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[71,34] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[77,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[81,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[84,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[87,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[110,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserAvatar.java:[41,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[121,17] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[122,17] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[255,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[256,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[257,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[258,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[259,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[260,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/PostReport.java:[48,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Notification.java:[72,19] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Notification.java:[78,19] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[62,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[65,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[68,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[71,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[74,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[77,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[92,31] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[96,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[100,29] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[104,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Post.java:[108,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionReaction.java:[61,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[74,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[80,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[86,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[98,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[104,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[110,25] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[116,34] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[122,35] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/CallRecord.java:[75,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/message/QaMessage.java:[87,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerReaction.java:[61,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/entity/Group.java:[65,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/entity/Group.java:[71,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/UserProfile.java:[119,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/UserProfile.java:[125,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/PostComment.java:[59,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/PostComment.java:[62,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/PostComment.java:[65,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/payload/AuthResponse.java:[50,20] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionComment.java:[57,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionComment.java:[63,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[62,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[68,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[74,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[80,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[86,32] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[92,33] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/PrivacySettings.java:[52,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[INFO] 100 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[76,21] cannot find symbol
+  symbol:   method profileVisibility(com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility)
+  location: class com.upnest.edu.modules.social.entity.PrivacySettings.PrivacySettingsBuilder
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[116,21] cannot find symbol
+  symbol:   method profileVisibility(com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility)
+  location: class com.upnest.edu.modules.social.entity.PrivacySettings.PrivacySettingsBuilder
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[156,21] cannot find symbol
+  symbol:   method profileVisibility(com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility)
+  location: class com.upnest.edu.modules.social.entity.PrivacySettings.PrivacySettingsBuilder
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[61,117] cannot find symbol
+  symbol:   method isTwoFactorEnabled()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[64,21] cannot find symbol
+  symbol:   method isTwoFactorEnabled()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[77,59] incompatible types: com.upnest.edu.modules.auth.entity.User cannot be converted to org.springframework.security.core.userdetails.UserDetails
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[85,29] incompatible types: com.upnest.edu.modules.auth.entity.Role cannot be converted to com.upnest.edu.modules.user.entity.UserRole
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[109,59] incompatible types: com.upnest.edu.modules.auth.entity.User cannot be converted to org.springframework.security.core.userdetails.UserDetails
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[115,29] incompatible types: com.upnest.edu.modules.auth.entity.Role cannot be converted to com.upnest.edu.modules.user.entity.UserRole
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[118,75] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[133,69] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[148,77] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[178,37] incompatible types: java.lang.String cannot be converted to com.upnest.edu.modules.group.entity.GroupType
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[268,53] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[362,71] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[423,99] incompatible types: java.util.List<java.lang.Long> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[448,106] incompatible types: java.util.List<java.lang.Long> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[488,53] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[506,55] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[614,59] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[631,61] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[185,77] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[213,112] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[245,75] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[260,94] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[295,51] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[349,91] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[466,108] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[51,50] method getUserChats in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,int,int
+  found:    java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[93,36] method sendMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+  found:    java.lang.Long,java.lang.Long,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[124,36] method sendMediaMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String
+  found:    java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[129,23] incompatible types: long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[189,48] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.Message
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[205,47] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.Message
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[266,40] method createPrivateChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+  found:    java.lang.Long,java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[287,40] method createGroupChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.util.List<java.lang.Long>
+  found:    java.lang.String,java.lang.Long,java.util.List<java.lang.Long>
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[289,34] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[329,38] method addMember in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String
+  found:    java.lang.Long,java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[366,40] method toggleMuteChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.Boolean
+  found:    java.lang.Long,java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[384,40] method toggleArchiveChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long
+  found:    java.lang.Long,java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[406,42] method initiateCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.Long
+  found:    java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[409,32] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[428,42] method answerCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.String
+  found:    java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[444,53] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.CallRecord
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[460,50] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.CallRecord
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[159,69] cannot find symbol
+  symbol:   method getReactionType()
+  location: variable request of type com.upnest.edu.modules.social.payload.AddReactionRequest
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[432,63] cannot find symbol
+  symbol:   method getReportType()
+  location: variable request of type com.upnest.edu.modules.social.payload.ReportPostRequest
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/ProfileService.java:[90,77] incompatible types: java.lang.String cannot be converted to com.upnest.edu.modules.social.entity.UserProfile.Gender
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/ProfileService.java:[148,33] com.upnest.edu.modules.social.entity.Story.MediaType is not public in com.upnest.edu.modules.social.entity.Story; cannot be accessed from outside package
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[46,51] cannot find symbol
+  symbol:   method getSessionId()
+  location: variable event of type org.springframework.web.socket.messaging.SessionConnectedEvent
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[84,32] method sendMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+  found:    java.lang.Long,java.lang.Long,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[104,32] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[126,32] method sendMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+  found:    java.lang.Long,java.lang.Long,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[146,26] cannot find symbol
+  symbol:   variable WebSocketChannels
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[148,36] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[170,32] method sendMediaMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String
+  found:    java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[175,11] incompatible types: long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[190,32] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[210,11] cannot infer type for local variable message
+  (variable initializer is 'void')
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[216,36] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[255,35] method initiateCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.Long
+  found:    java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[258,32] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[273,26] cannot find symbol
+  symbol:   variable WebSocketChannels
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[275,36] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[283,26] cannot find symbol
+  symbol:   variable WebSocketChannels
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[285,36] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[303,36] method answerCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+  required: java.lang.Long,java.lang.String
+  found:    java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[307,26] cannot find symbol
+  symbol:   variable WebSocketChannels
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[309,36] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[330,11] cannot infer type for local variable updatedCall
+  (variable initializer is 'void')
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[334,26] cannot find symbol
+  symbol:   variable WebSocketChannels
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[336,36] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[357,11] cannot infer type for local variable updatedCall
+  (variable initializer is 'void')
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[361,26] cannot find symbol
+  symbol:   variable WebSocketChannels
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[363,36] cannot find symbol
+  symbol:   variable MessageTypes
+  location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[32,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[46,62] incompatible types: bad type in conditional expression
+    java.util.List<java.lang.String> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[76,38] incompatible types: java.util.List<java.lang.String> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[126,13] cannot find symbol
+  symbol:   method findByLevelAndStatusAndIsDeletedFalse(com.upnest.edu.modules.video.entity.VideoLevel,com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable)
+  location: variable videoRepository of type com.upnest.edu.modules.video.repository.VideoRepository
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[142,13] method findTrendingVideos in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+  required: org.springframework.data.domain.Pageable
+  found:    com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[149,13] method findPopularVideos in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+  required: org.springframework.data.domain.Pageable
+  found:    com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[156,13] method findRecentVideos in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+  required: org.springframework.data.domain.Pageable
+  found:    com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[163,13] method findByCategoryTrending in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+  required: com.upnest.edu.modules.video.entity.VideoCategory,org.springframework.data.domain.Pageable
+  found:    com.upnest.edu.modules.video.entity.VideoCategory,com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[178,13] method findRecommendations in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+  required: java.lang.String,org.springframework.data.domain.Pageable
+  found:    java.lang.String,com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+  reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[219,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[223,48] incompatible types: cannot infer type arguments for java.util.ArrayList<>
+    reason: no instance(s) of type variable(s) E exist so that java.util.ArrayList<E> conforms to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[227,36] cannot find symbol
+  symbol:   method add(java.lang.String)
+  location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[242,36] cannot find symbol
+  symbol:   method remove(java.lang.String)
+  location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[263,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[279,14] cannot find symbol
+  symbol:   method incrementCommentCount()
+  location: variable video of type com.upnest.edu.modules.video.entity.Video
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[291,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[312,14] cannot find symbol
+  symbol:   method incrementCommentCount()
+  location: variable video of type com.upnest.edu.modules.video.entity.Video
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[349,14] cannot find symbol
+  symbol:   method decrementCommentCount()
+  location: variable video of type com.upnest.edu.modules.video.entity.Video
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[381,50] incompatible types: cannot infer type arguments for java.util.ArrayList<>
+    reason: no instance(s) of type variable(s) E exist so that java.util.ArrayList<E> conforms to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[385,38] cannot find symbol
+  symbol:   method add(java.lang.String)
+  location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[400,38] cannot find symbol
+  symbol:   method remove(java.lang.String)
+  location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[434,48] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[460,32] incompatible types: java.lang.String cannot be converted to java.util.List<java.lang.String>
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[481,48] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[INFO] 99 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.714 s
+[INFO] Finished at: 2025-12-17T20:22:48+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project edu: Compilation failure: Compilation failure: 
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[76,21] cannot find symbol
+[ERROR]   symbol:   method profileVisibility(com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility)
+[ERROR]   location: class com.upnest.edu.modules.social.entity.PrivacySettings.PrivacySettingsBuilder
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[116,21] cannot find symbol
+[ERROR]   symbol:   method profileVisibility(com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility)
+[ERROR]   location: class com.upnest.edu.modules.social.entity.PrivacySettings.PrivacySettingsBuilder
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[156,21] cannot find symbol
+[ERROR]   symbol:   method profileVisibility(com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility)
+[ERROR]   location: class com.upnest.edu.modules.social.entity.PrivacySettings.PrivacySettingsBuilder
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[61,117] cannot find symbol
+[ERROR]   symbol:   method isTwoFactorEnabled()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[64,21] cannot find symbol
+[ERROR]   symbol:   method isTwoFactorEnabled()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[77,59] incompatible types: com.upnest.edu.modules.auth.entity.User cannot be converted to org.springframework.security.core.userdetails.UserDetails
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[85,29] incompatible types: com.upnest.edu.modules.auth.entity.Role cannot be converted to com.upnest.edu.modules.user.entity.UserRole
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[109,59] incompatible types: com.upnest.edu.modules.auth.entity.User cannot be converted to org.springframework.security.core.userdetails.UserDetails
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[115,29] incompatible types: com.upnest.edu.modules.auth.entity.Role cannot be converted to com.upnest.edu.modules.user.entity.UserRole
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[118,75] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[133,69] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[148,77] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[178,37] incompatible types: java.lang.String cannot be converted to com.upnest.edu.modules.group.entity.GroupType
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[268,53] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[362,71] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[423,99] incompatible types: java.util.List<java.lang.Long> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[448,106] incompatible types: java.util.List<java.lang.Long> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[488,53] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[506,55] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[614,59] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/controller/GroupController.java:[631,61] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[185,77] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[213,112] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[245,75] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[260,94] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[295,51] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[349,91] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/service/GroupService.java:[466,108] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[51,50] method getUserChats in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,int,int
+[ERROR]   found:    java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[93,36] method sendMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.Long,java.lang.Long,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[124,36] method sendMediaMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[129,23] incompatible types: long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[189,48] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.Message
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[205,47] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.Message
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[266,40] method createPrivateChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.Long,java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[287,40] method createGroupChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.util.List<java.lang.Long>
+[ERROR]   found:    java.lang.String,java.lang.Long,java.util.List<java.lang.Long>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[289,34] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[329,38] method addMember in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.Long,java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[366,40] method toggleMuteChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.Boolean
+[ERROR]   found:    java.lang.Long,java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[384,40] method toggleArchiveChat in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long
+[ERROR]   found:    java.lang.Long,java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[406,42] method initiateCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.Long
+[ERROR]   found:    java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[409,32] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[428,42] method answerCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.String
+[ERROR]   found:    java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[444,53] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.CallRecord
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/ChatController.java:[460,50] incompatible types: void cannot be converted to com.upnest.edu.modules.chat.entity.CallRecord
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[159,69] cannot find symbol
+[ERROR]   symbol:   method getReactionType()
+[ERROR]   location: variable request of type com.upnest.edu.modules.social.payload.AddReactionRequest
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[432,63] cannot find symbol
+[ERROR]   symbol:   method getReportType()
+[ERROR]   location: variable request of type com.upnest.edu.modules.social.payload.ReportPostRequest
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/ProfileService.java:[90,77] incompatible types: java.lang.String cannot be converted to com.upnest.edu.modules.social.entity.UserProfile.Gender
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/ProfileService.java:[148,33] com.upnest.edu.modules.social.entity.Story.MediaType is not public in com.upnest.edu.modules.social.entity.Story; cannot be accessed from outside package
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[46,51] cannot find symbol
+[ERROR]   symbol:   method getSessionId()
+[ERROR]   location: variable event of type org.springframework.web.socket.messaging.SessionConnectedEvent
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[84,32] method sendMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.Long,java.lang.Long,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[104,32] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[126,32] method sendMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.Long,java.lang.Long,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[146,26] cannot find symbol
+[ERROR]   symbol:   variable WebSocketChannels
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[148,36] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[170,32] method sendMediaMessage in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[175,11] incompatible types: long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[190,32] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[210,11] cannot infer type for local variable message
+[ERROR]   (variable initializer is 'void')
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[216,36] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[255,35] method initiateCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,java.lang.Long
+[ERROR]   found:    java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[258,32] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[273,26] cannot find symbol
+[ERROR]   symbol:   variable WebSocketChannels
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[275,36] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[283,26] cannot find symbol
+[ERROR]   symbol:   variable WebSocketChannels
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[285,36] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[303,36] method answerCall in class com.upnest.edu.modules.chat.service.ChatService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.String
+[ERROR]   found:    java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[307,26] cannot find symbol
+[ERROR]   symbol:   variable WebSocketChannels
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[309,36] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[330,11] cannot infer type for local variable updatedCall
+[ERROR]   (variable initializer is 'void')
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[334,26] cannot find symbol
+[ERROR]   symbol:   variable WebSocketChannels
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[336,36] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[357,11] cannot infer type for local variable updatedCall
+[ERROR]   (variable initializer is 'void')
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[361,26] cannot find symbol
+[ERROR]   symbol:   variable WebSocketChannels
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/handler/WebSocketHandler.java:[363,36] cannot find symbol
+[ERROR]   symbol:   variable MessageTypes
+[ERROR]   location: class com.upnest.edu.config.WebSocketConfig
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[32,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[46,62] incompatible types: bad type in conditional expression
+[ERROR]     java.util.List<java.lang.String> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[76,38] incompatible types: java.util.List<java.lang.String> cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[126,13] cannot find symbol
+[ERROR]   symbol:   method findByLevelAndStatusAndIsDeletedFalse(com.upnest.edu.modules.video.entity.VideoLevel,com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable)
+[ERROR]   location: variable videoRepository of type com.upnest.edu.modules.video.repository.VideoRepository
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[142,13] method findTrendingVideos in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+[ERROR]   required: org.springframework.data.domain.Pageable
+[ERROR]   found:    com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[149,13] method findPopularVideos in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+[ERROR]   required: org.springframework.data.domain.Pageable
+[ERROR]   found:    com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[156,13] method findRecentVideos in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+[ERROR]   required: org.springframework.data.domain.Pageable
+[ERROR]   found:    com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[163,13] method findByCategoryTrending in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+[ERROR]   required: com.upnest.edu.modules.video.entity.VideoCategory,org.springframework.data.domain.Pageable
+[ERROR]   found:    com.upnest.edu.modules.video.entity.VideoCategory,com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[178,13] method findRecommendations in interface com.upnest.edu.modules.video.repository.VideoRepository cannot be applied to given types;
+[ERROR]   required: java.lang.String,org.springframework.data.domain.Pageable
+[ERROR]   found:    java.lang.String,com.upnest.edu.modules.video.entity.VideoStatus,org.springframework.data.domain.Pageable
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[219,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[223,48] incompatible types: cannot infer type arguments for java.util.ArrayList<>
+[ERROR]     reason: no instance(s) of type variable(s) E exist so that java.util.ArrayList<E> conforms to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[227,36] cannot find symbol
+[ERROR]   symbol:   method add(java.lang.String)
+[ERROR]   location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[242,36] cannot find symbol
+[ERROR]   symbol:   method remove(java.lang.String)
+[ERROR]   location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[263,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[279,14] cannot find symbol
+[ERROR]   symbol:   method incrementCommentCount()
+[ERROR]   location: variable video of type com.upnest.edu.modules.video.entity.Video
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[291,45] incompatible types: java.lang.String cannot be converted to java.lang.Long
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[312,14] cannot find symbol
+[ERROR]   symbol:   method incrementCommentCount()
+[ERROR]   location: variable video of type com.upnest.edu.modules.video.entity.Video
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[349,14] cannot find symbol
+[ERROR]   symbol:   method decrementCommentCount()
+[ERROR]   location: variable video of type com.upnest.edu.modules.video.entity.Video
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[381,50] incompatible types: cannot infer type arguments for java.util.ArrayList<>
+[ERROR]     reason: no instance(s) of type variable(s) E exist so that java.util.ArrayList<E> conforms to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[385,38] cannot find symbol
+[ERROR]   symbol:   method add(java.lang.String)
+[ERROR]   location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[400,38] cannot find symbol
+[ERROR]   symbol:   method remove(java.lang.String)
+[ERROR]   location: class java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[434,48] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[460,32] incompatible types: java.lang.String cannot be converted to java.util.List<java.lang.String>
+[ERROR] /N:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/service/VideoService.java:[481,48] incompatible types: java.lang.Long cannot be converted to java.lang.String
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

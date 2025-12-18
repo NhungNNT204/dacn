@@ -46,6 +46,7 @@ public class AuthResponse {
     /**
      * Token type (Bearer)
      */
+    @Builder.Default
     @JsonProperty("tokenType")
     private String tokenType = "Bearer";
 }

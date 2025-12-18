@@ -83,6 +83,7 @@ public class QaMessage {
     /**
      * Timestamp khi message được tạo
      */
+    @Builder.Default
     @JsonProperty("timestamp")
     private LocalDateTime timestamp = LocalDateTime.now();
     

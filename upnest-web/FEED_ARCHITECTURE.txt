@@ -1,0 +1,563 @@
+/**
+ * FEED_ARCHITECTURE.txt
+ * System Architecture and Component Relationships
+ */
+
+================================================================================
+                    FEED SYSTEM ARCHITECTURE (v1.0.0)
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          APPLICATION STRUCTURE                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+App Router
+  └─ /feed
+     └─ StudentFeed (Main Container)
+        ├─ Header (Title + Refresh Button)
+        ├─ FeedFilter (Content Filters)
+        ├─ PostCreator (Create New Post)
+        ├─ PostsContainer (Feed Items)
+        │  ├─ PostCard 1
+        │  │  ├─ Author Info
+        │  │  ├─ Media Gallery (Images/Videos)
+        │  │  ├─ PostReactions (Emoji Picker)
+        │  │  ├─ PostComments (Thread)
+        │  │  │  └─ CommentItem (Individual)
+        │  │  │     ├─ CommentReactions
+        │  │  │     └─ ModeratorControls
+        │  │  └─ Actions (Delete/Share)
+        │  ├─ PostCard 2
+        │  ├─ LoadMoreButton
+        │  └─ [More posts...]
+        └─ SuggestedContent (Sidebar)
+           ├─ Tab: Materials
+           │  └─ MaterialCard (Save, Link)
+           ├─ Tab: Events
+           │  └─ EventCard (Date, Register)
+           └─ Tab: Trending
+              └─ TrendingItem (Rank, Stats)
+
+
+================================================================================
+                           DATA FLOW DIAGRAM
+================================================================================
+
+┌──────────────┐
+│ StudentFeed  │ Main state management
+├──────────────┘
+│  ↓
+├─ posts[]              Current posts array
+├─ filteredPosts[]      Posts after filtering
+├─ activeFilter         Current filter (all|lessons|groups|friends)
+├─ isLoadingPosts       Loading state
+├─ error                Error message
+├─ pageInfo             { page, hasMore, total }
+├─ isMobileLayout       Responsive state
+└─ showSuggestions      Sidebar visibility
+  
+  ↓
+  
+postInteractionService.js
+├─ getFeed()            Fetch filtered posts with pagination
+├─ createPost()         Create new post
+├─ addPostReaction()    Add emoji reaction
+├─ getPostComments()    Fetch comments
+├─ addComment()         Create comment
+├─ uploadPostImage()    Upload image file
+├─ uploadPostVideo()    Upload video file
+├─ approvePost()        Teacher moderation
+├─ rejectPost()         Teacher moderation
+├─ getSuggestedMaterials() Fetch materials
+├─ getUpcomingEvents()  Fetch events
+└─ getTrendingPosts()   Fetch trending posts
+  
+  ↓
+  
+API Server (or Mock Service)
+├─ GET  /api/v1/feed
+├─ POST /api/v1/posts
+├─ PUT  /api/v1/posts/{id}
+├─ DELETE /api/v1/posts/{id}
+├─ POST /api/v1/posts/{id}/reactions
+├─ GET  /api/v1/posts/{id}/comments
+├─ POST /api/v1/posts/{id}/comments
+├─ GET  /api/v1/suggestions/materials
+├─ GET  /api/v1/suggestions/events
+├─ GET  /api/v1/posts/trending
+├─ POST /api/v1/posts/{id}/approve
+└─ POST /api/v1/posts/{id}/reject
+
+
+================================================================================
+                       COMPONENT HIERARCHY DIAGRAM
+================================================================================
+
+StudentFeed
+│
+├─ FeedFilter
+│  └─ Props: activeFilter, onFilterChange
+│
+├─ PostCreator (Reused from existing)
+│  └─ Props: onPostCreated, placeholder
+│
+├─ PostCard[] (Reused from existing)
+│  ├─ PostReactions (Reused from existing)
+│  │  └─ Props: postId, userReaction, onReaction, isLoading
+│  │
+│  └─ PostComments (Reused from existing)
+│     ├─ Props: postId, isTeacher, onCommentAdded
+│     │
+│     └─ CommentItem[] (Reused from existing)
+│        ├─ Props: comment, postId, isTeacher, onDelete
+│        └─ Reactions & Moderation controls
+│
+└─ SuggestedContent
+   ├─ Props: userId, friendIds, groupIds
+   │
+   ├─ MaterialsTab
+   │  └─ MaterialCard[] (Save, Link)
+   │
+   ├─ EventsTab
+   │  └─ EventCard[] (Register, Date)
+   │
+   └─ TrendingTab
+      └─ TrendingItem[] (Rank, Link)
+
+
+================================================================================
+                          STATE MANAGEMENT FLOW
+================================================================================
+
+Initial Load:
+  Component Mounts
+    ↓
+  useEffect → loadFeed(activeFilter, 1)
+    ↓
+  postInteractionService.getFeed()
+    ↓
+  Response → setPosts(), setFilteredPosts(), setPageInfo()
+    ↓
+  Render PostCard[] with posts
+
+
+Filter Change:
+  User clicks filter tab
+    ↓
+  handleFilterChange(newFilter)
+    ↓
+  setActiveFilter(newFilter)
+    ↓
+  Reset pagination: setPageInfo({ page: 1, ... })
+    ↓
+  useEffect triggers → loadFeed(newFilter, 1)
+    ↓
+  Render updated posts
+
+
+Load More:
+  User clicks "Load More" button
+    ↓
+  handleLoadMore()
+    ↓
+  loadFeed(activeFilter, page + 1)
+    ↓
+  setPosts([...existingPosts, ...newPosts])
+    ↓
+  Append to feed
+
+
+Post Creation:
+  User submits PostCreator form
+    ↓
+  handlePostCreated(newPost)
+    ↓
+  setPosts([newPost, ...posts])
+    ↓
+  New post appears at top of feed
+
+
+Reaction Added:
+  User adds emoji reaction
+    ↓
+  postInteractionService.addPostReaction()
+    ↓
+  Post updated with new reaction
+    ↓
+  handlePostUpdated(updatedPost)
+    ↓
+  Update posts[] and re-render PostCard
+
+
+Comment Added:
+  User submits comment form
+    ↓
+  postInteractionService.addComment()
+    ↓
+  Comment added to post (pending status)
+    ↓
+  PostComments re-renders with new comment
+
+
+================================================================================
+                         STYLE INHERITANCE FLOW
+================================================================================
+
+Global Styles (in App or index.css)
+  ↓
+StudentFeed.css (Main layout)
+  ├─ .student-feed
+  ├─ .feed-container (Grid 2-column on desktop)
+  ├─ .feed-main
+  ├─ .feed-sidebar
+  └─ Media queries for responsive
+  
+  ↓
+FeedFilter.css (Filter bar)
+  ├─ .feed-filter
+  ├─ .filter-button
+  ├─ .filter-button.active
+  └─ Media queries
+  
+  ↓
+SuggestedContent.css (Sidebar)
+  ├─ .suggested-content
+  ├─ .suggestion-tabs
+  ├─ .material-card
+  ├─ .event-card
+  ├─ .trending-item
+  └─ Media queries
+
+
+Imported Components (Existing):
+  PostCard.css → Post display
+  PostCreator.css → Form styling
+  PostComments.css → Comments section
+  PostReactions.css → Emoji picker
+
+
+================================================================================
+                          RESPONSIVE LAYOUT FLOW
+================================================================================
+
+Desktop (1024px+):
+  ┌─────────────────────────────────────────┐
+  │  Feed Header                             │
+  │  Filter Bar                              │
+  │  Post Creator                            │
+  │  ┌──────────────────────────┬──────────┐│
+  │  │                          │  Materials││
+  │  │  Post Feed               │  Events  ││
+  │  │  (Infinite Scroll)       │  Trending││
+  │  │                          │          ││
+  │  │  PostCard                │  Sidebar ││
+  │  │  PostCard                │  (Sticky)││
+  │  │  PostCard                │          ││
+  │  │                          │          ││
+  │  └──────────────────────────┴──────────┘│
+  └─────────────────────────────────────────┘
+
+
+Tablet (768-1023px):
+  ┌──────────────────────────┐
+  │  Feed Header             │
+  │  Filter Bar              │
+  │  Post Creator            │
+  │  ┌────────────────────┐  │
+  │  │                    │  │
+  │  │  Post Feed         │  │
+  │  │  (Full Width)      │  │
+  │  │                    │  │
+  │  │  PostCard          │  │
+  │  │  PostCard          │  │
+  │  │  PostCard          │  │
+  │  │  [Load More]       │  │
+  │  │                    │  │
+  │  └────────────────────┘  │
+  │  [💡 Show Suggestions]   │  (Floating button)
+  └──────────────────────────┘
+
+
+Mobile (<768px):
+  ┌──────────────────┐
+  │ Feed Header      │
+  │ [Filter →]       │ (Horizontal scroll)
+  │ Post Creator     │
+  │ ┌──────────────┐ │
+  │ │              │ │
+  │ │ Post Feed    │ │
+  │ │ (Full Width) │ │
+  │ │              │ │
+  │ │ PostCard     │ │
+  │ │ PostCard     │ │
+  │ │              │ │
+  │ └──────────────┘ │
+  │                  │
+  │  [💡 Suggest] ⤴ │ (Floating button)
+  └──────────────────┘
+  
+  + Sidebar Overlay (when toggled):
+  ┌──────────────────┐
+  │ Materials | ✕    │
+  │ Events           │
+  │ Trending         │
+  │ ────────────────│
+  │ [Material Card] │
+  │ [Material Card] │
+  └──────────────────┘
+
+
+================================================================================
+                        SERVICE LAYER STRUCTURE
+================================================================================
+
+postInteractionService.js
+│
+├─ Constants
+│  ├─ API_BASE_URL: string
+│  ├─ USE_MOCK_SERVICE: boolean
+│  ├─ REACTION_TYPES: object
+│  ├─ REACTION_EMOJIS: object
+│  └─ COMMENT_STATUS: object
+│
+├─ Helper Functions
+│  ├─ getToken(): string
+│  ├─ getHeaders(includeAuth): object
+│  └─ [Utility functions]
+│
+├─ Core Methods
+│  ├─ Feed Management
+│  │  └─ getFeed(options): Promise<FeedResponse>
+│  │
+│  ├─ Post Management
+│  │  ├─ createPost(data): Promise<PostResponse>
+│  │  ├─ updatePost(id, data): Promise<PostResponse>
+│  │  └─ deletePost(id): Promise<Response>
+│  │
+│  ├─ Reactions
+│  │  ├─ addPostReaction(postId, type): Promise<Response>
+│  │  ├─ removePostReaction(postId): Promise<Response>
+│  │  └─ addCommentReaction(postId, commentId, type): Promise<Response>
+│  │
+│  ├─ Comments
+│  │  ├─ getPostComments(postId): Promise<CommentsResponse>
+│  │  ├─ addComment(postId, data): Promise<CommentResponse>
+│  │  ├─ updateComment(postId, commentId, data): Promise<Response>
+│  │  └─ deleteComment(postId, commentId): Promise<Response>
+│  │
+│  ├─ Media
+│  │  ├─ uploadPostImage(file, postId): Promise<UploadResponse>
+│  │  └─ uploadPostVideo(file, postId): Promise<UploadResponse>
+│  │
+│  ├─ Moderation
+│  │  ├─ approvePost(postId): Promise<Response>
+│  │  ├─ rejectPost(postId, reason): Promise<Response>
+│  │  ├─ approveComment(postId, commentId): Promise<Response>
+│  │  └─ rejectComment(postId, commentId, reason): Promise<Response>
+│  │
+│  └─ Suggestions
+│     ├─ getSuggestedMaterials(options): Promise<MaterialsResponse>
+│     ├─ getUpcomingEvents(options): Promise<EventsResponse>
+│     └─ getTrendingPosts(options): Promise<PostsResponse>
+│
+├─ Mock Data
+│  └─ mockData
+│     ├─ posts[]
+│     └─ comments[]
+│
+└─ Fallback Mechanism
+   └─ On error → Use mock service → Return with message
+
+
+================================================================================
+                           FILTER FLOW DIAGRAM
+================================================================================
+
+User selects filter:
+  "All" / "Lessons" / "Groups" / "Friends"
+    ↓
+FeedFilter.onFilterChange(filterId)
+    ↓
+StudentFeed.handleFilterChange(filterId)
+    ↓
+setActiveFilter(filterId)
+    ↓
+Reset pagination: setPageInfo({ page: 1, hasMore: true, total: 0 })
+    ↓
+useEffect dependency: [activeFilter] triggers
+    ↓
+loadFeed(filterId, 1)
+    ↓
+postInteractionService.getFeed({
+  filterType: filterId,
+  page: 1,
+  limit: 10,
+  userId: getCurrentUserId(),
+  friendIds: getCurrentUserFriends(),
+  groupIds: getCurrentUserGroups()
+})
+    ↓
+Service processes:
+  • Apply filter logic (switch on filterType)
+  • Map posts to matching criteria
+  • Sort by date (newest first)
+  • Paginate results
+    ↓
+Return: { success, data: posts[], hasMore, total }
+    ↓
+setPosts(filteredPosts)
+setFilteredPosts(filteredPosts)
+setPageInfo({ page: 1, hasMore, total })
+    ↓
+Component re-renders with filtered posts
+
+
+================================================================================
+                        RESPONSIVE BEHAVIOR
+================================================================================
+
+Window Resize Listener:
+  window.addEventListener('resize', checkMobileLayout)
+    ↓
+  checkMobileLayout():
+    if (window.innerWidth < 1024)
+      setIsMobileLayout(true)
+      setShowSuggestions(false) // Hide sidebar
+    else
+      setIsMobileLayout(false)
+      setShowSuggestions(true)  // Show sidebar
+    ↓
+  Render different layout based on isMobileLayout flag
+
+
+Mobile Sidebar Toggle:
+  On mobile (< 1024px):
+    ├─ Hide: .feed-sidebar { display: none }
+    └─ Show: Floating button "💡 Gợi ý & Sự kiện"
+      ↓
+      User clicks button
+        ↓
+      setShowSuggestions(true)
+        ↓
+      Render: .mobile-suggestions-overlay
+        ├─ Background overlay (rgba(0,0,0,0.5))
+        ├─ Header with "Gợi ý & Sự kiện" and close button (✕)
+        └─ SuggestedContent component
+      ↓
+      User clicks overlay or close button
+        ↓
+      setShowSuggestions(false)
+        ↓
+      Remove overlay
+
+
+CSS Media Query Behavior:
+  @media (max-width: 1023px)
+    └─ feed-sidebar { display: none }
+    
+  @media (max-width: 768px)
+    └─ Adjust padding, font sizes
+       Reduce gaps between elements
+       
+  @media (max-width: 480px)
+    └─ Extra compact layout
+       Hide labels on tiny screens
+       Single column for all
+
+
+================================================================================
+                    ERROR HANDLING & STATE FLOW
+================================================================================
+
+API Call Fails:
+  postInteractionService.getFeed()
+    ↓ (Error caught)
+    ↓
+  catch (error):
+    └─ Return { success: false, message: error.message }
+    ↓
+  Student Feed receives failed response
+    ↓
+  if (!result.success):
+    └─ setError(result.message)
+    └─ Display error banner
+    └─ Keep previous posts visible
+    ↓
+  User sees:
+    ┌─────────────────────────────┐
+    │ ✗ Error loading feed        │
+    │                         [×] │
+    └─────────────────────────────┘
+    + (Previous posts still visible)
+    ↓
+  User can:
+    • Click [Refresh] button to retry
+    • Click [×] to dismiss error
+    • Scroll to see cached posts
+
+
+Loading State:
+  setIsLoadingPosts(true)
+    ↓
+  Show: Spinner with "Loading your feed..."
+    ↓
+  API call in progress...
+    ↓
+  Response received
+    ↓
+  setIsLoadingPosts(false)
+    ↓
+  Show: Posts or empty state
+
+
+Empty State:
+  No posts found for current filter
+    ↓
+  Show: Empty state message
+    ├─ Icon: 📭
+    ├─ Heading: "Không có bài viết nào"
+    └─ Message: (varies by filter type)
+       ├─ "All": "Hãy tạo bài viết đầu tiên!"
+       ├─ "Friends": "Hãy kết bạn để xem hoạt động"
+       ├─ "Groups": "Hãy tham gia nhóm để xem bài viết"
+       └─ "Lessons": "Hãy đăng ký khóa học..."
+
+
+================================================================================
+                    PERFORMANCE OPTIMIZATION NOTES
+================================================================================
+
+Optimizations in Place:
+  • useCallback for event handlers (prevents re-creation)
+  • Pagination: Load 10 posts at a time (not all)
+  • Memoization: useMemo for computed values (if needed)
+  • CSS: Optimized media queries (mobile-first)
+  • Service: Mock data has 500ms simulated delay (realistic)
+  • Ref usage: useRef for outside-click detection (modals)
+
+Future Optimizations:
+  • useReducer for complex state management
+  • Component code splitting with React.lazy
+  • Image lazy loading with Intersection Observer
+  • Virtual scrolling for very large feeds
+  • Service worker for offline support
+
+
+================================================================================
+                           SUMMARY
+================================================================================
+
+This architecture provides:
+  ✅ Clean component hierarchy
+  ✅ Centralized state management
+  ✅ Modular service layer
+  ✅ Responsive design with 4 breakpoints
+  ✅ Error handling throughout
+  ✅ Loading states for user feedback
+  ✅ Infinite scroll pagination
+  ✅ Mock data for testing
+  ✅ Real API integration ready
+  ✅ Production-ready code structure
+
+Generated: 2024-01-15
+Version: 1.0.0
