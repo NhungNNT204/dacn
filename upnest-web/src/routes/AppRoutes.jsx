@@ -14,6 +14,13 @@ import CreatePost from '../pages/student/CreatePost';
 import StudentLayout from '../pages/student/StudentLayout';
 import ClassroomView from '../pages/classroom/ClassroomView';
 import ConnectionsPage from '../pages/student/ConnectionsPage';
+import MyCourses from '../pages/student/MyCourses';
+import Library from '../pages/student/Library';
+import CoursePlayer from '../pages/student/CoursePlayer';
+import Feed from '../pages/student/Feed';
+import Messaging from '../pages/student/Messaging';
+import Achievements from '../pages/student/Achievements';
+import CareerOrientation from '../pages/student/CareerOrientation';
 
 /**
  * AppRoutes - Tất cả routes của app
@@ -90,6 +97,72 @@ export default function AppRoutes() {
                 <StudentLayout>
                   <ConnectionsPage />
                 </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/my-courses"
+            element={
+              <ProtectedRoute>
+                <StudentLayout>
+                  <MyCourses />
+                </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/library"
+            element={
+              <ProtectedRoute>
+                <StudentLayout>
+                  <Library />
+                </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/community"
+            element={
+              <ProtectedRoute>
+                <StudentLayout>
+                  <Feed />
+                </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/messages"
+            element={
+              <ProtectedRoute>
+                <Messaging />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/achievements"
+            element={
+              <ProtectedRoute>
+                <StudentLayout>
+                  <Achievements />
+                </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/career/:pathCode?"
+            element={
+              <ProtectedRoute>
+                <StudentLayout>
+                  <CareerOrientation />
+                </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/courses/:courseId/lessons/:lessonId?"
+            element={
+              <ProtectedRoute>
+                <CoursePlayer />
               </ProtectedRoute>
             }
           />

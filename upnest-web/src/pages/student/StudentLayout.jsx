@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   GraduationCap, 
   Search, 
@@ -38,8 +38,12 @@ export default function StudentLayout({ children }) {
   const [unreadNotifications, setUnreadNotifications] = useState(3);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
   const dropdownRef = useRef(null);
   const searchInputRef = useRef(null);
+
+  // Chỉ hiển thị rightbar ở trang dashboard
+  const isDashboard = location.pathname === '/dashboard';
 
   useEffect(() => {
     // Load user profile
@@ -63,7 +67,7 @@ export default function StudentLayout({ children }) {
       }
       // Mock user
       setUser({
-        fullName: "Nguyễn Văn Huy",
+        fullName: "Nguyễn Thị Thùy Nhung",
         level: 4,
         avatarUrl: null
       });
@@ -84,12 +88,19 @@ export default function StudentLayout({ children }) {
 
     // Keyboard shortcut CTRL+K for search
     const handleKeyDown = (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      // Check for Ctrl+K (Windows/Linux) or Cmd+K (Mac)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
         e.preventDefault();
-        searchInputRef.current?.focus();
+        e.stopPropagation();
+        if (searchInputRef.current) {
+          searchInputRef.current.focus();
+          searchInputRef.current.select();
+        }
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
+    
+    // Add event listener to window to catch all keydown events
+    window.addEventListener('keydown', handleKeyDown, true);
 
     // Close dropdown when clicking outside
     const handleClickOutside = (e) => {
@@ -100,7 +111,7 @@ export default function StudentLayout({ children }) {
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown, true);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
@@ -156,24 +167,9 @@ export default function StudentLayout({ children }) {
               <span className="tagline-social">SOCIAL NET</span>
             </p>
           </div>
-        </div>
-
-        {/* Search Bar */}
-        <div className="nav-search">
-          <div className="search-wrapper">
-            <Search size={18} className="search-icon" />
-            <input 
-              ref={searchInputRef}
-              type="text" 
-              placeholder="Tìm kiếm" 
-              className="search-input"
-            />
-            <div className="search-shortcut">
-              <kbd className="kbd-key">CTRL</kbd>
-              <kbd className="kbd-key">K</kbd>
-            </div>
           </div>
-        </div>
+
+    
 
         {/* Navigation Icons */}
         <div className="nav-icons">
@@ -224,10 +220,18 @@ export default function StudentLayout({ children }) {
             onClick={() => setUserDropdownOpen(!userDropdownOpen)}
           >
             <div className="user-avatar">
-              {user?.fullName?.charAt(0) || 'N'}
+              <img 
+                src="https://drive.google.com/uc?export=view&id=1wsXqMnwZgSdVrJUkygYagjb3Le0aXKGC"
+                alt="Avatar"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <span style={{ display: 'none' }}>{user?.fullName?.charAt(0) || 'N'}</span>
             </div>
             <div className="user-info">
-              <span className="user-name">{user?.fullName || 'Nguyễn Văn Huy'}</span>
+              <span className="user-name">{user?.fullName || 'Nguyễn Thị Thùy Nhung'}</span>
               <span className="user-level">LVL {user?.level || 4}</span>
             </div>
             <ChevronDown size={16} className={`dropdown-chevron ${userDropdownOpen ? 'open' : ''}`} />
@@ -276,7 +280,9 @@ export default function StudentLayout({ children }) {
                       navigate(item.path);
                     }}
                   >
-                    <IconComponent size={20} className="nav-icon" />
+                    <div className="nav-icon-wrapper">
+                      <IconComponent size={20} className="nav-icon" />
+                    </div>
                     <span className="nav-label">{item.label}</span>
                   </a>
                 );
@@ -300,7 +306,9 @@ export default function StudentLayout({ children }) {
                       navigate(item.path);
                     }}
                   >
-                    <IconComponent size={20} className="nav-icon" />
+                    <div className="nav-icon-wrapper">
+                      <IconComponent size={20} className="nav-icon" />
+                    </div>
                     <span className="nav-label">{item.label}</span>
                     {item.badge && (
                       <span className="nav-badge">{item.badge}</span>
@@ -327,7 +335,9 @@ export default function StudentLayout({ children }) {
                       navigate(item.path);
                     }}
                   >
-                    <IconComponent size={20} className="nav-icon" />
+                    <div className="nav-icon-wrapper">
+                      <IconComponent size={20} className="nav-icon" />
+                    </div>
                     <span className="nav-label">{item.label}</span>
                   </a>
                 );
@@ -335,31 +345,18 @@ export default function StudentLayout({ children }) {
             </nav>
           </div>
 
-          {/* Streak Card */}
-          <div className="sidebar-streak-card">
-            <div className="streak-content">
-              <Flame size={24} className="streak-icon" />
-              <div className="streak-text">
-                <span className="streak-days">12 NGÀY HỌC</span>
-              </div>
-            </div>
-            <button 
-              className="streak-button"
-              onClick={() => navigate('/leaderboard')}
-            >
-              BẢNG XẾP HẠNG
-            </button>
-            <div className="streak-stars">
-              <span className="star">★</span>
-              <span className="star">★</span>
-              <span className="star">★</span>
-            </div>
-          </div>
-
           {/* User Profile Card */}
           <div className="sidebar-user-card">
             <div className="user-card-avatar">
-              {user?.fullName?.charAt(0) || 'U'}
+              <img 
+                src="https://drive.google.com/uc?export=view&id=1wsXqMnwZgSdVrJUkygYagjb3Le0aXKGC"
+                alt="Avatar"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <span style={{ display: 'none' }}>{user?.fullName?.charAt(0) || 'U'}</span>
             </div>
             <div className="user-card-info">
               <span className="user-card-role">Học viên</span>
@@ -383,7 +380,8 @@ export default function StudentLayout({ children }) {
           </main>
         )}
 
-        {/* Right Sidebar - Enhanced Design */}
+        {/* Right Sidebar - Enhanced Design - Chỉ hiển thị ở dashboard */}
+        {isDashboard && (
         <aside className="right-sidebar">
           {/* 🔥 Xu hướng học thuật */}
           <div className="widget-trending">
@@ -510,6 +508,7 @@ export default function StudentLayout({ children }) {
             </button>
           </div>
         </aside>
+        )}
       </div>
     </div>
   );

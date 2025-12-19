@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -19,24 +20,28 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/api/v1/social/posts")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Slf4j
 public class PostController {
     
     private final FeedService feedService;
     
-    // Lưu ý: Dùng user ID = 1L để test, cần thay bằng JWT token sau này
-    private Long getCurrentUserId() {
-        return 1L;
+    private Long getUserIdFromAuthentication(Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new RuntimeException("User not authenticated");
+        }
+        return Long.parseLong(authentication.getName());
     }
     
-    private String getCurrentUserName() {
-        return "Nguyễn Anh";
+    private String getCurrentUserName(Authentication auth) {
+        // TODO: Get from user service
+        return "User";
     }
     
-    private String getCurrentUserAvatar() {
-        return "NA";
+    private String getCurrentUserAvatar(Authentication auth) {
+        // TODO: Get from user service
+        return null;
     }
     
     /**
@@ -46,9 +51,10 @@ public class PostController {
     @GetMapping("/feed")
     public ResponseEntity<?> getPersonalizedFeed(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "10") int size,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             Pageable pageable = PageRequest.of(page, size);
             Page<Post> posts = feedService.getPersonalizedFeed(userId, pageable);
             
@@ -121,15 +127,15 @@ public class PostController {
      * Tạo bài đăng mới
      */
     @PostMapping("/create")
-    public ResponseEntity<?> createPost(@RequestBody CreatePostRequest request) {
+    public ResponseEntity<?> createPost(@RequestBody CreatePostRequest request, Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             PostType postType = PostType.valueOf(request.getPostType().toUpperCase());
             
             Post post = feedService.createPost(
                     userId,
-                    getCurrentUserName(),
-                    getCurrentUserAvatar(),
+                    getCurrentUserName(auth),
+                    getCurrentUserAvatar(auth),
                     request.getContent(),
                     postType,
                     request.getImageUrl(),

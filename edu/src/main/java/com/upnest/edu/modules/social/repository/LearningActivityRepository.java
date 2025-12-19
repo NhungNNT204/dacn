@@ -11,6 +11,7 @@ import java.util.Collection;
 @Repository
 public interface LearningActivityRepository extends JpaRepository<LearningActivity, Long> {
     Page<LearningActivity> findByUserIdInOrderByCreatedAtDesc(Collection<Long> userIds, Pageable pageable);
+    Page<LearningActivity> findByUserIdOrderByCreatedAtDesc(Long userId, Pageable pageable);
 }
 
 

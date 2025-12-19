@@ -48,7 +48,7 @@ public class DataSeeder implements CommandLineRunner {
                 User student = new User();
                 student.setEmail("student@upnest.edu");
                 student.setPassword(passwordEncoder.encode("123456"));
-                student.setFullName("Nguyễn Văn Huy");
+                student.setFullName("Nguyễn Thị Thùy Nhung");
                 student.setRole(Role.STUDENT);
                 student.setTwoFactorEnabled(false);
                 userRepository.save(student);
