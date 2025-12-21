@@ -36,8 +36,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "UserModuleUser")
-@Table(name = "user_module_users", indexes = {
+@Entity
+@Table(name = "users", indexes = {
     @Index(name = "idx_email", columnList = "email", unique = true),
     @Index(name = "idx_username", columnList = "username", unique = true),
     @Index(name = "idx_created_at", columnList = "created_at")

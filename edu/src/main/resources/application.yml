@@ -21,7 +21,7 @@ spring:
   jpa:
     show-sql: true              # Hiện câu lệnh SQL ra màn hình
     hibernate:
-        ddl-auto: update          # Create missing tables
+      ddl-auto: update          # Update schema without dropping
     properties:
       hibernate:
         format_sql: true

@@ -1,0 +1,635 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Users/Admin/.m2/wrapper/dists/apache-maven-3.9.11/03d7e36a140982eea48e22c1dcac01d8862b2550b2939e09a0809bbc5182a5bc/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.upnest:edu >---------------------------
+[INFO] Building UpNest Edu System 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ edu ---
+[INFO] Deleting n:\DACN\upnestedu\edu\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ edu ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ edu ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 330 source files with javac [debug parameters release 21] to target\classes
+[INFO] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/SecurityConfig.java: n:\DACN\upnestedu\edu\src\main\java\com\upnest\edu\config\SecurityConfig.java uses or overrides a deprecated API.
+[INFO] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/SecurityConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[10,8] class _ContentModerationService_DEPRECATED is public, should be declared in a file named _ContentModerationService_DEPRECATED.java
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/_ContentModerationService_DEPRECATED.java:[10,8] duplicate class: com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[13,26] cannot find symbol
+  symbol:   class Set
+  location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[20,26] cannot find symbol
+  symbol:   class List
+  location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[20,31] cannot find symbol
+  symbol:   class Pattern
+  location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[150,17] cannot find symbol
+  symbol:   class List
+  location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED.ModerationResult
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[38,17] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[42,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[45,32] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[61,53] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.social.entity.UserProfile
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[62,41] cannot find symbol
+  symbol:   method getId()
+  location: variable savedStudent of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[74,61] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.social.entity.PrivacySettings
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[75,41] cannot find symbol
+  symbol:   method getId()
+  location: variable savedStudent of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[82,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[85,32] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[101,53] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.social.entity.UserProfile
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[102,41] cannot find symbol
+  symbol:   method getId()
+  location: variable savedTeacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[114,61] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.social.entity.PrivacySettings
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[115,41] cannot find symbol
+  symbol:   method getId()
+  location: variable savedTeacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[122,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[125,30] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[141,51] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.social.entity.UserProfile
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[142,39] cannot find symbol
+  symbol:   method getId()
+  location: variable savedAdmin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[154,59] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.social.entity.PrivacySettings
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[155,39] cannot find symbol
+  symbol:   method getId()
+  location: variable savedAdmin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[162,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[164,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[165,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[166,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[167,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[168,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[169,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[36,22] cannot find symbol
+  symbol:   method setEmail(java.lang.String)
+  location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[37,22] cannot find symbol
+  symbol:   method setPassword(java.lang.String)
+  location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[38,22] cannot find symbol
+  symbol:   method setFullName(java.lang.String)
+  location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[39,22] cannot find symbol
+  symbol:   method setRole(com.upnest.edu.modules.auth.entity.Role)
+  location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[40,22] cannot find symbol
+  symbol:   method setTwoFactorEnabled(boolean)
+  location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[41,22] cannot find symbol
+  symbol:   method setTwoFactorSecret(java.lang.String)
+  location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[49,24] cannot find symbol
+  symbol:   method setEmail(java.lang.String)
+  location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[50,24] cannot find symbol
+  symbol:   method setPassword(java.lang.String)
+  location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[51,24] cannot find symbol
+  symbol:   method setFullName(java.lang.String)
+  location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[52,24] cannot find symbol
+  symbol:   method setRole(com.upnest.edu.modules.auth.entity.Role)
+  location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[53,24] cannot find symbol
+  symbol:   method setTwoFactorEnabled(boolean)
+  location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[61,24] cannot find symbol
+  symbol:   method setEmail(java.lang.String)
+  location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[62,24] cannot find symbol
+  symbol:   method setPassword(java.lang.String)
+  location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[63,24] cannot find symbol
+  symbol:   method setFullName(java.lang.String)
+  location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[64,24] cannot find symbol
+  symbol:   method setRole(com.upnest.edu.modules.auth.entity.Role)
+  location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[65,24] cannot find symbol
+  symbol:   method setTwoFactorEnabled(boolean)
+  location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/JwtService.java:[107,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.user.service.JwtService
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[80,57] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[80,88] cannot find symbol
+  symbol:   method getRole()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[83,21] cannot find symbol
+  symbol:   method getTwoFactorSecret()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[83,58] cannot find symbol
+  symbol:   method getTwoFactorSecret()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[87,25] cannot find symbol
+  symbol:   method setTwoFactorSecret(java.lang.String)
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[88,25] cannot find symbol
+  symbol:   method setTwoFactorEnabled(boolean)
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[90,83] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[99,63] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[103,21] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[135,21] cannot find symbol
+  symbol:   method getTwoFactorSecret()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[135,58] cannot find symbol
+  symbol:   method getTwoFactorSecret()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[141,67] cannot find symbol
+  symbol:   method getTwoFactorSecret()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[146,67] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[150,77] cannot find symbol
+  symbol:   method getRole()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[154,25] cannot find symbol
+  symbol:   method getFullName()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[155,25] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[33,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[37,9] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[87,9] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[95,26] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[112,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[129,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[146,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[163,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[179,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[185,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[201,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[217,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[233,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[249,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[255,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[271,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[287,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[303,44] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[319,13] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[44,9] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.service.CareerService
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[52,33] cannot find symbol
+  symbol:   method builder()
+  location: class com.upnest.edu.modules.career.payload.CareerPathDTO
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[53,29] cannot find symbol
+  symbol:   method getId()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[54,31] cannot find symbol
+  symbol:   method getCode()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[55,32] cannot find symbol
+  symbol:   method getTitle()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[56,31] cannot find symbol
+  symbol:   method getIcon()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[57,32] cannot find symbol
+  symbol:   method getColor()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[58,38] cannot find symbol
+  symbol:   method getDescription()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[59,39] cannot find symbol
+  symbol:   method getMarketDemand()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[60,36] cannot find symbol
+  symbol:   method getAvgSalary()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[61,37] cannot find symbol
+  symbol:   method getDifficulty()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[61,68] cannot find symbol
+  symbol:   method getDifficulty()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[62,41] cannot find symbol
+  symbol:   method getDurationMonths()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[63,35] cannot find symbol
+  symbol:   method getAiReason()
+  location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[66,19] incompatible types: inference variable T has incompatible bounds
+    equality constraints: com.upnest.edu.modules.career.payload.CareerPathDTO
+    lower bounds: java.lang.Object
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[73,9] cannot find symbol
+  symbol:   variable log
+  location: class com.upnest.edu.modules.career.service.CareerService
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.712 s
+[INFO] Finished at: 2025-12-21T20:13:31+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project edu: Compilation failure: Compilation failure: 
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[10,8] class _ContentModerationService_DEPRECATED is public, should be declared in a file named _ContentModerationService_DEPRECATED.java
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/_ContentModerationService_DEPRECATED.java:[10,8] duplicate class: com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[13,26] cannot find symbol
+[ERROR]   symbol:   class Set
+[ERROR]   location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[20,26] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[20,31] cannot find symbol
+[ERROR]   symbol:   class Pattern
+[ERROR]   location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ContentModerationService.java:[150,17] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class com.upnest.edu.modules.qa.service._ContentModerationService_DEPRECATED.ModerationResult
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[38,17] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[42,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[45,32] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[61,53] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.social.entity.UserProfile
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[62,41] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedStudent of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[74,61] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.social.entity.PrivacySettings
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[75,41] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedStudent of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[82,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[85,32] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[101,53] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.social.entity.UserProfile
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[102,41] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedTeacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[114,61] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.social.entity.PrivacySettings
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[115,41] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedTeacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[122,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[125,30] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[141,51] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.social.entity.UserProfile
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[142,39] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedAdmin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[154,59] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.social.entity.PrivacySettings
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[155,39] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedAdmin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[162,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[164,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[165,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[166,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[167,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[168,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataInitializer.java:[169,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.config.DataInitializer
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[36,22] cannot find symbol
+[ERROR]   symbol:   method setEmail(java.lang.String)
+[ERROR]   location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[37,22] cannot find symbol
+[ERROR]   symbol:   method setPassword(java.lang.String)
+[ERROR]   location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[38,22] cannot find symbol
+[ERROR]   symbol:   method setFullName(java.lang.String)
+[ERROR]   location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[39,22] cannot find symbol
+[ERROR]   symbol:   method setRole(com.upnest.edu.modules.auth.entity.Role)
+[ERROR]   location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[40,22] cannot find symbol
+[ERROR]   symbol:   method setTwoFactorEnabled(boolean)
+[ERROR]   location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[41,22] cannot find symbol
+[ERROR]   symbol:   method setTwoFactorSecret(java.lang.String)
+[ERROR]   location: variable admin of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[49,24] cannot find symbol
+[ERROR]   symbol:   method setEmail(java.lang.String)
+[ERROR]   location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[50,24] cannot find symbol
+[ERROR]   symbol:   method setPassword(java.lang.String)
+[ERROR]   location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[51,24] cannot find symbol
+[ERROR]   symbol:   method setFullName(java.lang.String)
+[ERROR]   location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[52,24] cannot find symbol
+[ERROR]   symbol:   method setRole(com.upnest.edu.modules.auth.entity.Role)
+[ERROR]   location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[53,24] cannot find symbol
+[ERROR]   symbol:   method setTwoFactorEnabled(boolean)
+[ERROR]   location: variable student of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[61,24] cannot find symbol
+[ERROR]   symbol:   method setEmail(java.lang.String)
+[ERROR]   location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[62,24] cannot find symbol
+[ERROR]   symbol:   method setPassword(java.lang.String)
+[ERROR]   location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[63,24] cannot find symbol
+[ERROR]   symbol:   method setFullName(java.lang.String)
+[ERROR]   location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[64,24] cannot find symbol
+[ERROR]   symbol:   method setRole(com.upnest.edu.modules.auth.entity.Role)
+[ERROR]   location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/DataSeeder.java:[65,24] cannot find symbol
+[ERROR]   symbol:   method setTwoFactorEnabled(boolean)
+[ERROR]   location: variable teacher of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/service/JwtService.java:[107,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.user.service.JwtService
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[80,57] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[80,88] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[83,21] cannot find symbol
+[ERROR]   symbol:   method getTwoFactorSecret()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[83,58] cannot find symbol
+[ERROR]   symbol:   method getTwoFactorSecret()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[87,25] cannot find symbol
+[ERROR]   symbol:   method setTwoFactorSecret(java.lang.String)
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[88,25] cannot find symbol
+[ERROR]   symbol:   method setTwoFactorEnabled(boolean)
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[90,83] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[99,63] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[103,21] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[135,21] cannot find symbol
+[ERROR]   symbol:   method getTwoFactorSecret()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[135,58] cannot find symbol
+[ERROR]   symbol:   method getTwoFactorSecret()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[141,67] cannot find symbol
+[ERROR]   symbol:   method getTwoFactorSecret()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[146,67] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[150,77] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[154,25] cannot find symbol
+[ERROR]   symbol:   method getFullName()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/auth/controller/AuthController.java:[155,25] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.upnest.edu.modules.auth.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[33,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[37,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[87,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[95,26] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[112,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[129,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[146,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[163,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[179,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[185,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[201,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[217,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[233,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[249,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[255,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[271,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[287,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[303,44] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.entity.RoadmapStep
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/config/CareerDataSeeder.java:[319,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.config.CareerDataSeeder
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[44,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.service.CareerService
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[52,33] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.upnest.edu.modules.career.payload.CareerPathDTO
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[53,29] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[54,31] cannot find symbol
+[ERROR]   symbol:   method getCode()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[55,32] cannot find symbol
+[ERROR]   symbol:   method getTitle()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[56,31] cannot find symbol
+[ERROR]   symbol:   method getIcon()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[57,32] cannot find symbol
+[ERROR]   symbol:   method getColor()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[58,38] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[59,39] cannot find symbol
+[ERROR]   symbol:   method getMarketDemand()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[60,36] cannot find symbol
+[ERROR]   symbol:   method getAvgSalary()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[61,37] cannot find symbol
+[ERROR]   symbol:   method getDifficulty()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[61,68] cannot find symbol
+[ERROR]   symbol:   method getDifficulty()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[62,41] cannot find symbol
+[ERROR]   symbol:   method getDurationMonths()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[63,35] cannot find symbol
+[ERROR]   symbol:   method getAiReason()
+[ERROR]   location: variable path of type com.upnest.edu.modules.career.entity.CareerPath
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[66,19] incompatible types: inference variable T has incompatible bounds
+[ERROR]     equality constraints: com.upnest.edu.modules.career.payload.CareerPathDTO
+[ERROR]     lower bounds: java.lang.Object
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/career/service/CareerService.java:[73,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.upnest.edu.modules.career.service.CareerService
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

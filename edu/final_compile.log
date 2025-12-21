@@ -15,21 +15,21 @@
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ModerationResult.java:[5,26] implicitly declared classes are not supported in -source 21
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/_ContentModerationService_DEPRECATED.java:[5,26] implicitly declared classes are not supported in -source 21
   (use -source 25 or higher to enable implicitly declared classes)
-[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ModerationResult.java:[148,1] class, interface, enum, or record expected
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/_ContentModerationService_DEPRECATED.java:[155,1] class, interface, enum, or record expected
 [INFO] 2 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.306 s
-[INFO] Finished at: 2025-12-21T20:16:28+07:00
+[INFO] Total time:  2.130 s
+[INFO] Finished at: 2025-12-21T20:17:51+07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project edu: Compilation failure: Compilation failure: 
-[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ModerationResult.java:[5,26] implicitly declared classes are not supported in -source 21
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/_ContentModerationService_DEPRECATED.java:[5,26] implicitly declared classes are not supported in -source 21
 [ERROR]   (use -source 25 or higher to enable implicitly declared classes)
-[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/ModerationResult.java:[148,1] class, interface, enum, or record expected
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/service/_ContentModerationService_DEPRECATED.java:[155,1] class, interface, enum, or record expected
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

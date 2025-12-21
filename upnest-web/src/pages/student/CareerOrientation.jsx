@@ -3,8 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { 
   Compass, Map, Sparkles, ChevronRight, CheckCircle2, 
   Lock, ArrowRight, Zap, Award, BarChart3, PenTool, 
-  TrendingUp, X, BrainCircuit
+  TrendingUp, X, BrainCircuit, Loader2, BookOpen
 } from 'lucide-react';
+import { generateLearningRoadmap } from '../../services/geminiService';
 import './CareerOrientation.css';
 
 // Icon component
@@ -24,6 +25,9 @@ export default function CareerOrientation() {
   const [selectedPathCode, setSelectedPathCode] = useState(pathCode || null);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [exploringStep, setExploringStep] = useState(null);
+  const [stepDetail, setStepDetail] = useState(null);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     loadUserData();
@@ -232,6 +236,46 @@ export default function CareerOrientation() {
     if (!user || !user.fullName) return 'Nhung';
     const parts = user.fullName.split(' ');
     return parts[parts.length - 1];
+  };
+
+  const handleExploreStep = async (step, stepIndex) => {
+    setExploringStep(step);
+    setIsGenerating(true);
+    setStepDetail(null);
+
+    try {
+      const roadmapDetail = await generateLearningRoadmap({
+        careerPath: roadmap.careerPath.title,
+        pathCode: selectedPathCode,
+        userInfo: {
+          fullName: user?.fullName || 'Nguyễn Thị Thùy Nhung',
+          level: user?.level || 4,
+          skills: user?.skills || []
+        },
+        stepIndex: stepIndex,
+        currentStep: step
+      });
+
+      setStepDetail(roadmapDetail);
+    } catch (error) {
+      console.error('Error generating roadmap:', error);
+      // Vẫn hiển thị với fallback data
+      setStepDetail({
+        stepTitle: step.title,
+        tasks: step.tasks,
+        description: `Lộ trình chi tiết cho ${step.title}`,
+        skillsGained: [],
+        estimatedDuration: '1-2 tháng',
+        aiGenerated: false
+      });
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const handleCloseStepDetail = () => {
+    setExploringStep(null);
+    setStepDetail(null);
   };
 
   if (isLoading) {
@@ -453,7 +497,10 @@ export default function CareerOrientation() {
                     </div>
 
                     {step.status === 'active' && (
-                      <button className="explore-step-btn">
+                      <button 
+                        className="explore-step-btn"
+                        onClick={() => handleExploreStep(step, idx)}
+                      >
                         Khám phá chặng này <ChevronRight size={18} />
                       </button>
                     )}
@@ -478,6 +525,124 @@ export default function CareerOrientation() {
           </div>
         ) : null}
       </div>
+
+      {/* Step Detail Modal */}
+      {exploringStep && (
+        <div className="step-detail-modal-overlay" onClick={handleCloseStepDetail}>
+          <div className="step-detail-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="step-detail-header">
+              <div className="step-detail-title-section">
+                <div className="step-detail-icon">
+                  <BookOpen size={24} />
+                </div>
+                <div>
+                  <h2>{stepDetail?.stepTitle || exploringStep.title}</h2>
+                  {stepDetail?.aiGenerated && (
+                    <div className="ai-badge-small">
+                      <Sparkles size={12} />
+                      <span>AI Generated</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <button className="step-detail-close" onClick={handleCloseStepDetail}>
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="step-detail-content">
+              {isGenerating ? (
+                <div className="step-detail-loading">
+                  <Loader2 className="spinner" size={32} />
+                  <p>AI đang tạo lộ trình học tập cá nhân hóa cho bạn...</p>
+                </div>
+              ) : stepDetail ? (
+                <>
+                  {stepDetail.description && (
+                    <div className="step-detail-description">
+                      <p>{stepDetail.description}</p>
+                    </div>
+                  )}
+
+                  <div className="step-detail-section">
+                    <h3>
+                      <Map size={18} />
+                      Lộ trình chi tiết
+                    </h3>
+                    <div className="step-detail-tasks">
+                      {stepDetail.tasks.map((task, idx) => {
+                        const taskDetail = stepDetail.tasksDetail?.[idx];
+                        return (
+                          <div key={idx} className="step-detail-task-item">
+                            <div className="task-number">{idx + 1}</div>
+                            <div className="task-content">
+                              <h4>{typeof task === 'string' ? task : task.title}</h4>
+                              {taskDetail?.description && (
+                                <p className="task-description">{taskDetail.description}</p>
+                              )}
+                              {taskDetail?.resources && taskDetail.resources.length > 0 && (
+                                <div className="task-resources">
+                                  <strong>Tài nguyên:</strong>
+                                  <ul>
+                                    {taskDetail.resources.map((resource, rIdx) => (
+                                      <li key={rIdx}>{resource}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+                              {taskDetail?.duration && (
+                                <span className="task-duration">⏱️ {taskDetail.duration}</span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {stepDetail.skillsGained && stepDetail.skillsGained.length > 0 && (
+                    <div className="step-detail-section">
+                      <h3>
+                        <Award size={18} />
+                        Kỹ năng đạt được
+                      </h3>
+                      <div className="skills-gained-list">
+                        {stepDetail.skillsGained.map((skill, idx) => (
+                          <span key={idx} className="skill-badge">{skill}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {stepDetail.estimatedDuration && (
+                    <div className="step-detail-meta">
+                      <div className="meta-item">
+                        <strong>Thời gian ước tính:</strong> {stepDetail.estimatedDuration}
+                      </div>
+                    </div>
+                  )}
+
+                  {stepDetail.nextStepPreview && (
+                    <div className="step-detail-next">
+                      <h4>📌 Gợi ý tiếp theo:</h4>
+                      <p>{stepDetail.nextStepPreview}</p>
+                    </div>
+                  )}
+
+                  <div className="step-detail-actions">
+                    <button className="btn-primary" onClick={handleCloseStepDetail}>
+                      Bắt đầu học ngay
+                    </button>
+                    <button className="btn-secondary" onClick={handleCloseStepDetail}>
+                      Xem lại sau
+                    </button>
+                  </div>
+                </>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -21,6 +21,7 @@ import Feed from '../pages/student/Feed';
 import Messaging from '../pages/student/Messaging';
 import Achievements from '../pages/student/Achievements';
 import CareerOrientation from '../pages/student/CareerOrientation';
+import ProfessionalRoadmap from '../pages/student/ProfessionalRoadmap';
 import ReaderView from '../pages/student/ReaderView';
 
 /**
@@ -155,6 +156,16 @@ export default function AppRoutes() {
               <ProtectedRoute>
                 <StudentLayout>
                   <CareerOrientation />
+                </StudentLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/professional-roadmap"
+            element={
+              <ProtectedRoute>
+                <StudentLayout>
+                  <ProfessionalRoadmap />
                 </StudentLayout>
               </ProtectedRoute>
             }

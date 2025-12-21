@@ -7,14 +7,18 @@ import java.time.LocalDateTime;
 
 /**
  * User - Người dùng hệ thống
+ * NOTE: This entity is deprecated - use com.upnest.edu.modules.user.entity.User
+ * This entity is kept for backward compatibility with references from Group and other entities
+ * WARNING: Do NOT persist through this entity, use user module's User instead
  */
-@Entity
+@Entity(name = "AuthLegacyUser")
 @Table(name = "users", indexes = {
-    @Index(name = "idx_email", columnList = "email", unique = true),
-    @Index(name = "idx_username", columnList = "username", unique = true),
-    @Index(name = "idx_created_at", columnList = "created_at DESC")
+    @Index(name = "idx_legacy_email", columnList = "email", unique = true),
+    @Index(name = "idx_legacy_username", columnList = "username", unique = true),
+    @Index(name = "idx_legacy_created_at", columnList = "created_at DESC")
 })
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

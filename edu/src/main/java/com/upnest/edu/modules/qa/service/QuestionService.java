@@ -1,16 +1,23 @@
 package com.upnest.edu.modules.qa.service;
 
-import com.upnest.edu.modules.qa.entity.*;
-import com.upnest.edu.modules.qa.payload.*;
-import com.upnest.edu.modules.qa.repository.*;
-import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDateTime;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
+import com.upnest.edu.modules.qa.entity.Answer;
+import com.upnest.edu.modules.qa.entity.Question;
+import com.upnest.edu.modules.qa.entity.QuestionStatus;
+import com.upnest.edu.modules.qa.payload.QuestionRequest;
+import com.upnest.edu.modules.qa.payload.QuestionResponse;
+import com.upnest.edu.modules.qa.repository.AnswerRepository;
+import com.upnest.edu.modules.qa.repository.QuestionCommentRepository;
+import com.upnest.edu.modules.qa.repository.QuestionReactionRepository;
+import com.upnest.edu.modules.qa.repository.QuestionRepository;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Service: QuestionService
@@ -33,7 +40,7 @@ public class QuestionService {
     private final AnswerRepository answerRepository;
     private final QuestionCommentRepository questionCommentRepository;
     private final QuestionReactionRepository questionReactionRepository;
-    private final ContentModerationService contentModerationService;
+    private final QAContentModerationService contentModerationService;
     
     /**
      * Tạo câu hỏi mới
@@ -45,9 +52,9 @@ public class QuestionService {
         log.info("Creating question for user: {}", userId);
         
         // Kiểm duyệt nội dung
-        ContentModerationService.ModerationResult titleModeration = 
+        QAContentModerationService.ModerationResult titleModeration = 
             contentModerationService.moderateContent(request.getTitle());
-        ContentModerationService.ModerationResult contentModeration = 
+        QAContentModerationService.ModerationResult contentModeration = 
             contentModerationService.moderateContent(request.getContent());
         
         if (!titleModeration.isApproved()) {

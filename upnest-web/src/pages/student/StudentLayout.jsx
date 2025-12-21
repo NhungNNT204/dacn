@@ -22,7 +22,8 @@ import {
   TrendingUp,
   Coffee,
   Palette,
-  Atom
+  Atom,
+  Compass
 } from 'lucide-react';
 import './StudentLayout.css';
 import Feed from './Feed';
@@ -138,6 +139,7 @@ export default function StudentLayout({ children }) {
     { icon: LayoutGrid, label: 'Góc học tập', path: '/dashboard' },
     { icon: BookOpen, label: 'Khóa học của tôi', path: '/my-courses' },
     { icon: Library, label: 'Thư viện số', path: '/library' },
+    { icon: Compass, label: 'Lộ trình học tập', path: '/professional-roadmap' },
   ];
 
   const communityItems = [
@@ -269,6 +271,7 @@ export default function StudentLayout({ children }) {
             <h3 className="sidebar-section-title">HỌC TẬP</h3>
             <nav className="nav-menu">
               {learningItems.map((item, idx) => {
+                const IconComponent = item.icon;
                 return (
                   <a 
                     key={idx}
@@ -279,6 +282,9 @@ export default function StudentLayout({ children }) {
                       navigate(item.path);
                     }}
                   >
+                    <div className="nav-icon-wrapper">
+                      <IconComponent size={20} className="nav-icon" />
+                    </div>
                     <span className="nav-label">{item.label}</span>
                   </a>
                 );
@@ -291,6 +297,7 @@ export default function StudentLayout({ children }) {
             <h3 className="sidebar-section-title">CỘNG ĐỒNG</h3>
             <nav className="nav-menu">
               {communityItems.map((item, idx) => {
+                const IconComponent = item.icon;
                 return (
                   <a 
                     key={idx}
@@ -301,6 +308,9 @@ export default function StudentLayout({ children }) {
                       navigate(item.path);
                     }}
                   >
+                    <div className="nav-icon-wrapper">
+                      <IconComponent size={20} className="nav-icon" />
+                    </div>
                     <span className="nav-label">{item.label}</span>
                     {item.badge && (
                       <span className="nav-badge">{item.badge}</span>
@@ -316,6 +326,7 @@ export default function StudentLayout({ children }) {
             <h3 className="sidebar-section-title">HỆ THỐNG</h3>
             <nav className="nav-menu">
               {systemItems.map((item, idx) => {
+                const IconComponent = item.icon;
                 return (
                   <a 
                     key={idx}
@@ -326,6 +337,9 @@ export default function StudentLayout({ children }) {
                       navigate(item.path);
                     }}
                   >
+                    <div className="nav-icon-wrapper">
+                      <IconComponent size={20} className="nav-icon" />
+                    </div>
                     <span className="nav-label">{item.label}</span>
                   </a>
                 );
