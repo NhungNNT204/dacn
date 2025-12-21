@@ -21,7 +21,7 @@ import com.upnest.edu.modules.user.service.UserProfileService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Controller: ProfileController
+ * Controller: UserProfileController
  * REST API endpoints cho hồ sơ cá nhân
  * 
  * Endpoints:
@@ -34,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/users")
-public class ProfileController {
+public class UserProfileController {
     
     @org.springframework.beans.factory.annotation.Autowired
     private UserProfileService userProfileService;

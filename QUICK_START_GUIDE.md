@@ -1,432 +1,210 @@
-# Quick Start Guide - Community Interactions
+# 🚀 HƯỚNG DẪN NHANH - CHẠY PROJECT UPNEST.EDU
 
-## 🚀 30-Second Quick Start
+## ⚡ BƯỚC 1: CÀI ĐẶT CÔNG CỤ CẦN THIẾT
 
-### Import Components
-```javascript
-import PostInteraction from './components/PostInteraction';
-import CommentSection from './components/CommentSection';
-import MediaUpload from './components/MediaUpload';
-import { usePermissions } from './utils/rolePermissions';
-```
+### 1.1. Cài Node.js
+- Tải từ: https://nodejs.org
+- Chọn phiên bản LTS (v18 hoặc cao hơn)
+- Cài đặt và kiểm tra: `node --version`
 
-### Basic Usage
-```javascript
-<PostInteraction
-  post={post}
-  onReactionChange={handleReaction}
-  isTeacher={isTeacher}
-/>
+### 1.2. Cài Java JDK
+- Tải JDK 17 từ: https://adoptium.net
+- Cài đặt và kiểm tra: `java --version`
 
-<CommentSection
-  comments={comments}
-  onAddComment={handleAdd}
-  currentUserRole={role}
-/>
-```
+### 1.3. Cài Maven (cho Java)
+- Tải từ: https://maven.apache.org
+- Hoặc dùng: `choco install maven` (Windows) hoặc `brew install maven` (Mac)
+
+### 1.4. Cài Database
+- **MySQL**: https://dev.mysql.com/downloads/
+- Hoặc **PostgreSQL**: https://www.postgresql.org/download/
 
 ---
 
-## 📋 Component Cheat Sheet
+## ⚙️ BƯỚC 2: CẤU HÌNH DATABASE
 
-| Component | Props | Key Methods |
-|-----------|-------|-------------|
-| PostInteraction | post, onReactionChange, isTeacher | toggleReaction, pin, lock |
-| CommentSection | comments, onAddComment, currentUserRole | add, edit, delete, like, reply |
-| MediaUpload | onMediaSelect, maxFiles, maxFileSize | validate, upload, preview |
+### 2.1. Tạo Database
+```sql
+-- Mở MySQL/PostgreSQL
+CREATE DATABASE upnestedu;
+```
 
----
+### 2.2. Cấu hình trong Backend
+Mở file: `edu/src/main/resources/application.properties`
 
-## 🔐 Permission Quick Check
+```properties
+# Database Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/upnestedu
+spring.datasource.username=root
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
-```javascript
-// 4 Roles
-const roles = ['ADMIN', 'TEACHER', 'STUDENT', 'GUEST'];
-
-// 12 Permissions
-const permissions = [
-  'CREATE_POST', 'EDIT_POST', 'DELETE_POST',
-  'LIKE_POST', 'COMMENT_POST',
-  'EDIT_COMMENT', 'DELETE_COMMENT',
-  'SHARE_POST', 'UPLOAD_MEDIA',
-  'PIN_POST', 'LOCK_COMMENTS', 'MODERATE_COMMENTS'
-];
-
-// Check
-const { canLike, canComment, canDeleteComment } = usePermissions(role, userId);
+# JPA Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
 ```
 
 ---
 
-## 🎨 8 Emoji Reactions
+## 🔧 BƯỚC 3: CHẠY BACKEND
 
+```bash
+# Di cnhungển vào thư mục backend
+cd edu
+
+# Build project (lần đầu tiên)
+mvn clean install
+
+# Chạy ứng dụng
+mvn spring-boot:run
 ```
-👍 LIKE      ❤️ LOVE     😂 HAHA
-😮 WOW       😢 SAD      😠 ANGRY
-👏 CLAP      🤔 THINKING
-```
+
+**Kết quả**: Backend chạy ở `http://localhost:8080`
+
+**Kiểm tra**: Mở browser, vào `http://localhost:8080/api/v1/auth/login` (sẽ báo lỗi nhưng chứng tỏ server đã chạy)
 
 ---
 
-## 🗂️ File Structure
+## 📱 BƯỚC 4: CHẠY FRONTEND
 
+```bash
+# Mở terminal mới, di cnhungển vào thư mục frontend
+cd upnest-web
+
+# Cài đặt thư viện (chỉ cần chạy 1 lần)
+npm install
+
+# Chạy ứng dụng
+npm run dev
 ```
-src/
-├── components/
-│   ├── PostInteraction.jsx      (200 lines)
-│   ├── PostInteraction.css
-│   ├── CommentSection.jsx       (330 lines)
-│   ├── CommentSection.css
-│   ├── MediaUpload.jsx          (350 lines)
-│   ├── MediaUpload.css
-│   └── README.md
-├── hooks/
-│   └── usePostInteractions.js   (260 lines)
-├── utils/
-│   └── rolePermissions.js       (310 lines)
-├── services/
-│   └── postInteractionService.js (300 lines)
-└── pages/
-    └── classroom/
-        ├── AnnouncementFeedWithInteractions.jsx
-        ├── AnnouncementFeedWithInteractions.css
-        ├── AnnouncementFeedDemo.jsx
-        └── AnnouncementFeedDemo.css
-```
+
+**Kết quả**: Frontend chạy ở `http://localhost:5173`
+
+**Kiểm tra**: Mở browser, vào `http://localhost:5173` → Sẽ thấy trang đăng nhập
 
 ---
 
-## 🧪 Test Demo
+## 🎯 BƯỚC 5: ĐĂNG NHẬP VÀ SỬ DỤNG
 
-```javascript
-// Route to demo
-<Route path="/demo" element={<AnnouncementFeedDemo />} />
+### 5.1. Tạo tài khoản
+- Vào `/register`
+- Điền thông tin và đăng ký
 
-// Test interactions without backend
-// Open DevTools (F12) to see logs
-```
+### 5.2. Đăng nhập
+- Vào `/login`
+- Nhập email và password
+- Sau khi đăng nhập thành công, sẽ cnhungển đến `/dashboard`
 
----
-
-## 🔌 API Endpoints Template
-
-```javascript
-// Reactions
-POST   /api/posts/{postId}/reactions
-DELETE /api/posts/{postId}/reactions/{reactionId}
-
-// Comments
-POST   /api/posts/{postId}/comments
-PUT    /api/posts/{postId}/comments/{commentId}
-DELETE /api/posts/{postId}/comments/{commentId}
-POST   /api/posts/{postId}/comments/{commentId}/like
-
-// Replies
-POST   /api/posts/{postId}/comments/{commentId}/replies
-
-// Media
-POST   /api/media/upload
-
-// Controls
-PUT    /api/posts/{postId}/pin
-PUT    /api/posts/{postId}/lock-comments
-DELETE /api/posts/{postId}
-```
+### 5.3. Khám phá các tính năng
+- **Góc học tập**: Xem lộ trình học tập cá nhân hóa
+- **Khóa học của tôi**: Xem các khóa học đã đăng ký
+- **Thư viện số**: Xem tài liệu, video
+- **Cộng đồng**: Đăng bài, like, comment
+- **Tin nhắn**: Chat với bạn bè
+- **Thành tích**: Xem hồ sơ năng lực số
+- **Định hướng sự nghiệp**: Chọn và xem lộ trình nghề nghiệp
 
 ---
 
-## 💾 Data Models
+## 🐛 XỬ LÝ LỖI THƯỜNG GẶP
 
-### Post
-```javascript
-{
-  id, title, content, author,
-  timestamp, reactions, comments,
-  mediaIds, isPinned, isCommentLocked,
-  disabledInteractions
-}
-```
+### ❌ Lỗi: "Cannot connect to database"
+**Giải pháp:**
+- Kiểm tra MySQL/PostgreSQL đã chạy chưa
+- Kiểm tra username/password trong `application.properties`
+- Kiểm tra database đã tạo chưa
 
-### Comment
-```javascript
-{
-  id, author, content, timestamp,
-  likes, userLiked, replies,
-  mediaIds, isEdited, editedAt
-}
-```
+### ❌ Lỗi: "Port 8080 already in use"
+**Giải pháp:**
+- Đổi port trong `application.properties`: `server.port=8081`
+- Hoặc tắt ứng dụng đang dùng port 8080
 
-### Reaction
-```javascript
-{
-  postId, userId, type (LIKE|LOVE|...),
-  createdAt
-}
-```
+### ❌ Lỗi: "Port 5173 already in use"
+**Giải pháp:**
+- Vite sẽ tự động đổi sang port khác (5174, 5175...)
+- Hoặc đổi port trong `vite.config.js`
+
+### ❌ Lỗi: "npm install failed"
+**Giải pháp:**
+- Xóa folder `node_modules` và file `package-lock.json`
+- Chạy lại: `npm install`
+- Hoặc dùng: `npm install --legacy-peer-deps`
+
+### ❌ Lỗi: "Maven build failed"
+**Giải pháp:**
+- Kiểm tra Java version: `java --version` (phải >= 17)
+- Xóa folder `target` và chạy lại: `mvn clean install`
 
 ---
 
-## 🎯 Handler Examples
+## 📊 KIỂM TRA HỆ THỐNG ĐÃ CHẠY ĐÚNG
 
-```javascript
-// Reaction
-const handleReactionChange = (postId, type, removing) => {
-  // Toggle emoji reaction
-};
+### ✅ Backend hoạt động:
+- Terminal hiển thị: "Started Application in X seconds"
+- Có thể truy cập: `http://localhost:8080`
 
-// Comment
-const handleAddComment = (postId, content, mediaIds) => {
-  // Add new comment
-};
+### ✅ Frontend hoạt động:
+- Terminal hiển thị: "Local: http://localhost:5173"
+- Browser hiển thị trang đăng nhập
 
-const handleEditComment = (postId, commentId, content) => {
-  // Update comment
-};
+### ✅ Database kết nối:
+- Backend log không có lỗi database
+- Các bảng tự động được tạo khi chạy lần đầu
 
-const handleDeleteComment = (postId, commentId) => {
-  // Remove comment
-};
+---
 
-// Reply
-const handleAddReply = (postId, commentId, content) => {
-  // Add nested reply
-};
+## 🎓 CÁC LỆNH HỮU ÍCH
 
-// Teacher
-const handleTogglePin = (postId) => {
-  // Pin/unpin post
-};
+### Frontend:
+```bash
+npm run dev          # Chạy development server
+npm run build        # Build production
+npm run preview      # Xem production build
+```
 
-const handleToggleLockComments = (postId) => {
-  // Lock/unlock comments
-};
+### Backend:
+```bash
+mvn spring-boot:run           # Chạy ứng dụng
+mvn clean install              # Build project
+mvn test                       # Chạy tests
 ```
 
 ---
 
-## 🎨 CSS Classes
+## 🔍 DEBUG VÀ KIỂM TRA
 
-**Main Containers**
-- `.post-interaction`
-- `.comment-section`
-- `.media-upload-container`
+### Xem logs Backend:
+- Logs hiển thị trong terminal nơi chạy `mvn spring-boot:run`
+- Tìm các dòng có "ERROR" hoặc "WARN"
 
-**Interactive Elements**
-- `.reaction-picker`
-- `.action-button`
-- `.comment-input-wrapper`
-- `.upload-zone`
+### Xem logs Frontend:
+- Mở Developer Tools trong browser (F12)
+- Tab "Console" để xem lỗi JavaScript
+- Tab "Network" để xem các API calls
 
-**States**
-- `.active` - Active state
-- `.disabled` - Disabled state
-- `.drag-over` - Drag over state
-- `.editing` - Edit mode
+### Kiểm tra API:
+- Dùng Postman hoặc browser
+- Test API: `GET http://localhost:8080/api/v1/career/paths`
+- Cần thêm header: `Authorization: Bearer {token}`
 
 ---
 
-## 🧠 State Management Flow
+## 📝 GHI CHÚ QUAN TRỌNG
 
-```
-User Action
-    ↓
-Permission Check
-    ↓
-Optimistic UI Update (setAnnouncements)
-    ↓
-API Call (postInteractionService)
-    ↓
-Update State with Response
-    ↓
-On Error: Reload from backend
-```
+1. **Luôn chạy Backend trước** khi chạy Frontend
+2. **Database phải được tạo** trước khi chạy Backend
+3. **Token JWT** được lưu trong localStorage của browser
+4. **Hot reload**: Khi sửa code Frontend, browser tự động refresh
+5. **Backend restart**: Khi sửa code Backend, cần restart server
 
 ---
 
-## 📱 Responsive Breakpoints
+## 🎉 HOÀN TẤT!
 
-```css
-/* Desktop */
-Default: 1024px+
+Bây giờ bạn đã có thể:
+- ✅ Chạy được project
+- ✅ Đăng nhập và sử dụng
+- ✅ Khám phá các tính năng
+- ✅ Bắt đầu phát triển tính năng mới
 
-/* Tablet */
-@media (max-width: 768px)
-
-/* Mobile */
-@media (max-width: 480px)
-```
-
----
-
-## 🔒 Permission Matrix
-
-| Permission | ADMIN | TEACHER | STUDENT | GUEST |
-|-----------|-------|---------|---------|-------|
-| CREATE_POST | ✅ | ✅ | ✅ | ❌ |
-| EDIT_POST | ✅ | ✅ | Own | ❌ |
-| DELETE_POST | ✅ | ✅ | Own | ❌ |
-| LIKE_POST | ✅ | ✅ | ✅ | ❌ |
-| COMMENT_POST | ✅ | ✅ | ✅ | ❌ |
-| EDIT_COMMENT | ✅ | ✅ | Own | ❌ |
-| DELETE_COMMENT | ✅ | ✅ | Own | ❌ |
-| SHARE_POST | ✅ | ✅ | ✅ | ❌ |
-| UPLOAD_MEDIA | ✅ | ✅ | ✅ | ❌ |
-| PIN_POST | ✅ | ✅ | ❌ | ❌ |
-| LOCK_COMMENTS | ✅ | ✅ | ❌ | ❌ |
-| MODERATE_COMMENTS | ✅ | ✅ | ❌ | ❌ |
-
----
-
-## 🚨 Common Errors & Fixes
-
-| Error | Cause | Fix |
-|-------|-------|-----|
-| Icons not showing | Lucide not installed | `npm install lucide-react` |
-| Styles not applying | CSS not imported | Check import paths |
-| Permission denied | Role not set | Pass `userRole` prop |
-| File upload fails | File size | Check `maxFileSize` |
-| Comments not showing | isCommentLocked | Check post.isCommentLocked |
-
----
-
-## 📚 Documentation Files
-
-| File | Purpose | Pages |
-|------|---------|-------|
-| COMMUNITY_INTERACTIONS_GUIDE.md | Complete system guide | 15+ |
-| INTEGRATION_MIGRATION_GUIDE.md | Integration instructions | 20+ |
-| IMPLEMENTATION_SUMMARY.md | Completion summary | 10+ |
-| CHECKLIST_AND_PROGRESS.md | Progress tracking | 10+ |
-| src/components/README.md | Component reference | 8+ |
-| QUICK_START_GUIDE.md | This file | 1 |
-
----
-
-## 🎯 Key Methods
-
-### usePostInteractions
-```javascript
-toggleReaction(reactionType)
-addComment(content, mediaIds)
-deleteComment(commentId)
-editComment(commentId, newContent)
-likeComment(commentId)
-addReply(commentId, content)
-setError(message)
-```
-
-### usePermissions
-```javascript
-canLike()
-canComment(isLocked)
-canEditComment(authorId)
-canDeleteComment(authorId)
-canUploadMedia()
-canPinPost()
-canLockComments()
-canModerate()
-isTeacher()
-isAdmin()
-isStudent()
-```
-
-### postInteractionService
-```javascript
-toggleReaction(postId, type, userId)
-addComment(postId, commentData)
-editComment(postId, commentId, data)
-deleteComment(postId, commentId)
-uploadMedia(files, options)
-togglePinPost(postId, isPinned)
-toggleLockComments(postId, isLocked)
-deletePost(postId)
-getPostDetails(postId)
-getComments(postId, options)
-```
-
----
-
-## 🔄 API Call Pattern
-
-```javascript
-try {
-  // 1. Permission check
-  if (!permissions.canLike()) {
-    throw new Error('No permission');
-  }
-  
-  // 2. Optimistic update
-  updateUI();
-  
-  // 3. API call
-  await postInteractionService.method(...);
-  
-  // 4. Success
-  showSuccess();
-} catch (err) {
-  // 5. Error recovery
-  reloadFromBackend();
-  showError(err.message);
-}
-```
-
----
-
-## 🧪 Quick Test Checklist
-
-- [ ] Emoji picker shows 8 reactions
-- [ ] Click emoji adds reaction
-- [ ] Comment input accepts text
-- [ ] Send button creates comment
-- [ ] Double-click comment enables edit
-- [ ] Delete button removes comment
-- [ ] Reply button shows reply form
-- [ ] Like comment button works
-- [ ] Nested replies show correctly
-- [ ] Drag-drop zone highlights on drag
-- [ ] File upload shows progress
-- [ ] Media preview displays
-- [ ] Permission checks work
-- [ ] Teacher menu appears
-- [ ] Pin/lock/delete work
-- [ ] Responsive on mobile
-
----
-
-## 💡 Pro Tips
-
-1. **Use Demo Component**: Test without backend first
-2. **Check Console Logs**: Open DevTools (F12) for action logs
-3. **Permission Testing**: Change `currentUser.role` to test
-4. **Mock Data**: Use provided mock data for development
-5. **CSS Override**: Modify CSS files for custom styling
-6. **Error Handling**: Always catch API errors and reload
-7. **Optimistic Updates**: Update UI before API call
-8. **Performance**: Use React.memo for large lists
-
----
-
-## 🔗 Important Links
-
-- Lucide Icons: https://lucide.dev/
-- React Hooks: https://react.dev/reference/react
-- Fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-- FormData: https://developer.mozilla.org/en-US/docs/Web/API/FormData
-
----
-
-## 📞 Getting Help
-
-1. **Check Documentation**: See COMMUNITY_INTERACTIONS_GUIDE.md
-2. **Review Examples**: See AnnouncementFeedDemo.jsx
-3. **Check Code Comments**: Components have detailed comments
-4. **Test with Demo**: Run demo component to test
-5. **Review Tests**: Check test examples in documentation
-
----
-
-**Last Updated**: 2024  
-**Version**: 1.0  
-**Status**: ✅ Complete  
-
-*Print this page for quick reference!*
+**Chúc bạn thành công!** 🚀

@@ -91,7 +91,7 @@ const ChatBox = ({
           <div className="loading">Đang tải...</div>
         ) : messages.length === 0 ? (
           <div className="empty-messages">
-            <p>Bắt đầu cuộc trò chuyện</p>
+            <p>Bắt đầu cuộc trò cnhungện</p>
           </div>
         ) : (
           messages.map((message) => (

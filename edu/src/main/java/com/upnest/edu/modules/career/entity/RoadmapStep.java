@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 /**
  * RoadmapStep - Các chặng trong lộ trình nghề nghiệp
  */
-@Entity
+@Entity(name = "CareerRoadmapStep")
 @Table(name = "roadmap_steps", indexes = {
     @Index(name = "idx_career_path_order", columnList = "career_path_id, order_index")
 })

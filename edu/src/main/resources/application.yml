@@ -14,14 +14,14 @@ spring:
     # URL kết nối: localhost cổng 1433, tên DB là UpNestEdu
     # encrypt=true;trustServerCertificate=true là bắt buộc để chạy local không lỗi SSL
     url: jdbc:sqlserver://localhost:1433;databaseName=UpNestEdu;encrypt=true;trustServerCertificate=true;
-    username: thuynhung                # Tên đăng nhập SQL Server (thường là sa)
+    username: thuynhung                # Tên đăng nhập SQL Server
     password: 1234abc   # <--- QUAN TRỌNG: SỬA THÀNH MẬT KHẨU SQL CỦA BẠN
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
   jpa:
     show-sql: true              # Hiện câu lệnh SQL ra màn hình
     hibernate:
-      ddl-auto: update          # Update schema without dropping
+        ddl-auto: update          # Create missing tables
     properties:
       hibernate:
         format_sql: true

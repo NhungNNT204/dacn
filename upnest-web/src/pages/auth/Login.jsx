@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Shield, Lock, ArrowLeft, Smartphone } from 'lucide-react';
+import { login, verify2FA, saveAuthData } from '../../services/authService';
 import './Login.css';
 
 /**
@@ -9,9 +11,12 @@ import './Login.css';
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [otpCode, setOtpCode] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [is2faRequired, setIs2faRequired] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -20,43 +25,156 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: username,  // Backend expects 'email', not 'username'
-          password,
-        }),
-      });
+      const data = await login(username, password);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Đăng nhập thất bại');
+      // Backend LUÔN yêu cầu 2FA
+      if (data.is2faRequired) {
+        setIs2faRequired(true);
+        setUserEmail(data.email || username);
+        return;
       }
 
-      const data = await response.json();
-
-      // Lưu token
-      localStorage.setItem('accessToken', data.accessToken);
-      localStorage.setItem('refreshToken', data.refreshToken);
-      localStorage.setItem('userId', data.userId);
-      localStorage.setItem('username', data.username);
-
-      if (rememberMe) {
-        localStorage.setItem('rememberMe', 'true');
+      // Nếu có token (trường hợp này không còn xảy ra nữa vì backend luôn yêu cầu 2FA)
+      if (data.token) {
+        saveAuthData(data, rememberMe);
+        navigate('/dashboard');
+      } else {
+        throw new Error('Không nhận được token từ server');
       }
-
-      // Redirect
-      navigate('/dashboard');
     } catch (err) {
-      setError(err.message);
+      // Hiển thị lỗi rõ ràng hơn
+      let errorMessage = err.message || 'Đăng nhập thất bại. Vui lòng thử lại.';
+      
+      // Nếu là lỗi kết nối, thêm hướng dẫn
+      if (errorMessage.includes('Không thể kết nối đến server')) {
+        errorMessage = `${errorMessage}\n\n💡 Hướng dẫn:\n1. Mở Terminal/PowerShell\n2. Chạy: cd edu\n3. Chạy: .\\mvnw.cmd spring-boot:run\n4. Đợi backend khởi động xong\n5. Thử đăng nhập lại`;
+      }
+      
+      setError(errorMessage);
+      console.error('Login error:', err);
     } finally {
       setIsLoading(false);
     }
   };
 
+  const handleVerifyOTP = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const data = await verify2FA(userEmail, otpCode);
+
+      // Lưu token và thông tin user
+      if (data.token) {
+        saveAuthData(data, rememberMe);
+        navigate('/dashboard');
+      } else {
+        throw new Error('Không nhận được token từ server');
+      }
+    } catch (err) {
+      setError(err.message || 'Xác thực 2FA thất bại. Vui lòng thử lại.');
+      console.error('2FA verification error:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleBackToLogin = () => {
+    setIs2faRequired(false);
+    setOtpCode('');
+    setError('');
+  };
+
+  // Hiển thị form nhập OTP nếu cần 2FA
+  if (is2faRequired) {
+    return (
+      <div className="login-container">
+        <div className="login-box ui-surface ui-card-lg ui-animate-pop">
+          <div className="login-header">
+            <div className="twofa-icon-wrapper">
+              <Shield className="twofa-icon" size={48} />
+            </div>
+            <h1>Xác Thực 2 Bước</h1>
+            <p>Nhập mã 6 số từ ứng dụng xác thực của bạn</p>
+            <div className="twofa-hint">
+              <Smartphone size={16} />
+              <span>Mở ứng dụng Google Authenticator hoặc Microsoft Authenticator</span>
+            </div>
+          </div>
+
+          {error && <div className="error-alert">{error}</div>}
+
+          <form onSubmit={handleVerifyOTP}>
+            <div className="form-group">
+              <label htmlFor="otp">
+                <Lock size={16} />
+                Mã OTP (6 số)
+              </label>
+              <div className="otp-input-wrapper">
+                <input
+                  id="otp"
+                  type="text"
+                  value={otpCode}
+                  onChange={(e) => {
+                    // Chỉ cho phép nhập số và tối đa 6 ký tự
+                    const value = e.target.value.replace(/\D/g, '').slice(0, 6);
+                    setOtpCode(value);
+                  }}
+                  placeholder="000000"
+                  required
+                  disabled={isLoading}
+                  className="ui-input otp-input"
+                  maxLength={6}
+                  autoFocus
+                  inputMode="numeric"
+                  pattern="[0-9]{6}"
+                />
+                <div className="otp-dots">
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <span
+                      key={i}
+                      className={`otp-dot ${i < otpCode.length ? 'filled' : ''}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="login-btn ui-btn ui-btn-primary"
+              disabled={isLoading || otpCode.length !== 6}
+            >
+              {isLoading ? (
+                <>
+                  <span className="ui-spinner" aria-hidden="true" />
+                  Đang xác thực...
+                </>
+              ) : (
+                <>
+                  <Shield size={18} />
+                  Xác Thực
+                </>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleBackToLogin}
+              className="login-btn ui-btn ui-btn-secondary"
+              disabled={isLoading}
+            >
+              <ArrowLeft size={18} />
+              Quay lại
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  // Form đăng nhập thông thường
   return (
     <div className="login-container">
       <div className="login-box ui-surface ui-card-lg ui-animate-pop">

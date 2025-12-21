@@ -17,8 +17,8 @@ Frontend module cho quản lý người dùng trong UpNestEdu, được xây d�
 - ✅ Xem thông tin hồ sơ cá nhân
 - ✅ Chỉnh sửa thông tin
 - ✅ Upload ảnh đại diện
-- ✅ Thông tin học tập (chuyên ngành, trường, năm học)
-- ✅ Thông tin chuyên môn (bio, GitHub, LinkedIn)
+- ✅ Thông tin học tập (cnhungên ngành, trường, năm học)
+- ✅ Thông tin cnhungên môn (bio, GitHub, LinkedIn)
 - ✅ Giới tính, ngày sinh, địa chỉ
 
 ### 3. **Cài Đặt Quyền Riêng Tư (Privacy Settings)**

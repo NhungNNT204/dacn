@@ -41,7 +41,7 @@ const localMockUserService = {
       success: true,
       data: {
         fullName: "Nguyễn Thị Thùy Nhung",
-        email: "huy.nguyen@upnest.edu",
+        email: "nhung.nguyen@upnest.edu",
         role: "STUDENT",
         avatarUrl: null,
         joinDate: "Tháng 9, 2024",
@@ -64,7 +64,7 @@ export default function StudentDashboard() {
   try {
     navigate = useNavigate();
   } catch (e) {
-    navigate = (path) => console.log(`Chuyển hướng: ${path}`);
+    navigate = (path) => console.log(`Cnhungển hướng: ${path}`);
   }
 
   const [user, setUser] = useState(null);
@@ -262,7 +262,7 @@ export default function StudentDashboard() {
   //              <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex gap-6 items-start group hover:shadow-lg transition-all">
   //                 <div className="w-14 h-14 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-600 font-black text-xl">HG</div>
   //                 <div className="flex-1 space-y-2">
-  //                   <p className="text-sm text-slate-600 font-medium"><strong>Hương Giang</strong> và 5 người khác vừa đạt huy hiệu <strong>"Mọt sách tháng 9"</strong></p>
+  //                   <p className="text-sm text-slate-600 font-medium"><strong>Hương Giang</strong> và 5 người khác vừa đạt nhung hiệu <strong>"Mọt sách tháng 9"</strong></p>
   //                   <button className="text-[10px] font-black text-rose-600 uppercase tracking-widest hover:underline">Chúc mừng →</button>
   //                 </div>
   //              </div>
@@ -300,7 +300,7 @@ export default function StudentDashboard() {
   //           </div>
             
   //           <div className="space-y-4">
-  //              <p className="text-xs font-bold text-slate-400 px-4">Đạt thêm <span className="text-white">550 XP</span> để lên Level 5 và nhận huy hiệu chuyên gia!</p>
+  //              <p className="text-xs font-bold text-slate-400 px-4">Đạt thêm <span className="text-white">550 XP</span> để lên Level 5 và nhận nhung hiệu cnhungên gia!</p>
   //              <button className="w-full py-4 bg-indigo-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-900/40">
   //                 Nhiệm vụ hàng ngày
   //              </button>

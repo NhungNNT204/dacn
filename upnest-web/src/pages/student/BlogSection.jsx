@@ -100,7 +100,7 @@ Làm dashboard với nhiều widgets? Grid.
 
 Thực tế là bạn thường dùng cả hai trong cùng một project. Grid cho layout chính, Flexbox cho chi tiết bên trong các component.
 
-**Lời khuyên:**
+**Lời knhungên:**
 Hãy bắt đầu với Flexbox vì nó dễ hiểu hơn. Sau đó học Grid khi cần layout phức tạp hơn.`,
       image: null,
       likes: 42,

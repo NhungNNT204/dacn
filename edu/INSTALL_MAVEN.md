@@ -1,6 +1,6 @@
 # 🔧 HƯỚNG DẪN CÀI ĐẶT MAVEN
 
-## ✅ Giải Pháp Nhanh: Dùng Maven Wrapper (Khuyến nghị)
+## ✅ Giải Pháp Nhanh: Dùng Maven Wrapper (Knhungến nghị)
 
 Project đã có **Maven Wrapper** (`mvnw.cmd`), bạn không cần cài đặt Maven!
 
@@ -62,7 +62,7 @@ cd edu
 mvn clean compile -DskipTests
 ```
 
-## 💡 Khuyến Nghị
+## 💡 Knhungến Nghị
 
 **Dùng Maven Wrapper** (`mvnw.cmd`) vì:
 - ✅ Không cần cài đặt toàn cục

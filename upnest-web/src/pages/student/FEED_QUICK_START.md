@@ -158,7 +158,7 @@ The app comes pre-loaded with 5 sample posts:
 
 1. **Nguyễn Anh** - CSS Grid project (Text + Image)
 2. **Lê Thảo** - JavaScript question (Text)
-3. **Trần Huy** - React project (Image)
+3. **Trần nhung** - React project (Image)
 4. **Phạm Linh** - Video tutorial (Video)
 5. **Đỗ Minh** - Learning plan (Text)
 

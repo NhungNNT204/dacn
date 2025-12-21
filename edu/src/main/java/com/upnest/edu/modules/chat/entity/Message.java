@@ -11,7 +11,7 @@ import java.util.*;
  * Message - Tin nhắn trong cuộc hội thoại
  * Hỗ trợ: text, ảnh, video, emoji, mentions
  */
-@Entity
+@Entity(name = "ChatMessage")
 @Table(name = "messages", indexes = {
     @Index(name = "idx_chat_group_id", columnList = "chat_group_id"),
     @Index(name = "idx_sender_id", columnList = "sender_id"),

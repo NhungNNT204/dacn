@@ -18,7 +18,7 @@
 - **Java**: JDK 21 hoặc cao hơn
 - **Maven**: 3.8+ 
 - **SQL Server**: 2019+ hoặc SQL Server Express
-- **IDE**: IntelliJ IDEA / Eclipse / VS Code (khuyến nghị)
+- **IDE**: IntelliJ IDEA / Eclipse / VS Code (knhungến nghị)
 
 ### Frontend
 - **Node.js**: 18+ 
@@ -71,7 +71,7 @@ sqlcmd -S localhost -U sa -P "your_password" -d UpNestEdu -i UpNestEdu-User-Sche
 sqlcmd -S localhost -U sa -P "your_password" -d UpNestEdu -i UpNestEdu-QA-Schema.sql
 ```
 
-**Lưu ý**: Nếu bạn dùng `ddl-auto: update` trong `application.yml`, Spring Boot sẽ tự động tạo các bảng khi chạy lần đầu. Tuy nhiên, khuyến nghị chạy schema scripts để đảm bảo đúng cấu trúc.
+**Lưu ý**: Nếu bạn dùng `ddl-auto: update` trong `application.yml`, Spring Boot sẽ tự động tạo các bảng khi chạy lần đầu. Tuy nhiên, knhungến nghị chạy schema scripts để đảm bảo đúng cấu trúc.
 
 ### Bước 3: Kiểm tra Database
 
@@ -118,10 +118,10 @@ application:
 
 ## 🏃 Chạy Backend
 
-### Cách 1: Chạy bằng Maven (Khuyến nghị)
+### Cách 1: Chạy bằng Maven (Knhungến nghị)
 
 ```bash
-# Di chuyển vào thư mục backend
+# Di cnhungển vào thư mục backend
 cd edu
 
 # Build project
@@ -169,7 +169,7 @@ Started EduApplication in X.XXX seconds
 ### Bước 1: Cài đặt dependencies
 
 ```bash
-# Di chuyển vào thư mục frontend
+# Di cnhungển vào thư mục frontend
 cd upnest-web
 
 # Cài đặt packages
@@ -220,7 +220,7 @@ curl -X POST http://localhost:8080/api/v1/auth/login \
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "fullName": "Nguyễn Văn Huy",
+  "fullName": "Nguyễn Văn nhung",
   "email": "student@upnest.edu",
   "role": "STUDENT",
   "is2faRequired": false

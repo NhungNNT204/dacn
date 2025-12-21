@@ -86,7 +86,7 @@ public class Document {
         ASSIGNMENT,         // Bài tập
         EXAM,              // Đề thi
         REFERENCE,         // Tài liệu tham khảo
-        PRESENTATION,      // Slide thuyết trình
+        PRESENTATION,      // Slide tnhungết trình
         VIDEO,             // Video bài giảng
         AUDIO,             // Audio
         OTHER              // Khác

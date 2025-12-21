@@ -1,26 +1,15 @@
 package com.upnest.edu.config;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Configuration;
-
 /**
- * WebSocket Configuration - DISABLED TEMPORARILY
+ * WebSocket Constants - Channel names and message types
  * 
- * Reason: StompEndpointRegistry cannot be resolved in Spring Boot 3.5.0
- * The WebSocket/STOMP functionality is not critical for core features
+ * Note: This is NOT a Spring Configuration class, just a utility class
+ * containing constants for WebSocket channels and message types.
  * 
- * Note: WebSocket/real-time chat can be enabled in future by:
- * 1. Resolving the Spring Messaging dependency issue
- * 2. Using alternative WebSocket libraries if needed
+ * The actual WebSocket configuration is in:
+ * - com.upnest.edu.modules.qa.config.WebSocketConfig (for Q&A)
  */
-@Slf4j
-@Configuration
-@RequiredArgsConstructor
-public class WebSocketConfig {
-    // WebSocket configuration temporarily disabled
-    // Core application features work without real-time WebSocket
-    
+public class WebSocketConstants {
     /**
      * Cấu hình kênh thông tin được phép
      */
@@ -58,3 +47,4 @@ public class WebSocketConfig {
         public static final String USER_LEFT = "user_left";
     }
 }
+

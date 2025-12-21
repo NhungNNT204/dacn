@@ -1,19 +1,30 @@
 package com.upnest.edu.modules.user.entity;
 
-import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Entity: User (Người dùng)
@@ -25,8 +36,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table(name = "users", indexes = {
+@Entity(name = "UserModuleUser")
+@Table(name = "user_module_users", indexes = {
     @Index(name = "idx_email", columnList = "email", unique = true),
     @Index(name = "idx_username", columnList = "username", unique = true),
     @Index(name = "idx_created_at", columnList = "created_at")

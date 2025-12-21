@@ -11,8 +11,8 @@ import java.util.*;
  * UserProfile - Thông tin hồ sơ cá nhân người dùng
  * Chứa: thông tin cá nhân, ảnh bìa, avatar, stories, bạn bè
  */
-@Entity
-@Table(name = "user_profiles", indexes = {
+@Entity(name = "SocialUserProfile")
+@Table(name = "social_user_profiles", indexes = {
     @Index(name = "idx_user_id", columnList = "user_id"),
     @Index(name = "idx_created_at", columnList = "created_at DESC")
 })

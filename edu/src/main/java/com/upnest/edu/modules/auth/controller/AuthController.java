@@ -2,7 +2,9 @@ package com.upnest.edu.modules.auth.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,56 +52,66 @@ public class AuthController {
             System.out.println(">>> Login attempt: " + request.getEmail());
 
             // 1. Xác thực Email & Password với Spring Security
-            authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
-            );
-
-            // 2. Tìm User trong DB
-            User user = userRepository.findByEmail(request.getEmail())
-                    .orElseThrow(() -> new IllegalArgumentException("User not found"));
-
-            System.out.println(">>> User found: " + user.getEmail() + ", Role: " + user.getRole() + ", 2FA: " + user.isTwoFactorEnabled());
-
-            // 3. Kiểm tra xem User có bật bảo mật 2 lớp (2FA) không
-            if (user.isTwoFactorEnabled()) {
-                // Nếu có -> Trả về thông báo "Cần OTP" (chưa đưa Token vội)
-                System.out.println(">>> 2FA required for: " + user.getEmail());
-                return ResponseEntity.ok(new AuthResponse(
-                    null,               // Token chưa có
-                    null,               // FullName chưa cần
-                    user.getEmail(),    // Trả email về để client biết đường gửi tiếp bước verify
-                    null,               // Role chưa cần
-                    true                // is2faRequired = true
-                ));
+            try {
+                authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+                );
+                System.out.println(">>> Authentication successful for: " + request.getEmail());
+            } catch (BadCredentialsException e) {
+                System.err.println(">>> Authentication failed (BadCredentials): " + e.getMessage());
+                return ResponseEntity.status(401).body("Sai email hoặc mật khẩu!");
+            } catch (UsernameNotFoundException e) {
+                System.err.println(">>> Authentication failed (UserNotFound): " + e.getMessage());
+                return ResponseEntity.status(401).body("Tài khoản không tồn tại!");
+            } catch (Exception e) {
+                System.err.println(">>> Authentication failed (Other Exception): " + e.getMessage());
+                System.err.println(">>> Exception type: " + e.getClass().getName());
+                e.printStackTrace();
+                return ResponseEntity.status(401).body("Xác thực thất bại: " + e.getMessage());
             }
 
-            // 4. Nếu không bật 2FA -> Cấp Token luôn
-            // Note: Create a temporary wrapper for JwtService compatibility
-            String token = jwtService.generateAccessToken(user.getEmail());
-            System.out.println(">>> Token generated for: " + user.getEmail());
-            
-            // Convert auth.Role to user.UserRole
-            com.upnest.edu.modules.user.entity.UserRole userRole = 
-                com.upnest.edu.modules.user.entity.UserRole.valueOf(user.getRole().toString());
-            
-            // Trả về kết quả thành công dùng Constructor
+            // 2. Tìm User trong DB (auth module)
+            User user = userRepository.findByEmail(request.getEmail())
+                    .orElseThrow(() -> {
+                        System.err.println(">>> User not found in auth repository: " + request.getEmail());
+                        return new IllegalArgumentException("User not found");
+                    });
+
+            System.out.println(">>> User found: " + user.getEmail() + ", Role: " + user.getRole());
+
+            // 3. LUÔN YÊU CẦU 2FA - Tạo secret nếu user chưa có
+            if (user.getTwoFactorSecret() == null || user.getTwoFactorSecret().isEmpty()) {
+                try {
+                    // Tạo secret mới cho user chưa có
+                    String newSecret = twoFactorService.generateNewSecret();
+                    user.setTwoFactorSecret(newSecret);
+                    user.setTwoFactorEnabled(true);
+                    userRepository.save(user);
+                    System.out.println(">>> Generated new 2FA secret for: " + user.getEmail());
+                } catch (Exception e) {
+                    System.err.println(">>> Error generating 2FA secret: " + e.getMessage());
+                    e.printStackTrace();
+                    return ResponseEntity.status(500).body("Lỗi khi tạo mã 2FA: " + e.getMessage());
+                }
+            }
+
+            // 4. LUÔN trả về yêu cầu 2FA (không cấp token luôn)
+            System.out.println(">>> 2FA required for: " + user.getEmail());
             return ResponseEntity.ok(new AuthResponse(
-                token,
-                user.getFullName(),
-                user.getEmail(),
-                userRole,
-                false // is2faRequired = false
+                null,               // Token chưa có
+                null,               // FullName chưa cần
+                user.getEmail(),    // Trả email về để client biết đường gửi tiếp bước verify
+                null,               // Role chưa cần
+                true                // is2faRequired = true (LUÔN true)
             ));
         } catch (IllegalArgumentException e) {
-            System.err.println("Login error (IllegalArgument): " + e.getMessage());
+            System.err.println(">>> Login error (IllegalArgument): " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(401).body("Sai email hoặc mật khẩu!");
         } catch (Exception e) {
-            System.err.println("Login error (Exception): " + e.getMessage());
-            // Log stack trace instead of printing it
-            System.err.println("Stack trace:");
-            for (StackTraceElement element : e.getStackTrace()) {
-                System.err.println("  " + element);
-            }
+            System.err.println(">>> Login error (Unexpected Exception): " + e.getMessage());
+            System.err.println(">>> Exception type: " + e.getClass().getName());
+            e.printStackTrace();
             return ResponseEntity.status(500).body("Lỗi server: " + e.getMessage());
         }
     }
@@ -107,29 +119,56 @@ public class AuthController {
     // BƯỚC 2: Xác thực mã 2FA (Chỉ dùng khi bước 1 trả về is2faRequired=true)
     @PostMapping("/verify")
     public ResponseEntity<?> verifyCode(@RequestBody VerifyRequest request) {
-        User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+        try {
+            if (request.getEmail() == null || request.getCode() == null) {
+                return ResponseEntity.badRequest().body("Email và mã OTP không được để trống");
+            }
 
-        // Kiểm tra mã OTP 6 số user gửi lên
-        boolean isCodeValid = twoFactorService.isOtpValid(user.getTwoFactorSecret(), request.getCode());
+            System.out.println(">>> 2FA verification attempt for: " + request.getEmail());
 
-        if (isCodeValid) {
-            // Mã đúng -> Cấp Token đăng nhập
-            String token = jwtService.generateAccessToken(user.getEmail());
-            
-            // Convert auth.Role to user.UserRole
-            com.upnest.edu.modules.user.entity.UserRole userRole = 
-                com.upnest.edu.modules.user.entity.UserRole.valueOf(user.getRole().toString());
-            
-            return ResponseEntity.ok(new AuthResponse(
-                token,
-                user.getFullName(),
-                user.getEmail(),
-                userRole,
-                false
-            ));
-        } else {
-            return ResponseEntity.badRequest().body("Mã OTP không đúng hoặc đã hết hạn!");
+            User user = userRepository.findByEmail(request.getEmail())
+                    .orElseThrow(() -> {
+                        System.err.println(">>> User not found for 2FA verification: " + request.getEmail());
+                        return new IllegalArgumentException("User not found");
+                    });
+
+            if (user.getTwoFactorSecret() == null || user.getTwoFactorSecret().isEmpty()) {
+                System.err.println(">>> User has no 2FA secret: " + request.getEmail());
+                return ResponseEntity.badRequest().body("Tài khoản chưa được cấu hình 2FA!");
+            }
+
+            // Kiểm tra mã OTP 6 số user gửi lên
+            boolean isCodeValid = twoFactorService.isOtpValid(user.getTwoFactorSecret(), request.getCode());
+
+            if (isCodeValid) {
+                System.out.println(">>> 2FA verification successful for: " + request.getEmail());
+                // Mã đúng -> Cấp Token đăng nhập
+                String token = jwtService.generateAccessToken(user.getEmail());
+                
+                // Convert auth.Role to user.UserRole
+                com.upnest.edu.modules.user.entity.UserRole userRole = 
+                    com.upnest.edu.modules.user.entity.UserRole.valueOf(user.getRole().toString());
+                
+                return ResponseEntity.ok(new AuthResponse(
+                    token,
+                    user.getFullName(),
+                    user.getEmail(),
+                    userRole,
+                    false
+                ));
+            } else {
+                System.err.println(">>> 2FA verification failed - Invalid OTP for: " + request.getEmail());
+                return ResponseEntity.badRequest().body("Mã OTP không đúng hoặc đã hết hạn!");
+            }
+        } catch (IllegalArgumentException e) {
+            System.err.println(">>> 2FA verification error (IllegalArgument): " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.status(401).body("Tài khoản không tồn tại!");
+        } catch (Exception e) {
+            System.err.println(">>> 2FA verification error (Unexpected Exception): " + e.getMessage());
+            System.err.println(">>> Exception type: " + e.getClass().getName());
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Lỗi server: " + e.getMessage());
         }
     }
 }

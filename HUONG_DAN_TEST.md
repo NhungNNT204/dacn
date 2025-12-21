@@ -56,7 +56,7 @@ npm run dev
 Mở **Terminal 3**:
 
 ```bash
-# Option A: PowerShell (Khuyên dùng)
+# Option A: PowerShell (Knhungên dùng)
 cd n:\DACN\upnestedu
 pwsh test-api.ps1
 

@@ -88,7 +88,7 @@ export default function Messaging() {
         name: "Nhóm Java Spring Boot Expert",
         avatar: "JS",
         role: "Nhóm học tập",
-        lastMessage: "Huy: Mình đã đẩy source code lên git rồi...",
+        lastMessage: "nhung: Mình đã đẩy source code lên git rồi...",
         lastMessageTimeFormatted: "10:30",
         unreadCount: 0,
         isOnline: false,
@@ -147,7 +147,7 @@ export default function Messaging() {
     // Mock messages
     const mockMessages = [
       { id: 1, senderId: 2, senderName: "Cô Minh Thư", senderAvatarInitial: "MT", content: "Phần cấu hình JWT Filter đang gặp chút vấn đề về logic.", messageType: "TEXT", timeFormatted: "09:00 AM", isFromMe: false },
-      { id: 2, senderId: 1, senderName: "Huy", senderAvatarInitial: "H", content: "Dạ em chào cô ạ, lỗi đó nằm ở đâu vậy cô?", messageType: "TEXT", timeFormatted: "09:05 AM", isFromMe: true },
+      { id: 2, senderId: 1, senderName: "nhung", senderAvatarInitial: "H", content: "Dạ em chào cô ạ, lỗi đó nằm ở đâu vậy cô?", messageType: "TEXT", timeFormatted: "09:05 AM", isFromMe: true },
       { id: 3, senderId: 2, senderName: "Cô Minh Thư", senderAvatarInitial: "MT", content: "Em nhớ xem kỹ phần Security bài 12 nhé! Cô có đính kèm tài liệu bổ sung ở đây.", messageType: "FILE", timeFormatted: "09:06 AM", isFromMe: false, attachments: [{ fileName: "JWT_EXPERT_NOTE.PDF", fileUrl: "#" }] }
     ];
     setMessages(mockMessages);
@@ -255,7 +255,7 @@ export default function Messaging() {
     return conv.conversationType?.toLowerCase() === activeFilter.toLowerCase();
   });
 
-  const currentUser = { name: 'Huy', avatar: 'H' };
+  const currentUser = { name: 'nhung', avatar: 'H' };
 
   return (
     <div className="messaging-page">
@@ -456,7 +456,7 @@ export default function Messaging() {
           </>
         ) : (
           <div className="no-chat-selected">
-            <p>Chọn cuộc trò chuyện để bắt đầu</p>
+            <p>Chọn cuộc trò cnhungện để bắt đầu</p>
           </div>
         )}
       </section>

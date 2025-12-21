@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
  * PrivacySettings - Cài đặt quyền riêng tư cho posts
  * Điều chỉnh quyền xem posts
  */
-@Entity
-@Table(name = "privacy_settings", indexes = {
+@Entity(name = "SocialPrivacySettings")
+@Table(name = "social_privacy_settings", indexes = {
     @Index(name = "idx_user_profile_id", columnList = "user_profile_id")
 })
 @Data

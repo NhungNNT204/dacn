@@ -40,7 +40,7 @@ public class ChatController {
 
   /**
    * GET /api/v1/social/messages/conversations
-   * Lấy danh sách các cuộc trò chuyện của người dùng
+   * Lấy danh sách các cuộc trò cnhungện của người dùng
    */
   @GetMapping("/conversations")
   public ResponseEntity<List<ChatGroupDTO>> getUserConversations(
@@ -60,7 +60,7 @@ public class ChatController {
 
   /**
    * GET /api/v1/social/messages/{chatGroupId}
-   * Lấy tin nhắn từ một cuộc trò chuyện
+   * Lấy tin nhắn từ một cuộc trò cnhungện
    */
   @GetMapping("/{chatGroupId}")
   public ResponseEntity<List<MessageDTO>> getMessages(
@@ -262,7 +262,7 @@ public class ChatController {
 
   /**
    * POST /api/v1/social/messages/groups/private
-   * Tạo hoặc lấy cuộc trò chuyện 1-1
+   * Tạo hoặc lấy cuộc trò cnhungện 1-1
    */
   @PostMapping("/groups/private")
   public ResponseEntity<ChatGroupDTO> createPrivateChat(

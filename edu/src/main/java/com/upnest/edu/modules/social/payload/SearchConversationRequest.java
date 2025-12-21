@@ -3,7 +3,7 @@ package com.upnest.edu.modules.social.payload;
 import lombok.*;
 
 /**
- * SearchConversationRequest - Request DTO để tìm kiếm cuộc trò chuyện
+ * SearchConversationRequest - Request DTO để tìm kiếm cuộc trò cnhungện
  */
 @Data
 @Builder

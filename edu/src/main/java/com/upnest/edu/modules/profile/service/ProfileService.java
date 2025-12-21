@@ -94,7 +94,7 @@ public class ProfileService {
         if (xp > 1400) {
             return String.format("Học viên sở hữu khả năng phân tích nghiệp vụ sắc bén Top 5%% học viên xuất sắc mảng BA/UI năm 2024.", level);
         } else if (xp > 1000) {
-            return String.format("Học viên có năng lực tốt với trình độ Cấp %d và %d XP, đang trên đường phát triển chuyên môn.", level, xp);
+            return String.format("Học viên có năng lực tốt với trình độ Cấp %d và %d XP, đang trên đường phát triển cnhungên môn.", level, xp);
         } else {
             return String.format("Học viên đang trong quá trình xây dựng nền tảng kiến thức vững chắc với trình độ Cấp %d.", level);
         }
@@ -105,7 +105,7 @@ public class ProfileService {
      */
     private String generateAIRecommendation(Integer level, Integer xp) {
         if (xp > 1400) {
-            return "Hồ sơ này thể hiện sự nhạy bén vượt trội trong việc phân tích yêu cầu kinh doanh phức tạp và chuyển đổi chúng thành các thiết kế giao diện trực quan. Đề xuất: Phù hợp cho vị trí Associate Product Owner hoặc UX Lead.";
+            return "Hồ sơ này thể hiện sự nhạy bén vượt trội trong việc phân tích yêu cầu kinh doanh phức tạp và cnhungển đổi chúng thành các thiết kế giao diện trực quan. Đề xuất: Phù hợp cho vị trí Associate Product Owner hoặc UX Lead.";
         } else if (xp > 1000) {
             return "Đề xuất: Phù hợp cho vị trí Mid-level Developer hoặc Associate Tech Lead.";
         } else {

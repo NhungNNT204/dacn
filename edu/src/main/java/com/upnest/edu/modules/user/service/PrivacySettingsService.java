@@ -142,7 +142,7 @@ public class PrivacySettingsService {
     }
     
     /**
-     * Chuyển đổi PrivacySettings thành Response
+     * Cnhungển đổi PrivacySettings thành Response
      */
     private PrivacySettingsResponse mapToResponse(PrivacySettings settings) {
         return PrivacySettingsResponse.builder()

@@ -21,6 +21,7 @@ import Feed from '../pages/student/Feed';
 import Messaging from '../pages/student/Messaging';
 import Achievements from '../pages/student/Achievements';
 import CareerOrientation from '../pages/student/CareerOrientation';
+import ReaderView from '../pages/student/ReaderView';
 
 /**
  * AppRoutes - Tất cả routes của app
@@ -163,6 +164,14 @@ export default function AppRoutes() {
             element={
               <ProtectedRoute>
                 <CoursePlayer />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reader/:itemId/:type"
+            element={
+              <ProtectedRoute>
+                <ReaderView />
               </ProtectedRoute>
             }
           />

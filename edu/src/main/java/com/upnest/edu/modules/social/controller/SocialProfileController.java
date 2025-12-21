@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ProfileController - REST API cho hồ sơ cá nhân
+ * SocialProfileController - REST API cho hồ sơ cá nhân
  * 12+ endpoints cho các hoạt động profile
  */
 @RestController
 @RequestMapping("/api/v1/social/profiles")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
-public class ProfileController {
+public class SocialProfileController {
     
     private final ProfileService profileService;
     

@@ -109,7 +109,7 @@
 ## 💬 Social - Chat/Messages (`/api/v1/social/messages`)
 
 ### Conversations
-- `GET /api/v1/social/messages/conversations?userId=1` → Danh sách cuộc trò chuyện
+- `GET /api/v1/social/messages/conversations?userId=1` → Danh sách cuộc trò cnhungện
 - `GET /api/v1/social/messages/{chatGroupId}?page=0&limit=50` → Lấy tin nhắn
 
 ### Messages
@@ -123,7 +123,7 @@
 - `GET /api/v1/social/messages/{chatGroupId}/pinned` → Lấy tin nhắn đã ghim
 
 ### Chat Groups
-- `POST /api/v1/social/messages/groups/private` → Tạo/lấy cuộc trò chuyện 1-1
+- `POST /api/v1/social/messages/groups/private` → Tạo/lấy cuộc trò cnhungện 1-1
 - `POST /api/v1/social/messages/groups` → Tạo nhóm chat
 - `GET /api/v1/social/messages/groups/{chatGroupId}/members` → Danh sách thành viên
 - `POST /api/v1/social/messages/groups/{chatGroupId}/members` → Thêm thành viên

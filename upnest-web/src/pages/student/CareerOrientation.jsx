@@ -106,7 +106,7 @@ export default function CareerOrientation() {
         icon: 'TrendingUp',
         color: 'emerald',
         matchPercentage: 72,
-        description: 'Khám phá câu chuyện đằng sau các con số để đưa ra quyết định kinh doanh.',
+        description: 'Khám phá câu cnhungện đằng sau các con số để đưa ra quyết định kinh doanh.',
         marketDemand: 'Đang tăng',
         avgSalary: '18M - 50M VNĐ',
         difficulty: 'HARD',

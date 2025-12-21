@@ -181,7 +181,7 @@ export const calculateAIInsights = (examResults) => {
     suggestion = 'Bạn đang đi đúng hướng, tiếp tục phát triển kỹ năng Backend.';
   } else {
     recommendation = 'Fundamentals Mastery';
-    suggestion = 'Hãy củng cố kiến thức nền tảng trước khi chuyển sang phần nâng cao.';
+    suggestion = 'Hãy củng cố kiến thức nền tảng trước khi cnhungển sang phần nâng cao.';
   }
 
   return {
@@ -254,7 +254,7 @@ export const compareWithCommunity = (studentProgress, communityStats) => {
       ? `Bạn đang học nhanh hơn ${Math.round(timeDiff)}% so với trung bình cộng đồng! 🚀`
       : timeDiff < -10
       ? `Hãy tập trung thêm vào phần này, bạn đang chậm hơn ${Math.round(Math.abs(timeDiff))}% so với trung bình.`
-      : 'Tiến độ của bạn phù hợp với trung bình cộng đồng. Tiếp tục phát huy! 👍'
+      : 'Tiến độ của bạn phù hợp với trung bình cộng đồng. Tiếp tục phát nhung! 👍'
   };
 };
 
@@ -329,7 +329,7 @@ export const CAREER_TRACKS = {
   'ai-data-science': {
     id: 'ai-data-science',
     name: 'AI & Data Science Engineer',
-    description: 'Phát triển hệ thống AI/ML và phân tích dữ liệu chuyên sâu',
+    description: 'Phát triển hệ thống AI/ML và phân tích dữ liệu cnhungên sâu',
     icon: 'BrainCircuit',
     color: '#8b5cf6',
     milestones: [
@@ -501,7 +501,7 @@ export const generateRoadmapForTrack = (trackId, userId, currentProgress = {}) =
   });
 
   return {
-    studentName: currentProgress.studentName || 'Huy',
+    studentName: currentProgress.studentName || 'nhung',
     targetCareer: track.name,
     careerTrackId: trackId,
     milestones
@@ -513,7 +513,7 @@ export const generateRoadmapForTrack = (trackId, userId, currentProgress = {}) =
  */
 const generateMockRoadmap = (userId) => {
   return generateRoadmapForTrack('fullstack-java', userId, {
-    studentName: 'Huy',
+    studentName: 'nhung',
     milestones: [
       { status: 'completed', progress: 100 },
       { status: 'active', progress: 35 },

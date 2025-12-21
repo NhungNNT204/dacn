@@ -3,7 +3,7 @@ import { Search, Plus, MessageCircle } from 'lucide-react';
 import '../styles/ChatList.css';
 
 /**
- * ChatList - Danh sách cuộc trò chuyện
+ * ChatList - Danh sách cuộc trò cnhungện
  */
 const ChatList = ({ conversations, selectedChat, onSelectChat, searchQuery, onSearchChange, onCreateGroup }) => {
   const [filter, setFilter] = useState('all'); // all, unread, groups, 1-1
@@ -74,9 +74,9 @@ const ChatList = ({ conversations, selectedChat, onSelectChat, searchQuery, onSe
         {filteredConversations.length === 0 ? (
           <div className="no-conversations">
             <MessageCircle size={48} />
-            <p>Không có cuộc trò chuyện nào</p>
+            <p>Không có cuộc trò cnhungện nào</p>
             <button className="start-chat-btn" onClick={onCreateGroup}>
-              Tạo cuộc trò chuyện
+              Tạo cuộc trò cnhungện
             </button>
           </div>
         ) : (

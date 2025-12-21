@@ -458,4 +458,4 @@ qaeventPublisher.publishNewQuestion(id, title, userId, courseId);
 
 ## 🤝 Support
 
-Liên hệ team: nguyenthithuynhung204@gmail.com
+Liên hệ team: nguyenthitnhungnhung204@gmail.com

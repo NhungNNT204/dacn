@@ -12,7 +12,7 @@ const mockUser = {
   avatar: 'https://ui-avatars.com/api/?name=Nguyen+Van+A&background=0D8ABC&color=fff',
   role: 'STUDENT',
   class: 'Lớp 10A1',
-  school: 'Trường THPT Chuyên Sư Phạm',
+  school: 'Trường THPT Cnhungên Sư Phạm',
   joinDate: '2024-01-15',
   bio: 'Sinh viên năng động, yêu thích học tập',
   status: 'online',
@@ -66,14 +66,14 @@ const mockConversations = [
     name: 'Lớp 10A1',
     avatar: 'https://ui-avatars.com/api/?name=Class+10A1&background=FFD93D&color=fff',
     participants: [
-      { id: 'teacher-001', name: 'Thầy Trần Huy', avatar: 'https://ui-avatars.com/api/?name=Thay+Tran+Huy&background=FF6348&color=fff', role: 'TEACHER' },
+      { id: 'teacher-001', name: 'Thầy Trần nhung', avatar: 'https://ui-avatars.com/api/?name=Thay+Tran+nhung&background=FF6348&color=fff', role: 'TEACHER' },
       { id: 'user-123', name: 'Nguyễn Văn A', avatar: 'https://ui-avatars.com/api/?name=Nguyen+Van+A&background=0D8ABC&color=fff' },
       { id: 'user-456', name: 'Trần Thị B', avatar: 'https://ui-avatars.com/api/?name=Tran+Thi+B&background=FF6B6B&color=fff' }
     ],
     lastMessage: {
       content: 'Buổi học hôm nay thảo luận về chủ đề: Định luật bảo toàn năng lượng',
       sender: 'teacher-001',
-      senderName: 'Thầy Trần Huy',
+      senderName: 'Thầy Trần nhung',
       timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString()
     },
     lastMessageTime: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
@@ -166,8 +166,8 @@ const mockMessages = {
       id: 'msg-1',
       conversationId: 'conv-3',
       sender: 'teacher-001',
-      senderName: 'Thầy Trần Huy',
-      senderAvatar: 'https://ui-avatars.com/api/?name=Thay+Tran+Huy&background=FF6348&color=fff',
+      senderName: 'Thầy Trần nhung',
+      senderAvatar: 'https://ui-avatars.com/api/?name=Thay+Tran+nhung&background=FF6348&color=fff',
       content: 'Buổi học hôm nay thảo luận về chủ đề: Định luật bảo toàn năng lượng',
       type: 'text',
       attachments: [],

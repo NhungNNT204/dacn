@@ -319,7 +319,7 @@
 **Chức năng:** Hệ thống tin nhắn hoàn chỉnh.
 
 **Tính năng:**
-- Chat list (danh sách cuộc trò chuyện)
+- Chat list (danh sách cuộc trò cnhungện)
 - Chat window (cửa sổ chat)
 - 1-1 chats, group chats, classroom chats
 - File sharing (ảnh, video, documents)
@@ -949,7 +949,7 @@
 
 ### `ChatList.jsx`
 **Vị trí:** `upnest-web/src/components/ChatList.jsx`  
-**Chức năng:** Danh sách cuộc trò chuyện.
+**Chức năng:** Danh sách cuộc trò cnhungện.
 
 **Tính năng:**
 - List conversations

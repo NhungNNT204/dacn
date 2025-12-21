@@ -55,7 +55,7 @@ const localMockUserService = {
       success: true,
       data: {
         fullName: "Nguyễn Thị Thùy Nhung",
-        email: "huy.nguyen@upnest.edu",
+        email: "nhung.nguyen@upnest.edu",
         role: "STUDENT",
         avatarUrl: null,
         stats: {
@@ -264,11 +264,11 @@ export default function StudentDashboard() {
   };
 
   const learningRoadmap = roadmapData ? {
-    studentName: user?.fullName?.split(' ').pop() || roadmapData.studentName || 'Huy',
+    studentName: user?.fullName?.split(' ').pop() || roadmapData.studentName || 'nhung',
     targetCareer: roadmapData.targetCareer || "Full-stack Developer (Java & React)",
     milestones: prepareMilestones(roadmapData.milestones)
   } : {
-    studentName: user?.fullName?.split(' ').pop() || 'Huy',
+    studentName: user?.fullName?.split(' ').pop() || 'nhung',
     targetCareer: "Full-stack Developer (Java & React)",
     milestones: []
   };
@@ -292,7 +292,7 @@ export default function StudentDashboard() {
         </div>
         <div className="welcome-content">
           <div className="welcome-header">
-            <h1>Chào {user?.fullName?.split(' ').pop() || 'Huy'}!</h1>
+            <h1>Chào {user?.fullName?.split(' ').pop() || 'nhung'}!</h1>
             <div className="welcome-badges">
               <div className="badge-streak">
                 <Flame size={16} />
@@ -340,7 +340,7 @@ export default function StudentDashboard() {
         </div>
         <div className="stat-card stat-badges">
           <Trophy size={32} className="stat-icon" />
-          <h4>HUY HIỆU</h4>
+          <h4>nhung HIỆU</h4>
           <p className="stat-number">{stats.badges || 12}</p>
           <p className="stat-subtitle">THÀNH TỰU ĐẠT ĐƯỢC</p>
         </div>

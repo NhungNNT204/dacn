@@ -164,7 +164,7 @@ const StudentChat = () => {
               <div className="empty-state">
                 <Users className="w-16 h-16" />
                 <h3>Chọn một cuộc hội thoại</h3>
-                <p>Chọn bên trái để bắt đầu trò chuyện</p>
+                <p>Chọn bên trái để bắt đầu trò cnhungện</p>
                 <button
                   className="btn-create-chat"
                   onClick={() => handleNewChat('1:1')}

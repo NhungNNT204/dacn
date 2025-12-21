@@ -42,7 +42,7 @@ const MOCK_STATS_ADMIN = [
 const MOCK_ACTIVITIES = [
   { user: 'Nguyễn Văn A', action: 'đã nộp bài tập', target: 'Java Core', time: '2 phút trước', role: 'student' },
   { user: 'Trần Thị B', action: 'đăng ký khóa học', target: 'ReactJS Advanced', time: '15 phút trước', role: 'student' },
-  { user: 'Lê Văn C', action: 'đạt huy hiệu', target: 'Ong chăm chỉ', time: '1 giờ trước', role: 'student' },
+  { user: 'Lê Văn C', action: 'đạt nhung hiệu', target: 'Ong chăm chỉ', time: '1 giờ trước', role: 'student' },
 ];
 
 // --- COMPONENTS HỌC VIÊN ---

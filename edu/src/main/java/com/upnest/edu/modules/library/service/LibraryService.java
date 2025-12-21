@@ -1,8 +1,10 @@
 package com.upnest.edu.modules.library.service;
 
 import com.upnest.edu.modules.library.entity.LibraryItem;
+import com.upnest.edu.modules.library.entity.LibraryNote;
 import com.upnest.edu.modules.library.payload.LibraryItemDTO;
 import com.upnest.edu.modules.library.repository.LibraryItemRepository;
+import com.upnest.edu.modules.library.repository.LibraryNoteRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 public class LibraryService {
 
     private final LibraryItemRepository libraryItemRepository;
+    private final LibraryNoteRepository libraryNoteRepository;
 
     /**
      * Lấy danh sách tài liệu theo filter
@@ -62,6 +65,42 @@ public class LibraryService {
                 .map(this::mapToDTO)
                 .collect(Collectors.toList());
     }
+
+    /**
+     * Lấy chi tiết một library item
+     */
+    @Transactional(readOnly = true)
+    public LibraryItemDTO getLibraryItem(Long itemId) {
+        log.info("Getting library item: {}", itemId);
+        LibraryItem item = libraryItemRepository.findById(itemId)
+                .orElseThrow(() -> new RuntimeException("Library item not found: " + itemId));
+        return mapToDTO(item);
+    }
+
+    /**
+     * Lưu ghi chú của user cho library item
+     */
+    public void saveNote(Long itemId, Long userId, String content) {
+        log.info("Saving note for item {} by user {}", itemId, userId);
+        
+        LibraryItem item = libraryItemRepository.findById(itemId)
+                .orElseThrow(() -> new RuntimeException("Library item not found: " + itemId));
+        
+        LibraryNote note = libraryNoteRepository.findByUserIdAndLibraryItemId(userId, itemId)
+                .map(existingNote -> {
+                    existingNote.setContent(content);
+                    return existingNote;
+                })
+                .orElse(LibraryNote.builder()
+                        .userId(userId)
+                        .libraryItem(item)
+                        .content(content)
+                        .build());
+        
+        libraryNoteRepository.save(note);
+        log.info("Note saved successfully");
+    }
+
 
     /**
      * Tăng lượt tải xuống

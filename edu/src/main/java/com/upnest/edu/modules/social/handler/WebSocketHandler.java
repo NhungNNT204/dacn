@@ -14,7 +14,7 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 import org.springframework.context.event.EventListener;
 import com.upnest.edu.modules.chat.service.ChatService;
 import com.upnest.edu.modules.social.payload.*;
-import com.upnest.edu.config.WebSocketConfig;
+import com.upnest.edu.config.WebSocketConstants;
 import java.util.Map;
 
 /**
@@ -104,7 +104,7 @@ public class WebSocketHandler {
       
       // Broadcast tin nhắn
       return WebSocketMessageDTO.builder()
-          .type(WebSocketConfig.MessageTypes.MESSAGE)
+          .type(WebSocketConstants.MessageTypes.MESSAGE)
           .payload(messageDto)
           .timestamp(java.time.LocalDateTime.now())
           .build();
@@ -149,9 +149,9 @@ public class WebSocketHandler {
       // Gửi tin nhắn riêng tư
       messagingTemplate.convertAndSendToUser(
           receiverId.toString(),
-          WebSocketConfig.WebSocketChannels.USER_QUEUE,
+          WebSocketConstants.WebSocketChannels.USER_QUEUE,
           WebSocketMessageDTO.builder()
-              .type(WebSocketConfig.MessageTypes.MESSAGE)
+              .type(WebSocketConstants.MessageTypes.MESSAGE)
               .payload(messageDto)
               .timestamp(java.time.LocalDateTime.now())
               .build()
@@ -197,7 +197,7 @@ public class WebSocketHandler {
           .build();
       
       return WebSocketMessageDTO.builder()
-          .type(WebSocketConfig.MessageTypes.MESSAGE)
+          .type(WebSocketConstants.MessageTypes.MESSAGE)
           .payload(messageDto)
           .timestamp(java.time.LocalDateTime.now())
           .build();
@@ -223,7 +223,7 @@ public class WebSocketHandler {
       messagingTemplate.convertAndSend(
           "/topic/chat/reactions",
           WebSocketMessageDTO.builder()
-              .type(WebSocketConfig.MessageTypes.REACTION)
+              .type(WebSocketConstants.MessageTypes.REACTION)
               .payload(Map.of("messageId", messageId, "emoji", request.getEmoji()))
               .timestamp(java.time.LocalDateTime.now())
               .build()
@@ -281,9 +281,9 @@ public class WebSocketHandler {
       // Gửi call notification tới receiver
       messagingTemplate.convertAndSendToUser(
           request.getReceiverId().toString(),
-          WebSocketConfig.WebSocketChannels.USER_NOTIFICATIONS,
+          WebSocketConstants.WebSocketChannels.USER_NOTIFICATIONS,
           WebSocketMessageDTO.builder()
-              .type(WebSocketConfig.MessageTypes.CALL_INITIATED)
+              .type(WebSocketConstants.MessageTypes.CALL_INITIATED)
               .payload(callDto)
               .timestamp(java.time.LocalDateTime.now())
               .build()
@@ -291,9 +291,9 @@ public class WebSocketHandler {
       
       // Broadcast call status
       messagingTemplate.convertAndSend(
-          WebSocketConfig.WebSocketChannels.CALL_CHANNEL,
+          WebSocketConstants.WebSocketChannels.CALL_CHANNEL,
           WebSocketMessageDTO.builder()
-              .type(WebSocketConfig.MessageTypes.CALL_INITIATED)
+              .type(WebSocketConstants.MessageTypes.CALL_INITIATED)
               .payload(callDto)
               .timestamp(java.time.LocalDateTime.now())
               .build()
@@ -315,9 +315,9 @@ public class WebSocketHandler {
       
       // Broadcast call answered
       messagingTemplate.convertAndSend(
-          WebSocketConfig.WebSocketChannels.CALL_CHANNEL,
+          WebSocketConstants.WebSocketChannels.CALL_CHANNEL,
           WebSocketMessageDTO.builder()
-              .type(WebSocketConfig.MessageTypes.CALL_ANSWERED)
+              .type(WebSocketConstants.MessageTypes.CALL_ANSWERED)
               .payload(CallRecordDTO.builder()
                   .id(callRecord.getId())
                   .callStatus("ACCEPTED")
@@ -342,9 +342,9 @@ public class WebSocketHandler {
       
       // Broadcast call rejected
       messagingTemplate.convertAndSend(
-          WebSocketConfig.WebSocketChannels.CALL_CHANNEL,
+          WebSocketConstants.WebSocketChannels.CALL_CHANNEL,
           WebSocketMessageDTO.builder()
-              .type(WebSocketConfig.MessageTypes.CALL_REJECTED)
+              .type(WebSocketConstants.MessageTypes.CALL_REJECTED)
               .payload(CallRecordDTO.builder()
                   .id(callRecord.getId())
                   .callStatus("REJECTED")
@@ -369,9 +369,9 @@ public class WebSocketHandler {
       
       // Broadcast call ended
       messagingTemplate.convertAndSend(
-          WebSocketConfig.WebSocketChannels.CALL_CHANNEL,
+          WebSocketConstants.WebSocketChannels.CALL_CHANNEL,
           WebSocketMessageDTO.builder()
-              .type(WebSocketConfig.MessageTypes.CALL_ENDED)
+              .type(WebSocketConstants.MessageTypes.CALL_ENDED)
               .payload(CallRecordDTO.builder()
                   .id(callRecord.getId())
                   .callStatus("ENDED")

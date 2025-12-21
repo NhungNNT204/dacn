@@ -1,8 +1,11 @@
 package com.upnest.edu.config;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,21 +21,18 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import com.upnest.edu.modules.user.repository.UserRepository;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final UserRepository userRepository;
+    private final ApplicationContext applicationContext;
 
-    public SecurityConfig(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public SecurityConfig(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
     }
 
     // Định nghĩa Bean PasswordEncoder
@@ -44,8 +44,49 @@ public class SecurityConfig {
     // Định nghĩa Bean UserDetailsService
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> userRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return username -> {
+            try {
+                Object repo = applicationContext.getBean("userRepository");
+                Method findByEmail = repo.getClass().getMethod("findByEmail", String.class);
+                Object opt = findByEmail.invoke(repo, username);
+                @SuppressWarnings("unchecked")
+                Optional<Object> optionalUser = (Optional<Object>) opt;
+                Object userEntity = optionalUser.orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+                String email = null;
+                String password = null;
+                try {
+                    Method getEmail = userEntity.getClass().getMethod("getEmail");
+                    email = (String) getEmail.invoke(userEntity);
+                } catch (NoSuchMethodException ignored) {
+                    try {
+                        Method getUsername = userEntity.getClass().getMethod("getUsername");
+                        email = (String) getUsername.invoke(userEntity);
+                    } catch (NoSuchMethodException ignored2) {
+                    }
+                }
+
+                try {
+                    Method getPassword = userEntity.getClass().getMethod("getPassword");
+                    password = (String) getPassword.invoke(userEntity);
+                } catch (NoSuchMethodException e) {
+                    throw new UsernameNotFoundException("User record missing password", e);
+                }
+
+                String usernameToUse = (email != null) ? email : username;
+
+                return org.springframework.security.core.userdetails.User
+                        .withUsername(usernameToUse)
+                        .password(password)
+                        .authorities("ROLE_USER")
+                        .build();
+
+            } catch (UsernameNotFoundException e) {
+                throw e;
+            } catch (Exception e) {
+                throw new UsernameNotFoundException("User lookup failed", e);
+            }
+        };
     }
 
     // Định nghĩa AuthenticationProvider (sử dụng UserDetailsService và PasswordEncoder)
@@ -88,7 +129,7 @@ public class SecurityConfig {
 
     // Cấu hình các đường dẫn (URLs) nào được truy cập và cần bảo mật
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthFilter) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable)
             // SỬ DỤNG BEAN CORS ĐÃ ĐỊNH NGHĨA
@@ -99,13 +140,11 @@ public class SecurityConfig {
                 // CHỈ cho phép Auth công khai. Mọi thứ khác cần Token.
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 
-                // Mọi request khác (bao gồm /courses) đều phải có Token hợp lệ
+                // Mọi request khác đều phải có Token hợp lệ
                 .anyRequest().authenticated()
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authenticationProvider(authenticationProvider())
-            // Thêm JWT Filter
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+            .authenticationProvider(authenticationProvider());
 
         return http.build();
     }

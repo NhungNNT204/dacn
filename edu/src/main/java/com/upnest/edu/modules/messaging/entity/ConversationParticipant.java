@@ -5,7 +5,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 /**
- * ConversationParticipant - Thành viên trong cuộc trò chuyện
+ * ConversationParticipant - Thành viên trong cuộc trò cnhungện
  */
 @Entity
 @Table(name = "conversation_participants", indexes = {

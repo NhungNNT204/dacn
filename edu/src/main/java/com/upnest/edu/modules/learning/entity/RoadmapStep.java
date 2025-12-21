@@ -1,14 +1,31 @@
 package com.upnest.edu.modules.learning.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * RoadmapStep - Chặng học tập trong một CareerTrack
  * Đây là template, mỗi User sẽ có LearningRoadmap riêng dựa trên các steps này
  */
-@Entity
+@Entity(name = "LearningRoadmapStep")
 @Table(name = "roadmap_steps", indexes = {
     @Index(name = "idx_track_id", columnList = "track_id"),
     @Index(name = "idx_order_index", columnList = "track_id, order_index")

@@ -18,7 +18,7 @@ Backend module cho quản lý người dùng trong UpNestEdu, được xây dự
 - ✅ CRUD operations
 - ✅ Thông tin cá nhân (phone, gender, dateOfBirth, address)
 - ✅ Thông tin học tập (specialization, institution, academicYear)
-- ✅ Thông tin chuyên môn (bio, GitHub URL, LinkedIn URL)
+- ✅ Thông tin cnhungên môn (bio, GitHub URL, LinkedIn URL)
 - ✅ Avatar upload
 - ✅ Lazy loading profile data
 

@@ -29,7 +29,7 @@ public class CourseDataSeeder implements CommandLineRunner {
         // Course 1: UI/UX Design
         Course course1 = Course.builder()
                 .title("UI/UX Design Masterclass 2024")
-                .description("Khóa học thiết kế UI/UX chuyên sâu với các công cụ hiện đại")
+                .description("Khóa học thiết kế UI/UX cnhungên sâu với các công cụ hiện đại")
                 .instructorId(1L)
                 .instructorName("Trần Thế Duyệt")
                 .category("DESIGN")

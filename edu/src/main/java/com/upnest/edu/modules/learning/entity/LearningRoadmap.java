@@ -52,7 +52,7 @@ public class LearningRoadmap {
     private Integer currentProgress = 0;
 
     /**
-     * Lời khuyên từ AI (JSON string hoặc TEXT)
+     * Lời knhungên từ AI (JSON string hoặc TEXT)
      */
     @Column(name = "ai_insight", columnDefinition = "TEXT")
     private String aiInsight;

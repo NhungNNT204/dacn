@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
   Play, Pause, Settings, Bell, CheckCircle2, Heart, Share2,
-  ChevronRight, MessageSquare, StickyNote, Send
+  ChevronRight, MessageSquare, StickyNote, Send, Download, FileText
 } from 'lucide-react';
+import html2pdf from 'html2pdf.js';
 import './CoursePlayer.css';
 
 export default function CoursePlayer() {
@@ -65,10 +66,11 @@ export default function CoursePlayer() {
       title: 'Setup môi trường Development',
       description: 'Học cách setup môi trường phát triển cho Spring Boot',
       lessonType: 'VIDEO',
-      videoUrl: 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4',
+      videoUrl: 'https://youtu.be/N4wGWY1w9RU',
+      youtubeId: 'N4wGWY1w9RU',
       durationSeconds: 765, // 12:45
       content: `<h2>CHƯƠNG 1: GIỚI THIỆU VỀ ALGORITH</h2>
-        <p>Trong nội dung bài học này, chúng ta sẽ cùng đi sâu vào tìm hiểu về các khái niệm nền tảng trong chuyên mục Lập trình.</p>
+        <p>Trong nội dung bài học này, chúng ta sẽ cùng đi sâu vào tìm hiểu về các khái niệm nền tảng trong cnhungên mục Lập trình.</p>
         <blockquote>"Kiến thức không tự nhiên sinh ra, nó được đúc kết từ quá trình rèn luyện và nghiên cứu không ngừng nghỉ."</blockquote>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`,
       isCompleted: false
@@ -132,9 +134,28 @@ export default function CoursePlayer() {
   const handleSubmitComment = async () => {
     if (!commentContent.trim()) return;
 
+    const commentToSend = commentContent.trim();
+    
+    // Add comment immediately to UI (optimistic update)
+    const newComment = {
+      id: Date.now(),
+      userName: 'Bạn', // TODO: Get from user context
+      content: commentToSend,
+      timeAgo: 'VỪA XONG',
+      likeCount: 0
+    };
+
+    setPlayerData(prev => ({
+      ...prev,
+      comments: [newComment, ...(prev.comments || [])],
+      commentCount: (prev.commentCount || 0) + 1
+    }));
+    setCommentContent('');
+
+    // Then save to backend
     try {
       const token = localStorage.getItem('accessToken');
-      if (token) {
+      if (token && playerData?.currentLesson?.id) {
         const response = await fetch(
           `http://localhost:8080/api/v1/courses/${courseId}/lessons/${playerData.currentLesson.id}/comments`,
           {
@@ -143,16 +164,16 @@ export default function CoursePlayer() {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ content: commentContent })
+            body: JSON.stringify({ content: commentToSend })
           }
         );
         if (response.ok) {
-          setCommentContent('');
-          loadCourseData(); // Reload comments
+          // Reload to get server response with proper ID
+          loadCourseData();
         }
       }
     } catch (error) {
-      console.log('Error posting comment');
+      console.log('Error posting comment, but comment is shown in UI');
     }
   };
 
@@ -177,6 +198,89 @@ export default function CoursePlayer() {
       }
     } catch (error) {
       console.log('Error saving note');
+    }
+  };
+
+  const handleDownloadNote = (format = 'pdf') => {
+    if (!noteContent.trim()) {
+      alert('Không có ghi chú để tải xuống!');
+      return;
+    }
+
+    const lessonTitle = playerData?.currentLesson?.title || 'Ghi chú';
+    const courseTitle = playerData?.course?.title || 'Khóa học';
+    const fileName = `${courseTitle}_${lessonTitle}_GhiChu`.replace(/[^a-z0-9]/gi, '_');
+
+    if (format === 'pdf') {
+      // Export to PDF using html2pdf
+      const element = document.createElement('div');
+      element.style.padding = '40px';
+      element.style.fontFamily = 'Arial, sans-serif';
+      element.innerHTML = `
+        <h1 style="color: #6366f1; margin-bottom: 20px;">${courseTitle}</h1>
+        <h2 style="color: #1e293b; margin-bottom: 16px;">${lessonTitle}</h2>
+        <div style="border-top: 2px solid #e5e7eb; padding-top: 20px; margin-top: 20px;">
+          <h3 style="color: #475569; margin-bottom: 12px;">Ghi chú của tôi:</h3>
+          <div style="white-space: pre-wrap; line-height: 1.8; color: #1f2937;">${noteContent}</div>
+        </div>
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af;">
+          Xuất từ UPNEST.EDU - ${new Date().toLocaleDateString('vi-VN')}
+        </div>
+      `;
+
+      // Use html2pdf
+      try {
+        html2pdf().set({
+          margin: [10, 10, 10, 10],
+          filename: `${fileName}.pdf`,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }).from(element).save();
+      } catch (error) {
+        // Fallback: Open print dialog
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+          <html>
+            <head>
+              <title>${fileName}</title>
+              <style>
+                body { font-family: Arial, sans-serif; padding: 40px; }
+                h1 { color: #6366f1; }
+                h2 { color: #1e293b; }
+                pre { white-space: pre-wrap; line-height: 1.8; }
+              </style>
+            </head>
+            <body>
+              ${element.innerHTML}
+            </body>
+          </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+      }
+    } else if (format === 'docx') {
+      // Export to Word (DOCX) - simple text format
+      const content = `
+KHÓA HỌC: ${courseTitle}
+BÀI HỌC: ${lessonTitle}
+
+GHI CHÚ CỦA TÔI:
+${noteContent}
+
+---
+Xuất từ UPNEST.EDU - ${new Date().toLocaleDateString('vi-VN')}
+      `.trim();
+
+      const blob = new Blob([content], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${fileName}.docx`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
   };
 
@@ -245,29 +349,42 @@ export default function CoursePlayer() {
           {/* Video Player */}
           {isVideoLesson && currentLesson.videoUrl ? (
             <div className="video-player-wrapper">
-              <video
-                ref={videoRef}
-                src={currentLesson.videoUrl}
-                className="video-player"
-                onTimeUpdate={handleTimeUpdate}
-                onLoadedMetadata={handleLoadedMetadata}
-                onClick={handlePlayPause}
-              />
-              <div className="video-overlay" onClick={handlePlayPause}>
-                {!isPlaying && (
-                  <div className="play-button-large">
-                    <Play size={64} fill="white" />
+              {currentLesson.youtubeId ? (
+                <iframe
+                  className="video-player youtube-embed"
+                  src={`https://www.youtube.com/embed/${currentLesson.youtubeId}?rel=0&modestbranding=1`}
+                  title={currentLesson.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <>
+                  <video
+                    ref={videoRef}
+                    src={currentLesson.videoUrl}
+                    className="video-player"
+                    onTimeUpdate={handleTimeUpdate}
+                    onLoadedMetadata={handleLoadedMetadata}
+                    onClick={handlePlayPause}
+                  />
+                  <div className="video-overlay" onClick={handlePlayPause}>
+                    {!isPlaying && (
+                      <div className="play-button-large">
+                        <Play size={64} fill="white" />
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-              <div className="video-controls">
-                <button className="control-btn" onClick={handlePlayPause}>
-                  {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-                </button>
-                <span className="time-display">
-                  {formatTime(currentTime)} / {formatTime(duration)}
-                </span>
-              </div>
+                  <div className="video-controls">
+                    <button className="control-btn" onClick={handlePlayPause}>
+                      {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                    </button>
+                    <span className="time-display">
+                      {formatTime(currentTime)} / {formatTime(duration)}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
           ) : (
             <div className="document-viewer">
@@ -345,6 +462,27 @@ export default function CoursePlayer() {
             {/* Notes Tab */}
             {activeTab === 'notes' && (
               <div className="notes-section">
+                <div className="notes-header">
+                  <h3 className="notes-title">Ghi chú của tôi</h3>
+                  <div className="notes-actions">
+                    <button 
+                      className="download-btn" 
+                      onClick={() => handleDownloadNote('pdf')}
+                      title="Tải về PDF"
+                    >
+                      <FileText size={16} />
+                      PDF
+                    </button>
+                    <button 
+                      className="download-btn" 
+                      onClick={() => handleDownloadNote('docx')}
+                      title="Tải về Word"
+                    >
+                      <Download size={16} />
+                      Word
+                    </button>
+                  </div>
+                </div>
                 <textarea
                   className="notes-textarea"
                   placeholder="Viết ghi chú của bạn tại đây..."

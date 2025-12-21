@@ -119,7 +119,7 @@ public class RoadmapDataSeeder implements CommandLineRunner {
         CareerTrack track = CareerTrack.builder()
                 .code("ai-data-science")
                 .name("AI & Data Science Engineer")
-                .description("Phát triển hệ thống AI/ML và phân tích dữ liệu chuyên sâu")
+                .description("Phát triển hệ thống AI/ML và phân tích dữ liệu cnhungên sâu")
                 .icon("BrainCircuit")
                 .color("#8b5cf6")
                 .build();

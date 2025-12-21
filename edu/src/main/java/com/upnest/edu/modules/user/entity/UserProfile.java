@@ -71,7 +71,7 @@ public class UserProfile {
     private String country;
     
     /**
-     * Chuyên ngành / Lĩnh vực học
+     * Cnhungên ngành / Lĩnh vực học
      */
     @Column(name = "specialization", length = 255)
     private String specialization;

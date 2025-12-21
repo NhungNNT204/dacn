@@ -112,6 +112,6 @@ echo.
 pause
 
 echo ✅ Script hoàn thành!
-echo 💡 Khuyến nghị: Sử dụng PowerShell script hoặc Postman để test dễ dàng hơn
+echo 💡 Knhungến nghị: Sử dụng PowerShell script hoặc Postman để test dễ dàng hơn
 
 pause

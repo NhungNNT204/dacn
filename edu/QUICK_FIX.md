@@ -31,7 +31,7 @@ run.bat
 
 ## ⚠️ Nếu Vẫn Lỗi Compile
 
-### Option 1: Dùng Java 17 (Khuyến nghị)
+### Option 1: Dùng Java 17 (Knhungến nghị)
 
 Nếu bạn có Java 17, sửa `pom.xml`:
 

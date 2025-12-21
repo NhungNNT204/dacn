@@ -1,22 +1,33 @@
 package com.upnest.edu.modules.social.service;
 
-import com.upnest.edu.modules.social.entity.*;
-import com.upnest.edu.modules.social.repository.*;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
-import java.util.*;
+import com.upnest.edu.modules.social.entity.PrivacySettings;
+import com.upnest.edu.modules.social.entity.Story;
+import com.upnest.edu.modules.social.entity.StoryHighlight;
+import com.upnest.edu.modules.social.entity.UserAvatar;
+import com.upnest.edu.modules.social.entity.UserProfile;
+import com.upnest.edu.modules.social.repository.PrivacySettingsRepository;
+import com.upnest.edu.modules.social.repository.StoryHighlightRepository;
+import com.upnest.edu.modules.social.repository.StoryRepository;
+import com.upnest.edu.modules.social.repository.UserAvatarRepository;
+import com.upnest.edu.modules.social.repository.UserProfileRepository;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ProfileService - Xử lý logic hồ sơ cá nhân người dùng
  * Bao gồm: lấy profile, cập nhật, upload ảnh, stories, follow, v.v.
  */
-@Service
+@Service("socialProfileService")
 @RequiredArgsConstructor
 @Slf4j
 @Transactional

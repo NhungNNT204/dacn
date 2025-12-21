@@ -124,7 +124,7 @@ export default function ProfileView() {
           <h3>Thông Tin Học Tập</h3>
           <div className="profile-grid">
             <div className="profile-item">
-              <label>Chuyên ngành</label>
+              <label>Cnhungên ngành</label>
               <p>{profile.specialization || 'Chưa cập nhật'}</p>
             </div>
             <div className="profile-item">
@@ -374,7 +374,7 @@ function ProfileEditModal({ profile, onClose }) {
           {/* Thông tin học tập */}
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="specialization">Chuyên ngành</label>
+              <label htmlFor="specialization">Cnhungên ngành</label>
               <input
                 id="specialization"
                 name="specialization"

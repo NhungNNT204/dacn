@@ -116,20 +116,31 @@
   flex-direction: column;
   overflow-y: auto;
   background: white;
+  padding: 24px;
 }
 
-/* Video Player */
+/* Video Player - Smaller size */
 .video-player-wrapper {
   position: relative;
   width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   background: #000;
   aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .video-player {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.video-player.youtube-embed {
+  border: none;
+  border-radius: 12px;
 }
 
 .video-overlay {
@@ -414,6 +425,50 @@
 /* Notes Section */
 .notes-section {
   min-height: 400px;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.notes-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.notes-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.download-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.download-btn:active {
+  transform: translateY(0);
 }
 
 .notes-textarea {

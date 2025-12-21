@@ -36,6 +36,9 @@ public class PostController {
     
     private String getCurrentUserName(Authentication auth) {
         // TODO: Get from user service
+        if (auth != null && auth.getPrincipal() instanceof org.springframework.security.core.userdetails.UserDetails) {
+            return ((org.springframework.security.core.userdetails.UserDetails) auth.getPrincipal()).getUsername();
+        }
         return "User";
     }
     
@@ -103,9 +106,10 @@ public class PostController {
     @GetMapping("/saved")
     public ResponseEntity<?> getSavedPosts(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "10") int size,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             Pageable pageable = PageRequest.of(page, size);
             Page<Post> posts = feedService.getSavedPosts(userId, pageable);
             
@@ -147,8 +151,24 @@ public class PostController {
                     .body(Map.of("success", true, "data", post));
         } catch (Exception e) {
             log.error("Error creating post", e);
+            String errorMessage = e.getMessage();
+            
+            // Kiểm tra nếu có violation details
+            if (errorMessage != null && errorMessage.startsWith("VIOLATION_DETAILS::")) {
+                String[] parts = errorMessage.split("::", 5);
+                if (parts.length >= 5) {
+                    Map<String, Object> errorResponse = new HashMap<>();
+                    errorResponse.put("success", false);
+                    errorResponse.put("message", parts[1]);
+                    errorResponse.put("violationType", parts[2]);
+                    errorResponse.put("foundKeywords", parts[3]);
+                    errorResponse.put("details", parts[4]);
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+                }
+            }
+            
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Map.of("success", false, "message", e.getMessage()));
+                    .body(Map.of("success", false, "message", errorMessage != null ? errorMessage : "Error creating post"));
         }
     }
     
@@ -159,16 +179,17 @@ public class PostController {
     @PostMapping("/{postId}/react")
     public ResponseEntity<?> addReaction(
             @PathVariable Long postId,
-            @RequestBody AddReactionRequest request) {
+            @RequestBody AddReactionRequest request,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             ReactionType reactionType = ReactionType.valueOf(request.getReactionType().toUpperCase());
             
             PostReaction reaction = feedService.addReaction(
                     postId,
                     userId,
-                    getCurrentUserName(),
-                    getCurrentUserAvatar(),
+                    getCurrentUserName(auth),
+                    getCurrentUserAvatar(auth),
                     reactionType
             );
             
@@ -184,6 +205,29 @@ public class PostController {
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             log.error("Error adding reaction", e);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("success", false, "message", e.getMessage()));
+        }
+    }
+    
+    /**
+     * DELETE: /api/v1/social/posts/{postId}/react
+     * Hủy like (unlike)
+     */
+    @DeleteMapping("/{postId}/react")
+    public ResponseEntity<?> unlikePost(
+            @PathVariable Long postId,
+            Authentication auth) {
+        try {
+            Long userId = getUserIdFromAuthentication(auth);
+            feedService.unlikePost(postId, userId);
+            
+            return ResponseEntity.ok(Map.of(
+                    "success", true,
+                    "message", "Post unliked successfully"
+            ));
+        } catch (Exception e) {
+            log.error("Error unliking post", e);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(Map.of("success", false, "message", e.getMessage()));
         }
@@ -217,15 +261,16 @@ public class PostController {
     @PostMapping("/{postId}/comments")
     public ResponseEntity<?> addComment(
             @PathVariable Long postId,
-            @RequestBody AddCommentRequest request) {
+            @RequestBody AddCommentRequest request,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             
             PostComment comment = feedService.addComment(
                     postId,
                     userId,
-                    getCurrentUserName(),
-                    getCurrentUserAvatar(),
+                    getCurrentUserName(auth),
+                    getCurrentUserAvatar(auth),
                     request.getContent(),
                     request.getImageUrl()
             );
@@ -273,16 +318,17 @@ public class PostController {
     public ResponseEntity<?> addReply(
             @PathVariable Long postId,
             @PathVariable Long commentId,
-            @RequestBody AddReplyRequest request) {
+            @RequestBody AddReplyRequest request,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             
             PostComment reply = feedService.addReply(
                     postId,
                     commentId,
                     userId,
-                    getCurrentUserName(),
-                    getCurrentUserAvatar(),
+                    getCurrentUserName(auth),
+                    getCurrentUserAvatar(auth),
                     request.getContent()
             );
             
@@ -321,9 +367,13 @@ public class PostController {
      * Xóa bình luận
      */
     @DeleteMapping("/{postId}/comments/{commentId}")
-    public ResponseEntity<?> deleteComment(@PathVariable Long commentId) {
+    public ResponseEntity<?> deleteComment(
+            @PathVariable Long postId,
+            @PathVariable Long commentId,
+            Authentication auth) {
         try {
-            feedService.deleteComment(commentId);
+            Long userId = getUserIdFromAuthentication(auth);
+            feedService.deleteComment(commentId, userId);
             return ResponseEntity.ok(Map.of("success", true, "message", "Comment deleted"));
         } catch (Exception e) {
             log.error("Error deleting comment", e);
@@ -339,15 +389,16 @@ public class PostController {
     @PostMapping("/{postId}/share")
     public ResponseEntity<?> sharePost(
             @PathVariable Long postId,
-            @RequestBody SharePostRequest request) {
+            @RequestBody SharePostRequest request,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             ShareType shareType = ShareType.valueOf(request.getShareType().toUpperCase());
             
             PostShare share = feedService.sharePost(
                     postId,
                     userId,
-                    getCurrentUserName(),
+                    getCurrentUserName(auth),
                     request.getShareMessage(),
                     shareType
             );
@@ -366,9 +417,11 @@ public class PostController {
      * Lưu bài đăng
      */
     @PostMapping("/{postId}/save")
-    public ResponseEntity<?> savePost(@PathVariable Long postId) {
+    public ResponseEntity<?> savePost(
+            @PathVariable Long postId,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             PostSave save = feedService.savePost(postId, userId);
             
             return ResponseEntity.ok(Map.of(
@@ -388,9 +441,11 @@ public class PostController {
      * Bỏ lưu bài đăng
      */
     @DeleteMapping("/{postId}/save")
-    public ResponseEntity<?> unsavePost(@PathVariable Long postId) {
+    public ResponseEntity<?> unsavePost(
+            @PathVariable Long postId,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             feedService.unsavePost(postId, userId);
             
             return ResponseEntity.ok(Map.of(
@@ -409,9 +464,11 @@ public class PostController {
      * Kiểm tra bài đăng đã được lưu
      */
     @GetMapping("/{postId}/is-saved")
-    public ResponseEntity<?> isPostSaved(@PathVariable Long postId) {
+    public ResponseEntity<?> isPostSaved(
+            @PathVariable Long postId,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             Boolean isSaved = feedService.isPostSaved(postId, userId);
             
             return ResponseEntity.ok(Map.of(
@@ -432,15 +489,16 @@ public class PostController {
     @PostMapping("/{postId}/report")
     public ResponseEntity<?> reportPost(
             @PathVariable Long postId,
-            @RequestBody ReportPostRequest request) {
+            @RequestBody ReportPostRequest request,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             ReportType reportType = ReportType.valueOf(request.getReportType().toUpperCase());
             
             PostReport report = feedService.reportPost(
                     postId,
                     userId,
-                    getCurrentUserName(),
+                    getCurrentUserName(auth),
                     reportType,
                     request.getReason()
             );
@@ -463,9 +521,11 @@ public class PostController {
      * Ẩn bài đăng
      */
     @PostMapping("/{postId}/hide")
-    public ResponseEntity<?> hidePost(@PathVariable Long postId) {
+    public ResponseEntity<?> hidePost(
+            @PathVariable Long postId,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             feedService.hidePost(postId, userId);
             
             return ResponseEntity.ok(Map.of(
@@ -484,9 +544,11 @@ public class PostController {
      * Xóa bài đăng
      */
     @DeleteMapping("/{postId}")
-    public ResponseEntity<?> deletePost(@PathVariable Long postId) {
+    public ResponseEntity<?> deletePost(
+            @PathVariable Long postId,
+            Authentication auth) {
         try {
-            Long userId = getCurrentUserId();
+            Long userId = getUserIdFromAuthentication(auth);
             feedService.deletePost(postId, userId);
             
             return ResponseEntity.ok(Map.of(

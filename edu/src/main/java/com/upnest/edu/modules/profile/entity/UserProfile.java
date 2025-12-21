@@ -1,14 +1,26 @@
 package com.upnest.edu.modules.profile.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * UserProfile - Hồ sơ người dùng mở rộng
  */
-@Entity
-@Table(name = "user_profiles", indexes = {
+@Entity(name = "ProfileUserProfile")
+@Table(name = "profile_user_profiles", indexes = {
     @Index(name = "idx_user_id", columnList = "user_id", unique = true)
 })
 @Data

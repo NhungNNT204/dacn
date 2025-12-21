@@ -165,7 +165,7 @@ public class AnswerService {
     }
     
     /**
-     * Chuyển đổi Answer entity sang AnswerResponse DTO
+     * Cnhungển đổi Answer entity sang AnswerResponse DTO
      */
     private AnswerResponse mapToResponse(Answer answer) {
         Long commentCount = answerCommentRepository.countByAnswerAnswerId(answer.getAnswerId());

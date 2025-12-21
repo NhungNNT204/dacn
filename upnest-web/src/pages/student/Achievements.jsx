@@ -49,14 +49,14 @@ export default function Achievements() {
     const mockData = {
       userId: 1,
       fullName: "Nguyễn Thị Thùy Nhung",
-      email: "thuynhung204@upnest.edu",
+      email: "tnhungnhung204@upnest.edu",
       avatarUrl: "https://ui-avatars.com/api/?name=Nhung&background=4f46e5&color=fff&size=512",
       jobTitle: "Intern UI/UX Designer & Business Analyst",
-      summary: "Một sinh viên năm cuối chuyên ngành Hệ thống thông tin quản lý với niềm đam mê sâu sắc trong việc thu hẹp khoảng cách giữa nhu cầu kinh doanh và giải pháp công nghệ. Tôi sở hữu kỹ năng phân tích nghiệp vụ sắc bén kết hợp với tư duy thiết kế tập trung vào trải nghiệm người dùng.",
+      summary: "Một sinh viên năm cuối cnhungên ngành Hệ thống thông tin quản lý với niềm đam mê sâu sắc trong việc thu hẹp khoảng cách giữa nhu cầu kinh doanh và giải pháp công nghệ. Tôi sở hữu kỹ năng phân tích nghiệp vụ sắc bén kết hợp với tư duy thiết kế tập trung vào trải nghiệm người dùng.",
       location: "TP. Hồ Chí Minh, Việt Nam",
       phone: "090 123 4567",
-      githubUrl: "github.com/thuynhung204-portfolio",
-      linkedinUrl: "linkedin.com/in/thuynhung204",
+      githubUrl: "github.com/tnhungnhung204-portfolio",
+      linkedinUrl: "linkedin.com/in/tnhungnhung204",
       level: 4,
       totalXp: 1450,
       streak: 12,
@@ -70,7 +70,7 @@ export default function Achievements() {
         {
           id: 1,
           issuer: "Học viện Công nghệ UpNest",
-          name: "Chứng chỉ Chuyên gia Business Analysis & UI/UX",
+          name: "Chứng chỉ Cnhungên gia Business Analysis & UI/UX",
           issueDate: "2024 - Hiện tại",
           grade: "Xuất sắc",
           score: "9.5/10"
@@ -99,7 +99,7 @@ export default function Achievements() {
         }
       ],
       aiAnalysis: "Thùy Nhung sở hữu khả năng phân tích nghiệp vụ sắc bén Top 5% học viên xuất sắc mảng BA/UI năm 2024.",
-      aiRecommendation: "Hồ sơ này thể hiện sự nhạy bén vượt trội trong việc phân tích yêu cầu kinh doanh phức tạp và chuyển đổi chúng thành các thiết kế giao diện trực quan. Đề xuất: Phù hợp cho vị trí Associate Product Owner hoặc UX Lead."
+      aiRecommendation: "Hồ sơ này thể hiện sự nhạy bén vượt trội trong việc phân tích yêu cầu kinh doanh phức tạp và cnhungển đổi chúng thành các thiết kế giao diện trực quan. Đề xuất: Phù hợp cho vị trí Associate Product Owner hoặc UX Lead."
     };
     setProfileData(mockData);
     setIsLoading(false);
@@ -212,7 +212,7 @@ export default function Achievements() {
             <div className="content-card skills-section">
               <h3>
                 <BarChart3 size={20} />
-                NĂNG LỰC CHUYÊN MÔN
+                NĂNG LỰC CnhungÊN MÔN
               </h3>
               <div className="skills-list">
                 {profileData.skills?.map((skill, idx) => (
@@ -240,7 +240,7 @@ export default function Achievements() {
               <div className="ai-content">
                 <div className="ai-header">
                   <Sparkles size={28} />
-                  <span>PHÂN TÍCH CHUYÊN SÂU TỪ AI</span>
+                  <span>PHÂN TÍCH CnhungÊN SÂU TỪ AI</span>
                 </div>
                 <h4>{profileData.aiAnalysis}</h4>
                 <p>{profileData.aiRecommendation}</p>

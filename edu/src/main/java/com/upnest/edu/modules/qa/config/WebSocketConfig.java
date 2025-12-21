@@ -2,51 +2,43 @@ package com.upnest.edu.modules.qa.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
-import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
-import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
-import org.springframework.lang.NonNull;
+import org.springframework.web.socket.config.annotation.*;
 
 /**
- * Configuration: WebSocketConfig
- * Cấu hình WebSocket với STOMP protocol cho realtime Q&A
+ * WebSocket Configuration cho Q&A Realtime
  * 
- * Cấu hình:
- * - Message broker: /topic, /queue
- * - STOMP endpoint: /ws-qa
- * - Application destination prefix: /app
+ * Endpoint: /ws-qa
+ * Destinations:
+ * - /topic/questions/{questionId} - Nhận updates cho câu hỏi cụ thể
+ * - /topic/answers/{answerId} - Nhận updates cho câu trả lời cụ thể
+ * - /topic/qa/new - Nhận thông báo câu hỏi mới
+ * - /user/queue/notifications - Nhận thông báo cá nhân
  */
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     
-    /**
-     * Cấu hình Message Broker
-     * - /topic: Dùng cho broadcast (1 to many)
-     * - /queue: Dùng cho unicast (1 to 1)
-     * - /user: Dùng cho peering (user-specific)
-     */
     @Override
-    public void configureMessageBroker(@NonNull MessageBrokerRegistry config) {
-        // Bật simple message broker cho /topic và /queue
-        config.enableSimpleBroker("/topic", "/queue", "/user");
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        // Định nghĩa prefix cho các message từ server → client
+        config.enableSimpleBroker("/topic", "/queue");
         
-        // Prefix cho các message gửi đến controller
+        // Định nghĩa prefix cho các message từ client → server
         config.setApplicationDestinationPrefixes("/app");
         
         // Prefix cho user-specific messages
         config.setUserDestinationPrefix("/user");
     }
     
-    /**
-     * Đăng ký STOMP endpoint
-     * Client sẽ connect tới http://localhost:8080/ws-qa
-     */
     @Override
-    public void registerStompEndpoints(@NonNull StompEndpointRegistry registry) {
-        // Endpoint cho WebSocket
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        // Đăng ký WebSocket endpoint
         registry.addEndpoint("/ws-qa")
-                .setAllowedOrigins("*")  // CORS: cho phép tất cả origin (để production thay đổi)
-                .withSockJS();           // Fallback cho các browser không support WebSocket
+                .setAllowedOriginPatterns(
+                    "http://localhost:5173",
+                    "http://localhost:5174",
+                    "http://localhost:5175"
+                )
+                .withSockJS(); // Fallback cho browsers không hỗ trợ WebSocket
     }
 }

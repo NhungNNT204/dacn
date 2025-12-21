@@ -80,7 +80,7 @@ const mockPosts = [
     {
         id: 3,
         authorId: 3,
-        authorName: 'Trần Huy',
+        authorName: 'Trần nhung',
         authorAvatar: 'https://i.pravatar.cc/150?img=3',
         authorType: 'USER',
         content: 'Chúng tôi vừa khởi động một dự án React mới! Rất vui được cộng tác với đội của mình. #ReactJS #WebDevelopment',
@@ -169,7 +169,7 @@ const mockComments = {
         {
             id: 102,
             userId: 3,
-            userName: 'Trần Huy',
+            userName: 'Trần nhung',
             userAvatar: 'https://i.pravatar.cc/150?img=3',
             content: 'Xin hỏi bạn dùng công cụ gì? Mình muốn học CSS Grid',
             imageUrl: null,

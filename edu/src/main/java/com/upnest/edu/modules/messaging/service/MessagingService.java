@@ -30,7 +30,7 @@ public class MessagingService {
     private final UserRepository userRepository;
 
     /**
-     * Lấy danh sách cuộc trò chuyện của user
+     * Lấy danh sách cuộc trò cnhungện của user
      */
     public List<ConversationDTO> getConversations(Long userId, String filter) {
         log.info("Getting conversations for user: {}, filter: {}", userId, filter);
@@ -51,7 +51,7 @@ public class MessagingService {
     }
 
     /**
-     * Lấy hoặc tạo cuộc trò chuyện cá nhân
+     * Lấy hoặc tạo cuộc trò cnhungện cá nhân
      */
     public Conversation getOrCreateIndividualConversation(Long userId1, Long userId2) {
         return conversationRepository.findIndividualConversation(userId1, userId2)
@@ -84,7 +84,7 @@ public class MessagingService {
     }
 
     /**
-     * Lấy tin nhắn trong cuộc trò chuyện
+     * Lấy tin nhắn trong cuộc trò cnhungện
      */
     public List<MessageDTO> getMessages(Long conversationId, Long userId, int page, int size) {
         log.info("Getting messages for conversation: {}, user: {}", conversationId, userId);

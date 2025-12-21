@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   BookOpen, 
   FileText, 
@@ -14,6 +15,7 @@ import {
 import './Library.css';
 
 export default function Library() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
   const [items, setItems] = useState([]);
@@ -165,8 +167,13 @@ export default function Library() {
     } catch (error) {
       console.log('Error incrementing view');
     }
-    // TODO: Navigate to reader/viewer page
-    window.open(`/library/view/${itemId}`, '_blank');
+    
+    // Navigate to ReaderView
+    const item = items.find(i => i.id === itemId);
+    const type = item?.fileType === 'MP4' ? 'video' : 
+                 item?.fileType === 'PDF' ? 'pdf' : 
+                 item?.fileType === 'EPUB' ? 'epub' : 'pdf';
+    navigate(`/reader/${itemId}/${type}`);
   };
 
   const getFileTypeIcon = (fileType) => {

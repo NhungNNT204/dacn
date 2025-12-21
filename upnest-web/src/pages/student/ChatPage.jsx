@@ -59,7 +59,7 @@ const ChatPage = () => {
         setConversations(data.data);
       }
     } catch (error) {
-      console.error('Lỗi khi tải cuộc trò chuyện:', error);
+      console.error('Lỗi khi tải cuộc trò cnhungện:', error);
     }
   };
 
@@ -199,8 +199,8 @@ const ChatPage = () => {
           <div className="no-chat-selected">
             <div className="empty-state">
               <div className="empty-icon">💬</div>
-              <h2>Chọn cuộc trò chuyện để bắt đầu</h2>
-              <p>Chọn một tin nhắn từ danh sách hoặc tạo cuộc trò chuyện mới</p>
+              <h2>Chọn cuộc trò cnhungện để bắt đầu</h2>
+              <p>Chọn một tin nhắn từ danh sách hoặc tạo cuộc trò cnhungện mới</p>
             </div>
           </div>
         )}

@@ -180,7 +180,7 @@ public class RoadmapService {
 
     /**
      * Generate AI Insight dựa trên XP và lịch sử học tập
-     * Logic giả lập: Nếu XP cao -> khuyên nâng cao, XP thấp -> khuyên duy trì streak
+     * Logic giả lập: Nếu XP cao -> knhungên nâng cao, XP thấp -> knhungên duy trì streak
      */
     private LearningRoadmapResponse.AIInsightDTO generateAIInsight(Long userId, LearningRoadmap roadmap) {
         log.info("Generating AI insight for user: {}", userId);
@@ -210,7 +210,7 @@ public class RoadmapService {
             // XP thấp -> Học viên mới
             recommendation = "Fundamentals Mastery";
             strength = "Đang xây dựng nền tảng";
-            suggestion = "Hãy củng cố kiến thức nền tảng trước khi chuyển sang phần nâng cao. Duy trì streak học tập để tích lũy XP hiệu quả!";
+            suggestion = "Hãy củng cố kiến thức nền tảng trước khi cnhungển sang phần nâng cao. Duy trì streak học tập để tích lũy XP hiệu quả!";
         }
 
         return LearningRoadmapResponse.AIInsightDTO.builder()

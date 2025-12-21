@@ -6,7 +6,7 @@ Lỗi `ExceptionInInitializerError: com.sun.tools.javac.code.TypeTag :: UNKNOWN`
 
 ## ✅ Giải Pháp
 
-### Cách 1: Skip Tests (Khuyến nghị - Nhanh nhất)
+### Cách 1: Skip Tests (Knhungến nghị - Nhanh nhất)
 
 ```bash
 cd edu

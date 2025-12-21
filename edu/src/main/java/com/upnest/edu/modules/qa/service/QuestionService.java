@@ -33,6 +33,7 @@ public class QuestionService {
     private final AnswerRepository answerRepository;
     private final QuestionCommentRepository questionCommentRepository;
     private final QuestionReactionRepository questionReactionRepository;
+    private final ContentModerationService contentModerationService;
     
     /**
      * Tạo câu hỏi mới
@@ -43,9 +44,25 @@ public class QuestionService {
     public QuestionResponse createQuestion(Long userId, QuestionRequest request) {
         log.info("Creating question for user: {}", userId);
         
+        // Kiểm duyệt nội dung
+        ContentModerationService.ModerationResult titleModeration = 
+            contentModerationService.moderateContent(request.getTitle());
+        ContentModerationService.ModerationResult contentModeration = 
+            contentModerationService.moderateContent(request.getContent());
+        
+        if (!titleModeration.isApproved()) {
+            throw new RuntimeException("Tiêu đề không phù hợp: " + 
+                String.join(", ", titleModeration.getIssues()));
+        }
+        
+        if (!contentModeration.isApproved()) {
+            throw new RuntimeException("Nội dung không phù hợp: " + 
+                String.join(", ", contentModeration.getIssues()));
+        }
+        
         Question question = Question.builder()
-                .title(request.getTitle())
-                .content(request.getContent())
+                .title(titleModeration.getFilteredContent())
+                .content(contentModeration.getFilteredContent())
                 .userId(userId)
                 .courseId(request.getCourseId())
                 .tags(request.getTags())
@@ -216,7 +233,7 @@ public class QuestionService {
     }
     
     /**
-     * Chuyển đổi Question entity sang QuestionResponse DTO
+     * Cnhungển đổi Question entity sang QuestionResponse DTO
      */
     private QuestionResponse mapToResponse(Question question) {
         Long answerCount = answerRepository.countByQuestionQuestionId(question.getQuestionId());

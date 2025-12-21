@@ -30,7 +30,7 @@ const StudentDashboard = ({ user, logout }) => {
   const suggestedCourses = [
     { id: 'sug-1', title: 'Python Advanced OOP', instructor: 'Nguyễn Minh', difficulty: 'Nâng cao', relevance: '92%' },
     { id: 'sug-2', title: 'Web Scraping with Python', instructor: 'Trần Thắng', difficulty: 'Trung bình', relevance: '88%' },
-    { id: 'sug-3', title: 'Data Analysis with Pandas', instructor: 'Lê Huy', difficulty: 'Trung bình', relevance: '85%' },
+    { id: 'sug-3', title: 'Data Analysis with Pandas', instructor: 'Lê nhung', difficulty: 'Trung bình', relevance: '85%' },
   ];
 
   // Lấy danh sách khóa học từ Backend

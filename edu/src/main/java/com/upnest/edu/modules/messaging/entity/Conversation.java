@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Conversation - Cuộc trò chuyện
+ * Conversation - Cuộc trò cnhungện
  */
 @Entity
 @Table(name = "conversations", indexes = {
@@ -26,14 +26,14 @@ public class Conversation {
     private Long id;
 
     /**
-     * Loại cuộc trò chuyện: INDIVIDUAL, GROUP, AI
+     * Loại cuộc trò cnhungện: INDIVIDUAL, GROUP, AI
      */
     @Enumerated(EnumType.STRING)
     @Column(name = "conversation_type", nullable = false)
     private ConversationType conversationType;
 
     /**
-     * Tên cuộc trò chuyện (cho group)
+     * Tên cuộc trò cnhungện (cho group)
      */
     @Column(name = "name", length = 500)
     private String name;

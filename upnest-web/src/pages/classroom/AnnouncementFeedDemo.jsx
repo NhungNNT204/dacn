@@ -68,7 +68,7 @@ const AnnouncementFeedDemo = () => {
                 role: 'TEACHER',
                 avatar: 'TA',
               },
-              content: 'Rất tốt! Hãy chú ý ôn tập phần lý thuyết đặc biệt.',
+              content: 'Rất tốt! Hãy chú ý ôn tập phần lý tnhungết đặc biệt.',
               timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000),
               likes: ['student_1'],
               userLiked: false,

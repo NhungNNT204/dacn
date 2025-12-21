@@ -4,7 +4,7 @@ import lombok.*;
 import java.util.List;
 
 /**
- * PaginatedConversationResponse - Response DTO cho trang cuộc trò chuyện
+ * PaginatedConversationResponse - Response DTO cho trang cuộc trò cnhungện
  */
 @Data
 @Builder

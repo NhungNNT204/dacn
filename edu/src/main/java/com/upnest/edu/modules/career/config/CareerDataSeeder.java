@@ -74,7 +74,7 @@ public class CareerDataSeeder implements CommandLineRunner {
             "Data Analyst",
             "TrendingUp",
             "emerald",
-            "Khám phá câu chuyện đằng sau các con số để đưa ra quyết định kinh doanh.",
+            "Khám phá câu cnhungện đằng sau các con số để đưa ra quyết định kinh doanh.",
             "Đang tăng",
             "18M - 50M VNĐ",
             CareerPath.DifficultyLevel.HARD,
@@ -130,7 +130,7 @@ public class CareerDataSeeder implements CommandLineRunner {
                     .careerPath(careerPath)
                     .orderIndex(1)
                     .title("Phân tích & Thiết kế hệ thống")
-                    .description("Học cách phân tích và thiết kế hệ thống chuyên nghiệp")
+                    .description("Học cách phân tích và thiết kế hệ thống cnhungên nghiệp")
                     .tasks(objectMapper.writeValueAsString(Arrays.asList(
                             "Vẽ sơ đồ UML",
                             "Database Schema Design",

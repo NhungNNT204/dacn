@@ -67,7 +67,7 @@ const mockHighlights = [
     id: 1,
     userId: 1,
     title: 'Du lịch',
-    description: 'Những chuyến du lịch yêu thích',
+    description: 'Những cnhungến du lịch yêu thích',
     thumbnailUrl: 'https://via.placeholder.com/100/667eea/ffffff?text=Travel',
     storyIds: [1, 2],
     viewsCount: 450,
@@ -189,7 +189,7 @@ export const getProfile = async (userId) => {
     }
     const response = await fetch(`${API_BASE_URL}/${userId}`);
     const data = await response.json();
-    return data.data;
+    return data?.data ?? null;
   } catch (error) {
     console.error('Lỗi khi lấy profile:', error);
     await delay(300);
@@ -212,7 +212,7 @@ export const updateProfile = async (userId, profileData) => {
       body: JSON.stringify(profileData)
     });
     const data = await response.json();
-    return data.data;
+    return data?.data ?? null;
   } catch (error) {
     console.error('Lỗi khi cập nhật profile:', error);
     await delay(400);
@@ -235,7 +235,7 @@ export const uploadAvatar = async (userId, avatarUrl) => {
       body: JSON.stringify({ avatarUrl })
     });
     const data = await response.json();
-    return data.data;
+    return data?.data ?? null;
   } catch (error) {
     console.error('Lỗi khi upload avatar:', error);
     await delay(500);
@@ -258,7 +258,7 @@ export const uploadCover = async (userId, coverUrl) => {
       body: JSON.stringify({ coverUrl })
     });
     const data = await response.json();
-    return data.data;
+    return data?.data ?? null;
   } catch (error) {
     console.error('Lỗi khi upload cover:', error);
     await delay(500);
@@ -279,7 +279,7 @@ export const getUserStories = async (userId) => {
     }
     const response = await fetch(`${API_BASE_URL}/${userId}/stories`);
     const data = await response.json();
-    return data.data;
+    return data?.data ?? null;
   } catch (error) {
     console.error('Lỗi khi lấy stories:', error);
     await delay(300);
@@ -313,7 +313,7 @@ export const addStory = async (userId, mediaUrl, mediaType, caption) => {
       body: JSON.stringify({ mediaUrl, mediaType, caption })
     });
     const data = await response.json();
-    return data.data;
+    return data?.data ?? null;
   } catch (error) {
     console.error('Lỗi khi thêm story:', error);
     await delay(400);

@@ -29,6 +29,7 @@ public class FeedService {
     private final PostSaveRepository saveRepository;
     private final PostShareRepository shareRepository;
     private final PostReportRepository reportRepository;
+    private final ContentModerationService contentModerationService;
     
     /**
      * Lấy dòng thời gian cá nhân hoá cho user
@@ -55,12 +56,34 @@ public class FeedService {
     }
     
     /**
-     * Tạo bài đăng mới
+     * Tạo bài đăng mới với kiểm tra nội dung vi phạm
      */
     public Post createPost(Long authorId, String authorName, String authorAvatar, 
                           String content, PostType postType, 
                           String imageUrl, String videoUrl, String videoThumbnail) {
         log.info("Creating new post from user: {}", authorId);
+        
+        // Kiểm tra nội dung vi phạm
+        ContentModerationService.ViolationResult result = contentModerationService.checkPostContent(
+            content, imageUrl, videoUrl
+        );
+        
+        if (!result.isSafe()) {
+            log.warn("Post creation rejected due to content violation: {}", result.getMessage());
+            // Tạo exception với thông tin chi tiết - sử dụng prefix để controller có thể parse
+            String errorMessage = result.getMessage();
+            if (result.getFoundKeywords() != null || result.getDetails() != null) {
+                // Sử dụng format đặc biệt để controller có thể parse
+                String violationInfo = String.format("VIOLATION_DETAILS::%s::%s::%s::%s",
+                    errorMessage,
+                    result.getViolationType() != null ? result.getViolationType().name() : "",
+                    result.getFoundKeywords() != null ? result.getFoundKeywords() : "",
+                    result.getDetails() != null ? result.getDetails() : ""
+                );
+                throw new RuntimeException(violationInfo);
+            }
+            throw new RuntimeException(errorMessage);
+        }
         
         Post post = Post.builder()
                 .authorId(authorId)
@@ -98,7 +121,7 @@ public class FeedService {
         
         if (existingReaction.isPresent()) {
             PostReaction reaction = existingReaction.get();
-            // Nếu cùng loại reaction, xóa đi
+            // Nếu cùng loại reaction, xóa đi (unlike)
             if (reaction.getReactionType() == reactionType) {
                 reactionRepository.delete(reaction);
                 post.setLikeCount(Math.max(0, post.getLikeCount() - 1));
@@ -123,6 +146,23 @@ public class FeedService {
         postRepository.save(post);
         
         return reactionRepository.save(reaction);
+    }
+    
+    /**
+     * Hủy like (xóa reaction)
+     */
+    public void unlikePost(Long postId, Long userId) {
+        log.info("User {} unliking post {}", userId, postId);
+        
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new RuntimeException("Post not found"));
+        
+        Optional<PostReaction> reaction = reactionRepository.findByPostIdAndUserId(postId, userId);
+        if (reaction.isPresent()) {
+            reactionRepository.delete(reaction.get());
+            post.setLikeCount(Math.max(0, post.getLikeCount() - 1));
+            postRepository.save(post);
+        }
     }
     
     /**
@@ -211,18 +251,23 @@ public class FeedService {
     }
     
     /**
-     * Xóa bình luận
+     * Xóa bình luận (chỉ author của comment hoặc author của post mới được xóa)
      */
-    public void deleteComment(Long commentId) {
-        log.info("Deleting comment: {}", commentId);
+    public void deleteComment(Long commentId, Long userId) {
+        log.info("User {} deleting comment: {}", userId, commentId);
         PostComment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new RuntimeException("Comment not found"));
+        
+        // Kiểm tra quyền: chỉ author của comment hoặc author của post mới được xóa
+        Post post = comment.getPost();
+        if (!comment.getUserId().equals(userId) && !post.getAuthorId().equals(userId)) {
+            throw new RuntimeException("You don't have permission to delete this comment");
+        }
         
         comment.setIsDeleted(true);
         commentRepository.save(comment);
         
         // Cập nhật comment count của post
-        Post post = comment.getPost();
         post.setCommentCount(Math.max(0, post.getCommentCount() - 1));
         postRepository.save(post);
     }
@@ -319,7 +364,7 @@ public class FeedService {
     }
     
     /**
-     * Ẩn bài đăng
+     * Ẩn bài đăng (cho user cụ thể)
      */
     public void hidePost(Long postId, Long userId) {
         log.info("User {} hiding post {}", userId, postId);
@@ -327,10 +372,39 @@ public class FeedService {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
         
-        String hiddenUsers = post.getHiddenByUsers() == null ? "[]" : post.getHiddenByUsers();
-        // Parse JSON and add user ID (simplified version without JSON library)
-        post.setHiddenByUsers(hiddenUsers);
-        postRepository.save(post);
+        // Lưu danh sách user đã ẩn bài này (JSON format)
+        String hiddenUsers = post.getHiddenByUsers();
+        List<Long> hiddenUserList = new ArrayList<>();
+        
+        // Parse JSON array string thành List
+        if (hiddenUsers != null && !hiddenUsers.trim().isEmpty() && !hiddenUsers.equals("[]")) {
+            try {
+                // Remove brackets and split by comma
+                String content = hiddenUsers.replace("[", "").replace("]", "").trim();
+                if (!content.isEmpty()) {
+                    String[] ids = content.split(",");
+                    for (String id : ids) {
+                        id = id.trim();
+                        if (!id.isEmpty()) {
+                            hiddenUserList.add(Long.parseLong(id));
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                log.warn("Error parsing hiddenByUsers JSON: {}", hiddenUsers, e);
+                hiddenUserList = new ArrayList<>();
+            }
+        }
+        
+        // Thêm userId vào danh sách nếu chưa có
+        if (!hiddenUserList.contains(userId)) {
+            hiddenUserList.add(userId);
+            // Convert List back to JSON array string
+            post.setHiddenByUsers("[" + hiddenUserList.stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(",")) + "]");
+            postRepository.save(post);
+        }
     }
     
     /**

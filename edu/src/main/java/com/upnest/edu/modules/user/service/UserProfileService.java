@@ -155,7 +155,7 @@ public class UserProfileService {
     }
     
     /**
-     * Chuyển đổi User thành UserProfileResponse
+     * Cnhungển đổi User thành UserProfileResponse
      */
     private UserProfileResponse mapToProfileResponse(User user) {
         UserProfile profile = user.getUserProfile();
