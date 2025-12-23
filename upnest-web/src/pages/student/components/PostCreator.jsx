@@ -6,7 +6,16 @@
 
 import React, { useState, useRef } from 'react';
 import { Image, Video, X, Send } from 'lucide-react';
-import postInteractionService from '../../../services/postInteractionService';
+// Tạm thời mock service để tránh lỗi import khi file service chưa tồn tại.
+// Khi có file services/postInteractionService.js thì thay thế import này.
+const postInteractionService = {
+  uploadPostImage: async () => ({ success: true, data: { id: Date.now(), url: "" } }),
+  uploadPostVideo: async () => ({ success: true, data: { id: Date.now(), url: "" } }),
+  createPost: async (_groupId, payload) => ({
+    success: true,
+    data: { id: Date.now(), ...payload }
+  })
+};
 import '../styles/PostCreator.css';
 
 const PostCreator = ({ groupId, onPostCreated }) => {

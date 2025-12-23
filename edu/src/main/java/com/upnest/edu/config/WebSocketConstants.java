@@ -17,11 +17,14 @@ public class WebSocketConstants {
         // Broadcast channels
         public static final String CHAT_GENERAL = "/topic/chat/general";
         public static final String CHAT_GROUP = "/topic/chat/group/%d";
+        public static final String CHAT_PUBLIC = "/topic/chat/public";
+        public static final String VIDEO_SIGNAL = "/topic/video/%s";
         public static final String CALL_CHANNEL = "/topic/calls";
         
         // Private channels
         public static final String USER_QUEUE = "/user/queue/private";
         public static final String USER_NOTIFICATIONS = "/user/queue/notifications";
+        public static final String USER_VIDEO_SIGNAL = "/user/queue/video";
         
         // Application channels (inbound)
         public static final String SEND_MESSAGE = "/app/chat/send";
@@ -30,6 +33,7 @@ public class WebSocketConstants {
         public static final String CALL_INITIATE = "/app/call/initiate";
         public static final String CALL_ANSWER = "/app/call/answer";
         public static final String CALL_REJECT = "/app/call/reject";
+        public static final String VIDEO_SIGNAL_INBOUND = "/app/video/signal";
     }
 
     /**
@@ -39,12 +43,14 @@ public class WebSocketConstants {
         public static final String MESSAGE = "message";
         public static final String TYPING = "typing";
         public static final String REACTION = "reaction";
+        public static final String CONTENT_VIOLATION = "content_violation";
         public static final String CALL_INITIATED = "call_initiated";
         public static final String CALL_ANSWERED = "call_answered";
         public static final String CALL_REJECTED = "call_rejected";
         public static final String CALL_ENDED = "call_ended";
         public static final String USER_JOINED = "user_joined";
         public static final String USER_LEFT = "user_left";
+        public static final String VIDEO_SIGNAL = "video_signal";
     }
 }
 

@@ -10,7 +10,7 @@ import java.util.Optional;
  * Repository: UserProfileRepository
  * Xử lý các truy vấn CRUD cho UserProfile
  */
-@Repository
+@Repository("userUserProfileRepository")
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
     
     /**

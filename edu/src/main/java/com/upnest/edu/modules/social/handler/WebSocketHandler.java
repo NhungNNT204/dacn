@@ -2,6 +2,7 @@ package com.upnest.edu.modules.social.handler;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.event.EventListener;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -11,10 +12,10 @@ import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
-import org.springframework.context.event.EventListener;
+import com.upnest.edu.config.WebSocketConstants;
 import com.upnest.edu.modules.chat.service.ChatService;
 import com.upnest.edu.modules.social.payload.*;
-import com.upnest.edu.config.WebSocketConstants;
+import com.upnest.edu.modules.social.service.ContentModerationService;
 import java.util.Map;
 
 /**
@@ -33,6 +34,7 @@ public class WebSocketHandler {
 
   private final ChatService chatService;
   private final SimpMessagingTemplate messagingTemplate;
+  private final ContentModerationService contentModerationService;
 
   // ============================================
   // CONNECTION MANAGEMENT
@@ -80,6 +82,11 @@ public class WebSocketHandler {
     log.info("Handling message send to group {}: {}", chatGroupId, request.getContent());
     
     try {
+      var violation = contentModerationService.checkTextContent(request.getContent());
+      if (!violation.isSafe()) {
+        return buildViolationMessage(chatGroupId, violation, request.getSenderId());
+      }
+
       // Lưu tin nhắn vào database
       var message = chatService.sendMessage(
           chatGroupId,
@@ -125,6 +132,17 @@ public class WebSocketHandler {
     log.info("Handling private message to user {}", receiverId);
     
     try {
+      var violation = contentModerationService.checkTextContent(request.getContent());
+      if (!violation.isSafe()) {
+        // Phản hồi riêng cho người gửi biết tin nhắn bị chặn
+        messagingTemplate.convertAndSendToUser(
+            request.getSenderId() != null ? request.getSenderId().toString() : "unknown",
+            WebSocketConstants.WebSocketChannels.USER_NOTIFICATIONS,
+            buildViolationMessage(request.getChatGroupId(), violation, request.getSenderId())
+        );
+        return;
+      }
+
       // Lưu tin nhắn riêng tư
       var message = chatService.sendMessage(
           request.getChatGroupId(),
@@ -159,6 +177,31 @@ public class WebSocketHandler {
     } catch (Exception e) {
       log.error("Error handling private message", e);
     }
+  }
+
+  /**
+   * /app/chat/public - Broadcast tới kênh chung (1-all)
+   */
+  @MessageMapping("/chat/public")
+  @SendTo(WebSocketConstants.WebSocketChannels.CHAT_PUBLIC)
+  public WebSocketMessageDTO handlePublicMessage(@Payload SendMessageRequest request) {
+    log.info("Handling public chat message from {}", request.getSenderId());
+    var violation = contentModerationService.checkTextContent(request.getContent());
+    if (!violation.isSafe()) {
+      return buildViolationMessage(null, violation, request.getSenderId());
+    }
+
+    return WebSocketMessageDTO.builder()
+        .type(WebSocketConstants.MessageTypes.MESSAGE)
+        .payload(Map.of(
+            "senderId", request.getSenderId(),
+            "senderName", request.getSenderName(),
+            "senderAvatar", request.getSenderAvatar(),
+            "content", request.getContent(),
+            "createdAt", java.time.LocalDateTime.now()
+        ))
+        .timestamp(java.time.LocalDateTime.now())
+        .build();
   }
 
   /**
@@ -384,6 +427,42 @@ public class WebSocketHandler {
     }
   }
 
+  /**
+   * /app/video/signal/{conversationId} - Trao đổi SDP/ICE cho WebRTC
+   * Broadcast tới /topic/video/{conversationId} và gửi trực tiếp tới user nếu có target
+   */
+  @MessageMapping("/video/signal/{conversationId}")
+  public void handleVideoSignal(
+      @DestinationVariable Long conversationId,
+      @Payload WebRTCSignalMessage signal) {
+    log.info("Handling video signal {} for conversation {}", signal.getSignalType(), conversationId);
+
+    try {
+      signal.setConversationId(conversationId);
+
+      WebSocketMessageDTO message = WebSocketMessageDTO.builder()
+          .type(WebSocketConstants.MessageTypes.VIDEO_SIGNAL)
+          .payload(signal)
+          .timestamp(java.time.LocalDateTime.now())
+          .build();
+
+      messagingTemplate.convertAndSend(
+          String.format(WebSocketConstants.WebSocketChannels.VIDEO_SIGNAL, conversationId),
+          message
+      );
+
+      if (signal.getTargetUserId() != null) {
+        messagingTemplate.convertAndSendToUser(
+            signal.getTargetUserId().toString(),
+            WebSocketConstants.WebSocketChannels.USER_VIDEO_SIGNAL,
+            message
+        );
+      }
+    } catch (Exception e) {
+      log.error("Error handling video signal", e);
+    }
+  }
+
   // ============================================
   // USER STATUS
   // ============================================
@@ -400,5 +479,23 @@ public class WebSocketHandler {
         "/topic/user/status",
         statusMap
     );
+  }
+
+  private WebSocketMessageDTO buildViolationMessage(
+      Long chatGroupId,
+      ContentModerationService.ViolationResult violation,
+      Long senderId
+  ) {
+    return WebSocketMessageDTO.builder()
+        .type(WebSocketConstants.MessageTypes.CONTENT_VIOLATION)
+        .payload(Map.of(
+            "chatGroupId", chatGroupId,
+            "message", violation.getMessage(),
+            "violationType", violation.getViolationType() != null ? violation.getViolationType().name() : null,
+            "foundKeywords", violation.getFoundKeywords(),
+            "senderId", senderId
+        ))
+        .timestamp(java.time.LocalDateTime.now())
+        .build();
   }
 }

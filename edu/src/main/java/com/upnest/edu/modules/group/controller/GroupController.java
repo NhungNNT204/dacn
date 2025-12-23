@@ -1,6 +1,6 @@
 package com.upnest.edu.modules.group.controller;
 
-import com.upnest.edu.modules.auth.entity.User;
+import com.upnest.edu.modules.user.entity.User;
 import com.upnest.edu.modules.group.entity.*;
 import com.upnest.edu.modules.group.payload.*;
 import com.upnest.edu.modules.group.service.GroupService;
@@ -115,7 +115,7 @@ public class GroupController {
     ) {
         User user = (User) authentication.getPrincipal();
         Pageable pageable = PageRequest.of(page, size);
-        Page<Group> suggested = groupService.getSuggestedGroups(String.valueOf(user.getId()), pageable);
+        Page<Group> suggested = groupService.getSuggestedGroups(user.getId(), pageable);
         return ResponseEntity.ok(suggested);
     }
 
@@ -130,7 +130,7 @@ public class GroupController {
     ) {
         User user = (User) authentication.getPrincipal();
         Pageable pageable = PageRequest.of(page, size);
-        Page<Group> myGroups = groupService.getUserGroups(String.valueOf(user.getId()), pageable);
+        Page<Group> myGroups = groupService.getUserGroups(user.getId(), pageable);
         return ResponseEntity.ok(myGroups);
     }
 
@@ -145,7 +145,7 @@ public class GroupController {
     ) {
         User user = (User) authentication.getPrincipal();
         Pageable pageable = PageRequest.of(page, size);
-        Page<Group> ownedGroups = groupService.getUserOwnedGroups(String.valueOf(user.getId()), pageable);
+        Page<Group> ownedGroups = groupService.getUserOwnedGroups(user.getId(), pageable);
         return ResponseEntity.ok(ownedGroups);
     }
 

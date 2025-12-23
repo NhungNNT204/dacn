@@ -37,24 +37,24 @@ public interface GroupRepository extends JpaRepository<Group, String> {
     /**
      * Tìm nhóm mà user là owner
      */
-    Page<Group> findByOwnerIdAndIsActiveTrueOrderByCreatedAtDesc(String ownerId, Pageable pageable);
+    Page<Group> findByOwnerIdAndIsActiveTrueOrderByCreatedAtDesc(Long ownerId, Pageable pageable);
 
     /**
      * Tìm nhóm mà user đã tham gia
      */
     @Query("SELECT g FROM Group g INNER JOIN g.members m WHERE m.user.id = :userId AND g.isActive = true ORDER BY m.joinedAt DESC")
-    Page<Group> findGroupsByMemberId(@Param("userId") String userId, Pageable pageable);
+    Page<Group> findGroupsByMemberId(@Param("userId") Long userId, Pageable pageable);
 
     /**
      * Kiểm tra user đã tham gia nhóm chưa
      */
     @Query("SELECT COUNT(m) > 0 FROM GroupMember m WHERE m.group.id = :groupId AND m.user.id = :userId AND m.isActive = true")
-    Boolean isMemberOfGroup(@Param("groupId") String groupId, @Param("userId") String userId);
+    Boolean isMemberOfGroup(@Param("groupId") String groupId, @Param("userId") Long userId);
 
     /**
      * Tìm nhóm theo owner và id
      */
-    Optional<Group> findByIdAndOwnerId(String id, String ownerId);
+    Optional<Group> findByIdAndOwnerId(String id, Long ownerId);
 
     /**
      * Tìm nhóm trending (dựa vào member count)
@@ -68,11 +68,11 @@ public interface GroupRepository extends JpaRepository<Group, String> {
     @Query("SELECT g FROM Group g WHERE g.isActive = true AND g.groupType = 'PUBLIC' " +
            "AND g.id NOT IN (SELECT m.group.id FROM GroupMember m WHERE m.user.id = :userId) " +
            "ORDER BY g.memberCount DESC")
-    Page<Group> findSuggestedGroups(@Param("userId") String userId, Pageable pageable);
+    Page<Group> findSuggestedGroups(@Param("userId") Long userId, Pageable pageable);
 
     /**
      * Đếm số nhóm của user
      */
     @Query("SELECT COUNT(DISTINCT m.group.id) FROM GroupMember m WHERE m.user.id = :userId AND m.isActive = true")
-    Long countUserGroups(@Param("userId") String userId);
+    Long countUserGroups(@Param("userId") Long userId);
 }

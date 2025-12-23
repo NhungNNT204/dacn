@@ -1,6 +1,6 @@
 package com.upnest.edu.modules.video.entity;
 
-import com.upnest.edu.modules.auth.entity.User;
+import com.upnest.edu.modules.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

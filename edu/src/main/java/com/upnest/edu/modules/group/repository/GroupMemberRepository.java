@@ -22,7 +22,7 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember, String
     /**
      * Tìm member bằng group id và user id
      */
-    Optional<GroupMember> findByGroupIdAndUserId(String groupId, String userId);
+    Optional<GroupMember> findByGroupIdAndUserId(String groupId, Long userId);
 
     /**
      * Tìm tất cả active member của nhóm
@@ -44,14 +44,14 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember, String
      */
     @Query("SELECT COUNT(m) > 0 FROM GroupMember m WHERE m.group.id = :groupId AND m.user.id = :userId " +
            "AND m.role IN ('ADMIN') AND m.isActive = true")
-    Boolean isAdminOfGroup(@Param("groupId") String groupId, @Param("userId") String userId);
+    Boolean isAdminOfGroup(@Param("groupId") String groupId, @Param("userId") Long userId);
 
     /**
      * Kiểm tra user có phải moderator của nhóm không
      */
     @Query("SELECT COUNT(m) > 0 FROM GroupMember m WHERE m.group.id = :groupId AND m.user.id = :userId " +
            "AND m.role IN ('ADMIN', 'MODERATOR') AND m.isActive = true")
-    Boolean isModeratorOfGroup(@Param("groupId") String groupId, @Param("userId") String userId);
+    Boolean isModeratorOfGroup(@Param("groupId") String groupId, @Param("userId") Long userId);
 
     /**
      * Xóa tất cả member của nhóm
@@ -62,7 +62,8 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember, String
      * Tìm member theo keyword search
      */
     @Query("SELECT m FROM GroupMember m WHERE m.group.id = :groupId AND m.isActive = true " +
-           "AND (LOWER(m.user.name) LIKE LOWER(CONCAT('%', :keyword, '%')) " +
+           "AND (LOWER(m.user.fullName) LIKE LOWER(CONCAT('%', :keyword, '%')) " +
+           "OR LOWER(m.user.username) LIKE LOWER(CONCAT('%', :keyword, '%')) " +
            "OR LOWER(m.user.email) LIKE LOWER(CONCAT('%', :keyword, '%')))")
     Page<GroupMember> searchMembers(@Param("groupId") String groupId, @Param("keyword") String keyword, Pageable pageable);
 }

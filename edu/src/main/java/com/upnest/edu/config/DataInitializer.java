@@ -7,9 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.upnest.edu.modules.auth.entity.User;
-import com.upnest.edu.modules.auth.entity.Role;
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.entity.User;
+import com.upnest.edu.modules.user.entity.UserRole;
+import com.upnest.edu.modules.user.entity.UserStatus;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import com.upnest.edu.modules.social.entity.PrivacySettings;
 import com.upnest.edu.modules.social.entity.PrivacySettings.PostVisibility;
 import com.upnest.edu.modules.social.entity.UserProfile;
@@ -25,7 +26,8 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 public class DataInitializer {
 
-    @Bean
+    // DISABLED: Comment out to skip data initialization on startup
+    // @Bean
     public CommandLineRunner initData(
             UserRepository userRepository,
             UserProfileRepository userProfileRepository,
@@ -48,9 +50,9 @@ public class DataInitializer {
                     .password(passwordEncoder.encode("password123"))
                     .fullName("Nguyễn Văn A (Student)")
                     .phone("0901234567")
-                    .role(Role.STUDENT)
-                    .isActive(true)
-                    .isVerified(true)
+                    .role(UserRole.STUDENT)
+                    .status(UserStatus.ACTIVE)
+                    .isEmailVerified(true)
                     .twoFactorEnabled(false)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
@@ -65,6 +67,13 @@ public class DataInitializer {
                     .bio("Sinh viên khoa Công Nghệ Thông Tin")
                     .phone("0901234567")
                     .email("student@upnest.edu")
+                    .followersCount(0)
+                    .followingCount(0)
+                    .postsCount(0)
+                    .friendsCount(0)
+                    .isVerified(true)
+                    .isPrivate(false)
+                    .isActive(true)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -88,9 +97,9 @@ public class DataInitializer {
                     .password(passwordEncoder.encode("password123"))
                     .fullName("Trần Thị B (Teacher)")
                     .phone("0912345678")
-                    .role(Role.TEACHER)
-                    .isActive(true)
-                    .isVerified(true)
+                    .role(UserRole.TEACHER)
+                    .status(UserStatus.ACTIVE)
+                    .isEmailVerified(true)
                     .twoFactorEnabled(false)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
@@ -105,6 +114,13 @@ public class DataInitializer {
                     .bio("Giảng viên Công Nghệ Phần Mềm")
                     .phone("0912345678")
                     .email("teacher@upnest.edu")
+                    .followersCount(0)
+                    .followingCount(0)
+                    .postsCount(0)
+                    .friendsCount(0)
+                    .isVerified(true)
+                    .isPrivate(false)
+                    .isActive(true)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();
@@ -128,9 +144,9 @@ public class DataInitializer {
                     .password(passwordEncoder.encode("admin123"))
                     .fullName("Lê Hoàng C (Admin)")
                     .phone("0923456789")
-                    .role(Role.ADMIN)
-                    .isActive(true)
-                    .isVerified(true)
+                    .role(UserRole.ADMIN)
+                    .status(UserStatus.ACTIVE)
+                    .isEmailVerified(true)
                     .twoFactorEnabled(false)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
@@ -145,6 +161,13 @@ public class DataInitializer {
                     .bio("Quản trị viên hệ thống")
                     .phone("0923456789")
                     .email("admin@upnest.edu")
+                    .followersCount(0)
+                    .followingCount(0)
+                    .postsCount(0)
+                    .friendsCount(0)
+                    .isVerified(true)
+                    .isPrivate(false)
+                    .isActive(true)
                     .createdAt(LocalDateTime.now())
                     .updatedAt(LocalDateTime.now())
                     .build();

@@ -3,10 +3,10 @@ package com.upnest.edu.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.upnest.edu.modules.user.repository.UserRepository;
 import com.upnest.edu.modules.course.repository.CourseRepository;
-import com.upnest.edu.modules.auth.entity.User;
-import com.upnest.edu.modules.auth.entity.Role;
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.entity.User;
+import com.upnest.edu.modules.user.entity.UserRole;
 
 // @Component  // DISABLED - Using DataInitializer instead
 public class DataSeeder implements CommandLineRunner {
@@ -36,7 +36,7 @@ public class DataSeeder implements CommandLineRunner {
                 admin.setEmail("admin@upnest.edu");
                 admin.setPassword(passwordEncoder.encode("123456"));
                 admin.setFullName("Administrator");
-                admin.setRole(Role.ADMIN);
+                admin.setRole(UserRole.ADMIN);
                 admin.setTwoFactorEnabled(true); 
                 admin.setTwoFactorSecret("JBSWY3DPEHPK3PXP"); 
                 userRepository.save(admin);
@@ -49,7 +49,7 @@ public class DataSeeder implements CommandLineRunner {
                 student.setEmail("student@upnest.edu");
                 student.setPassword(passwordEncoder.encode("123456"));
                 student.setFullName("Nguyễn Thị Thùy Nhung");
-                student.setRole(Role.STUDENT);
+                student.setRole(UserRole.STUDENT);
                 student.setTwoFactorEnabled(false);
                 userRepository.save(student);
                 System.out.println(">>> Đã tạo tài khoản STUDENT (2FA OFF): student@upnest.edu | Pass: 123456");
@@ -61,7 +61,7 @@ public class DataSeeder implements CommandLineRunner {
                 teacher.setEmail("teacher@upnest.edu");
                 teacher.setPassword(passwordEncoder.encode("123456"));
                 teacher.setFullName("Cô Minh Thư");
-                teacher.setRole(Role.TEACHER);
+                teacher.setRole(UserRole.TEACHER);
                 teacher.setTwoFactorEnabled(false);
                 userRepository.save(teacher);
                 System.out.println(">>> Đã tạo tài khoản TEACHER: teacher@upnest.edu | Pass: 123456");

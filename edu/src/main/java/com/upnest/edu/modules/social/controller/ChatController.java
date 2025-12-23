@@ -102,6 +102,12 @@ public class ChatController {
     } catch (IllegalArgumentException e) {
       log.error("Invalid request: {}", e.getMessage());
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    } catch (RuntimeException e) {
+      log.error("Message rejected: {}", e.getMessage());
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          .body(MessageDTO.builder()
+              .content(e.getMessage())
+              .build());
     } catch (Exception e) {
       log.error("Error sending message", e);
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -136,6 +142,12 @@ public class ChatController {
       );
       return ResponseEntity.status(HttpStatus.CREATED)
           .body(convertToMessageDTO(message));
+    } catch (RuntimeException e) {
+      log.error("Media message rejected: {}", e.getMessage());
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          .body(MessageDTO.builder()
+              .content(e.getMessage())
+              .build());
     } catch (Exception e) {
       log.error("Error sending media message", e);
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

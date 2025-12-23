@@ -2,21 +2,34 @@ package com.upnest.edu.modules.qa.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.web.socket.config.annotation.*;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
+import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
+import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
 /**
- * WebSocket Configuration cho Q&A Realtime
- * 
- * Endpoint: /ws-qa
- * Destinations:
- * - /topic/questions/{questionId} - Nhận updates cho câu hỏi cụ thể
- * - /topic/answers/{answerId} - Nhận updates cho câu trả lời cụ thể
- * - /topic/qa/new - Nhận thông báo câu hỏi mới
- * - /user/queue/notifications - Nhận thông báo cá nhân
+ * WebSocket Configuration (shared for QA + Social/Chat/Video)
+ *
+ * Endpoints (SockJS enabled):
+ * - /ws, /ws-qa, /ws-chat, /ws-social, /ws-video, /ws-roadmap
+ *
+ * Destinations (server → client):
+ * - /topic/** (broadcast), /queue/** (point-to-point), /user/queue/** (personal)
+ *
+ * Destinations (client → server):
+ * - /app/** (mapped via @MessageMapping)
  */
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+
+    private static final String[] SOCKET_ENDPOINTS = new String[] {
+        "/ws",
+        "/ws-qa",
+        "/ws-chat",
+        "/ws-social",
+        "/ws-video",
+        "/ws-roadmap"
+    };
     
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
@@ -32,13 +45,18 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        // Đăng ký WebSocket endpoint
-        registry.addEndpoint("/ws-qa")
-                .setAllowedOriginPatterns(
-                    "http://localhost:5173",
-                    "http://localhost:5174",
-                    "http://localhost:5175"
-                )
-                .withSockJS(); // Fallback cho browsers không hỗ trợ WebSocket
+        // Đăng ký WebSocket endpoints (dùng chung cho QA + Chat + Video + Roadmap)
+        registry
+            .addEndpoint(SOCKET_ENDPOINTS)
+            .setAllowedOriginPatterns(
+                "http://localhost:*",
+                "http://127.0.0.1:*",
+                "http://192.168.*:*",
+                "http://10.*:*",
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "http://localhost:5175"
+            )
+            .withSockJS(); // Fallback cho browsers không hỗ trợ WebSocket
     }
 }

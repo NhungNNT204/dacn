@@ -52,10 +52,8 @@ public class QuestionService {
         log.info("Creating question for user: {}", userId);
         
         // Kiểm duyệt nội dung
-        QAContentModerationService.ModerationResult titleModeration = 
-            contentModerationService.moderateContent(request.getTitle());
-        QAContentModerationService.ModerationResult contentModeration = 
-            contentModerationService.moderateContent(request.getContent());
+        var titleModeration = contentModerationService.moderateContent(request.getTitle());
+        var contentModeration = contentModerationService.moderateContent(request.getContent());
         
         if (!titleModeration.isApproved()) {
             throw new RuntimeException("Tiêu đề không phù hợp: " + 

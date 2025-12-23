@@ -62,7 +62,7 @@ public interface GroupPostRepository extends JpaRepository<GroupPost, String> {
     /**
      * Kiểm tra user đã post trong nhóm hay chưa hôm nay
      */
-    @Query("SELECT COUNT(p) FROM GroupPost p WHERE p.group.id = :groupId AND p.author.id = :userId " +
-           "AND DATE(p.createdAt) = CURRENT_DATE AND p.isDeleted = false")
-    Long countUserPostsToday(@Param("groupId") String groupId, @Param("userId") String userId);
+    @Query("SELECT COUNT(p) FROM GroupPost p WHERE p.group.id = :groupId AND p.author.userId = :userId " +
+           "AND CAST(p.createdAt AS date) = CURRENT_DATE AND p.isDeleted = false")
+    Long countUserPostsToday(@Param("groupId") String groupId, @Param("userId") Long userId);
 }

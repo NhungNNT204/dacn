@@ -19,9 +19,9 @@ spring:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
   jpa:
-    show-sql: true              # Hiện câu lệnh SQL ra màn hình
+    show-sql: false             # Tắt SQL log để tránh quá nhiều output
     hibernate:
-      ddl-auto: update          # Update schema without dropping
+      ddl-auto: none            # Don't validate or create schema (let it be)
     properties:
       hibernate:
         format_sql: true

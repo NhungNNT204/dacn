@@ -10,7 +10,8 @@ WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] >>> spring-boot:3.5.0:run (default-cli) > test-compile @ edu >>>
+[INFO] --- clean:3.4.1:clean (default-clean) @ edu ---
+[INFO] Deleting n:\DACN\upnestedu\edu\target
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ edu ---
 [INFO] Copying 1 resource from src\main\resources to target\classes
@@ -18,5 +19,5 @@ WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
 [INFO] 
 [INFO] --- compiler:3.13.0:compile (default-compile) @ edu ---
 [INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 328 source files with javac [debug parameters release 21] to target\classes
-Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? 
+[INFO] Compiling 336 source files with javac [debug parameters release 21] to target\classes
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? 

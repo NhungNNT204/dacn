@@ -3,7 +3,7 @@ package com.upnest.edu.modules.career.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import com.upnest.edu.modules.career.entity.CareerPath;
 import com.upnest.edu.modules.career.entity.RoadmapStep;
 import com.upnest.edu.modules.career.entity.UserCareerPath;
@@ -21,9 +21,10 @@ import java.util.stream.Collectors;
 
 /**
  * CareerService - Service xử lý logic cho định hướng nghề nghiệp
+ * DISABLED: RoadmapStepRepository conflict (duplicate in multiple modules)
  */
 @Slf4j
-@Service
+// @Service
 @RequiredArgsConstructor
 @Transactional
 public class CareerService {

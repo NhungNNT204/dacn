@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.upnest.edu.modules.auth.payload.AuthResponse;
 import com.upnest.edu.modules.auth.payload.LoginRequest;
 import com.upnest.edu.modules.auth.payload.VerifyRequest;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import com.upnest.edu.modules.auth.service.TwoFactorService;
-import com.upnest.edu.modules.auth.entity.User;
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.entity.User;
 import com.upnest.edu.modules.user.service.JwtService;
 
 // [FIX] Thêm @CrossOrigin để giải quyết lỗi 403 Forbidden từ trình duyệt

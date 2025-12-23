@@ -1,12 +1,11 @@
 package com.upnest.edu.modules.learning.service;
 
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import com.upnest.edu.modules.learning.entity.LearningStreak;
 import com.upnest.edu.modules.learning.payload.DashboardResponse;
 import com.upnest.edu.modules.learning.repository.LearningStreakRepository;
 import com.upnest.edu.modules.social.entity.LearningActivity;
 import com.upnest.edu.modules.social.repository.LearningActivityRepository;
-import com.upnest.edu.modules.social.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -30,7 +29,6 @@ public class DashboardService {
 
     private final LearningStreakRepository streakRepository;
     private final LearningActivityRepository activityRepository;
-    private final PostRepository postRepository;
     private final UserRepository userRepository;
 
     /**
@@ -64,7 +62,7 @@ public class DashboardService {
         // Lấy stats
         long coursesCount = 5; // TODO: Lấy từ CourseEnrollment
         long friendsCount = 124; // TODO: Lấy từ Friendship
-        long postsCount = postRepository.countByAuthorIdAndIsDeletedFalse(userId);
+        long postsCount = 0; // Community feature removed
         int badges = 12; // TODO: Lấy từ Badge system
 
         // Lấy recent activities

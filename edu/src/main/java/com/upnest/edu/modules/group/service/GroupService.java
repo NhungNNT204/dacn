@@ -1,6 +1,6 @@
 package com.upnest.edu.modules.group.service;
 
-import com.upnest.edu.modules.auth.entity.User;
+import com.upnest.edu.modules.user.entity.User;
 import com.upnest.edu.modules.group.entity.*;
 import com.upnest.edu.modules.group.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -143,7 +143,7 @@ public class GroupService {
      * Lấy nhóm gợi ý cho user
      */
     @Transactional(readOnly = true)
-    public Page<Group> getSuggestedGroups(String userId, Pageable pageable) {
+    public Page<Group> getSuggestedGroups(Long userId, Pageable pageable) {
         return groupRepository.findSuggestedGroups(userId, pageable);
     }
 
@@ -151,7 +151,7 @@ public class GroupService {
      * Lấy nhóm mà user đã tham gia
      */
     @Transactional(readOnly = true)
-    public Page<Group> getUserGroups(String userId, Pageable pageable) {
+    public Page<Group> getUserGroups(Long userId, Pageable pageable) {
         return groupRepository.findGroupsByMemberId(userId, pageable);
     }
 
@@ -159,7 +159,7 @@ public class GroupService {
      * Lấy nhóm mà user là owner
      */
     @Transactional(readOnly = true)
-    public Page<Group> getUserOwnedGroups(String userId, Pageable pageable) {
+    public Page<Group> getUserOwnedGroups(Long userId, Pageable pageable) {
         return groupRepository.findByOwnerIdAndIsActiveTrueOrderByCreatedAtDesc(userId, pageable);
     }
 
@@ -182,8 +182,7 @@ public class GroupService {
         Group group = getGroupById(groupId);
         
         // Kiểm tra user đã là member chưa
-        String userId = String.valueOf(user.getId());
-        if (groupMemberRepository.findByGroupIdAndUserId(groupId, userId).isPresent()) {
+        if (groupMemberRepository.findByGroupIdAndUserId(groupId, user.getId()).isPresent()) {
             throw new RuntimeException("User đã là member của nhóm này");
         }
 
@@ -207,12 +206,12 @@ public class GroupService {
         log.info("Removing user {} from group {}", userId, groupId);
         
         Group group = getGroupById(groupId);
-        GroupMember member = groupMemberRepository.findByGroupIdAndUserId(groupId, userId)
+        Long userIdLong = Long.parseLong(userId);
+        GroupMember member = groupMemberRepository.findByGroupIdAndUserId(groupId, userIdLong)
             .orElseThrow(() -> new RuntimeException("User không là member của nhóm này"));
 
         // Kiểm tra quyền: chỉ user tự hoặc admin mới xóa được
-        String requesterId = String.valueOf(requester.getId());
-        if (!requesterId.equals(userId) && !groupMemberRepository.isAdminOfGroup(groupId, requesterId)) {
+        if (!requester.getId().equals(userIdLong) && !groupMemberRepository.isAdminOfGroup(groupId, requester.getId())) {
             throw new RuntimeException("Bạn không có quyền xóa member này");
         }
 
@@ -244,11 +243,12 @@ public class GroupService {
     public void updateMemberRole(String groupId, String userId, GroupMemberRole role, User requester) {
         log.info("Updating member {} role to {} in group {}", userId, role, groupId);
         
-        if (!groupMemberRepository.isAdminOfGroup(groupId, String.valueOf(requester.getId()))) {
+        if (!groupMemberRepository.isAdminOfGroup(groupId, requester.getId())) {
             throw new RuntimeException("Bạn không có quyền thay đổi vai trò member");
         }
 
-        GroupMember member = groupMemberRepository.findByGroupIdAndUserId(groupId, userId)
+        Long userIdLong = Long.parseLong(userId);
+        GroupMember member = groupMemberRepository.findByGroupIdAndUserId(groupId, userIdLong)
             .orElseThrow(() -> new RuntimeException("User không là member của nhóm này"));
 
         member.setRole(role);
@@ -259,7 +259,7 @@ public class GroupService {
      * Mute notification từ nhóm
      */
     public void muteGroup(String groupId, User user, Boolean isMuted) {
-        GroupMember member = groupMemberRepository.findByGroupIdAndUserId(groupId, String.valueOf(user.getId()))
+        GroupMember member = groupMemberRepository.findByGroupIdAndUserId(groupId, user.getId())
             .orElseThrow(() -> new RuntimeException("User không là member của nhóm này"));
 
         member.setIsMuted(isMuted);
@@ -271,7 +271,8 @@ public class GroupService {
      */
     @Transactional(readOnly = true)
     public Boolean isMemberOfGroup(String groupId, String userId) {
-        return groupMemberRepository.findByGroupIdAndUserId(groupId, userId)
+        Long userIdLong = Long.parseLong(userId);
+        return groupMemberRepository.findByGroupIdAndUserId(groupId, userIdLong)
             .map(GroupMember::getIsActive)
             .orElse(false);
     }
@@ -281,7 +282,8 @@ public class GroupService {
      */
     @Transactional(readOnly = true)
     public Boolean isAdminOfGroup(String groupId, String userId) {
-        return groupMemberRepository.isAdminOfGroup(groupId, userId);
+        Long userIdLong = Long.parseLong(userId);
+        return groupMemberRepository.isAdminOfGroup(groupId, userIdLong);
     }
 
     // ==================== POST MANAGEMENT ====================
@@ -347,9 +349,8 @@ public class GroupService {
             .orElseThrow(() -> new RuntimeException("Bài viết không tồn tại"));
 
         // Chỉ author hoặc admin mới xóa được
-        String requesterId = String.valueOf(requester.getId());
-        if (!String.valueOf(post.getAuthor().getId()).equals(requesterId) && 
-            !groupMemberRepository.isAdminOfGroup(post.getGroup().getId(), requesterId)) {
+        if (!post.getAuthor().getId().equals(requester.getId()) && 
+            !groupMemberRepository.isAdminOfGroup(post.getGroup().getId(), requester.getId())) {
             throw new RuntimeException("Bạn không có quyền xóa bài viết này");
         }
 
@@ -465,9 +466,8 @@ public class GroupService {
         GroupComment comment = groupCommentRepository.findById(commentId)
             .orElseThrow(() -> new RuntimeException("Comment không tồn tại"));
 
-        String requesterId = String.valueOf(requester.getId());
-        if (!String.valueOf(comment.getAuthor().getId()).equals(requesterId) && 
-            !groupMemberRepository.isModeratorOfGroup(comment.getPost().getGroup().getId(), requesterId)) {
+        if (!comment.getAuthor().getId().equals(requester.getId()) && 
+            !groupMemberRepository.isModeratorOfGroup(comment.getPost().getGroup().getId(), requester.getId())) {
             throw new RuntimeException("Bạn không có quyền xóa comment này");
         }
 

@@ -3,7 +3,7 @@ package com.upnest.edu.modules.learning.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.upnest.edu.modules.learning.entity.*;
 import com.upnest.edu.modules.learning.repository.*;
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

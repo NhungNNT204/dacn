@@ -10,7 +10,7 @@ import java.util.Optional;
  * Repository: PrivacySettingsRepository
  * Xử lý các truy vấn CRUD cho PrivacySettings
  */
-@Repository
+@Repository("userPrivacySettingsRepository")
 public interface PrivacySettingsRepository extends JpaRepository<PrivacySettings, Long> {
     
     /**

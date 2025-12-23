@@ -1,15 +1,24 @@
 package com.upnest.edu.modules.learning.controller;
 
-import com.upnest.edu.modules.learning.service.ProfessionalRoadmapService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Map;
+import com.upnest.edu.modules.learning.service.ProfessionalRoadmapService;
+import com.upnest.edu.modules.learning.service.RoadmapDataSyncService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ProfessionalRoadmapController - REST API cho Professional Learning Roadmap
@@ -23,6 +32,7 @@ import java.util.Map;
 public class ProfessionalRoadmapController {
 
     private final ProfessionalRoadmapService roadmapService;
+    private final RoadmapDataSyncService syncService;
 
     /**
      * GET /api/v1/learning/professional-roadmap
@@ -111,6 +121,30 @@ public class ProfessionalRoadmapController {
         } catch (Exception e) {
             log.error("Error getting selected roadmap", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * POST /api/v1/learning/professional-roadmap/sync/{roadmapKey}
+     * Sync một roadmap từ roadmap.sh vào database
+     */
+    @PostMapping("/sync/{roadmapKey}")
+    public ResponseEntity<Map<String, Object>> syncRoadmapFromWeb(
+            @PathVariable String roadmapKey,
+            Authentication authentication
+    ) {
+        try {
+            // TODO: Check admin permission
+            String url = "https://roadmap.sh/" + roadmapKey;
+            Map<String, Object> result = syncService.syncRoadmap(roadmapKey, url);
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            log.error("Error syncing roadmap: {}", roadmapKey, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(Map.of(
+                    "success", false,
+                    "message", "Error syncing roadmap: " + e.getMessage()
+                ));
         }
     }
 

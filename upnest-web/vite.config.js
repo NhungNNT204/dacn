@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
+    strictPort: true,  // Không tự động chuyển port nếu bị chiếm
     open: true,
     cors: true,
   },

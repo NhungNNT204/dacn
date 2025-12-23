@@ -137,6 +137,21 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // [FIX LỖI 403] Cho phép CORS preflight OPTIONS requests
                 .requestMatchers("OPTIONS", "/**").permitAll()
+                // Cho phép handshake WebSocket/STOMP
+                .requestMatchers(
+                    "/ws",
+                    "/ws/**",
+                    "/ws-qa",
+                    "/ws-qa/**",
+                    "/ws-chat",
+                    "/ws-chat/**",
+                    "/ws-social",
+                    "/ws-social/**",
+                    "/ws-video",
+                    "/ws-video/**",
+                    "/ws-roadmap",
+                    "/ws-roadmap/**"
+                ).permitAll()
                 // CHỈ cho phép Auth công khai. Mọi thứ khác cần Token.
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 

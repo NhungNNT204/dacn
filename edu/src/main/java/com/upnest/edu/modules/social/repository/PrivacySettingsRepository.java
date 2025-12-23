@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * PrivacySettingsRepository - Quản lý cài đặt quyền riêng tư
  */
-@Repository
+@Repository("socialPrivacySettingsRepository")
 public interface PrivacySettingsRepository extends JpaRepository<PrivacySettings, Long> {
     
     // Lấy cài đặt riêng tư của user

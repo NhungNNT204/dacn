@@ -14,9 +14,10 @@ import java.util.Map;
 
 /**
  * CareerController - API endpoints cho định hướng nghề nghiệp
+ * DISABLED: Service dependency issue with RoadmapStepRepository
  */
 @Slf4j
-@RestController
+// @RestController
 @RequestMapping("/api/v1/career")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")

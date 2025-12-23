@@ -2,8 +2,10 @@ package com.upnest.edu.modules.learning.service;
 
 import com.upnest.edu.modules.learning.entity.CareerTrack;
 import com.upnest.edu.modules.learning.entity.LearningRoadmap;
+import com.upnest.edu.modules.learning.entity.RoadmapStep;
 import com.upnest.edu.modules.learning.repository.CareerTrackRepository;
 import com.upnest.edu.modules.learning.repository.LearningRoadmapRepository;
+import com.upnest.edu.modules.learning.repository.RoadmapStepRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,21 +24,113 @@ public class ProfessionalRoadmapService {
 
     private final LearningRoadmapRepository learningRoadmapRepository;
     private final CareerTrackRepository careerTrackRepository;
+    private final RoadmapStepRepository roadmapStepRepository;
     // Reserved for future use
     // private final RestTemplate restTemplate = new RestTemplate();
     // private final ObjectMapper objectMapper = new ObjectMapper();
 
     /**
      * Lấy roadmap data từ roadmap.sh structure
-     * Nếu không fetch được, sẽ dùng mock data dựa trên roadmap.sh structure
+     * Ưu tiên lấy từ database, nếu không có thì dùng mock data
      */
     public Map<String, Object> getRoadmapData(String roadmapKey) {
         log.info("Getting roadmap data for key: {}", roadmapKey);
 
-        // TODO: Có thể fetch từ roadmap.sh API nếu có
-        // Hiện tại dùng mock data dựa trên roadmap.sh structure
-        
+        // Thử lấy từ database trước
+        Optional<CareerTrack> trackOpt = careerTrackRepository.findByCode(roadmapKey);
+        if (trackOpt.isPresent()) {
+            CareerTrack track = trackOpt.get();
+            List<RoadmapStep> steps = roadmapStepRepository.findByTrackIdOrderByOrderIndex(track.getId());
+            
+            // Convert database entities sang Map structure
+            return convertTrackToMap(track, steps);
+        }
+
+        // Fallback: dùng mock data
+        log.info("Roadmap {} not found in database, using mock data", roadmapKey);
         return getMockRoadmapData(roadmapKey);
+    }
+
+    /**
+     * Convert CareerTrack và RoadmapSteps từ database sang Map structure
+     */
+    private Map<String, Object> convertTrackToMap(CareerTrack track, List<RoadmapStep> steps) {
+        Map<String, Object> roadmap = new HashMap<>();
+        roadmap.put("title", track.getName());
+        roadmap.put("description", track.getDescription());
+        roadmap.put("code", track.getCode());
+        roadmap.put("match", 90); // Default match percentage
+
+        // Group steps by difficulty/level
+        List<Map<String, Object>> sections = new ArrayList<>();
+        
+        // Group theo difficulty level
+        Map<String, List<RoadmapStep>> stepsByLevel = new LinkedHashMap<>();
+        stepsByLevel.put("Nền tảng (Fundamental)", new ArrayList<>());
+        stepsByLevel.put("Kỹ năng lõi (Core)", new ArrayList<>());
+        stepsByLevel.put("Chuyên sâu (Advanced)", new ArrayList<>());
+
+        for (RoadmapStep step : steps) {
+            String level;
+            switch (step.getDifficulty()) {
+                case BEGINNER:
+                    level = "Nền tảng (Fundamental)";
+                    break;
+                case INTERMEDIATE:
+                    level = "Kỹ năng lõi (Core)";
+                    break;
+                case ADVANCED:
+                case EXPERT:
+                    level = "Chuyên sâu (Advanced)";
+                    break;
+                default:
+                    level = "Nền tảng (Fundamental)";
+            }
+            stepsByLevel.get(level).add(step);
+        }
+
+        int sectionOrder = 0;
+        for (Map.Entry<String, List<RoadmapStep>> entry : stepsByLevel.entrySet()) {
+            if (entry.getValue().isEmpty()) continue;
+
+            Map<String, Object> section = new HashMap<>();
+            section.put("level", entry.getKey());
+            section.put("orderIndex", sectionOrder++);
+
+            List<Map<String, Object>> milestones = new ArrayList<>();
+            for (RoadmapStep step : entry.getValue()) {
+                Map<String, Object> milestone = new HashMap<>();
+                milestone.put("id", "step-" + step.getId());
+                milestone.put("title", step.getTitle());
+                
+                // Parse topics từ description (format: "Topic1, Topic2, Topic3")
+                List<String> topics = new ArrayList<>();
+                if (step.getDescription() != null && !step.getDescription().isEmpty()) {
+                    String[] topicArray = step.getDescription().split(",");
+                    for (String topic : topicArray) {
+                        String trimmed = topic.trim();
+                        if (!trimmed.isEmpty()) {
+                            topics.add(trimmed);
+                        }
+                    }
+                }
+                
+                // Default topics nếu không có
+                if (topics.isEmpty()) {
+                    topics.add("Học " + step.getTitle());
+                }
+                
+                milestone.put("topics", topics);
+                milestone.put("status", "locked"); // Default status
+                milestones.add(milestone);
+            }
+
+            section.put("milestones", milestones);
+            sections.add(section);
+        }
+
+        roadmap.put("sections", sections);
+        return roadmap;
     }
 
     /**
@@ -72,25 +166,42 @@ public class ProfessionalRoadmapService {
     public Map<String, Object> getRoadmapWithProgress(String roadmapKey, Long userId) {
         Map<String, Object> roadmapData = getRoadmapData(roadmapKey);
         
-        // Tính toán progress
+        // Load user's progress nếu có
+        Optional<LearningRoadmap> userRoadmap = learningRoadmapRepository.findByUserId(userId);
+        int currentStepIndex = userRoadmap.map(LearningRoadmap::getCurrentStepIndex).orElse(0);
+        int currentProgress = userRoadmap.map(LearningRoadmap::getCurrentProgress).orElse(0);
+        
+        // Update milestone status dựa trên progress và tính toán progress
+        @SuppressWarnings("unchecked")
+        List<Map<String, Object>> sectionsList = (List<Map<String, Object>>) roadmapData.get("sections");
+        
         int totalMilestones = 0;
         int completedMilestones = 0;
         
-        @SuppressWarnings("unchecked")
-        List<Map<String, Object>> sections = (List<Map<String, Object>>) roadmapData.get("sections");
-        
-        if (sections != null) {
-            for (Map<String, Object> section : sections) {
+        if (sectionsList != null) {
+            int globalStepIndex = 0;
+            for (Map<String, Object> section : sectionsList) {
                 @SuppressWarnings("unchecked")
                 List<Map<String, Object>> milestones = (List<Map<String, Object>>) section.get("milestones");
                 
                 if (milestones != null) {
                     for (Map<String, Object> milestone : milestones) {
                         totalMilestones++;
-                        String status = (String) milestone.get("status");
-                        if ("completed".equals(status)) {
+                        
+                        // Set status dựa trên progress
+                        if (globalStepIndex < currentStepIndex) {
+                            milestone.put("status", "completed");
                             completedMilestones++;
+                        } else if (globalStepIndex == currentStepIndex) {
+                            milestone.put("status", "active");
+                            // Nếu progress > 50%, có thể coi như đang hoàn thành
+                            if (currentProgress >= 50) {
+                                milestone.put("status", "active");
+                            }
+                        } else {
+                            milestone.put("status", "locked");
                         }
+                        globalStepIndex++;
                     }
                 }
             }

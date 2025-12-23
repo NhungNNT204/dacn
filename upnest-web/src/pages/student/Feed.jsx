@@ -5,7 +5,7 @@ import {
   Smile, X, Image as ImageIcon, Video, Send, Trash2,
   EyeOff, Flag, UserPlus, AlertTriangle, Search, Sparkles, Plus
 } from 'lucide-react';
-import CreatePostModal from '../../components/CreatePostModal';
+import CreatePostModal from './components/CreatePostModal';
 import './Feed.css';
 
 /**
@@ -76,9 +76,14 @@ export default function Feed() {
           const formattedPosts = (data.data || []).map(post => ({
             ...post,
             isLiked: post.userReaction !== null,
+            isSaved: false,
             comments: []
           }));
           setPosts(formattedPosts);
+          
+          // Load saved status for each post
+          formattedPosts.forEach(post => checkIfSaved(post.id));
+          
           setIsLoading(false);
           return;
         }
@@ -515,6 +520,50 @@ export default function Feed() {
     }
   };
 
+  const handleSavePost = async (postId) => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      if (token) {
+        const post = posts.find(p => p.id === postId);
+        const isSaved = post?.isSaved;
+        
+        const response = await fetch(`http://localhost:8080/api/v1/social/posts/${postId}/save`, {
+          method: isSaved ? 'DELETE' : 'POST',
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (response.ok) {
+          setPosts(prev => prev.map(p => 
+            p.id === postId ? { ...p, isSaved: !isSaved } : p
+          ));
+          setShowPostMenu(null);
+        }
+      }
+    } catch (error) {
+      console.log('Error saving post');
+    }
+  };
+
+  const checkIfSaved = async (postId) => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      if (token) {
+        const response = await fetch(`http://localhost:8080/api/v1/social/posts/${postId}/is-saved`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setPosts(prev => prev.map(p => 
+            p.id === postId ? { ...p, isSaved: data.isSaved } : p
+          ));
+        }
+      }
+    } catch (error) {
+      console.log('Error checking if post is saved');
+    }
+  };
+
   const toggleComments = (postId) => {
     setExpandedComments(prev => {
       const isExpanded = prev[postId];
@@ -749,6 +798,10 @@ export default function Feed() {
                             </button>
                           ) : (
                             <>
+                              <button className="menu-item" onClick={() => handleSavePost(post.id)}>
+                                <Bookmark size={16} fill={post.isSaved ? 'currentColor' : 'none'} />
+                                <span>{post.isSaved ? 'Bỏ lưu bài viết' : 'Lưu bài viết'}</span>
+                              </button>
                               <button className="menu-item" onClick={() => handleHidePost(post.id)}>
                                 <EyeOff size={16} />
                                 <span>Ẩn bài viết</span>

@@ -142,35 +142,6 @@ public class QAContentModerationService {
     /**
      * Data class cho kết quả kiểm duyệt
      */
-    @lombok.Data
-    @lombok.Builder
-    public static class ModerationResult {
-        /**
-         * Nội dung có được phê duyệt không
-         */
-        private boolean approved;
-        
-        /**
-         * Điểm spam (0-100, càng cao càng spam)
-         */
-        @lombok.Builder.Default
-        private int spamScore = 0;
-        
-        /**
-         * Danh sách vấn đề phát hiện
-         */
-        private List<String> issues;
-        
-        /**
-         * Nội dung đã được lọc (nếu có từ cấm)
-         */
-        private String filteredContent;
-        
-        /**
-         * Yêu cầu kiểm duyệt thủ công
-         */
-        @lombok.Builder.Default
-        private boolean requiresManualReview = false;
-    }
+    // ModerationResult đã được tách sang file riêng: ModerationResult.java
 }
 

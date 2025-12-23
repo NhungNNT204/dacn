@@ -2,6 +2,7 @@ package com.upnest.edu.modules.chat.service;
 
 import com.upnest.edu.modules.chat.entity.*;
 import com.upnest.edu.modules.chat.repository.*;
+import com.upnest.edu.modules.social.service.ContentModerationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -26,6 +27,7 @@ public class ChatService {
     private final ChatGroupRepository chatGroupRepository;
     private final ChatMemberRepository chatMemberRepository;
     private final CallRecordRepository callRecordRepository;
+    private final ContentModerationService contentModerationService;
     
     // ==================== MESSAGE OPERATIONS ====================
     
@@ -34,6 +36,7 @@ public class ChatService {
      */
     public Message sendMessage(Long chatGroupId, Long senderId, String senderName, 
                                String senderAvatar, String content, String messageType) {
+        validateMessageContent(content);
         ChatGroup chatGroup = chatGroupRepository.findById(chatGroupId)
                 .orElseThrow(() -> new RuntimeException("Chat không tồn tại"));
         
@@ -80,6 +83,7 @@ public class ChatService {
     public Message sendMediaMessage(Long chatGroupId, Long senderId, String senderName,
                                     String senderAvatar, String mediaUrl, String mediaType,
                                     Long mediaSize, String caption, String messageType) {
+        validateMessageContent(caption);
         Message message = sendMessage(chatGroupId, senderId, senderName, senderAvatar, caption, messageType);
         message.setMediaUrl(mediaUrl);
         message.setMediaType(mediaType);
@@ -414,5 +418,17 @@ public class ChatService {
      */
     public List<CallRecord> getMissedCalls(Long userId) {
         return callRecordRepository.findMissedCalls(userId);
+    }
+
+    private void validateMessageContent(String content) {
+        if (content == null || content.isBlank()) {
+            return;
+        }
+        ContentModerationService.ViolationResult violation = contentModerationService.checkTextContent(content);
+        if (!violation.isSafe()) {
+            throw new RuntimeException(
+                    violation.getMessage() != null ? violation.getMessage() :
+                            "Message content violates community standards");
+        }
     }
 }

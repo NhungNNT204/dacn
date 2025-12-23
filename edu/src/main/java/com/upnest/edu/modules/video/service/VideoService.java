@@ -3,8 +3,8 @@ package com.upnest.edu.modules.video.service;
 import com.upnest.edu.modules.video.entity.*;
 import com.upnest.edu.modules.video.repository.*;
 import com.upnest.edu.modules.video.payload.*;
-import com.upnest.edu.modules.auth.entity.User;
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.entity.User;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -447,7 +447,7 @@ public class VideoService {
             .level(video.getLevel())
             .creatorId(String.valueOf(video.getCreator().getId()))
             .creatorName(video.getCreator().getFullName())
-            .creatorAvatar(video.getCreator().getAvatar())
+            .creatorAvatar(video.getCreator().getAvatarUrl())
             .viewCount(video.getViewCount())
             .likeCount(video.getLikeCount())
             .commentCount(video.getCommentCount())
@@ -474,8 +474,8 @@ public class VideoService {
             .tags(parseArrayString(video.getTags()))
             .creatorId(String.valueOf(creator.getId()))
             .creatorName(creator.getFullName())
-            .creatorAvatar(creator.getAvatar())
-            .creatorBio(creator.getBio())
+            .creatorAvatar(creator.getAvatarUrl())
+            .creatorBio(creator.getUserProfile() != null ? creator.getUserProfile().getBio() : null)
             .viewCount(video.getViewCount())
             .likeCount(video.getLikeCount())
             .shareCount(video.getShareCount())
@@ -494,7 +494,7 @@ public class VideoService {
             .videoId(comment.getVideo().getId())
             .authorId(String.valueOf(comment.getAuthor().getId()))
             .authorName(comment.getAuthor().getFullName())
-            .authorAvatar(comment.getAuthor().getAvatar())
+            .authorAvatar(comment.getAuthor().getAvatarUrl())
             .content(comment.getContent())
             .likeCount(comment.getLikeCount())
             .isEdited(comment.getIsEdited())

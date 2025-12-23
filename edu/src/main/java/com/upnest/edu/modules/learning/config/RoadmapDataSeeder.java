@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  * RoadmapDataSeeder - Seeder dữ liệu cho Career Tracks và Roadmap Steps
  */
 @Slf4j
-@Component
+// @Component  // DISABLED: Causing startup failures
 @RequiredArgsConstructor
 @Order(2) // Chạy sau DataSeeder chính (Order 1)
 public class RoadmapDataSeeder implements CommandLineRunner {

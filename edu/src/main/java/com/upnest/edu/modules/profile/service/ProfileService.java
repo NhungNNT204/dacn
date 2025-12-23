@@ -1,6 +1,6 @@
 package com.upnest.edu.modules.profile.service;
 
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import com.upnest.edu.modules.learning.entity.LearningStreak;
 import com.upnest.edu.modules.learning.repository.LearningStreakRepository;
 import com.upnest.edu.modules.profile.entity.Certification;

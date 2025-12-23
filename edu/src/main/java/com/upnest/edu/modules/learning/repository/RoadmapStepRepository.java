@@ -9,19 +9,19 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Repository("learningRoadmapStepRepository")
 public interface RoadmapStepRepository extends JpaRepository<RoadmapStep, Long> {
     
     /**
      * Lấy tất cả steps của một CareerTrack, sắp xếp theo orderIndex
      */
-    @Query("SELECT s FROM RoadmapStep s WHERE s.careerTrack.id = :trackId ORDER BY s.orderIndex ASC")
+    @Query("SELECT s FROM LearningRoadmapStep s WHERE s.careerTrack.id = :trackId ORDER BY s.orderIndex ASC")
     List<RoadmapStep> findByTrackIdOrderByOrderIndex(@Param("trackId") Long trackId);
     
     /**
      * Lấy step theo trackId và orderIndex
      */
-    @Query("SELECT s FROM RoadmapStep s WHERE s.careerTrack.id = :trackId AND s.orderIndex = :orderIndex")
+    @Query("SELECT s FROM LearningRoadmapStep s WHERE s.careerTrack.id = :trackId AND s.orderIndex = :orderIndex")
     Optional<RoadmapStep> findByTrackIdAndOrderIndex(@Param("trackId") Long trackId, @Param("orderIndex") Integer orderIndex);
 }
 

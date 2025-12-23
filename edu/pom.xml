@@ -94,7 +94,14 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- 5. Google Authenticator (2FA) -->
+        <!-- 5. JSoup for HTML parsing (Roadmap.sh data fetching) -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.17.2</version>
+        </dependency>
+
+        <!-- 6. Google Authenticator (2FA) -->
         <dependency>
             <groupId>com.warrenstrange</groupId>
             <artifactId>googleauth</artifactId>

@@ -1,6 +1,6 @@
 package com.upnest.edu.modules.learning.service;
 
-import com.upnest.edu.modules.auth.repository.UserRepository;
+import com.upnest.edu.modules.user.repository.UserRepository;
 import com.upnest.edu.modules.learning.entity.*;
 import com.upnest.edu.modules.learning.payload.*;
 import com.upnest.edu.modules.learning.repository.*;

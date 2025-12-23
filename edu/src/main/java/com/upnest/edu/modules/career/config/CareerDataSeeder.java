@@ -16,9 +16,10 @@ import java.util.Arrays;
 
 /**
  * CareerDataSeeder - Seed dữ liệu cho career paths và roadmap steps
+ * DISABLED: RoadmapStepRepository not found
  */
 @Slf4j
-@Component
+// @Component
 @RequiredArgsConstructor
 public class CareerDataSeeder implements CommandLineRunner {
 
