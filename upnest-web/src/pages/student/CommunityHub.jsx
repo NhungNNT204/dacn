@@ -32,7 +32,7 @@ const CommunityHub = () => {
 
   // User avatar - securely from environment or localStorage
   const myAvatar = "https://lh3.googleusercontent.com/d/1wsXqMnwZgSdVrJUkygYagjb3Le0aXKGC";
-  const currentUser = "Nguyễn Sinh Viên";
+  const currentUser = "Nguyễn Thị Thùy Nhung";
 
   // --- MOCK DATA WITH EXTENDED FEATURES ---
   const [posts, setPosts] = useState([

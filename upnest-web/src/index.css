@@ -1,3 +1,6 @@
+/* Temporary Tailwind via CDN (since Tailwind build is not configured). */
+@import url("https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css");
+
 /* Global layout helpers (theme lives in styles/ui.css) */
 html { color-scheme: light; }
 

@@ -18,6 +18,7 @@ import MyCourses from '../pages/student/MyCourses';
 import Library from '../pages/student/Library';
 import CoursePlayer from '../pages/student/CoursePlayer';
 import Feed from '../pages/student/Feed';
+import CommunityHub from '../pages/student/community_hub';
 import Messaging from '../pages/student/Messaging';
 import Achievements from '../pages/student/Achievements';
 import CareerOrientation from '../pages/student/CareerOrientation';
@@ -127,7 +128,7 @@ export default function AppRoutes() {
             element={
               <ProtectedRoute>
                 <StudentLayout>
-                  <Feed />
+                  <CommunityHub />
                 </StudentLayout>
               </ProtectedRoute>
             }

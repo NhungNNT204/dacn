@@ -6,16 +6,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Image, Video, X, Send } from 'lucide-react';
-// Tạm thời mock service để tránh lỗi import khi file service chưa tồn tại.
-// Khi có file services/postInteractionService.js thì thay thế import này.
-const postInteractionService = {
-  uploadPostImage: async () => ({ success: true, data: { id: Date.now(), url: "" } }),
-  uploadPostVideo: async () => ({ success: true, data: { id: Date.now(), url: "" } }),
-  createPost: async (_groupId, payload) => ({
-    success: true,
-    data: { id: Date.now(), ...payload }
-  })
-};
+import postInteractionService from '../../../services/postInteractionService';
 import '../styles/PostCreator.css';
 
 const PostCreator = ({ groupId, onPostCreated }) => {
@@ -96,26 +87,20 @@ const PostCreator = ({ groupId, onPostCreated }) => {
 
     setIsSubmitting(true);
     try {
-      const result = await postInteractionService.createPost(groupId, {
-        title: title || null,
+      const result = await postInteractionService.createPost({
         content,
-        images,
-        videos
+        mediaType: videos.length > 0 ? 'video' : (images.length > 0 ? 'image' : 'text'),
+        mediaUrl: videos[0]?.url || images[0]?.url || '',
       });
 
-      if (result.success) {
-        // Reset form
-        setTitle('');
-        setContent('');
-        setImages([]);
-        setVideos([]);
-        setIsExpanded(false);
-        setError(null);
-        onPostCreated?.(result.data);
-        alert('Bài đăng của bạn đã được gửi! Vui lòng chờ giáo viên duyệt.');
-      } else {
-        setError(result.message);
-      }
+      // Reset form
+      setTitle('');
+      setContent('');
+      setImages([]);
+      setVideos([]);
+      setIsExpanded(false);
+      setError(null);
+      onPostCreated?.(result.data || result);
     } catch (err) {
       setError('Lỗi khi gửi bài đăng');
       console.error(err);
