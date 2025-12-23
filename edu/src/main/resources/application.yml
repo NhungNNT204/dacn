@@ -5,6 +5,8 @@ server:
     shutdown-wait-time: 0s  # No timeout
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
   main:
     allow-bean-definition-overriding: true
   application:
@@ -13,9 +15,9 @@ spring:
   datasource:
     # URL kết nối: localhost cổng 1433, tên DB là UpNestEdu
     # encrypt=true;trustServerCertificate=true là bắt buộc để chạy local không lỗi SSL
-    url: jdbc:sqlserver://localhost:1433;databaseName=UpNestEdu;encrypt=true;trustServerCertificate=true;
-    username: thuynhung                # Tên đăng nhập SQL Server
-    password: 1234abc   # <--- QUAN TRỌNG: SỬA THÀNH MẬT KHẨU SQL CỦA BẠN
+    url: ${SPRING_DATASOURCE_URL:jdbc:sqlserver://localhost:1433;databaseName=UpNestEdu;encrypt=true;trustServerCertificate=true;}
+    username: ${SPRING_DATASOURCE_USERNAME:thuynhung}
+    password: ${SPRING_DATASOURCE_PASSWORD:1234abc}
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
   jpa:
@@ -26,6 +28,18 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.SQLServerDialect
+
+# Google APIs Configuration
+google:
+  api:
+    key: ${GOOGLE_API_KEY:}
+
+# Auto-posting Configuration
+auto:
+  post:
+    enabled: ${AUTO_POST_ENABLED:true}
+    interval: ${AUTO_POST_INTERVAL:3600000}
+    category: ${AUTO_POST_CATEGORY:EDUCATION}
 
 # Cấu hình Token bảo mật (JWT)
 application:
