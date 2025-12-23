@@ -1,13 +1,16 @@
 package com.upnest.edu.modules.social.entity;
 
+import com.upnest.edu.modules.user.entity.User;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -19,7 +22,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Đơn giản hoá bài đăng với trường kỹ năng, huy hiệu và tagging.
@@ -44,8 +49,14 @@ public class SocialPostLite {
     private String authorName;
     private String authorAvatar;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private User author;
+
     @Column(columnDefinition = "TEXT")
     private String content;
+
+    private String imageUrl;
 
     private String mediaUrl;
     private String mediaType; // IMAGE, VIDEO
@@ -69,6 +80,9 @@ public class SocialPostLite {
     @Builder.Default
     @Column(name = "like_count")
     private int likeCount = 0;
+
+    @Builder.Default
+    private Set<Long> likes = new HashSet<>();
 
     @Builder.Default
     @Column(name = "share_count")

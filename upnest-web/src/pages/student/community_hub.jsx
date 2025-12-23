@@ -3,7 +3,7 @@ import {
   MessageCircle, ThumbsUp, Share2, MoreHorizontal,
   Send, Image as ImageIcon, Paperclip, Video, UserPlus, UserMinus,
   Flag, Bookmark, EyeOff, Menu, Bell, Search, Users, Settings, LogOut,
-  ShieldAlert, Sparkles, SendHorizontal
+  ShieldAlert, Sparkles, SendHorizontal, MapPin, Music, AtSign
 } from "lucide-react";
 
 // Cấu hình Gemini API (moderation)
@@ -11,6 +11,7 @@ const apiKey = "";
 const GEMINI_MODEL = "gemini-2.5-flash-preview-09-2025";
 
 const CommunityHub = () => {
+  const myAvatar = "https://lh3.googleusercontent.com/d/1wsXqMnwZgSdVrJUkygYagjb3Le0aXKGC";
   const [activeTab, setActiveTab] = useState("feed");
   const [activeChat, setActiveChat] = useState(null);
   const [newPostContent, setNewPostContent] = useState("");
@@ -23,6 +24,9 @@ const CommunityHub = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [hiddenPostIds, setHiddenPostIds] = useState([]);
   const [replyInputs, setReplyInputs] = useState({});
+  const [selectedMusic, setSelectedMusic] = useState("");
+  const [location, setLocation] = useState("");
+  const [taggedFriends, setTaggedFriends] = useState([]);
 
   // --- MOCK DATA ---
   const [posts, setPosts] = useState([
@@ -30,13 +34,16 @@ const CommunityHub = () => {
       id: 1,
       author: "Lê Minh",
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Minh",
-      content: "Kiến trúc hệ thống tự động hóa trong công nghiệp 4.0 thật sự rất thú vị! Mọi người nghĩ sao về việc áp dụng AI vào PLC?",
+      content: "Đang nghiên cứu cách tích hợp AI vào hệ thống SCADA để dự báo bảo trì tự động.",
       mediaUrl: "https://images.unsplash.com/photo-1581092334651-ddf26d9a1930?w=800",
       mediaType: "image",
       likes: 15,
       isLiked: false,
       isSaved: false,
       isShared: false,
+      music: "Synthwave Future",
+      location: "Phòng Lab AI",
+      tags: ["Hoàng An"],
       time: "2 giờ trước",
       comments: [
         {
@@ -114,7 +121,7 @@ const CommunityHub = () => {
     const newPost = {
       id: Date.now(),
       author: "Nguyễn Sinh Viên",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+      avatar: myAvatar,
       content: newPostContent,
       mediaUrl: newMediaUrl || "",
       mediaType: newMediaType,
@@ -122,12 +129,18 @@ const CommunityHub = () => {
       isLiked: false,
       isSaved: false,
       isShared: false,
+      music: selectedMusic || null,
+      location: location || "",
+      tags: taggedFriends,
       time: "Vừa xong",
       comments: []
     };
     setPosts((prev) => [newPost, ...prev]);
     setNewPostContent("");
     setNewMediaUrl("");
+    setSelectedMusic("");
+    setLocation("");
+    setTaggedFriends([]);
     setIsPosting(false);
     setToast("Đăng bài thành công");
   };
@@ -395,7 +408,7 @@ const CommunityHub = () => {
               <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
             </button>
             <div className="w-10 h-10 rounded-full bg-indigo-100 border-2 border-white shadow-sm overflow-hidden cursor-pointer ring-2 ring-transparent hover:ring-indigo-500 transition-all">
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="avatar" />
+              <img src={myAvatar} alt="avatar" />
             </div>
           </div>
         </header>
@@ -405,36 +418,94 @@ const CommunityHub = () => {
           {activeTab === "feed" && (
             <div className="w-full max-w-2xl space-y-6 animate-in fade-in duration-500">
               {/* Create Post */}
-              <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200 space-y-4">
+              <div className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-slate-100 space-y-5">
                 <div className="flex gap-4">
                   <img
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
-                    className="w-12 h-12 rounded-full border border-slate-100 shadow-sm"
+                    src={myAvatar}
+                    className="w-14 h-14 rounded-2xl border-2 border-white shadow-md object-cover"
                   />
                   <textarea
                     value={newPostContent}
                     onChange={(e) => setNewPostContent(e.target.value)}
-                    placeholder="Bạn đang học được điều gì mới hôm nay?"
-                    className="w-full bg-slate-50 border-none rounded-2xl p-4 text-sm font-medium focus:ring-2 focus:ring-indigo-500 outline-none h-24 resize-none transition-all"
+                    placeholder="Chia sẻ kiến thức, dự án hoặc câu hỏi của bạn..."
+                    className="w-full bg-slate-50 border-none rounded-3xl p-5 text-sm font-semibold focus:ring-4 focus:ring-indigo-50 outline-none h-28 resize-none transition-all shadow-inner"
                   />
                 </div>
-                <div className="flex gap-3 px-1">
+
+                {/* Chips hiển thị lựa chọn */}
+                {(location || selectedMusic || taggedFriends.length > 0) && (
+                  <div className="flex flex-wrap gap-2 px-2">
+                    {location && (
+                      <span className="px-3 py-1 bg-emerald-50 text-emerald-700 text-[11px] font-bold rounded-xl flex items-center gap-1">
+                        <MapPin className="w-3 h-3" /> {location}
+                      </span>
+                    )}
+                    {selectedMusic && (
+                      <span className="px-3 py-1 bg-amber-50 text-amber-700 text-[11px] font-bold rounded-xl flex items-center gap-1">
+                        <Music className="w-3 h-3" /> {selectedMusic}
+                      </span>
+                    )}
+                    {taggedFriends.map((f) => (
+                      <span
+                        key={f}
+                        className="px-3 py-1 bg-indigo-50 text-indigo-700 text-[11px] font-bold rounded-xl flex items-center gap-1"
+                      >
+                        <AtSign className="w-3 h-3" /> {f}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Inputs phụ trợ */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <input
                     type="text"
                     value={newMediaUrl}
                     onChange={(e) => setNewMediaUrl(e.target.value)}
                     placeholder="Thêm URL ảnh/video (tuỳ chọn)"
-                    className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-1 focus:ring-indigo-500 outline-none"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-3 py-3 text-xs focus:ring-2 focus:ring-indigo-50 outline-none"
                   />
-                  <select
-                    value={newMediaType}
-                    onChange={(e) => setNewMediaType(e.target.value)}
-                    className="text-xs bg-white border border-slate-200 rounded-xl px-2 py-2 focus:ring-1 focus:ring-indigo-500 outline-none"
-                  >
-                    <option value="image">Ảnh</option>
-                    <option value="video">Video</option>
-                  </select>
+                  <div className="flex gap-3">
+                    <select
+                      value={newMediaType}
+                      onChange={(e) => setNewMediaType(e.target.value)}
+                      className="text-xs bg-white border border-slate-200 rounded-2xl px-3 py-2.5 focus:ring-2 focus:ring-indigo-50 outline-none"
+                    >
+                      <option value="image">Ảnh</option>
+                      <option value="video">Video</option>
+                    </select>
+                    <input
+                      type="text"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      placeholder="Vị trí (VD: Phòng Lab AI)"
+                      className="flex-1 bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 text-xs focus:ring-2 focus:ring-indigo-50 outline-none"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    value={selectedMusic}
+                    onChange={(e) => setSelectedMusic(e.target.value)}
+                    placeholder="Nhạc nền (VD: Tech Lofi Beats)"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-3 py-3 text-xs focus:ring-2 focus:ring-indigo-50 outline-none"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Tag bạn bè (nhập tên và Enter)"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-3 py-3 text-xs focus:ring-2 focus:ring-indigo-50 outline-none"
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && e.target.value.trim()) {
+                        setTaggedFriends((prev) =>
+                          prev.includes(e.target.value.trim())
+                            ? prev
+                            : [...prev, e.target.value.trim()]
+                        );
+                        e.target.value = "";
+                      }
+                    }}
+                  />
                 </div>
+
                 {moderationError && (
                   <div
                     className={`p-4 rounded-2xl text-xs font-bold flex items-center gap-3 animate-in slide-in-from-top ${
@@ -444,13 +515,26 @@ const CommunityHub = () => {
                     <ShieldAlert className="w-5 h-5" /> {moderationError}
                   </div>
                 )}
-                <div className="flex items-center justify-between pt-2 border-top border-slate-100">
-                  <div className="flex gap-1">
-                    <button className="p-2.5 hover:bg-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 transition-all">
-                      <ImageIcon className="w-5 h-5" />
+
+                <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setLocation("Innovation Lab")}
+                      className="p-2.5 hover:bg-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 transition-all"
+                    >
+                      <MapPin className="w-5 h-5" />
                     </button>
-                    <button className="p-2.5 hover:bg-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 transition-all">
-                      <Paperclip className="w-5 h-5" />
+                    <button
+                      onClick={() => setSelectedMusic("Tech Lofi Beats")}
+                      className="p-2.5 hover:bg-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 transition-all"
+                    >
+                      <Music className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => setTaggedFriends((prev) => (prev.includes("Hoàng An") ? prev : [...prev, "Hoàng An"]))}
+                      className="p-2.5 hover:bg-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 transition-all"
+                    >
+                      <AtSign className="w-5 h-5" />
                     </button>
                     <button className="p-2.5 hover:bg-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 transition-all">
                       <Sparkles className="w-5 h-5" />
@@ -459,7 +543,7 @@ const CommunityHub = () => {
                   <button
                     onClick={handleCreatePost}
                     disabled={isPosting}
-                    className="bg-indigo-700 text-white px-10 py-2.5 rounded-xl font-black hover:bg-indigo-800 shadow-lg shadow-indigo-100 transition-all disabled:opacity-50"
+                    className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-12 py-3 rounded-2xl font-black hover:scale-105 active:scale-95 shadow-xl shadow-indigo-100 transition-all disabled:opacity-50 uppercase tracking-widest text-[11px]"
                   >
                     {isPosting ? "KIỂM DUYỆT..." : "ĐĂNG BÀI"}
                   </button>
@@ -476,7 +560,7 @@ const CommunityHub = () => {
                     <div className="p-5 flex justify-between items-center">
                       <div className="flex items-center gap-3">
                         <img src={post.avatar} className="w-10 h-10 rounded-full border border-slate-100 bg-slate-50" />
-                        <div>
+                        <div className="space-y-1">
                           <h4 className="font-black text-sm text-slate-900 leading-tight">
                             {post.author}
                             {post.isShared && (
@@ -485,7 +569,27 @@ const CommunityHub = () => {
                               </span>
                             )}
                           </h4>
-                          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{post.time}</span>
+                          <div className="flex flex-wrap gap-2 items-center">
+                            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{post.time}</span>
+                            {post.location && (
+                              <span className="text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-lg font-bold flex items-center gap-1">
+                                <MapPin className="w-3 h-3" /> {post.location}
+                              </span>
+                            )}
+                            {post.music && (
+                              <span className="text-[10px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded-lg font-bold flex items-center gap-1">
+                                <Music className="w-3 h-3" /> {post.music}
+                              </span>
+                            )}
+                            {post.tags?.map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-[10px] text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-lg font-bold flex items-center gap-1"
+                              >
+                                <AtSign className="w-3 h-3" /> {tag}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                       <div className="relative group">
@@ -551,7 +655,7 @@ const CommunityHub = () => {
                       {renderComments(post.comments, post.id)}
                       <div className="flex gap-3 pt-2">
                         <img
-                          src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+                          src={myAvatar}
                           className="w-8 h-8 rounded-full border border-indigo-100 shadow-sm"
                         />
                         <input

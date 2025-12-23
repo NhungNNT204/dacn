@@ -1,0 +1,169 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.upnest:edu >---------------------------
+[INFO] Building UpNest Edu System 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ edu ---
+[INFO] Deleting n:\DACN\upnestedu\edu\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ edu ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ edu ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 322 source files with javac [debug parameters release 21] to target\classes
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit
+WARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/SecurityConfig.java: n:\DACN\upnestedu\edu\src\main\java\com\upnest\edu\config\SecurityConfig.java uses or overrides a deprecated API.
+[INFO] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/config/SecurityConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[121,17] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[122,17] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[255,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[256,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[257,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[258,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[259,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/payload/NotificationPayload.java:[260,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[62,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[68,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[74,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[80,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[86,32] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Answer.java:[92,33] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/CallRecord.java:[75,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserAvatar.java:[41,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionComment.java:[57,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionComment.java:[63,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[70,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[73,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[76,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[79,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[83,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[86,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[89,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[94,34] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[98,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/UserProfile.java:[102,35] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapChatMessage.java:[44,25] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapChatMessage.java:[53,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapChatMessage.java:[56,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapChatMessage.java:[59,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[41,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[48,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[53,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[58,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[62,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[65,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[68,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatGroup.java:[71,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/video/entity/Video.java:[83,31] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[55,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[58,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[61,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/ChatMember.java:[71,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Notification.java:[72,19] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Notification.java:[78,19] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/StoryHighlight.java:[51,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/StoryHighlight.java:[55,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Story.java:[59,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/Story.java:[63,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[71,34] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[77,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[81,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[84,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[87,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/chat/entity/Message.java:[110,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerComment.java:[57,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerComment.java:[63,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/UserProfile.java:[119,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/user/entity/UserProfile.java:[125,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/QuestionReaction.java:[61,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/entity/Group.java:[65,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/group/entity/Group.java:[71,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[74,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[80,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[86,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[98,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[104,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[110,25] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[116,34] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/Question.java:[122,35] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/qa/entity/AnswerReaction.java:[61,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/PrivacySettings.java:[52,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/entity/PrivacySettings.java:[56,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapGroupChat.java:[37,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapGroupChat.java:[40,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapGroupChat.java:[43,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/roadmap/entity/RoadmapGroupChat.java:[46,27] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[INFO] 79 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[109,24] method likePost in class com.upnest.edu.modules.social.service.PostService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long
+  found:    java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[123,24] method unlikePost in class com.upnest.edu.modules.social.service.PostService cannot be applied to given types;
+  required: java.lang.Long,java.lang.Long
+  found:    java.lang.Long
+  reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostService.java:[42,35] cannot find symbol
+  symbol:   method getAvatar()
+  location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostService.java:[123,35] cannot find symbol
+  symbol:   method getAvatar()
+  location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostCommentService.java:[47,33] cannot find symbol
+  symbol:   method getAvatar()
+  location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostCommentService.java:[72,33] cannot find symbol
+  symbol:   method getAvatar()
+  location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostCommentService.java:[86,46] incompatible types: java.util.List<com.upnest.edu.modules.social.entity.SocialCommentLite> cannot be converted to org.springframework.data.domain.Page<com.upnest.edu.modules.social.entity.SocialCommentLite>
+[INFO] 7 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.850 s
+[INFO] Finished at: 2025-12-23T15:07:19+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project edu: Compilation failure: Compilation failure: 
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[109,24] method likePost in class com.upnest.edu.modules.social.service.PostService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long
+[ERROR]   found:    java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/controller/PostController.java:[123,24] method unlikePost in class com.upnest.edu.modules.social.service.PostService cannot be applied to given types;
+[ERROR]   required: java.lang.Long,java.lang.Long
+[ERROR]   found:    java.lang.Long
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostService.java:[42,35] cannot find symbol
+[ERROR]   symbol:   method getAvatar()
+[ERROR]   location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostService.java:[123,35] cannot find symbol
+[ERROR]   symbol:   method getAvatar()
+[ERROR]   location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostCommentService.java:[47,33] cannot find symbol
+[ERROR]   symbol:   method getAvatar()
+[ERROR]   location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostCommentService.java:[72,33] cannot find symbol
+[ERROR]   symbol:   method getAvatar()
+[ERROR]   location: variable user of type com.upnest.edu.modules.user.entity.User
+[ERROR] /n:/DACN/upnestedu/edu/src/main/java/com/upnest/edu/modules/social/service/PostCommentService.java:[86,46] incompatible types: java.util.List<com.upnest.edu.modules.social.entity.SocialCommentLite> cannot be converted to org.springframework.data.domain.Page<com.upnest.edu.modules.social.entity.SocialCommentLite>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

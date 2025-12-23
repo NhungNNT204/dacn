@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface SocialCommentLiteRepository extends JpaRepository<SocialCommentLite, Long> {
     List<SocialCommentLite> findByPostId(Long postId);
+    List<SocialCommentLite> findByParentId(Long parentId);
 }
 
